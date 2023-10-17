@@ -1,7 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/sae_blockchain/src" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/sae_blockchain/tests" isTestSource="true" packagePrefix="App\Test\" />
+      <sourceFolder url="file://$MODULE_DIR$/sae_blockchain/tests/TestCase" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/cakephp/tests" isTestSource="true" packagePrefix="Cake\Test\" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/brick/varexporter" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/bake" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/cakephp" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/cakephp-codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/chronos" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/debug_kit" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/plugin-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/twig-view" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/dealerdirect/phpcodesniffer-composer-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/doctrine/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/jasny/twig-extensions" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/josegonzalez/dotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/justinrainbow/json-schema" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/laminas/laminas-diactoros" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/laminas/laminas-httphandlerrunner" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/league/container" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/m1/env" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/mobiledetect/mobiledetectlib" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phpunit/php-invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/http-server-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/http-server-middleware" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/react/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/robmorgan/phinx" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/cli-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/code-unit" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/complexity" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/lines-of-code" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/seld/jsonlint" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/seld/phar-utils" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/seld/signal-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/slevomat/coding-standard" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/squizlabs/php_codesniffer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/config" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/twig/markdown-extra" />
+      <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/twig/twig" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
