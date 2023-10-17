@@ -10,7 +10,7 @@ Nous disposons des données de Bitcoin sur 2,5 années, du 01/01/2015 au 30/06/2
 
 
 Les données ont été collectées dans le cadre du projet ANR BITUNAM par Rémy CAZABET du laboratoire LIRIS Université Lyon1 : http://cazabetremy.fr/BITUNAM.html
-Depot GitHub des données : [https://github.com/Yquetzal/DefiEGC2024]
+Depot GitHub des données : https://github.com/Yquetzal/DefiEGC2024
 
 L'objectif de ce projet de BUT2 est de réaliser un site web qui permet d'exploiter de visualiser les graphiques permettant de mieux comprendre ces données, pour une personne qui ne connait pas bien les cryptomonnaies. C'est un site web de découverte du bitcoin, à vocation pédagogique.
 
