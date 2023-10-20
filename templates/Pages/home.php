@@ -25,6 +25,9 @@
         <div class="explication">
             <img src='/webroot/img/NFT.png' alt='icone NFT'/>
             <h2>Les NFT</h2>
+            <div>
+                <a>Eplication</a>
+            </div>
         </div>
 
         <div class="explication">
