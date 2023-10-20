@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ACCEUIL</title>
+    <title>ACCUEIL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body>
-<nav>
-    <a href="/pages/wallet"><img alt="wallet"></a>
-    <a href="/pages/tempreel"><img alt="temp réel"></a>
+<body class="bg-secondary" >
+<nav class="bg-dark d-flex" style="height: 75px;">
+    <a class="text-white btn btn-warning btn-sm text-decoration-none" href="/pages/wallet">porte monnaie<img alt="wallet"></a>
+    <a class="text-white btn btn-warning btn-sm text-decoration-none" href="/pages/tempreel">temps réel<img alt="temp réel"></a>
 
-    <div class="titrejaune">
-        <h1>Accueil</h1>
+    <div class="bg-warning rounded-pill col-5 mx-auto">
+        <h1 class="h1 text-center">Accueil</h1>
     </div>
+
+
 
 
 </nav>
@@ -21,46 +23,53 @@
 <div class="contenu">
     <main>
         <div class="explication">
-            <img src='/webroot/img/NFT.png' alt='icone NFT'/>
-            <h2>Les NFT</h2>
+
+            <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT']); ?>
+
+            <h2 class="h2" >Les NFT</h2>
             <div>
                 <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
         <div class="explication">
-            <img src="/webroot/img/crypto.png" alt="icone cryptomonnaies"/>
-            <h2>Les Crypto</h2>
+
+            <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais']); ?>
+
+            <h2 class="h2" >Les Crypto</h2>
             <div>
                 <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
         <div class="explication" >
-            <img src="/webroot/img/danger.png" alt="icone danger"/>
-            <h2>Les dangers</h2>
+
+            <?= $this->Html->image('danger.png', ['alt' => 'icone danger']); ?>
+
+            <h2 class="h2" >Les dangers</h2>
             <div>
                 <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
         <div class="explication" >
-            <h2>Les blockchain</h2>
-            <img src="/webroot/img/blockchain.jpg" alt="icone blockchain"/>
+            <h2 class="h2" >Les blockchain</h2>
+
+            <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain']); ?>
+
             <div>
                 <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
         <div class="explication">
-            <h2>Qui sommes-nous ?</h2>
+            <h2 class="h2" >Qui sommes-nous ?</h2>
         </div>
     </main>
 
     <aside>
         <div>
-            <h2>Les actualités</h2>
-            <div><a href="/pages/actualité">actu</a></div>
+            <h2 class="h2" >Les actualités</h2>
         </div>
     </aside>
 </div>

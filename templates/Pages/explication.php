@@ -22,17 +22,17 @@
     <main>
         <div>
             <div><h2>les NFT</h2></div>
-            <img src="/webroot/img/NFT.png" alt="image NFT">
+            <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT']); ?>
         </div>
 
         <div>
             <div><h2>les crypto</h2></div>
-            <img src="/webroot/img/crypto.png" alt="image NFT">
+            <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnaies']); ?>
         </div>
 
         <div>
             <div><h2>les danger</h2></div>
-            <img src="/webroot/img/danger.png" alt="image NFT">
+            <?= $this->Html->image('danger.png', ['alt' => 'icone Danger']); ?>
         </div>
     </main>
     <footer>
