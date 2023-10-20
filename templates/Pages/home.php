@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav>
-    <a><img alt="wallet"></a>
+    <a href="/pages/wallet"><img alt="wallet"></a>
     <a href="/pages/tempreel"><img alt="temp réel"></a>
 
     <div class="titrejaune">
