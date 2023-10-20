@@ -1,3 +1,6 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
 <body>
     <nav>
         <a href="/pages/home"><img alt="maison"></a>
-        <a><img alt="temp réel"></a>
+        <a href="/pages/tempreel"><img alt="temp réel"></a>
 
         <div class="titrejaune">
             <h1>Explication</h1>
