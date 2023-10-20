@@ -55,20 +55,9 @@
             </div>
         </div>
 
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-11 d-flex">
-
-            <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <h2 class="h2 mx-auto">Les Crypto</h2>
-            <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
-=======
+        <div class="explication">
+            <img src="/webroot/img/crypto.png" alt="icone cryptomonnaies"/>
             <h2 class="h2" >Les Crypto</h2>
-=======
-            <h2 class="h2"  class="h2" >Les Crypto</h2>
->>>>>>> af29d36 (boostrap color et 1/2 nav)
             <div>
                 <a href="/pages/explication">Exxplication</a>
             </div>
@@ -93,42 +82,22 @@
             </div>
         </div>
 
-<<<<<<< HEAD
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-11 d-flex" >
-=======
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3" >
-            <h2 class="h2"  class="h2" >Les blockchain</h2>
->>>>>>> af29d36 (boostrap color et 1/2 nav)
-
-
-<<<<<<< HEAD
-            <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-            <h2 class="h2 mx-auto">Les blockchain</h2>
-            <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
-=======
+        <div class="explication" >
+            <h2>Les blockchain</h2>
+            <img src="/webroot/img/blockchain.jpg" alt="icone blockchain"/>
             <div>
                 <a>Eplication</a>
             </div>
         </div>
 
-<<<<<<< HEAD
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-11">
-            <h2 class="h2 text-center" >Qui sommes-nous ?</h2>
-=======
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3"">
-            <h2 class="h2"  class="h2" >Qui sommes-nous ?</h2>
->>>>>>> af29d36 (boostrap color et 1/2 nav)
+        <div class="explication">
+            <h2>Qui sommes-nous ?</h2>
         </div>
     </main>
 
-    <aside class="flex-shrink-0 text-white bg-dark rounded col-3 p-3" style="margin-top:150px" >
-        <div class="text-center" >
-            <h2 class="h2">Les actualités</h2>
-        </div>
-        <div class="bg-secondary rounded-2 p-2" >
-            <h3 class="h3 text-center">blabla</h3>
-            <p class="text-center" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur provident veniam nihil nemo asperiores? Possimus rem quod officia similique eaque laudantium aperiam, doloremque molestias magni earum vel quis dolorem natus!</p>
+    <aside>
+        <div>
+            <h2>Les actualités</h2>
         </div>
     </aside>
 </div>
