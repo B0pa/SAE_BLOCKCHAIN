@@ -18,11 +18,19 @@
             <h1 class="h1 text-center ">Accueil</h1>
         </div>
 
+<<<<<<< HEAD
     </nav>
 </header>
 <div class="d-flex mx-5" >
     <main class="flex-grow-1 flex-shrink-0" style="padding-top: 125px" >
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-11 d-flex">
+=======
+    <div class="bg-warning rounded-pill col-5 mx-auto">
+        <h1 class="h1 text-center">Accueil</h1>
+    <div class="bg-warning rounded-pill col-5 mx-auto">
+        <h1 class="h1 text-center">Accueil</h1>
+    </div>
+>>>>>>> af29d36 (boostrap color et 1/2 nav)
 
             <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail']); ?>
 
@@ -40,7 +48,7 @@
 
             <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT' ]); ?>
 
-            <h2 class="h2" >Les NFT</h2>
+            <h2 class="h2"  class="h2" >Les NFT</h2>
             <div>
                 <a href="/pages/explication">Exxxplication</a>
 >>>>>>> 1f686bd (boostrap h1 init)
@@ -52,11 +60,15 @@
             <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             <h2 class="h2 mx-auto">Les Crypto</h2>
             <div class="btn btn-secondary align-self-end" >
                 <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
 =======
             <h2 class="h2" >Les Crypto</h2>
+=======
+            <h2 class="h2"  class="h2" >Les Crypto</h2>
+>>>>>>> af29d36 (boostrap color et 1/2 nav)
             <div>
                 <a href="/pages/explication">Exxxplication</a>
 >>>>>>> 1f686bd (boostrap h1 init)
@@ -68,18 +80,27 @@
             <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             <h2 class="h2 mx-auto" >Les dangers</h2>
             <div class="btn btn-secondary align-self-end" >
                 <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
 =======
             <h2 class="h2" >Les dangers</h2>
+=======
+            <h2 class="h2"  class="h2" >Les dangers</h2>
+>>>>>>> af29d36 (boostrap color et 1/2 nav)
             <div>
                 <a href="/pages/explication">Exxxplication</a>
 >>>>>>> 1f686bd (boostrap h1 init)
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-11 d-flex" >
+=======
+        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3" >
+            <h2 class="h2"  class="h2" >Les blockchain</h2>
+>>>>>>> af29d36 (boostrap color et 1/2 nav)
 
 
 <<<<<<< HEAD
@@ -94,8 +115,13 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-11">
             <h2 class="h2 text-center" >Qui sommes-nous ?</h2>
+=======
+        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3"">
+            <h2 class="h2"  class="h2" >Qui sommes-nous ?</h2>
+>>>>>>> af29d36 (boostrap color et 1/2 nav)
         </div>
     </main>
 
