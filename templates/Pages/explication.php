@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ACCEUIL</title>
+    <title>Explication</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet">
 </head>
 <body>
     <nav>
-        <a><img alt="wallet"></a>
+        <a href="/pages/home"><img alt="maison"></a>
         <a><img alt="temp réel"></a>
 
         <div class="titrejaune">

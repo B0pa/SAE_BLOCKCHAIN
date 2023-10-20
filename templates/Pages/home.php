@@ -60,6 +60,7 @@
     <aside>
         <div>
             <h2>Les actualités</h2>
+            <div><a href="/pages/actualité">actu</a></div>
         </div>
     </aside>
 </div>
