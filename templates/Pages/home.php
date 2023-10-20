@@ -8,8 +8,8 @@
 </head>
 <body class="bg-secondary" >
 <nav class="bg-dark d-flex" style="height: 75px;">
-    <a class="text-white btn btn-warning btn-sm text-decoration-none" href="/pages/wallet">porte monnaie<img alt="wallet"></a>
-    <a class="text-white btn btn-warning btn-sm text-decoration-none" href="/pages/tempreel">temps réel<img alt="temp réel"></a>
+    <a href="/pages/wallet"><?= $this->Html->image('wallet.png', ['alt' => 'icone wallet']); ?></a>
+    <a  href="/pages/tempreel"><?= $this->Html->image('temp reel.png', ['alt' => 'icone temp réel']); ?></a>
 
     <div class="bg-warning rounded-pill col-5 mx-auto">
         <h1 class="h1 text-center">Accueil</h1>
@@ -19,8 +19,8 @@
 
 
 </nav>
-<div CLASS="separateur"></div>
-<div class="contenu">
+
+
     <main>
         <div class="explication">
 
@@ -72,6 +72,6 @@
             <h2 class="h2" >Les actualités</h2>
         </div>
     </aside>
-</div>
+
 </body>
 </html>
