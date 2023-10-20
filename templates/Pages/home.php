@@ -23,7 +23,7 @@
 <div class="contenu">
     <main>
         <div class="explication">
-            <img src='/webroot/img/NFT.png' alt='icone NFT'/>
+        <?= $this->Html->image('NFT.png', ['alt' => 'NFT']); ?>
             <h2>Les NFT</h2>
             <div>
                 <a>Eplication</a>
@@ -31,7 +31,7 @@
         </div>
 
         <div class="explication">
-            <img src="/webroot/img/crypto.png" alt="icone cryptomonnaies"/>
+        <?= $this->Html->image('crypto.png', ['alt' => 'crypto']); ?>
             <h2>Les Crypto</h2>
             <div>
                 <a>Eplication</a>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="explication" >
-            <img src="/webroot/img/danger.png" alt="icone danger"/>
+        <?= $this->Html->image('danger.png', ['alt' => 'danger']); ?>
             <h2>Les dangers</h2>
             <div>
                 <a>Eplication</a>
@@ -48,7 +48,7 @@
 
         <div class="explication" >
             <h2>Les blockchain</h2>
-            <img src="/webroot/img/blockchain.jpg" alt="icone blockchain"/>
+            <?= $this->Html->image('blockchain.jpg', ['alt' => 'danger']); ?>
             <div>
                 <a>Eplication</a>
             </div>
