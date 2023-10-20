@@ -23,7 +23,9 @@ nav {
     padding: 10px;
 
 }
-
+a {
+    color:white;
+}
 .contenu {
     display: flex;
 }
