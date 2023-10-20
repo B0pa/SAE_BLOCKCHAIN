@@ -4,29 +4,13 @@
     <meta charset="UTF-8">
     <title>ACCUEIL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
+<body class="bg-secondary" >
+<nav class="bg-dark d-flex" style="height: 75px;">
+    <a class="text-white btn btn-warning btn-sm text-decoration-none" >porte monnaie<img alt="wallet"></a>
+    <a class="text-white btn btn-warning btn-sm text-decoration-none" >temps réel<img alt="temp réel"></a>
 
-<body class="bg-secondary">
-
-<header>
-    <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 100px;">
-        <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid','alt' => 'icone wallet']); ?></a>
-        <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
-
-        <div class="bg-warning rounded-pill col-3 mx-auto align-self-center">
-            <h1 class="h1 text-center ">Accueil</h1>
-        </div>
-
-<<<<<<< HEAD
-    </nav>
-</header>
-<div class="d-flex mx-5" >
-    <main class="flex-grow-1 flex-shrink-0" style="padding-top: 125px" >
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-11 d-flex">
-=======
-    <div class="bg-warning rounded-pill col-5 mx-auto">
-        <h1 class="h1 text-center">Accueil</h1>
     <div class="bg-warning rounded-pill col-5 mx-auto">
         <h1 class="h1 text-center">Accueil</h1>
     </div>
