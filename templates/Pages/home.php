@@ -6,25 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body class="bg-secondary" >
-<nav class="bg-dark d-flex" style="height: 75px;">
-    <a href="/pages/wallet"><?= $this->Html->image('wallet.png', ['alt' => 'icone wallet']); ?></a>
-    <a  href="/pages/tempreel"><?= $this->Html->image('temp reel.png', ['alt' => 'icone temp réel']); ?></a>
+
+<body class="bg-secondary" style="padding-top: 100px">
+
+
+<nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top" style="height: 100px;">
+    <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid','alt' => 'icone wallet']); ?></a>
+    <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
 
     <div class="bg-warning rounded-pill col-5 mx-auto">
         <h1 class="h1 text-center">Accueil</h1>
     </div>
 
-
-
-
 </nav>
 
 
-    <main>
-        <div class="explication">
 
-            <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT']); ?>
+<div class="d-flex row g-0">
+
+<main class="flex-grow-1 flex-shrink-0 col-8 " >
+        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3">
+
+            <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT' ]); ?>
 
             <h2 class="h2" >Les NFT</h2>
             <div>
@@ -32,7 +35,7 @@
             </div>
         </div>
 
-        <div class="explication">
+        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3">
 
             <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais']); ?>
 
@@ -42,7 +45,7 @@
             </div>
         </div>
 
-        <div class="explication" >
+        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3" >
 
             <?= $this->Html->image('danger.png', ['alt' => 'icone danger']); ?>
 
@@ -52,7 +55,7 @@
             </div>
         </div>
 
-        <div class="explication" >
+        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3" >
             <h2 class="h2" >Les blockchain</h2>
 
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain']); ?>
@@ -62,12 +65,12 @@
             </div>
         </div>
 
-        <div class="explication">
+        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3"">
             <h2 class="h2" >Qui sommes-nous ?</h2>
         </div>
-    </main>
+</main>
 
-    <aside>
+    <aside class="flex-shrink-0 text-white bg-dark col-4">
         <div>
             <h2 class="h2" >Les actualités</h2>
         </div>
