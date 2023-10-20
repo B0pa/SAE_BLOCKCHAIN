@@ -12,7 +12,7 @@
         <a><img alt="temp réel"></a>
 
         <div class="titrejaune">
-            <h1>Accueil</h1>
+            <h1>Explication</h1>
         </div>
     </nav>
     <div CLASS="separateur"></div>

@@ -16,8 +16,6 @@
     </div>
 
 
-
-
 </nav>
 <div CLASS="separateur"></div>
 <div class="contenu">
@@ -26,7 +24,7 @@
             <img src='/webroot/img/NFT.png' alt='icone NFT'/>
             <h2>Les NFT</h2>
             <div>
-                <a href="explication.php">Explication</a>
+                <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
@@ -34,7 +32,7 @@
             <img src="/webroot/img/crypto.png" alt="icone cryptomonnaies"/>
             <h2>Les Crypto</h2>
             <div>
-                <a href="explication.php">Explication</a>
+                <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
@@ -42,7 +40,7 @@
             <img src="/webroot/img/danger.png" alt="icone danger"/>
             <h2>Les dangers</h2>
             <div>
-                <a href="explication.php">Explication</a>
+                <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
@@ -50,7 +48,7 @@
             <h2>Les blockchain</h2>
             <img src="/webroot/img/blockchain.jpg" alt="icone blockchain"/>
             <div>
-                <a href="/templates/Pages/explication.php">Explication</a>
+                <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
