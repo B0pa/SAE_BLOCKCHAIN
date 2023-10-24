@@ -70,8 +70,7 @@
             <h2 class="h2"  class="h2" >Les Crypto</h2>
 >>>>>>> af29d36 (boostrap color et 1/2 nav)
             <div>
-                <a href="/pages/explication">Exxxplication</a>
->>>>>>> 1f686bd (boostrap h1 init)
+                <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
@@ -90,8 +89,7 @@
             <h2 class="h2"  class="h2" >Les dangers</h2>
 >>>>>>> af29d36 (boostrap color et 1/2 nav)
             <div>
-                <a href="/pages/explication">Exxxplication</a>
->>>>>>> 1f686bd (boostrap h1 init)
+                <a href="/pages/explication">Explication</a>
             </div>
         </div>
 
@@ -111,7 +109,6 @@
 =======
             <div>
                 <a href="/pages/explication">Exxxplication</a>
->>>>>>> 1f686bd (boostrap h1 init)
             </div>
         </div>
 
