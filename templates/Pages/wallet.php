@@ -11,7 +11,7 @@
 </head>
 <body>
 <nav>
-    <a href="/pages/home"><img alt="maison"></a>
+    <a href="/pages/home"><?= $this->Html->image('acceuil.png', ['alt' => 'acceuil']); ?></a>
 
 
 
@@ -22,19 +22,19 @@
 
 <main>
     <div>
-        <img src="" alt="blockchain.jpg">
+        <?= $this->Html->image('cryptobitcoin.png', ['alt' => 'crypto Bitcoin']); ?>
         <p>0</p>
     </div>
     <div>
-        <img src="" alt="NFT.png">
+        <?= $this->Html->image('cryptoblockchain.png', ['alt' => 'crypto Blockchain']); ?>
         <p>0</p>
     </div>
     <div>
-        <img src="" alt="danger.png">
+        <?= $this->Html->image('cryptodanger.png', ['alt' => 'crypto Danger']); ?>
         <p>0</p>
     </div>
     <div>
-        <img src="" alt="crypto">
+        <?= $this->Html->image('cryptoNFT.png', ['alt' => 'crypto NFT']); ?>
         <p>0</p>
     </div>
 
