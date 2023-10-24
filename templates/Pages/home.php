@@ -70,7 +70,7 @@
         </div>
 </main>
 
-    <aside class="flex-shrink-0 text-white bg-dark col-4">
+    <aside class="flex-shrink-0 text-white bg-dark col-4 p<">
         <div>
             <h2 class="h2" >Les actualités</h2>
         </div>
