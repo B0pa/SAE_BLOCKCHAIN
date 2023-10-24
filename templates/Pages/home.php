@@ -73,10 +73,11 @@
         <div class="text-center" >
             <h2 class="h2">Les actualités</h2>
         </div>
-        <div class="bg-secondary rounded-2 p-2" >
+        <a href="/pages/actualite"><div class="bg-secondary rounded-2 p-2" >
             <h3 class="h3 text-center">blabla</h3>
             <p class="text-center" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur provident veniam nihil nemo asperiores? Possimus rem quod officia similique eaque laudantium aperiam, doloremque molestias magni earum vel quis dolorem natus!</p>
-        </div>
+            </div></a>
+
     </aside>
 </div>
 
