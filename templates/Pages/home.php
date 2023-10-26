@@ -30,7 +30,7 @@
 
             <h2 class="h2 mx-auto">Les NFT</h2>
             <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
+                <a href="/pages/nft" class="text-white text-decoration-none" >Explications</a>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
             <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
+                <a href="/pages/crypto" class="text-white text-decoration-none" >Explications</a>
             </div>
         </div>
 
@@ -50,7 +50,7 @@
 
             <h2 class="h2 mx-auto" >Les dangers</h2>
             <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
+                <a href="/pages/danger" class="text-white text-decoration-none" >Explications</a>
             </div>
         </div>
 
@@ -60,7 +60,7 @@
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
             <h2 class="h2 mx-auto">Les blockchain</h2>
             <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
+                <a href="/pages/blockchain" class="text-white text-decoration-none" >Explications</a>
             </div>
         </div>
 
@@ -76,6 +76,10 @@
         <div class="bg-secondary rounded-2 p-2" >
             <h3 class="h3 text-center">blabla</h3>
             <p class="text-center" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur provident veniam nihil nemo asperiores? Possimus rem quod officia similique eaque laudantium aperiam, doloremque molestias magni earum vel quis dolorem natus!</p>
+        </div>
+
+        <div class="btn btn-secondary align-self-end " >
+            <a href="/pages/actualite" class="text-white text-decoration-none" >Actualité</a>
         </div>
     </aside>
 </div>
