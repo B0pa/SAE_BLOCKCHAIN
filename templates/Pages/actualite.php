@@ -17,8 +17,7 @@
 
 <main>
     <div>
-        <h2>actu</h2>
-        <img src="" alt="">
-        <p>blabla</p>
+
     </div>
 </main>
+</body>

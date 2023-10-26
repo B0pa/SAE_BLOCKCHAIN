@@ -19,3 +19,8 @@
         <p></p>
     </div>
 </main>
+
+<?= $this->element('footer')?>
+
+</body>
+</html>
