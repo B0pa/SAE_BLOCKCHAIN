@@ -612,7 +612,12 @@ progress {
   .container-md, .container-sm, .container {
     max-width: 720px;
   }
+
+  
+
 }
+
+
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
     max-width: 960px;
@@ -6941,6 +6946,16 @@ textarea.form-control-lg {
 
 .mt-5 {
   margin-top: 3rem !important;
+}
+.mt-6 {
+  margin-top: 6rem;
+}
+.mt-7 {
+  margin-top: 12rem;
+}
+
+.mt-8{
+  margin-top: 24rem;
 }
 
 .mt-auto {
