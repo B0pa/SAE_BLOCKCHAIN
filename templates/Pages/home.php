@@ -36,7 +36,7 @@
             </div>
             <h2 class="h2 mx-auto">Les NFT</h2>
             <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/nft" class="text-white text-decoration-none" >Explications</a>
+                <a href="/pages/NFT" class="text-white text-decoration-none" >Explications</a>
             </div>
         </div>
 

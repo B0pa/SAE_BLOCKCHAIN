@@ -7,7 +7,16 @@ if ($currentURL === 'explication') {
     $pageTitle = 'Explication';
 } elseif ($currentURL === 'actualite') {
     $pageTitle = 'Actualité';
+} elseif ($currentURL === 'nft') {
+    $pageTitle = 'NFT';
+} elseif ($currentURL === 'danger') {
+    $pageTitle = 'Danger';
+} elseif ($currentURL === 'crypto') {
+    $pageTitle = 'Cryptomonnaies';
+}elseif ($currentURL === 'blockchain') {
+    $pageTitle = 'Blockchain';
 }
+
 
 ?>
 
