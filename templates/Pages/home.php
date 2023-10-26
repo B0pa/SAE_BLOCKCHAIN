@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-FR">
+<html lang="en-FR">
 <head>
     <meta charset="UTF-8">
     <title>ACCUEIL</title>
@@ -9,25 +10,30 @@
 
 <body class="bg-secondary">
 
-<header>
-    <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
-        <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid','alt' => 'icone wallet']); ?></a>
-        <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
+    <header>
+        <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
+            <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid','alt' => 'icone wallet']); ?></a>
+            <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
 
-        <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
-            <h1 class="h1 text-center  ">Accueil</h1>
-        </div>
+            <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
+                <h1 class="h1 text-center  ">Accueil</h1>
+            </div>
 
-    </nav>
-</header>
+        </nav>
+    </header>
 <div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5" >
     <main class="flex-grow-1 flex-shrink-0">
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+            <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+                
+                    <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail img-fluid']); ?>
+                
+                
 
-            <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail img-fluid']); ?>
-
-
-
+                <h2 class="h2 mx-auto">Les NFT</h2>
+                <div class="btn btn-secondary align-self-end" >
+                    <a href="/pages/explication" class="text-white text-decoration-none" >Explications</a>
+                </div>
+            </div>
             <h2 class="h2 mx-auto">Les NFT</h2>
             <div class="btn btn-secondary align-self-end" >
                 <a href="/pages/nft" class="text-white text-decoration-none" >Explications</a>
@@ -36,7 +42,7 @@
 
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
 
-            <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
+                <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
             <div class="btn btn-secondary align-self-end" >
@@ -46,7 +52,7 @@
 
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
 
-            <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
+                <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
             <h2 class="h2 mx-auto" >Les dangers</h2>
             <div class="btn btn-secondary align-self-end" >
@@ -70,6 +76,7 @@
     </main>
 
     <aside class="home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
+    <aside class="home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
         <div class="text-center" >
             <h2 class="h2">Les actualités</h2>
         </div>
@@ -83,11 +90,11 @@
         </div>
     </aside>
 </div>
-
-
-<footer class="bg-dark text-white text-center mt-4">
-    <p class="mb-0">Tous droit réservé</p>
-</footer>
+    
+    
+    <footer class="bg-dark text-white text-center mt-4">
+        <p class="mb-0">Tous droit réservé</p>
+    </footer>
 
 </body>
 </html>
