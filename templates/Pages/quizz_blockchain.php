@@ -8,7 +8,7 @@
 </head>
 <body>
 <nav>
-
+    <?= $this->element('nav')?>
 </nav>
 <main>
     <div id="quiz-container">
