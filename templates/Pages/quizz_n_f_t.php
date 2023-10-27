@@ -7,12 +7,12 @@
 </head>
 <body>
 <nav>
-
+    <?= $this->element('nav')?>
 </nav>
 <main>
     <div id="quiz-container">
         <div class="PTop">
-            <h1>Quiz sur les NFT</h1>
+
             <p id="score">BTC : 0</p>
         </div>
         <div id="quizzes" class="grid-container">
