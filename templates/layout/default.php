@@ -5,12 +5,10 @@
 
 </head>
 <body>
-    <main class="main">
-        <div class="container">
 
-            <?= $this->fetch('content') ?>
-    </main>
-    <footer>
-    </footer>
+
+
+<?= $this->fetch('content') ?>
+
 </body>
 </html>
