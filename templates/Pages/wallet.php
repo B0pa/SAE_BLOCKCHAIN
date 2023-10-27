@@ -29,6 +29,7 @@
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'rounded-circle','alt' => 'crypto NFT']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">0</p>
+        <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">0</p>
     </div>
 
 </main>

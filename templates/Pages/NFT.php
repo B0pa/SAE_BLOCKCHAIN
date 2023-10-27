@@ -20,5 +20,13 @@
     <div>
         <p></p>
     </div>
+    <div class="btn btn-primary align-self-end " >
+        <a href="/pages/quizzNFT" class="text-white text-decoration-none" >quizz</a>
+    </div>
+
 </main>
 
+<?= $this->element('footer')?>
+
+</body>
+</html>

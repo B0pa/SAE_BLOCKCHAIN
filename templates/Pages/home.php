@@ -65,5 +65,12 @@
         </div>
     </aside>
 </div>
+<<<<<<< HEAD
+=======
+
+
+<?= $this->element('footer')?>
+
+>>>>>>> main
 </body>
 </html>
