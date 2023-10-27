@@ -13,10 +13,17 @@ if ($currentURL === 'explication') {
     $pageTitle = 'Danger';
 } elseif ($currentURL === 'crypto') {
     $pageTitle = 'Cryptomonnaies';
-}elseif ($currentURL === 'blockchain') {
+} elseif ($currentURL === 'blockchain') {
     $pageTitle = 'Blockchain';
+} elseif ($currentURL === 'quizzblockchain') {
+    $pageTitle = 'Quizz Blockchain';
+} elseif ($currentURL === 'quizzdanger') {
+    $pageTitle = 'Quizz Danger';
+} elseif ($currentURL === 'quizzcrypto') {
+    $pageTitle = 'Quizz Crypto';
+} elseif ($currentURL === 'quizznft') {
+    $pageTitle = 'Quizz NFT';
 }
-
 
 ?>
 
