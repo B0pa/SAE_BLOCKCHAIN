@@ -18,6 +18,10 @@
     <div>
         <p></p>
     </div>
+
+    <div class="btn btn-secondary align-self-end " >
+        <a href="/pages/quizzDanger" class="text-white text-decoration-none" >quizz</a>
+    </div>
 </main>
 
 <?= $this->element('footer')?>
