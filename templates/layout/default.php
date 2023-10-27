@@ -5,8 +5,8 @@
 
 </head>
 <body>
-    
-        
+
+
 
 <?= $this->fetch('content') ?>
 

@@ -609,11 +609,11 @@ progress {
     }
 }
 @media (min-width: 768px) {
-  .container-md, .container-sm, .container {
-    max-width: 720px;
-  }
+    .container-md, .container-sm, .container {
+        max-width: 720px;
+    }
 
-  
+
 
 }
 
@@ -6948,14 +6948,14 @@ textarea.form-control-lg {
     margin-top: 3rem !important;
 }
 .mt-6 {
-  margin-top: 6rem;
+    margin-top: 6rem;
 }
 .mt-7 {
-  margin-top: 12rem;
+    margin-top: 12rem;
 }
 
 .mt-8{
-  margin-top: 24rem;
+    margin-top: 24rem;
 }
 
 .mt-auto {
