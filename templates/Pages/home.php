@@ -29,9 +29,9 @@
 
 
             <h2 class="h2 mx-auto">Les NFT</h2>
-            <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/NFT" class="text-white text-decoration-none" >Explications</a>
-            </div>
+
+                <a href="/pages/NFT" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
+
         </div>
 
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
@@ -39,9 +39,9 @@
             <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
-            <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/crypto" class="text-white text-decoration-none" >Explications</a>
-            </div>
+
+                <a href="/pages/crypto" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
+
         </div>
 
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
@@ -49,9 +49,9 @@
             <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
             <h2 class="h2 mx-auto" >Les dangers</h2>
-            <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/danger" class="text-white text-decoration-none" >Explications</a>
-            </div>
+
+                <a href="/pages/danger" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
+
         </div>
 
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
@@ -59,9 +59,9 @@
 
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
             <h2 class="h2 mx-auto">Les blockchain</h2>
-            <div class="btn btn-secondary align-self-end" >
-                <a href="/pages/blockchain" class="text-white text-decoration-none" >Explications</a>
-            </div>
+
+                <a href="/pages/blockchain" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
+
         </div>
 
         <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11">
@@ -78,9 +78,9 @@
             <p class="text-center" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur provident veniam nihil nemo asperiores? Possimus rem quod officia similique eaque laudantium aperiam, doloremque molestias magni earum vel quis dolorem natus!</p>
         </div>
 
-        <div class="btn btn-secondary align-self-end " >
-            <a href="/pages/actualite" class="text-white text-decoration-none" >Actualité</a>
-        </div>
+
+            <a href="/pages/actualite" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
+
     </aside>
 </div>
 

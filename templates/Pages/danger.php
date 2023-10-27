@@ -23,9 +23,9 @@
             Officia, assumenda, quibusdam natus explicabo nisi saepe voluptatem sit blanditiis ex earum totam non dolorem iste excepturi, ullam distinctio vero praesentium aliquam! Non repellendus omnis perferendis beatae quidem dolore autem?</p>
     </div>
 
-    <div class="btn btn-dark align-self-end me-5 col-1" >
-        <a href="/pages/quizzDanger"  class="text-white text-decoration-none" >Quiz</a>
-    </div>
+
+        <a href="/pages/quizzDanger"  class="text-white text-decoration-none btn btn-dark align-self-end me-5 col-1" >Quiz</a>
+
 </main>
 
 <?= $this->element('footer')?>
