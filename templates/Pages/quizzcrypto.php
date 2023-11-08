@@ -21,5 +21,6 @@
     </div>
     <?= $this->Html->script('/js/quizCrypto.js') ?>
 </main>
+<?= $this->element('footer')?>
 </body>
 </html>

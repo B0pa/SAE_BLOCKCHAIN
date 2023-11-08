@@ -24,7 +24,8 @@
     </div>
     <?= $this->Html->script('/js/quizDanger.js') ?>
 </main>
+<?= $this->element('footer')?>
 </body>
 </html>
 
-</body>
+

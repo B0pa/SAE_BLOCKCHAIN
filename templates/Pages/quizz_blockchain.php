@@ -22,5 +22,6 @@
     </div>
     <?= $this->Html->script('/js/quizBlock.js') ?>
 </main>
+<?= $this->element('footer')?>
 </body>
 </html>
