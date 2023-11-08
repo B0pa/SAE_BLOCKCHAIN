@@ -2,20 +2,20 @@ const quizzes = [
     {
         question: "Qu'est-ce que la blockchain ?",
         choices: [
-            { text: "A. Un system de compte bancaire.", type: "text" },
+            { text: "A. un systeme de covoiturage.", type: "text" },
             { text: "B. Un satélite", type: "text" },
             { text: "C. Une base de donnée déscentralisée", type: "text" },
         ],
         correctAnswer: 3, // Associez le numéro de la réponse correcte ici
     },
     {
-        question: "Quelle est la meilleure NFT ?",
+        question: "Qu'est-ce que la blockchain ?",
         choices: [
-            { image: '/img/image1.jpg', type: "image" },
-            { image: "/img/image2.jpg", type: "image" },
-            { image: "/img/image3.jpg", type: "image" },
+            { text: "A. un systeme de vente en ligne de vetement.", type: "text" },
+            { text: "B. Un satélite", type: "text" },
+            { text: "C. Une base de donnée déscentralisée", type: "text" },
         ],
-        correctAnswer: 2, // Associez le numéro de la réponse correcte ici
+        correctAnswer: 3, // Associez le numéro de la réponse correcte ici
     },
 ];
 
@@ -90,7 +90,7 @@ function displayResult()
 {
     alert("Vous avez maintenant un score de " + score + " points !");
     const scoreDisplay = document.getElementById("score");
-    scoreDisplay.textContent = `NFT : ${score}`;
+    scoreDisplay.textContent = `Chain : ${score}`;
 }
 
 displayQuizzes();

@@ -11,5 +11,20 @@
 </head>
 <body class="bg-secondary">
 <?= $this->element('nav3')?>
+<main>
+    <div id="quiz-container">
+        <div class="PTop">
+
+            <p id="score">Danger : 0</p>
+        </div>
+        <div id="quizzes" class="grid-container">
+            <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->
+        </div>
+        <button id="submit-button" onclick="checkAnswers()">Soumettre</button>
+    </div>
+    <?= $this->Html->script('/js/quizDanger.js') ?>
+</main>
+</body>
+</html>
 
 </body>
