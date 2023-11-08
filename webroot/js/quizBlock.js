@@ -21,31 +21,31 @@ const quizzes = [
 
     let score = 0;
 
-    function displayQuizzes()
-    {
+    function displayQuizzes() {
         const quizzesContainer = document.getElementById("quizzes");
-
+    
         quizzes.forEach((quiz, quizIndex) => {
             const quizElement = document.createElement("div");
             quizElement.classList.add("quiz");
-
+    
             const questionElement = document.createElement("div");
-            const questionTexte = document.createElement("h3");
+            const questionText = document.createElement("h3");
             questionElement.classList.add("question-container");
-            questionTexte.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
+            questionText.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
+            questionElement.appendChild(questionText);
+    
             const optionsElement = document.createElement("div");
             optionsElement.classList.add("grid-container");
-            
-            // Afficher reponse :
+    
             quiz.choices.forEach((choice, choiceIndex) => {
                 const label = document.createElement("label");
-
+    
                 const input = document.createElement("input");
                 input.type = "radio";
                 input.name = "quiz-" + quizIndex;
                 input.value = choice.text;
                 input.setAttribute("data-numero", choiceIndex + 1); // Associez le numéro de réponse ici
-
+    
                 if (choice.type === "text") {
                     label.textContent = choice.text;
                 } else if (choice.type === "image") {
@@ -54,18 +54,18 @@ const quizzes = [
                     img.alt = "Réponse " + choice.text;
                     label.appendChild(img);
                 }
-
+    
                 label.appendChild(input);
-
+    
                 label.addEventListener("click", () => highlightAnswer(label));
-
+    
                 optionsElement.appendChild(label);
             });
-
-        quizElement.appendChild(questionElement);
-        quizElement.appendChild(optionsElement);
-
-        quizzesContainer.appendChild(quizElement);
+    
+            quizElement.appendChild(questionElement);
+            quizElement.appendChild(optionsElement);
+    
+            quizzesContainer.appendChild(quizElement);
         });
     }
 

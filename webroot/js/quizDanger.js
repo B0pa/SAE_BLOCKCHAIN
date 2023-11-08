@@ -21,54 +21,54 @@ const quizzes = [
 
     let score = 0;
 
-    function displayQuizzes()
-    {
-        const quizzesContainer = document.getElementById("quizzes");
+    
+function displayQuizzes() {
+    const quizzesContainer = document.getElementById("quizzes");
 
-        quizzes.forEach((quiz, quizIndex) => {
-            const quizElement = document.createElement("div");
-            quizElement.classList.add("quiz");
+    quizzes.forEach((quiz, quizIndex) => {
+        const quizElement = document.createElement("div");
+        quizElement.classList.add("quiz");
 
-            const questionElement = document.createElement("div");
-            const questionTexte = document.createElement("h3");
-            questionElement.classList.add("question-container");
-            questionTexte.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
-            const optionsElement = document.createElement("div");
-            optionsElement.classList.add("grid-container");
-            
-            // Afficher reponse :
-            quiz.choices.forEach((choice, choiceIndex) => {
-                const label = document.createElement("label");
+        const questionElement = document.createElement("div");
+        const questionText = document.createElement("h3");
+        questionElement.classList.add("question-container");
+        questionText.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
+        questionElement.appendChild(questionText);
 
-                const input = document.createElement("input");
-                input.type = "radio";
-                input.name = "quiz-" + quizIndex;
-                input.value = choice.text;
-                input.setAttribute("data-numero", choiceIndex + 1); // Associez le numéro de réponse ici
+        const optionsElement = document.createElement("div");
+        optionsElement.classList.add("grid-container");
 
-                if (choice.type === "text") {
-                    label.textContent = choice.text;
-                } else if (choice.type === "image") {
-                    const img = new Image();
-                    img.src = choice.image;
-                    img.alt = "Réponse " + choice.text;
-                    label.appendChild(img);
-                }
+        quiz.choices.forEach((choice, choiceIndex) => {
+            const label = document.createElement("label");
 
-                label.appendChild(input);
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = "quiz-" + quizIndex;
+            input.value = choice.text;
+            input.setAttribute("data-numero", choiceIndex + 1); // Associez le numéro de réponse ici
 
-                label.addEventListener("click", () => highlightAnswer(label));
+            if (choice.type === "text") {
+                label.textContent = choice.text;
+            } else if (choice.type === "image") {
+                const img = new Image();
+                img.src = choice.image;
+                img.alt = "Réponse " + choice.text;
+                label.appendChild(img);
+            }
 
-                optionsElement.appendChild(label);
-            });
+            label.appendChild(input);
+
+            label.addEventListener("click", () => highlightAnswer(label));
+
+            optionsElement.appendChild(label);
+        });
 
         quizElement.appendChild(questionElement);
         quizElement.appendChild(optionsElement);
 
         quizzesContainer.appendChild(quizElement);
-        });
-    }
-
+    });
+}
     function checkAnswers()
     {
         const quizElements = document.querySelectorAll('.quiz');
