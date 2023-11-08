@@ -2,9 +2,9 @@ const quizzes = [
     {
         question: "Qu'est-ce que la blockchain ?",
         choices: [
-            { text: "A. Un system de compte bancaire.", type: "text" },
-            { text: "B. Un satélite", type: "text" },
-            { text: "C. Une base de donnée déscentralisée", type: "text" },
+            { text: "A. Un système de compte bancaire.", type: "text" },
+            { text: "B. Un satellite", type: "text" },
+            { text: "C. Une base de données décentralisée", type: "text" },
         ],
         correctAnswer: 3, // Associez le numéro de la réponse correcte ici
     },
@@ -17,81 +17,80 @@ const quizzes = [
         ],
         correctAnswer: 2, // Associez le numéro de la réponse correcte ici
     },
-    ];
+];
 
-    let score = 0;
+let score = 0;
 
-    function displayQuizzes()
-    {
-        const quizzesContainer = document.getElementById("quizzes");
+function displayQuizzes() {
+    const quizzesContainer = document.getElementById("quizzes");
 
-        quizzes.forEach((quiz, quizIndex) => {
-            const quizElement = document.createElement("div");
-            quizElement.classList.add("quiz");
+    quizzes.forEach((quiz, quizIndex) => {
+        const quizElement = document.createElement("div");
+        quizElement.classList.add("quiz");
 
-            const questionElement = document.createElement("div");
-            const questionTexte = document.createElement("h3");
-            questionElement.classList.add("question-container");
-            questionTexte.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
-            const optionsElement = document.createElement("div");
-            optionsElement.classList.add("grid-container");
+        const questionElement = document.createElement("div");
+        const questionText = document.createElement("h3");
+        questionElement.classList.add("question-container");
+        questionText.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
+        questionElement.appendChild(questionText);
 
-            quiz.choices.forEach((choice, choiceIndex) => {
-                const label = document.createElement("label");
+        const optionsElement = document.createElement("div");
+        optionsElement.classList.add("grid-container");
 
-                const input = document.createElement("input");
-                input.type = "radio";
-                input.name = "quiz-" + quizIndex;
-                input.value = choice.text;
-                input.setAttribute("data-numero", choiceIndex + 1); // Associez le numéro de réponse ici
+        quiz.choices.forEach((choice, choiceIndex) => {
+            const label = document.createElement("label");
 
-                if (choice.type === "text") {
-                    label.textContent = choice.text;
-                } else if (choice.type === "image") {
-                    const img = new Image();
-                    img.src = choice.image;
-                    img.alt = "Réponse " + choice.text;
-                    label.appendChild(img);
-                }
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = "quiz-" + quizIndex;
+            input.value = choice.text;
+            input.setAttribute("data-numero", choiceIndex + 1); // Associez le numéro de réponse ici
 
-                label.appendChild(input);
+            if (choice.type === "text") {
+                label.textContent = choice.text;
+            } else if (choice.type === "image") {
+                const img = new Image();
+                img.src = choice.image;
+                img.alt = "Réponse " + choice.text;
+                label.appendChild(img);
+            }
 
-                label.addEventListener("click", () => highlightAnswer(label));
+            label.appendChild(input);
 
-                optionsElement.appendChild(label);
-            });
+            label.addEventListener("click", () => highlightAnswer(label));
+
+            optionsElement.appendChild(label);
+        });
 
         quizElement.appendChild(questionElement);
         quizElement.appendChild(optionsElement);
 
         quizzesContainer.appendChild(quizElement);
-        });
-    }
+    });
+}
 
-    function checkAnswers()
-    {
-        const quizElements = document.querySelectorAll('.quiz');
-        quizElements.forEach((quizElement, quizIndex) => {
-            const selectedOption = quizElement.querySelector(`input[name = "quiz-${quizIndex}"]:checked`);
+function checkAnswers() {
+    const quizElements = document.querySelectorAll('.quiz');
+    quizElements.forEach((quizElement, quizIndex) => {
+        const selectedOption = quizElement.querySelector(`input[name="quiz-${quizIndex}"]:checked`);
 
-            if (selectedOption) {
-                const userAnswerNumero = parseInt(selectedOption.getAttribute("data-numero"), 10); // Récupérer le numéro de la réponse de l'utilisateur
-                const correctAnswerNumero = quizzes[quizIndex].correctAnswer;
+        if (selectedOption) {
+            const userAnswerNumero = parseInt(selectedOption.getAttribute("data-numero"), 10); // Récupérer le numéro de la réponse de l'utilisateur
+            const correctAnswerNumero = quizzes[quizIndex].correctAnswer;
 
-                if (userAnswerNumero === correctAnswerNumero) {
-                    score += 50;
-                }
+            if (userAnswerNumero === correctAnswerNumero) {
+                score += 50;
             }
-        });
+        }
+    });
 
-        displayResult();
-    }
+    displayResult();
+}
 
-    function displayResult()
-    {
-        alert("Vous avez maintenant un score de " + score + " points !");
-        const scoreDisplay = document.getElementById("score");
-        scoreDisplay.textContent = `NFT : ${score}`;
-    }
+function displayResult() {
+    alert("Vous avez maintenant un score de " + score + " points !");
+    const scoreDisplay = document.getElementById("score");
+    scoreDisplay.textContent = `NFT : ${score}`;
+}
 
-    displayQuizzes();
+displayQuizzes();
