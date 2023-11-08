@@ -18,7 +18,7 @@
     <div class="p-5">
         <p class="text-justify text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, sunt ab? Repudiandae quisquam officia laudantium! Quo nobis nam officiis laudantium ipsa vel ipsum omnis, harum a odit laborum reiciendis repellat!
             Culpa neque molestiae, possimus est debitis obcaecati aut cumque eligendi animi iure eaque necessitatibus vitae corrupti accusamus tenetur assumenda quam? Accusamus sunt aperiam cupiditate sequi doloribus voluptas deserunt adipisci porro.
-            Veritatis, dolor tempora temporibus laboriosam dolores sunt. Et, animi laboriosam. Quis velit fugit consequuntur hic reprehenderit quasi, sit, ea a inventore ad nobis cumque nulla numquam incidunt porro voluptate illo?
+            Veritatis, dolor tempora temporius laboriosam dolores sunt. Et, animi laboriosam. Quis velit fugit consequuntur hic reprehenderit quasi, sit, ea a inventore ad nobis cumque nulla numquam incidunt porro voluptate illo?
             Delectus, nemo aliquam quam ipsum consectetur quis sed rem ipsam maiores modi hic, molestiae obcaecati pariatur necessitatibus praesentium minima, alias repellendus atque. Voluptates aspernatur quisquam quo, ut quam id non.
             Officia, assumenda, quibusdam natus explicabo nisi saepe voluptatem sit blanditiis ex earum totam non dolorem iste excepturi, ullam distinctio vero praesentium aliquam! Non repellendus omnis perferendis beatae quidem dolore autem?</p>
     </div>
