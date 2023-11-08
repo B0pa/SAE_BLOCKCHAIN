@@ -30,11 +30,13 @@ const quizzes = [
             quizElement.classList.add("quiz");
 
             const questionElement = document.createElement("div");
+            const questionTexte = document.createElement("h3");
             questionElement.classList.add("question-container");
-            questionElement.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
+            questionTexte.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
             const optionsElement = document.createElement("div");
             optionsElement.classList.add("grid-container");
-
+            
+            // Afficher reponse :
             quiz.choices.forEach((choice, choiceIndex) => {
                 const label = document.createElement("label");
 
@@ -90,7 +92,7 @@ const quizzes = [
     {
         alert("Vous avez maintenant un score de " + score + " points !");
         const scoreDisplay = document.getElementById("score");
-        scoreDisplay.textContent = `Danger : ${score}`;
+        scoreDisplay.textContent = `Chain : ${score}`;
     }
 
     displayQuizzes();
