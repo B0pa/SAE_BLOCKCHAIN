@@ -2,7 +2,7 @@ const quizzes = [
     {
         question: "Qu'est-ce que la blockchain ?",
         choices: [
-            { text: "A. Mon gros chibre.", type: "text" },
+            { text: "A. Un system de compte bancaire.", type: "text" },
             { text: "B. Un satélite", type: "text" },
             { text: "C. Une base de donnée déscentralisée", type: "text" },
         ],
