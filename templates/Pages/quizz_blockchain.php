@@ -33,7 +33,7 @@
     <div id="result-container">
         <p id="result"></p>
     </div>
-    <script src="/JS/quizBChain.js"></script>
+    <?= $this->Html->script('/js/quizBlock.js') ?>
 </main>
 </body>
 </html>
