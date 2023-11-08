@@ -19,9 +19,8 @@
         <p class="text-justify text-center" >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati deserunt culpa voluptatum. Alias reprehenderit hic nostrum similique, dignissimos praesentium! Vel repudiandae ea recusandae neque odio illo eos hic ipsum error.
             Obcaecati, similique quibusdam delectus vitae exercitationem, et natus quasi nesciunt minus iste, at necessitatibus libero dolores ipsum modi provident veniam. Dolorum nihil corrupti reprehenderit iusto fuga quos nam perferendis eligendi!</p>
     </div>
-    <div class="btn btn-dark align-self-end me-5 col-1" >
-        <a href="/pages/quizzcrypto" class="text-white text-decoration-none" >Quiz</a>
-    </div>
+        <a href="/pages/quizzcrypto" class="text-white text-decoration-none btn btn-dark align-self-end me-5 col-1" >Quiz</a>
+
 </main>
 
 <?= $this->element('footer')?>

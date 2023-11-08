@@ -24,9 +24,9 @@
             Fuga ducimus dolores, aliquam at iste voluptatibus libero aperiam excepturi cumque error quas maxime quam optio nihil? Saepe dignissimos ipsum qui iste sed, corrupti pariatur? Nemo corporis velit illum odit.
             Rerum quasi totam necessitatibus voluptatum corrupti id quaerat iure sit temporibus. Quos aliquid unde, dolorem repellendus omnis dicta sequi error iusto non a veniam cumque, harum consequatur dolor atque quibusdam?</p>
     </div>
-    <div class="btn btn-dark align-self-end me-5 col-1" >
-        <a href="/pages/quizzNFT" class="text-white text-decoration-none" >quizz</a>
-    </div>
+
+        <a href="/pages/quizzNFT" class="text-white text-decoration-none btn btn-dark align-self-end me-5 col-1" >quizz</a>
+
 
 </main>
 
