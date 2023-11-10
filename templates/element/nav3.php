@@ -5,17 +5,17 @@ $pageTitle = 'Erreur'; // Valeur par défaut
 $crypto = '';
 
 if ($currentURL === 'quizzblockchain') {
-    $pageTitle = 'Quizz Blockchain';
+    $pageTitle = 'Quiz Blockchain';
     $crypto = 'cryptoblockchain.png';
 } elseif ($currentURL === 'quizzdanger') {
     $crypto = 'cryptodanger.png';
-    $pageTitle = 'Quizz Danger';
+    $pageTitle = 'Quiz Danger';
 } elseif ($currentURL === 'quizzcrypto') {
     $crypto ="cryptobitcoin.png";
-    $pageTitle = 'Quizz Crypto';
+    $pageTitle = 'Quiz Crypto';
 } elseif ($currentURL === 'quizznft') {
     $crypto = "cryptoNFT.png";
-    $pageTitle = 'Quizz NFT';
+    $pageTitle = 'Quiz NFT';
 }
 
 ?>
@@ -25,7 +25,7 @@ if ($currentURL === 'quizzblockchain') {
     <a  href='/pages/tempreel' class='nav-link d-flex align-items-center'><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
 
 
-    <?= $this->Html->image($crypto, ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?>
+    <?= $this->Html->image($crypto, ['class' => 'img-fluid h-100','alt','rounded' => 'icone temp réel']); ?>
     <div class="bg-warning rounded-pill col-5 mx-auto">
         <h1 class="h1 text-center"><?= $pageTitle ?></h1>
     </div>
