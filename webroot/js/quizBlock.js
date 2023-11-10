@@ -2,7 +2,7 @@ const quizzes = [
     {
         question: "Qu'est-ce que la blockchain ?",
         choices: [
-            { text: "A. Mon gros chibre.", type: "text" },
+            { text: "A. une petite souris.", type: "text" },
             { text: "B. Un satélite", type: "text" },
             { text: "C. Une base de donnée déscentralisée", type: "text" },
         ],
@@ -11,7 +11,7 @@ const quizzes = [
     {
         question: "Qu'est-ce que la blockchain ?",
         choices: [
-            { text: "A. Mon gros chibre.", type: "text" },
+            { text: "A. Une sourie", type: "text" },
             { text: "B. Un satélite", type: "text" },
             { text: "C. Une base de donnée déscentralisée", type: "text" },
         ],
@@ -21,8 +21,7 @@ const quizzes = [
 
 let score = 0;
 
-function displayQuizzes()
-{
+function displayQuizzes() {
     const quizzesContainer = document.getElementById("quizzes");
 
     quizzes.forEach((quiz, quizIndex) => {
@@ -30,13 +29,14 @@ function displayQuizzes()
         quizElement.classList.add("quiz");
 
         const questionElement = document.createElement("div");
-        const questionTexte = document.createElement("h3");
+        const questionText = document.createElement("h3");
         questionElement.classList.add("question-container");
-        questionTexte.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
+        questionText.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
+        questionElement.appendChild(questionText);
+
         const optionsElement = document.createElement("div");
         optionsElement.classList.add("grid-container");
 
-        // Afficher reponse :
         quiz.choices.forEach((choice, choiceIndex) => {
             const label = document.createElement("label");
 
