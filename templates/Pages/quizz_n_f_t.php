@@ -18,12 +18,10 @@
         <div id="quizzes">
             <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->
         </div>
-         <button id="submit-button" class="btn btn-dark my-3 position-relative start-50 translate-middle-x "  onclick="checkAnswers()" >Soumettre</button>
+        <button id="submit-button" class="btn btn-dark my-3 position-relative start-50 translate-middle-x "  onclick="checkAnswers()" >Soumettre</button>
     </div>
     <?= $this->Html->script('/js/quizNFT.js') ?>
 </main>
 <?= $this->element('footer')?>
 </body>
 </html>
-
-

@@ -51,7 +51,7 @@ function displayQuizzes() {
                 label.classList.add("btn","btn-secondary","btn-outline-dark","rounded-pill","w-25","text-white");
                 optionsElement.classList.add("flex-column","align-items-center","isCheck");
             } else if (choice.type === "image") {
-                
+
                 const img = new Image();
                 img.src = choice.image;
                 img.alt = "Réponse " + choice.text;

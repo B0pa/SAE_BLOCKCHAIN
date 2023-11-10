@@ -17,12 +17,12 @@ const quizzes = [
         ],
         correctAnswer: 3, // Associez le numéro de la réponse correcte ici
     },
-    ];
+];
 
-    let score = 0;
+let score = 0;
 
-    
-function displayQuizzes() {
+function displayQuizzes()
+{
     const quizzesContainer = document.getElementById("quizzes");
 
     quizzes.forEach((quiz, quizIndex) => {
@@ -30,14 +30,13 @@ function displayQuizzes() {
         quizElement.classList.add("quiz");
 
         const questionElement = document.createElement("div");
-        const questionText = document.createElement("h3");
+        const questionTexte = document.createElement("h3");
         questionElement.classList.add("question-container");
-        questionText.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
-        questionElement.appendChild(questionText);
-
+        questionTexte.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
         const optionsElement = document.createElement("div");
         optionsElement.classList.add("grid-container");
 
+        // Afficher reponse :
         quiz.choices.forEach((choice, choiceIndex) => {
             const label = document.createElement("label");
 
@@ -69,30 +68,31 @@ function displayQuizzes() {
         quizzesContainer.appendChild(quizElement);
     });
 }
-    function checkAnswers()
-    {
-        const quizElements = document.querySelectorAll('.quiz');
-        quizElements.forEach((quizElement, quizIndex) => {
-            const selectedOption = quizElement.querySelector(`input[name = "quiz-${quizIndex}"]:checked`);
 
-            if (selectedOption) {
-                const userAnswerNumero = parseInt(selectedOption.getAttribute("data-numero"), 10); // Récupérer le numéro de la réponse de l'utilisateur
-                const correctAnswerNumero = quizzes[quizIndex].correctAnswer;
+function checkAnswers()
+{
+    const quizElements = document.querySelectorAll('.quiz');
+    quizElements.forEach((quizElement, quizIndex) => {
+        const selectedOption = quizElement.querySelector(`input[name = "quiz-${quizIndex}"]:checked`);
 
-                if (userAnswerNumero === correctAnswerNumero) {
-                    score += 50;
-                }
+        if (selectedOption) {
+            const userAnswerNumero = parseInt(selectedOption.getAttribute("data-numero"), 10); // Récupérer le numéro de la réponse de l'utilisateur
+            const correctAnswerNumero = quizzes[quizIndex].correctAnswer;
+
+            if (userAnswerNumero === correctAnswerNumero) {
+                score += 50;
             }
-        });
+        }
+    });
 
-        displayResult();
-    }
+    displayResult();
+}
 
-    function displayResult()
-    {
-        alert("Vous avez maintenant un score de " + score + " points !");
-        const scoreDisplay = document.getElementById("score");
-        scoreDisplay.textContent = `Chain : ${score}`;
-    }
+function displayResult()
+{
+    alert("Vous avez maintenant un score de " + score + " points !");
+    const scoreDisplay = document.getElementById("score");
+    scoreDisplay.textContent = `Chain : ${score}`;
+}
 
-    displayQuizzes();
+displayQuizzes();
