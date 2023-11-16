@@ -56,6 +56,8 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+
+
     public function defineNftCookie()
     {
         $this->response = $this->response->withCookie(Cookie::create(
