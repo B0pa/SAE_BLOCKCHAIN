@@ -16,9 +16,9 @@
     <?= $this->Html->image('crypto.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 
     <div class="p-5">
-    <h1 class="text-justify text-center">Les Cryptomonnaies Expliquées en Termes Simples : La Magie de la Monnaie Numérique</h1>
+        <h1 class="text-justify text-center">Les Cryptomonnaies Expliquées en Termes Simples : La Magie de la Monnaie Numérique</h1>
         <p class="text-justify text-center fs-4" >
-        Imaginez une monnaie que vous pouvez utiliser en ligne, sans pièces ni billets physiques. Les cryptomonnaies, c'est exactement ça, de l'argent numérique !</p>
+            Imaginez une monnaie que vous pouvez utiliser en ligne, sans pièces ni billets physiques. Les cryptomonnaies, c'est exactement ça, de l'argent numérique !</p>
         <h2 class="text-justify text-center">Qu'est-ce qu'une Cryptomonnaie ?</h2>
         <p class="text-justify text-center fs-4" >Les cryptomonnaies sont comme de l'argent numérique, mais avec une touche spéciale. Elles sont construites sur une technologie appelée blockchain (voir article blockchain), qui les rend très spéciales. La blockchain garantit que tout est sécurisé et transparent.</p>
         <h2 class="text-justify text-center">La Blockchain : Gardienne de l'Argent Numérique</h2>

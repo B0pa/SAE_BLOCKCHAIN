@@ -1,6 +1,6 @@
 <?php
 
-
+var_dump($_COOKIE);
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +20,8 @@
         <h2>titre</h2>
         <?= $this->Html->image('ex.png', ['alt' => 'NFT image']); ?>
         <p>text</p>
+
     </div>
 </main>
 </body>
+</html>

@@ -17,9 +17,9 @@
     <?= $this->Html->image('blockchain.jpg', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 
     <div class="p-5">
-    <h1 class="text-justify text-center">Niveau 1: La Blockchain Expliquée en Termes Simples : Le Jeu de Confiance Mondial</h1>
+        <h1 class="text-justify text-center">Niveau 1: La Blockchain Expliquée en Termes Simples : Le Jeu de Confiance Mondial</h1>
         <p class="text-justify text-center fs-4" >
-        Imagine un gigantesque cahier en ligne que tout le monde peut voir et sur lequel tout le monde peut écrire, mais personne ne peut tricher ! C'est comme un jeu mondial de confiance.</p>
+            Imagine un gigantesque cahier en ligne que tout le monde peut voir et sur lequel tout le monde peut écrire, mais personne ne peut tricher ! C'est comme un jeu mondial de confiance.</p>
         <h2 class="text-justify text-center">Le Gros Cahier Mondial</h2>
         <p class="text-justify text-center fs-4" >La blockchain est ce cahier géant. Mais voici le truc qui change par rapport au système bancaire classique : au lieu d'être gardé par une seule personne, il est entre les mains de millions de personnes partout dans le monde. Chacun d'entre eux a une copie du cahier, et chacun vérifie ce qui est écrit dedans.</p>
         <h2 class="text-justify text-center">Des Transactions Transparentes</h2>
@@ -29,7 +29,7 @@
         <h2 class="text-justify text-center">Pourquoi c'est Cool ?</h2>
         <p class="text-justify text-center fs-4" >La blockchain rend les choses super sécurisées, transparentes, et résistantes à la triche. Personne ne peut le censurer non plus, c'est comme un jeu équitable pour tout le monde. C'est pourquoi la blockchain est utilisée pour plein de choses cool, comme les monnaies numériques, le suivi des produits depuis leur fabrication, ou même pour des contrats intelligents.</p>
         <p class="text-justify text-center fs-4" >En bref, la blockchain est un jeu mondial de confiance où tout le monde joue et personne ne peut tricher. </p>
-       
+
 
         <!-- Il faut mettre des sauts de ligne (beaucoup)-->
 
@@ -37,7 +37,7 @@
         <h2 class="text-justify text-center">Niveau 2: Approfondissement des différents points</h2>
         <h2 class="text justify text-center">Cryptographie : Le Bouclier de la Blockchain Expliqué</h2>
         <p class="text-justify text-center fs-4" >
-        Au cœur de la blockchain se trouve un bouclier puissant qui garantit la sécurité et l'intégrité des données : la cryptographie. La cryptographie est la science de la protection des informations en les transformant en un code secret, et c'est essentiel pour comprendre comment fonctionne la blockchain. Voici quelques éléments clés :</p>
+            Au cœur de la blockchain se trouve un bouclier puissant qui garantit la sécurité et l'intégrité des données : la cryptographie. La cryptographie est la science de la protection des informations en les transformant en un code secret, et c'est essentiel pour comprendre comment fonctionne la blockchain. Voici quelques éléments clés :</p>
         <p class="text-justify text-center fs-3" >- Hachage</p>
         <p class="text-justify text-center fs-4" >La blockchain utilise des fonctions de hachage, qui sont des algorithmes mathématiques qui prennent une entrée (comme une transaction) et la transforment en une chaîne de caractères de longueur fixe, généralement beaucoup plus courte. Le résultat, appelé "haché," est unique pour chaque entrée, ce qui signifie que même la plus petite modification de l'entrée produira un haché complètement différent. Cela garantit l'intégrité des données : si quelqu'un tente de falsifier une transaction, le haché ne correspondra plus à la transaction réelle, signalant ainsi une altération.</p>
         <p class="text-justify text-center fs-3" >- Signature Numérique</p>
@@ -47,7 +47,7 @@
         <p class="text-justify text-center fs-3" >- Confidentialité</p>
         <p class="text-justify text-center fs-4" >La cryptographie permet également de préserver la confidentialité des transactions, malgré la transparence du grand livre. Les techniques telles que les adresses furtives et les contrats intelligents permettent de masquer les détails spécifiques des transactions tout en confirmant leur validité.</p>
         <p class="text-justify text-center fs-4" >La cryptographie est le bouclier invisible qui protège chaque transaction et chaque bloc sur la blockchain. Elle garantit que les données sont sécurisées, que les transactions sont authentiques et que l'intégrité du grand livre est maintenue. Comprendre les principes de la cryptographie est essentiel pour saisir la sécurité et la fiabilité de la blockchain.</p>
-        
+
         <!-- Il faut mettre des sauts de ligne (moins que l'autre)-->
 
         <h2 class="text-justify text-center">Décentralisation : Le Pilier Fondateur de la Blockchain</h2>

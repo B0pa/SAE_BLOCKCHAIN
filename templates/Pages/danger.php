@@ -16,9 +16,9 @@
     <?= $this->Html->image('danger.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 
     <div class="p-5">
-    <h1 class="text-justify text-center">Les Dangers Potentiels de la Blockchain </h1>
+        <h1 class="text-justify text-center">Les Dangers Potentiels de la Blockchain </h1>
         <p class="text-justify text-center fs-4" >
-        Imagine un gigantesque cahier en ligne que tout le monde peut voir et sur lequel tout le monde peut écrire, mais personne ne peut tricher ! C'est comme un jeu mondial de confiance.La blockchain est une technologie révolutionnaire, mais elle n'est pas exempte de dangers. Comprendre ces risques est essentiel pour une utilisation responsable et éclairée de la blockchain. Voici un aperçu des principaux dangers à prendre en compte :</p>
+            Imagine un gigantesque cahier en ligne que tout le monde peut voir et sur lequel tout le monde peut écrire, mais personne ne peut tricher ! C'est comme un jeu mondial de confiance.La blockchain est une technologie révolutionnaire, mais elle n'est pas exempte de dangers. Comprendre ces risques est essentiel pour une utilisation responsable et éclairée de la blockchain. Voici un aperçu des principaux dangers à prendre en compte :</p>
         <h2 class="text-justify text-center">Sécurité</h2>
         <p class="text-justify text-center fs-4" >Bien que la blockchain soit réputée pour sa sécurité, elle n'est pas invulnérable. Les attaques de piratage peuvent cibler les plateformes d'échanges de cryptomonnaies, les portefeuilles numériques, ou même des vulnérabilités dans les contrats intelligents. Il est essentiel de prendre des mesures de sécurité appropriées pour protéger vos actifs numériques.</p>
         <h2 class="text-justify text-center">Volatilité</h2>
