@@ -33,9 +33,8 @@
 
     </div>
 
-    <div class="btn btn-dark align-self-end me-5 col-1" >
-        <a href="/pages/quizzDanger"  class="text-white text-decoration-none" >Quiz</a>
-    </div>
+<a href="/pages/quizzDanger"  class="btn btn-dark align-self-end me-5 text-white text-decoration-none" >Quiz</a>
+
 </main>
 
 <?= $this->element('footer')?>

@@ -40,9 +40,8 @@
         <h2 class="text-justify text-center">Un Futur Monétaire Numérique</h2>
         <p class="text-justify text-center fs-4" >Les cryptomonnaies ont le potentiel de changer la façon dont nous gérons notre argent. Elles sont déjà utilisées pour des achats en ligne, des investissements, et même pour soutenir des projets artistiques. Le futur de l'argent pourrait bien être numérique.</p>
     </div>
-    <div class="btn btn-dark align-self-end me-5 col-1" >
-        <a href="/pages/quizzcrypto" class="text-white text-decoration-none" >Quiz</a>
-    </div>
+    <a href="/pages/quizzcrypto" class="btn btn-dark align-self-end me-5 text-white text-decoration-none" >Quiz</a>
+    
 </main>
 
 <?= $this->element('footer')?>

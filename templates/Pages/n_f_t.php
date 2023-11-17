@@ -44,10 +44,7 @@
             Ils ouvrent de nouvelles possibilités passionnantes pour les artistes et les collectionneurs, et c'est une tendance passionnante à suivre dans le monde numérique.</p>
     </div>
 
-
-    <div class="btn btn-dark align-self-end me-5 col-1" >
-        <a href="/pages/quizzNFT" class="text-white text-decoration-none" >quizz</a>
-    </div>
+    <a href="/pages/quizzNFT" class="btn btn-dark align-self-end me-5 text-white text-decoration-none" >quizz</a>
 
 </main>
 
