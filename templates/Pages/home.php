@@ -30,7 +30,7 @@
 
             <h2 class="h2 mx-auto">Les NFT</h2>
 
-                <a href="/pages/NFT" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
+                <a href="/pages/nft" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
 
         </div>
 
@@ -79,7 +79,7 @@
         </div>
 
 
-            <a href="/pages/actualite" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
+            <a href="/pages/actuality" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
 
     </aside>
 </div>

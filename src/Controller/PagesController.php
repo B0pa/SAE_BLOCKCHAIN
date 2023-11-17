@@ -65,6 +65,60 @@ class PagesController extends AppController
 
     }
 
+    public function nft()
+    {
+
+    }
+
+    public function crypto()
+    {
+
+    }
+
+    public function danger()
+    {
+
+    }
+
+    public function blockchain()
+    {
+
+    }
+
+    public function quizzDanger()
+    {
+
+    }
+
+    public function quizzNFT()
+    {
+
+    }
+
+    public function quizzcrypto()
+    {
+
+    }
+
+    public function quizzBlockchain()
+    {
+
+    }
+
+    public function wallet()
+    {
+
+    }
+
+    public function tempreel()
+    {
+
+    }
+
+    public function adminlogin()
+    {
+
+    }
 
 
 
