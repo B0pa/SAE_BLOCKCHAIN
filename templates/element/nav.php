@@ -5,7 +5,7 @@ $pageTitle = 'Erreur'; // Valeur par défaut
 // Définissez les titres de page en fonction de l'URL
 if ($currentURL === 'explication') {
     $pageTitle = 'Explication';
-} elseif ($currentURL === 'actualite') {
+} elseif ($currentURL === 'actuality') {
     $pageTitle = 'Actualité';
 } elseif ($currentURL === 'nft') {
     $pageTitle = 'NFT';
@@ -15,14 +15,6 @@ if ($currentURL === 'explication') {
     $pageTitle = 'Cryptomonnaies';
 } elseif ($currentURL === 'blockchain') {
     $pageTitle = 'Blockchain';
-} elseif ($currentURL === 'quizzblockchain') {
-    $pageTitle = 'Quizz Blockchain';
-} elseif ($currentURL === 'quizzdanger') {
-    $pageTitle = 'Quizz Danger';
-} elseif ($currentURL === 'quizzcrypto') {
-    $pageTitle = 'Quizz Crypto';
-} elseif ($currentURL === 'quizznft') {
-    $pageTitle = 'Quizz NFT';
 }
 
 ?>
