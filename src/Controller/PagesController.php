@@ -45,6 +45,11 @@ class PagesController extends AppController
      */
     public function display(string ...$path): ?Response
     {
+
+        if ($path[0] === 'explication') {
+            return $this->render('explication');
+        }
+
         if (!$path) {
             return $this->redirect('/');
         }
@@ -71,3 +76,5 @@ class PagesController extends AppController
         }
     }
 }
+
+
