@@ -39,6 +39,7 @@ function displayQuizzes() {
         quiz.choices.forEach((choice, choiceIndex) => {
             const label = document.createElement("label");
             label.classList.add("my-3");
+            label.htmlFor = "quiz-" + choiceIndex;
             const input = document.createElement("input");
             input.type = "radio";
             input.name = "quiz-" + quizIndex;

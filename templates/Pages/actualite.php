@@ -16,7 +16,7 @@ var_dump($_COOKIE);
 <div CLASS="separateur"></div>
 
 <main>
-    <div>
+    <div >
         <h2>titre</h2>
         <?= $this->Html->image('ex.png', ['alt' => 'NFT image']); ?>
         <p>text</p>
