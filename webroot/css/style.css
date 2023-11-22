@@ -1,0 +1,4 @@
+.image-nav:hover {
+    filter: brightness(70%);
+    border-radius: 50%;
+  }
