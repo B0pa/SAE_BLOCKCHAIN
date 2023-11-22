@@ -5,7 +5,7 @@ $pageTitle = 'Erreur'; // Valeur par défaut
 // Définissez les titres de page en fonction de l'URL
 if ($currentURL === 'explication') {
     $pageTitle = 'Explication';
-} elseif ($currentURL === 'actualite') {
+} elseif ($currentURL === 'actuality') {
     $pageTitle = 'Actualité';
 } elseif ($currentURL === 'nft') {
     $pageTitle = 'NFT';

@@ -46,6 +46,7 @@ class AppController extends Controller
         parent::initialize();
 
         $this->loadComponent('Flash');
+        $this->loadComponent('Authentication.Authentication');
         $this->defineNFTCookie();
 
 
@@ -56,6 +57,8 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
+
+
     public function defineNftCookie()
     {
         $this->response = $this->response->withCookie(Cookie::create(
@@ -82,7 +85,7 @@ class AppController extends Controller
                 'domain' => '',
                 'secure' => false,
                 'httponly' => false,
-                'samesite' => null // Or one of CookieInterface::SAMESITE_* constant
+                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
             ]
         ));
 
