@@ -31,48 +31,108 @@ use Cake\View\Exception\MissingTemplateException;
  */
 class PagesController extends AppController
 {
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel']);
+    }
+
     /**
-     * Displays a view
-     *
-     * @param string ...$path Path segments.
-     * @return \Cake\Http\Response|null
-     * @throws \Cake\Http\Exception\ForbiddenException When a directory traversal attempt.
-     * @throws \Cake\View\Exception\MissingTemplateException When the view file could not
-     *   be found and in debug mode.
-     * @throws \Cake\Http\Exception\NotFoundException When the view file could not
-     *   be found and not in debug mode.
-     * @throws \Cake\View\Exception\MissingTemplateException In debug mode.
-     */
-    public function display(string ...$path): ?Response
+    * actuality method
+    *
+    */
+    public function actuality()
+    {
+        /**
+         * jfkjhdfmkjsdh
+         */
+
+        $toto = $this->request->getQuery('test');
+
+        $this->set(compact('toto'));
+
+
+    }
+
+    /**
+    * home method
+    *
+    * @return void
+    */
+    public function home()
     {
 
-        if ($path[0] === 'explication') {
-            return $this->render('explication');
-        }
+    }
 
-        if (!$path) {
-            return $this->redirect('/');
-        }
-        if (in_array('..', $path, true) || in_array('.', $path, true)) {
-            throw new ForbiddenException();
-        }
-        $page = $subpage = null;
+    public function nft()
+    {
 
-        if (!empty($path[0])) {
-            $page = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subpage = $path[1];
-        }
-        $this->set(compact('page', 'subpage'));
+    }
 
-        try {
-            return $this->render(implode('/', $path));
-        } catch (MissingTemplateException $exception) {
-            if (Configure::read('debug')) {
-                throw $exception;
-            }
-            throw new NotFoundException();
+    public function crypto()
+    {
+        $userName = $this->request->getSession()->read('Auth.name');
+
+        $this->set(compact('userName'));
+
+    }
+
+    public function danger()
+    {
+
+    }
+
+    public function blockchain()
+    {
+
+    }
+
+    public function quizzDanger()
+    {
+
+    }
+
+    public function quizzNFT()
+    {
+
+    }
+
+    public function quizzcrypto()
+    {
+
+    }
+
+    public function quizzBlockchain()
+    {
+
+    }
+
+    public function wallet()
+    {
+
+    }
+
+    public function tempreel()
+    {
+
+    }
+
+    public function adminLogin()
+    {
+        $data = $this->request->getData();
+
+        // Identifie l'utilisateur
+        $user = $this->Auth->identify();
+
+        if ($user) {
+            // Connexion réussie, redirige vers la page admin
+            $this->Auth->setUser($user);
+            return $this->redirect(['controller' => 'Articles', 'action' => 'index']);
+
+        } else {
+            // Échec de la connexion, affiche un message
+            $this->Flash->error('Identifiants invalides');
         }
     }
 }

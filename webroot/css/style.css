@@ -11,16 +11,21 @@
     opacity: 1;
   }
 }
-  
+
 .slideFromTop {
     animation: 1.3s ease-out 0s 1 slideInFromTop;
-    transition: transform .2s; 
+    transition: transform .2s;
 }
 
 .btn {
-  transition: transform .2s; 
+  transition: transform .2s;
 }
 
 .btn:hover , .grow:hover{
   transform: scale(1.05);
+}
+
+.image-nav:hover {
+    filter: brightness(70%);
+    border-radius: 50%;
 }

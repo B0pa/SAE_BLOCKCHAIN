@@ -19,9 +19,10 @@ if ($currentURL === 'explication') {
 
 ?>
 
-<nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top" style="height: 100px;">
-    <a href='/pages/home' class='nav-link d-flex align-items-center'><?= $this->Html->image('acceuil.png', ['class' => 'img-fluid','alt' => 'acceuil']); ?></a>
-    <a  href='/pages/tempreel' class='nav-link d-flex align-items-center'><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
+
+<nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top " style="height: 100px;">
+    <a href='/pages/home' class='nav-link d-flex align-items-center'><?= $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav','alt' => 'acceuil']); ?></a>
+    <a  href='/pages/tempreel' class='nav-link d-flex align-items-center'><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']); ?></a>
 
     <div class="bg-warning rounded-pill col-5 mx-auto">
         <h1 class="h1 text-center"><?= $pageTitle ?></h1>

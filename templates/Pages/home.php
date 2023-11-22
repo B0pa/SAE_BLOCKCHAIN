@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="bg-secondary h-100">
+<body class="bg-secondary">
 
 <header>
     <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
-        <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid','alt' => 'icone wallet']); ?></a>
-        <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
-
+        <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid image-nav','alt' => 'icone wallet']); ?></a>
+        <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']); ?></a>
         <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
             <h1 class="h1 text-center  ">Accueil</h1>
         </div>
@@ -31,11 +30,11 @@
 
             <h2 class="h2 mx-auto">Les NFT</h2>
 
-                <a href="/pages/NFT" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
+                <a href="/pages/nft" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
 
         </div>
 
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex shadow">
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
 
             <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
@@ -70,18 +69,21 @@
         </div>
     </main>
 
-    <aside class="slideFromTop home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
+    <aside class="home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
         <div class="text-center" >
             <h2 class="h2">Les actualités</h2>
         </div>
         <div class="bg-secondary rounded-2 p-2" >
-            <h3 class="h3 text-center">blabla</h3>
-            <p class="text-center" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur provident veniam nihil nemo asperiores? Possimus rem quod officia similique eaque laudantium aperiam, doloremque molestias magni earum vel quis dolorem natus!</p>
+            <h3 class="h3 text-center">Quelques liens de médias mis a jour régulièrement que nous trouvons intéressants</h3>
+            <p class="text-center" >La dernière vidéo de Hasheur:</p>
+            <iframe
+                src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UULFhlTcWDE8gd4tsl_L727NrQ"
+                width="100%"
+                height="240"
+                allowfullscreen>
+            </iframe>
         </div>
-
-
-            <a href="/pages/actualite" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
-
+        <a href="/pages/actualite" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
     </aside>
 </div>
 

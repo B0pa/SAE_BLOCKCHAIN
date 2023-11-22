@@ -8,12 +8,15 @@
     <title>Cryptomonnaies</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body class="bg-secondary">
 <?= $this->element('nav')?>
 <main class="mt-5 pt-5 d-flex flex-column min-vh-100">
 
     <?= $this->Html->image('crypto.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+
+<!--<?php //= $userName ?> -->
 
     <div class="p-5">
         <h1 class="text-justify text-center">Les Cryptomonnaies Expliquées en Termes Simples : La Magie de la Monnaie Numérique</h1>
@@ -40,8 +43,9 @@
         <h2 class="text-justify text-center">Un Futur Monétaire Numérique</h2>
         <p class="text-justify text-center fs-4" >Les cryptomonnaies ont le potentiel de changer la façon dont nous gérons notre argent. Elles sont déjà utilisées pour des achats en ligne, des investissements, et même pour soutenir des projets artistiques. Le futur de l'argent pourrait bien être numérique.</p>
     </div>
-    <a href="/pages/quizzcrypto" class="btn btn-dark align-self-end me-5 text-white text-decoration-none" >Quiz</a>
-    
+    <div class="btn btn-dark align-self-end me-5 col-1" >
+        <a href="/pages/quizzcrypto" class="text-white text-decoration-none" >Quiz</a>
+    </div>
 </main>
 
 <?= $this->element('footer')?>

@@ -8,6 +8,7 @@
     <title>Blockchain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body class="bg-secondary">
@@ -66,7 +67,10 @@
         <p class="text-justify text-center fs-4" >La décentralisation permet une évolutivité horizontale, ce qui signifie que le réseau peut s'agrandir sans ajouter de complexité à chaque nœud individuel. Cela facilite la croissance du réseau sans sacrifier sa performance.</p>
         <p class="text-justify text-center fs-4" >En résumé, la décentralisation est bien plus qu'une simple caractéristique technique de la blockchain. C'est un changement fondamental de paradigme qui offre résistance, fiabilité et participation égale à tous les acteurs du réseau. C'est cette décentralisation qui donne à la blockchain son pouvoir de transformer la confiance et l'échange d'informations à l'échelle mondiale.</p>
     </div>
-    <a href="/pages/quizzBlockchain" class="text-white text-decoration-none btn btn-dark align-self-end me-5" >Quiz</a>
+    </div>
+    <div class="btn btn-dark align-self-end me-5 col-1" >
+        <a href="/pages/quizzBlockchain" class="text-white text-decoration-none" >Quiz</a>
+    </div>
 </main>
 
 <?= $this->element('footer')?>
