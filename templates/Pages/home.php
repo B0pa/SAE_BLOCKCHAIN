@@ -83,7 +83,7 @@
                 allowfullscreen>
             </iframe>
         </div>
-        <a href="/pages/actualite" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
+        <a href="/pages/actuality" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
     </aside>
 </div>
 
