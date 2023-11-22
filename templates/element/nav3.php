@@ -39,4 +39,3 @@ if ($currentURL === 'quizzblockchain') {
 
 
 </nav>
-

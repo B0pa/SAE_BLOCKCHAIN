@@ -19,4 +19,3 @@ if ($currentURL === 'tempreel') {
         <h1 class="h1 text-center"><?= $pageTitle ?></h1>
     </div>
 </nav>
-
