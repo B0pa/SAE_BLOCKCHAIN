@@ -45,24 +45,9 @@ class AppController extends Controller
 
         parent::initialize();
 
-        $this->loadComponent('Auth', [
-            'authenticate' => [
-                'Form' => [
-                    'fields' => [
-                        'username' => 'email',
-                        'password' => 'password'
-                    ]
-                ]
-            ],
-            'loginAction' => [
-                'controller' => 'Users',
-                'action' => 'login'
-            ],
-            'unauthorizedRedirect' => $this->referer()
-        ]);
+        $this->loadComponent('Flash');
+        $this->loadComponent('Authentication.Authentication');
         $this->defineNFTCookie();
-        $this->Auth->allow(['display', 'view', 'index']);
-
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.

@@ -35,7 +35,7 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-//        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home']);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home']);
     }
 
     /**
@@ -72,6 +72,9 @@ class PagesController extends AppController
 
     public function crypto()
     {
+        $userName = $this->request->getSession()->read('Auth.name');
+
+        $this->set(compact('userName'));
 
     }
 

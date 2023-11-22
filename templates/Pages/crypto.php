@@ -15,6 +15,8 @@
 
     <?= $this->Html->image('crypto.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 
+    <?= $userName ?>
+
     <div class="p-5">
         <h1 class="text-justify text-center">Les Cryptomonnaies Expliquées en Termes Simples : La Magie de la Monnaie Numérique</h1>
         <p class="text-justify text-center fs-4" >

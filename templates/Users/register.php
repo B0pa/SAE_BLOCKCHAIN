@@ -1,6 +1,6 @@
 <div class="users form">
     <?= $this->Flash->render() ?>
-    <h3>Login</h3>
+    <h3>Register</h3>
     <?= $this->Form->create() ?>
     <fieldset>
         <legend><?= __('Please enter your username and password') ?></legend>
@@ -8,9 +8,15 @@
             'required' => true,
             'class' => 'form-control',
         ]) ?>
-        <?= $this->Form->control('password', ['required' => true]) ?>
+        <?= $this->Form->control('name', [
+            'required' => true,
+            'class' => 'form-control',
+        ]) ?>
+        <?= $this->Form->control('password', ['required' => true,
+            'class' => 'form-control'
+        ]) ?>
     </fieldset>
-    <?= $this->Form->submit(__('Login')); ?>
+    <?= $this->Form->submit(__('s\'inscrire')); ?>
     <?= $this->Form->end() ?>
 
     <?= $this->Html->link("Add User", ['action' => 'add']) ?>
