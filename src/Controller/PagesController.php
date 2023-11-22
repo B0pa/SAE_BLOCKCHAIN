@@ -35,7 +35,7 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home']);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel']);
     }
 
     /**

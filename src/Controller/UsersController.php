@@ -57,8 +57,21 @@ class UsersController extends AppController
 
     }
 
+    public function update(){
 
+    }
 
+    public function updateactuality(){
+
+    }
+
+    public function updateinfo(){
+
+    }
+
+    public function updatequizz(){
+
+    }
 
 }
 
