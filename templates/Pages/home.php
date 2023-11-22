@@ -12,9 +12,8 @@
 
 <header>
     <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
-        <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid','alt' => 'icone wallet']); ?></a>
-        <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100','alt' => 'icone temp réel']); ?></a>
-
+        <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid image-nav','alt' => 'icone wallet']); ?></a>
+        <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']); ?></a>
         <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
             <h1 class="h1 text-center  ">Accueil</h1>
         </div>
