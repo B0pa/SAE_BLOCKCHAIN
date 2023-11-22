@@ -82,7 +82,7 @@ class AppController extends Controller
                 'domain' => '',
                 'secure' => false,
                 'httponly' => false,
-                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                'samesite' => null // Or one of CookieInterface::SAMESITE_* constant
             ]
         ));
 
