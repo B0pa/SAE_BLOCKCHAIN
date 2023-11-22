@@ -58,6 +58,8 @@ return function (RouteBuilder $routes): void {
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'home']);
 
 
+        $builder->connect('/adminlogin', ['controller' => 'Pages', 'action' => 'display', 'adminlogin']);
+        $builder->connect('/explication', ['controller' => 'Pages', 'action' => 'explication']);
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */

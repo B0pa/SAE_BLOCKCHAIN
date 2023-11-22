@@ -31,7 +31,6 @@ use Cake\I18n\DateTime;
  */
 class AppController extends Controller
 {
-    public $components = ['Database'];
     /**
      * Initialization hook method.
      *
@@ -47,6 +46,7 @@ class AppController extends Controller
         parent::initialize();
 
         $this->loadComponent('Flash');
+        $this->loadComponent('Authentication.Authentication');
         $this->defineNFTCookie();
 
 
