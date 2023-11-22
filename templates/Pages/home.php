@@ -5,6 +5,7 @@
     <title>ACCUEIL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body class="bg-secondary">
@@ -22,7 +23,7 @@
 </header>
 <div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5" >
     <main class="flex-grow-1 flex-shrink-0">
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
 
             <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail img-fluid']); ?>
 
@@ -34,7 +35,7 @@
 
         </div>
 
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
 
             <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
@@ -44,7 +45,7 @@
 
         </div>
 
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
 
             <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
@@ -54,7 +55,7 @@
 
         </div>
 
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
 
 
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
@@ -64,12 +65,12 @@
 
         </div>
 
-        <div class="explication p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11">
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11">
             <h2 class="h2 text-center" >Qui sommes-nous ?</h2>
         </div>
     </main>
 
-    <aside class="home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
+    <aside class="slideFromTop home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
         <div class="text-center" >
             <h2 class="h2">Les actualités</h2>
         </div>
