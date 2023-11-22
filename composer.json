@@ -5797,7 +5797,8 @@
     "plugin-api-version": "2.6.0",
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": false
+            "dealerdirect/phpcodesniffer-composer-installer": false,
+            "cakephp/plugin-installer": true
         }
     }
 }

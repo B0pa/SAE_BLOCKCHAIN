@@ -115,13 +115,23 @@ class PagesController extends AppController
 
     }
 
-    public function adminlogin()
+    public function adminLogin()
     {
+        $data = $this->request->getData();
 
+        // Identifie l'utilisateur
+        $user = $this->Auth->identify();
+
+        if ($user) {
+            // Connexion réussie, redirige vers la page admin
+            $this->Auth->setUser($user);
+            return $this->redirect(['controller' => 'Articles', 'action' => 'index']);
+
+        } else {
+            // Échec de la connexion, affiche un message
+            $this->Flash->error('Identifiants invalides');
+        }
     }
-
-
-
 }
 
 
