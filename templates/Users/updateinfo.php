@@ -2,10 +2,11 @@
 // page.php
 
 $pageType = strtolower(basename($_SERVER['REQUEST_URI']));
-
-$title = $this->request->getData('title');
-$text = $this->request->getData('text');
-$image = $this->request->getData('image');
+if ($this->request->is('post')) {
+    $title = $this->request->getData('title');
+    $text = $this->request->getData('text');
+    $image = $this->request->getData('image');
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,11 +32,10 @@ $image = $this->request->getData('image');
 
             <h1><?php echo $pageType ?></h1>
 
-            <form method="post">
+            <?= $this->Form->create() ?>
 
                 <div class="form-group">
-                    <label>Titre :</label>
-                    <input type="text" class="form-control" name="title">
+                    <?= $this->Form->control('title') ?>
                 </div>
 
                 <div class="form-group">
@@ -48,7 +48,13 @@ $image = $this->request->getData('image');
                     <input type="file" class="form-control" id="imageInput">
                 </div>
 
-            </form>
+                <?= $this->Form->submit('Soumettre', ['class' => 'btn btn-primary']) ?>
+
+            <?= $this->Form->end() ?>
+
+            <?php  var_dump($title) ?>
+            <?php  var_dump($image) ?>
+            <?php  var_dump($text) ?>
 
         </div>
 
