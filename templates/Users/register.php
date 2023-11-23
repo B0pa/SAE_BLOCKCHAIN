@@ -18,8 +18,8 @@
     </fieldset>
     <?= $this->Form->submit(__('s\'inscrire')); ?>
     <?= $this->Form->end() ?>
-git
-    <?= $this->Html->link("Add User", ['action' => 'add']) ?>
+
+
 </div>
 
 
