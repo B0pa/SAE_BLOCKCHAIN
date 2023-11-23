@@ -15,5 +15,9 @@
 </a>
 
 <a href="/users/updateactuality">ajouter des actualité</a>
-
-<a href="/users/updateinfo">ajouter des information</a>
+<div>
+    <a href="/users/updateinfo/nft">ajouter des information nft</a>
+    <a href="/users/updateinfo/crypto">ajouter des information crypto</a>
+    <a href="/users/updateinfo/danger">ajouter des information danger</a>
+    <a href="/users/updateinfo/blockchain">ajouter des information blockchain</a>
+</div>

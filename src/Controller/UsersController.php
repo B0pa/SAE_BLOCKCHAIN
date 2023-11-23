@@ -66,7 +66,8 @@ class UsersController extends AppController
     }
 
     public function updateinfo(){
-
+        $type = strtolower(basename($_SERVER['REQUEST_URI']));
+        $this->set(compact('type'));
     }
 
     public function updatequizz(){
