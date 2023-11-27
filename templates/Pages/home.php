@@ -69,7 +69,7 @@
         </div>
     </main>
 
-    <aside class="home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
+    <aside class="slideFromTop home-aside flex-shrink-0 text-white bg-dark rounded col-0 col-md-4 p-3 mt-4">
         <div class="text-center" >
             <h2 class="h2">Les actualités</h2>
         </div>
@@ -83,7 +83,7 @@
                 allowfullscreen>
             </iframe>
         </div>
-        <a href="/pages/actualite" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
+        <a href="/pages/actuality" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
     </aside>
 </div>
 
