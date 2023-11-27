@@ -3,14 +3,16 @@
         <div  id="update-tab-menu" class=" container h-100" >
                 <a href="/users/register" class="tab text-decoration-none text-dark text-center grow" >
                     <div class="my-auto">
-                       <h2>Ajouter un administrateur</h2> 
+                       <h2>Ajouter un administrateur</h2>
+                       <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                     </div>
                     
                 </a>
 
                 <a href="/users/updateactuality" class="tab text-decoration-none text-dark text-center grow" >
                     <div class="my-auto">
-                        <h2>Ajouter des actualités</h2> 
+                        <h2>Ajouter des actualités</h2>
+                        <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?> 
                     </div>
                     
                 </a>
@@ -18,7 +20,7 @@
                 <div class="tab text-center" >
                     <h2 class="mt-3" >Modifier des actualités</h2> 
                     <div class="mt-3 update-tab-contenu">
-                        
+                    <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                         <a href="#" class="my-1 text-dark grow" ><h3>NFT</h3></a>
                         <a href="#" class="my-1 text-dark grow" ><h3>Crypto</h3></a>
                         <a href="#" class="my-1 text-dark grow" ><h3>Blockchain</h3></a>
@@ -29,7 +31,7 @@
                 <div class="tab text-center">
                     <h2 class="mt-3" >Modifier des informations</h2> 
                     <div class="mt-3 update-tab-contenu">
-                        
+                    <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                         <a href="/users/updateinfo/nft" class="my-1 text-dark grow" ><h3>Ajouter des informations nft</h3></a>
                         <a href="/users/updateinfo/crypto" class="my-1 text-dark grow"><h3>Ajouter des informations crypto</h3></a>
                         <a href="/users/updateinfo/blockchain" class="my-1 text-dark grow" ><h3>Ajouter des informations blockchain</h3></a>
