@@ -13,6 +13,7 @@ $image = $this->request->getData('image');
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <br>
@@ -21,7 +22,7 @@ $image = $this->request->getData('image');
 <br>
 <br>
 
-<body>
+<body class="bg-secondary" >
 
 <div class="container mt-5">
 
@@ -52,11 +53,11 @@ $image = $this->request->getData('image');
 
         </div>
 
-        <aside class="col-4 border border-dark ">
+        <aside class="col-4 border border-dark overflow-auto ">
             <div class="preview">
-                <H3><span id="display-title"></span></H3>
-                <p><span id="display-text"></span></p>
-                <div id="imagePreview"></div>
+                <h3 class="h3 text-center" ><span id="display-title"></span></h3>
+                <p class="text-center" ><span id="display-text"></span></p>
+                <div id="imagePreview" ></div>
             </div>
         </aside>
 
@@ -82,7 +83,7 @@ $image = $this->request->getData('image');
         $('#imageInput').change(function() {
             let reader = new FileReader();
             reader.onload = function(e) {
-                $('#imagePreview').html('<img src="'+e.target.result+'" width="100%">');
+                $('#imagePreview').html('<img src="'+e.target.result+'" width="100%" class="rounded-3">');
             };
             reader.readAsDataURL(this.files[0]);
         });
