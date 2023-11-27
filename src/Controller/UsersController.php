@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Cake\Form\Form;
+
 class UsersController extends AppController
 {
 
@@ -66,7 +68,7 @@ class UsersController extends AppController
     }
 
     public function updateinfo(){
-
+        
     }
 
     public function updatequizz(){
