@@ -50,8 +50,8 @@
             <h2 class="h2 mx-auto">Les NFT</h2>
 
                 <?= $this->Html->link(
-                "Actualité",
-                ['controller'=> 'Pages', 'action' => 'nft'],
+                "NFT",
+                ['controller'=> 'Articles', 'action' => 'nft'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
                     'escapeTitle' => false
@@ -67,7 +67,7 @@
 
                 <?= $this->Html->link(
                 "crypto",
-                ['controller'=> 'Pages', 'action' => 'crypto'],
+                ['controller'=> 'Articles', 'action' => 'crypto'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
                     'escapeTitle' => false
@@ -83,7 +83,7 @@
 
                 <?= $this->Html->link(
                 "Danger",
-                ['controller'=> 'Pages', 'action' => 'danger'],
+                ['controller'=> 'Articles', 'action' => 'danger'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
                     'escapeTitle' => false

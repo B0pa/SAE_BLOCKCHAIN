@@ -120,4 +120,29 @@ class ArticlesController extends AppController
 
         $this->set(compact('articles'));
     }
+    public function crypto () {
+
+        $articles = $this->Articles->find()
+            ->where(['category' => 'crypto'])
+            ->toArray();
+
+        $this->set(compact('articles'));
+    }
+    public function danger () {
+
+        $articles = $this->Articles->find()
+            ->where(['category' => 'danger'])
+            ->toArray();
+
+        $this->set(compact('articles'));
+    }
+
+    public function nft () {
+
+        $articles = $this->Articles->find()
+            ->where(['category' => 'nft'])
+            ->toArray();
+
+        $this->set(compact('articles'));
+    }
 }
