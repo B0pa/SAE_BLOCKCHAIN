@@ -46,6 +46,10 @@
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($quiz->id) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Realanswer') ?></th>
+                    <td><?= $quiz->realanswer === null ? '' : $this->Number->format($quiz->realanswer) ?></td>
+                </tr>
             </table>
         </div>
     </div>

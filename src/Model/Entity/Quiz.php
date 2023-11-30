@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  * @property string|null $answer1
  * @property string|null $answer2
  * @property string|null $answer3
+ * @property int|null $realanswer
  * @property string|null $questionform
  * @property string|null $category
  */
@@ -32,6 +33,7 @@ class Quiz extends Entity
         'answer1' => true,
         'answer2' => true,
         'answer3' => true,
+        'realanswer' => true,
         'questionform' => true,
         'category' => true,
     ];

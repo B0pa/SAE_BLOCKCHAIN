@@ -71,6 +71,10 @@ class QuizTable extends Table
             ->allowEmptyString('answer3');
 
         $validator
+            ->integer('realanswer')
+            ->allowEmptyString('realanswer');
+
+        $validator
             ->scalar('questionform')
             ->maxLength('questionform', 45)
             ->allowEmptyString('questionform');

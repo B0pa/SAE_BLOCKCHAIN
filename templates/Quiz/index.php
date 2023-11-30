@@ -16,6 +16,7 @@
                     <th><?= $this->Paginator->sort('answer1') ?></th>
                     <th><?= $this->Paginator->sort('answer2') ?></th>
                     <th><?= $this->Paginator->sort('answer3') ?></th>
+                    <th><?= $this->Paginator->sort('realanswer') ?></th>
                     <th><?= $this->Paginator->sort('questionform') ?></th>
                     <th><?= $this->Paginator->sort('category') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -29,6 +30,7 @@
                     <td><?= h($quiz->answer1) ?></td>
                     <td><?= h($quiz->answer2) ?></td>
                     <td><?= h($quiz->answer3) ?></td>
+                    <td><?= $quiz->realanswer === null ? '' : $this->Number->format($quiz->realanswer) ?></td>
                     <td><?= h($quiz->questionform) ?></td>
                     <td><?= h($quiz->category) ?></td>
                     <td class="actions">

@@ -21,6 +21,7 @@
                     echo $this->Form->control('answer1');
                     echo $this->Form->control('answer2');
                     echo $this->Form->control('answer3');
+                    echo $this->Form->control('realanswer');
                     echo $this->Form->control('questionform');
                     echo $this->Form->control('category');
                 ?>
