@@ -5,11 +5,11 @@ $pageTitle = 'Erreur'; // Valeur par défaut
 $crypto = '';
 $nb = '';
 
-if ($currentURL === 'quizzblockchain') {
+if ($currentURL === 'quizz-blockchain') {
     $pageTitle = 'Quizz Blockchain';
     $crypto = 'cryptoblockchain.png';
     $nb = $this->getRequest()->getCookie('blockchain');
-} elseif ($currentURL === 'quizzdanger') {
+} elseif ($currentURL === 'quizz-danger') {
     $crypto = 'cryptodanger.png';
     $pageTitle = 'Quizz Danger';
     $nb = $this->getRequest()->getCookie('danger');
@@ -17,7 +17,7 @@ if ($currentURL === 'quizzblockchain') {
     $crypto ="cryptobitcoin.png";
     $pageTitle = 'Quizz Crypto';
     $nb = $this->getRequest()->getCookie('crypto');
-} elseif ($currentURL === 'quizznft') {
+} elseif ($currentURL === 'quizz-n-f-t') {
     $crypto = "cryptoNFT.png";
     $pageTitle = 'Quizz NFT';
     $nb = $this->getRequest()->getCookie('nft');
