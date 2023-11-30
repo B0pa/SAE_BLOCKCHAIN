@@ -108,21 +108,37 @@ class QuizController extends AppController
 
     public function quizzDanger()
     {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'danger'])
+            ->toArray();
 
+        $this->set(compact('quiz'));
     }
 
     public function quizzNFT()
     {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'nft'])
+            ->toArray();
 
+        $this->set(compact('quiz'));
     }
 
     public function quizzcrypto()
     {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'crypto'])
+            ->toArray();
 
+        $this->set(compact('quiz'));
     }
 
     public function quizzBlockchain()
     {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'blockchain'])
+            ->toArray();
 
+        $this->set(compact('quiz'));
     }
 }
