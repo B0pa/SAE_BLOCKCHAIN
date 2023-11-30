@@ -1,9 +1,12 @@
 <?php
 /** @var \App\Model\Entity\Article[] $articles */
 foreach ($articles as $article) :
-?>
+    ?>
+    <p><?= $article->level?></p>
     <h2><?= $article->title ?></h2>
-    <p></p>
+    <p><?= $article->content?></p>
+    <?= $this->Html->image($article->image)?>
+
 <?php
 endforeach;
 ?>
@@ -62,11 +65,11 @@ endforeach;
         <p class="text-justify text-center fs-4" >La décentralisation permet une évolutivité horizontale, ce qui signifie que le réseau peut s'agrandir sans ajouter de complexité à chaque nœud individuel. Cela facilite la croissance du réseau sans sacrifier sa performance.</p>
         <p class="text-justify text-center fs-4" >En résumé, la décentralisation est bien plus qu'une simple caractéristique technique de la blockchain. C'est un changement fondamental de paradigme qui offre résistance, fiabilité et participation égale à tous les acteurs du réseau. C'est cette décentralisation qui donne à la blockchain son pouvoir de transformer la confiance et l'échange d'informations à l'échelle mondiale.</p>
     </div>
-    </div>
+
     <div class="btn btn-dark align-self-end me-5 col-1" >
         <?= $this->Html->link(
             "Quizz",
-            ['controller'=> 'Pages', 'action' => '/pages/quizz_blockchain'],
+            ['controller'=> 'Quiz', 'action' => 'quizz_blockchain'],
             [
                 'class' => 'nav-link d-flex align-items-center',
                 'escapeTitle' => false

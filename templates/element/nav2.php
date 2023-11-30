@@ -12,9 +12,9 @@ if ($currentURL === 'tempreel') {
 ?>
 
 
-<nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top position-relative" style="height: 100px;">
+<nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top" style="height: 100px;">
     <?= $this->Html->link(
-        $this->Html->image('acceuil.png', ['class' => 'position-absolute img-fluid image-nav','alt' => 'accueil']),
+        $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav','alt' => 'accueil']),
         ['controller'=> 'Pages', 'action' => 'home'],
         [
             'class' => 'nav-link d-flex align-items-center',

@@ -14,7 +14,7 @@
 <header>
     <?= $this->element('nav2')?>
 </header>
-<main class="mt-5 justify-content-around d-md-flex col-sm- min-vh-100" >
+<main class="mt-5 pt-5 justify-content-around d-md-flex col-sm- min-vh-100" >
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptobitcoin.png', ['class' => 'rounded-circle','alt' => 'crypto Bitcoin']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2" ><?php echo $this->getRequest()->getCookie('crypto'); ?></p>

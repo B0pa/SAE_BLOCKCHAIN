@@ -20,9 +20,9 @@ if ($currentURL === 'explication') {
 ?>
 
 
-<nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top position-relative" style="height: 100px;">
+<nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top " style="height: 100px;">
     <?= $this->Html->link(
-        $this->Html->image('acceuil.png', ['class' => 'position-absolute top-0 img-fluid h-100 image-nav','alt' => 'accueil']),
+        $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav','alt' => 'accueil']),
         ['controller'=> 'Pages', 'action' => 'home'],
         [
             'class' => 'nav-link d-flex align-items-center',
@@ -31,7 +31,7 @@ if ($currentURL === 'explication') {
     ) ?>
 
     <?= $this->Html->link(
-        $this->Html->image('temp reel.png', ['class' => 'position-absolute top-0 img-fluid h-100 image-nav','style'=>' left:150px','alt' => 'icone temp réel']),
+        $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']),
         ['controller'=> 'Pages', 'action' => 'tempreel'],
         [
             'class' => 'nav-link d-flex align-items-center',

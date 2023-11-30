@@ -15,17 +15,13 @@ if ($currentURL === 'update') {
     $pageTitle = 'Update info';
 } elseif ($currentURL === 'updatequizz') {
     $pageTitle = 'Update quiz';
-}elseif ($currentURL === 'add') {
-    $pageTitle = 'Add';
-}elseif ($currentURL === 'edit') {
-    $pageTitle = 'Edit';
 }
 
 ?>
 
 
 <nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top " style="height: 100px;">
-    
+
     <?= $this->Html->link(
         $this->Html->image('home-update.png', ['class' => 'img-fluid h-100 image-nav bg-warning rounded-circle ','alt' => 'icon home admin']),
         ['controller'=> 'Users', 'action' => 'update'],

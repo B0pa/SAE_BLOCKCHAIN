@@ -1,6 +1,6 @@
 <body>
-    <?= $this->element('nav_admin')?>
-    <main>
+<?= $this->element('nav_admin')?>
+<main>
 
-    </main>
+</main>
 </body>

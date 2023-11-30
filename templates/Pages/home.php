@@ -11,10 +11,10 @@
 <body class="bg-secondary">
 
 <header>
-    <nav class="navbar navbar-dark bg-dark d-flex fixed-top position-relative" style="height: 105px;">
+    <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
 
         <?= $this->Html->link(
-            $this->Html->image('wallet.png', ['class' => 'position-absolute top-0 img-fluid h-100 image-nav','alt' => 'icone wallet']),
+            $this->Html->image('wallet.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone wallet']),
             ['controller'=> 'Pages', 'action' => 'wallet'],
             [
                 'class' => 'nav-link d-flex align-items-center',
@@ -23,7 +23,7 @@
         ) ?>
 
         <?= $this->Html->link(
-            $this->Html->image('temp reel.png', ['class' => 'position-absolute top-0 img-fluid h-100 image-nav','style'=>' left:150px','alt' => 'icone temp réel']),
+            $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']),
             ['controller'=> 'Pages', 'action' => 'tempreel'],
             [
                 'class' => 'nav-link d-flex align-items-center',
@@ -39,7 +39,7 @@
 
     </nav>
 </header>
-<div class="d-flex flex-column flex-md-row mx-1 mt-2 mx-md-5" >
+<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5" >
     <main class="flex-grow-1 flex-shrink-0">
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
 
@@ -50,8 +50,8 @@
             <h2 class="h2 mx-auto">Les NFT</h2>
 
                 <?= $this->Html->link(
-                "Actualité",
-                ['controller'=> 'Pages', 'action' => 'nft'],
+                "NFT",
+                ['controller'=> 'Articles', 'action' => 'nft'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
                     'escapeTitle' => false
@@ -67,7 +67,7 @@
 
                 <?= $this->Html->link(
                 "crypto",
-                ['controller'=> 'Pages', 'action' => 'crypto'],
+                ['controller'=> 'Articles', 'action' => 'crypto'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
                     'escapeTitle' => false
@@ -83,7 +83,7 @@
 
                 <?= $this->Html->link(
                 "Danger",
-                ['controller'=> 'Pages', 'action' => 'danger'],
+                ['controller'=> 'Articles', 'action' => 'danger'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
                     'escapeTitle' => false

@@ -18,7 +18,7 @@ class ArticlesController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['blockchain']);
+        $this->Authentication->allowUnauthenticated(['blockchain','nft','crypto','danger']);
     }
 
     /**
@@ -116,6 +116,31 @@ class ArticlesController extends AppController
 
         $articles = $this->Articles->find()
             ->where(['category' => 'blockchain'])
+            ->toArray();
+
+        $this->set(compact('articles'));
+    }
+    public function crypto () {
+
+        $articles = $this->Articles->find()
+            ->where(['category' => 'crypto'])
+            ->toArray();
+
+        $this->set(compact('articles'));
+    }
+    public function danger () {
+
+        $articles = $this->Articles->find()
+            ->where(['category' => 'danger'])
+            ->toArray();
+
+        $this->set(compact('articles'));
+    }
+
+    public function nft () {
+
+        $articles = $this->Articles->find()
+            ->where(['category' => 'nft'])
             ->toArray();
 
         $this->set(compact('articles'));
