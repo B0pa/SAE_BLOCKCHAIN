@@ -43,7 +43,7 @@ endforeach;
 <div class="btn btn-dark align-self-end me-5 col-1" >
     <?= $this->Html->link(
         "Quizz",
-        ['controller'=> 'Pages', 'action' => 'quizz_n_f_t'],
+        ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
         [
             'class' => 'nav-link d-flex align-items-center',
             'escapeTitle' => false

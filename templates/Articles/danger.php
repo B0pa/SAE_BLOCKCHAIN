@@ -32,7 +32,7 @@ endforeach;
 </div>
 <?= $this->Html->link(
     "Quizz",
-    ['controller'=> 'Pages', 'action' => 'quizz_danger'],
+    ['controller'=> 'Quiz', 'action' => 'quizz_danger'],
     [
         'class' => 'nav-link d-flex align-items-center',
         'escapeTitle' => false
