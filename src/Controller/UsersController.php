@@ -70,34 +70,29 @@ class UsersController extends AppController
     public function updateinfo(){
 
 
-//        $info = new Form();
-//        if ($this->request->is('post')) {
-//            $this->Flash->success(__("succés"));
-//
-//            return $this->redirect('/');
-//
-//
-//        }
-//        $this->set("info",$info);
 
-
-//        if ($this->request->is('post')) {
-//            debug($this->request->getData()); // Contient-il les données postées ?
-//            $this->Flash->success(__("succés"));
-//
-//            return $this->redirect('/');
-//        }
         $page = $this->Users->newEmptyEntity(); // entité vide
         if (!empty($this->request->getData())) {
             $this->Users->patchEntity($page, $this->request->getData());
-            //debug($this->request->getData());
-            if ($this->Users->save($page)) {
+            $this->Users->save($page);
 
+
+                $titre = $this->request->getData('titre');
+                $text = $this->request->getData('text');
+
+                //$image = $this->request->getData('image');
+
+
+                //$dataimage = base64_encode($image);
+
+
+                //var_dump($titre);
+                //var_dump($text);
+                var_dump($image);
                 $this->Flash->success(__('la page a été sauvegardée'));
 
-                return $this->redirect('/');
-            }
-            $this->Flash->error(__('la page na pas été enregistrer reessayer D=.'));
+
+              //  $this->Flash->error(__('la page na pas été enregistrer reessayer D=.'));
         }
         $this->set(compact('page'));
     }
