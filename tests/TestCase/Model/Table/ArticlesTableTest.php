@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\BlockchainArticleTable;
+use App\Model\Table\ArticlesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\BlockchainArticleTable Test Case
+ * App\Model\Table\ArticlesTable Test Case
  */
-class BlockchainArticleTableTest extends TestCase
+class ArticlesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\BlockchainArticleTable
+     * @var \App\Model\Table\ArticlesTable
      */
-    protected $BlockchainArticle;
+    protected $Articles;
 
     /**
      * Fixtures
@@ -24,7 +24,11 @@ class BlockchainArticleTableTest extends TestCase
      * @var array<string>
      */
     protected array $fixtures = [
-        'app.BlockchainArticle',
+        'app.Articles',
+        'app.Blockchain',
+        'app.Crypto',
+        'app.Danger',
+        'app.Nft',
     ];
 
     /**
@@ -35,8 +39,8 @@ class BlockchainArticleTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('BlockchainArticle') ? [] : ['className' => BlockchainArticleTable::class];
-        $this->BlockchainArticle = $this->getTableLocator()->get('BlockchainArticle', $config);
+        $config = $this->getTableLocator()->exists('Articles') ? [] : ['className' => ArticlesTable::class];
+        $this->Articles = $this->getTableLocator()->get('Articles', $config);
     }
 
     /**
@@ -46,7 +50,7 @@ class BlockchainArticleTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->BlockchainArticle);
+        unset($this->Articles);
 
         parent::tearDown();
     }
@@ -55,7 +59,7 @@ class BlockchainArticleTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\BlockchainArticleTable::validationDefault()
+     * @uses \App\Model\Table\ArticlesTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

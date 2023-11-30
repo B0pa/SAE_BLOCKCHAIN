@@ -6,15 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * BlockchainArticle Entity
+ * Quiz Entity
  *
- * @property int|null $niveau
- * @property int|null $id
- * @property string|null $titre
- * @property string|null $contenue
- * @property string|resource|null $image
+ * @property int $id
+ * @property string|null $question
+ * @property string|null $answer1
+ * @property string|null $answer2
+ * @property string|null $answer3
+ * @property string|null $questionform
+ * @property string|null $category
  */
-class BlockchainArticle extends Entity
+class Quiz extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -26,10 +28,11 @@ class BlockchainArticle extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
-        'niveau' => true,
-        'id' => true,
-        'titre' => true,
-        'contenue' => true,
-        'image' => true,
+        'question' => true,
+        'answer1' => true,
+        'answer2' => true,
+        'answer3' => true,
+        'questionform' => true,
+        'category' => true,
     ];
 }

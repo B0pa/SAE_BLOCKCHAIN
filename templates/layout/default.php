@@ -8,7 +8,7 @@
     <link  href="/css/style.css" rel="stylesheet">
 </head>
 <body>
-<?= $this->element('nav') ?>
+<?php //= $this->element('nav') ?>
 <div CLASS="separateur"></div>
 
 

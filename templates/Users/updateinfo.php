@@ -1,7 +1,7 @@
 <?php
 
 $pageType = strtolower(basename($_SERVER['REQUEST_URI']));
-
+$form = new \Cake\Form\Form();
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $pageType = strtolower(basename($_SERVER['REQUEST_URI']));
 <br>
 <br>
 
-<body>
+<body class="bg-secondary" >
 
 <div class="container mt-5">
 
@@ -27,8 +27,7 @@ $pageType = strtolower(basename($_SERVER['REQUEST_URI']));
 
             <h1><?php echo $pageType ?></h1>
 
-            <?= $this->Form->create() ?>
-
+            <?= $this->Form->create($form ,['type' => 'file']) ?>
             <div class="form-group">
                 <?= $this->Form->text('titre', [
                     'required' => true,
@@ -53,14 +52,14 @@ $pageType = strtolower(basename($_SERVER['REQUEST_URI']));
 
         </div>
 
-        <aside class="col-4 border border-dark overflow-auto">
+        <aside class="col-4 border border-dark overflow-auto ">
             <div class="preview">
-                <h2><?= $pageType ?></h2>
-                <H3><span id="display-title"></span></H3>
-                <p><span id="display-text"></span></p>
-                <div id="imagePreview"></div>
+                <h3 class="h3 text-center" ><span id="display-title"></span></h3>
+                <p class="text-center" ><span id="display-text"></span></p>
+                <div id="imagePreview" ></div>
             </div>
         </aside>
+
 
     </div>
 

@@ -1,23 +1,59 @@
-<br>
-<br>
-<br>
-<br>
-<br>
+<body class="pt-5 bg-secondary h-100 " >
+<main class="mt-5 pt-5 h-100" >
+    <div  id="update-tab-menu" class=" container h-100" >
+        <a href="/users/register" class="tab text-decoration-none text-dark text-center grow" >
+            <div class="my-auto">
+                <h2>Ajouter un administrateur</h2>
+                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+            </div>
 
-<a href="/users/register">
-    Ajouter un administrateur
-</a>
+        </a>
+
+        <a href="/users/updateactuality" class="tab text-decoration-none text-dark text-center grow" >
+            <div class="my-auto">
+                <h2>Ajouter des actualités</h2>
+                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+            </div>
+
+        </a>
+
+        <div class="tab text-center" >
+            <h2 class="mt-3" >Modifier des actualités</h2>
+            <div class="mt-3 update-tab-contenu">
+                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+
+            </div>
+        </div>
+
+        <div class="tab text-center">
+            <h2 class="mt-3" >Modifier des informations</h2>
+            <div class="mt-3 update-tab-contenu">
+                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+
+                <?= $this->Html->link(
+                    "Ajouter Articles",
+                    ['controller'=> 'Articles', 'action' => 'add'],
+                    [
+                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                        'escapeTitle' => false
+                    ]
+                ) ?>
+
+                <?= $this->Html->link(
+                    "Modifier Articles",
+                    ['controller'=> 'Articles', 'action' => 'index'],
+                    [
+                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                        'escapeTitle' => false
+                    ]
+                ) ?>
+
+            </div>
 
 
+        </div>
+    </div>
 
-<a href="/users/updatequizz">
-    Ajouter des quizz
-</a>
 
-<a href="/users/updateactuality">ajouter des actualité</a>
-<div>
-    <a href="/users/updateinfo/nft">ajouter des information nft</a>
-    <a href="/users/updateinfo/crypto">ajouter des information crypto</a>
-    <a href="/users/updateinfo/danger">ajouter des information danger</a>
-    <a href="/users/updateinfo/blockchain">ajouter des information blockchain</a>
-</div>
+</main>
+</body>

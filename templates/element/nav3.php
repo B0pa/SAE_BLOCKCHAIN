@@ -26,8 +26,25 @@ if ($currentURL === 'quizzblockchain') {
 ?>
 
 <nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top" style="height: 100px;">
-    <a href='/pages/home' class='nav-link d-flex align-items-center'><?= $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav','alt' => 'acceuil']); ?></a>
-    <a  href='/pages/tempreel' class='nav-link d-flex align-items-center'><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']); ?></a>
+    <?= $this->Html->link(
+        $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav','alt' => 'accueil']),
+        ['controller'=> 'Pages', 'action' => 'home'],
+        [
+            'class' => 'nav-link d-flex align-items-center',
+            'escapeTitle' => false
+        ]
+    ) ?>
+
+
+    <?= $this->Html->link(
+        $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']),
+        ['controller'=> 'Pages', 'action' => 'tempreel'],
+        [
+            'class' => 'nav-link d-flex align-items-center',
+            'escapeTitle' => false
+        ]
+    ) ?>
+
 
     <div class="d-flex ">
         <?= $this->Html->image($crypto, ['class' => ' rounded-circle','alt' => 'icone temp réel' , 'style' => 'height : 50px']); ?>
