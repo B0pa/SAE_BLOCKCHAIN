@@ -15,7 +15,7 @@
     <div id="quiz-container">
         <div class="PTop">
 
-            <p id="score">Danger : 0</p>
+<!--            <p id="score">Danger : 0</p>-->
         </div>
         <div id="quizzes" class="grid-container">
             <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->

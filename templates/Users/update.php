@@ -19,9 +19,27 @@
         </a>
 
         <div class="tab text-center" >
-            <h2 class="mt-3" >Modifier des actualités</h2>
+            <h2 class="mt-3" >Modifier des quiz</h2>
             <div class="mt-3 update-tab-contenu">
                 <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+
+                <?= $this->Html->link(
+                    "Ajouter des quiz",
+                    ['controller'=> 'Quiz', 'action' => 'add'],
+                    [
+                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                        'escapeTitle' => false
+                    ]
+                ) ?>
+
+                <?= $this->Html->link(
+                    "Modifier des quiz",
+                    ['controller'=> 'Articles', 'action' => 'index'],
+                    [
+                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                        'escapeTitle' => false
+                    ]
+                ) ?>
 
             </div>
         </div>
