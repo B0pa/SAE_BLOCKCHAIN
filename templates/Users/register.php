@@ -1,7 +1,7 @@
 <body class="bg-secondary pt-5" >
 <?= $this->element('nav_admin')?>
 <main class="pt-5 mt-5">
-    <div class="users d-flex form mt-5 pt-5 col-5 mx-auto">
+    <div class="users d-flex form mt-5 pt-5 col-12 col-md-5 mx-auto">
         <?= $this->Flash->render() ?>
         <div class="my-5 text-center" ></div>
         <?= $this->Form->create() ?>
