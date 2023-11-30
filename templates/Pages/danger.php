@@ -12,7 +12,7 @@
 </head>
 <body class="bg-secondary">
 <?= $this->element('nav')?>
-<main  class="mt-5 pt-5 d-flex flex-column min-vh-100">
+<main  class="mt-5 d-flex flex-column min-vh-100">
 
     <?= $this->Html->image('danger.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 

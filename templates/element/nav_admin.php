@@ -15,6 +15,10 @@ if ($currentURL === 'update') {
     $pageTitle = 'Update info';
 } elseif ($currentURL === 'updatequizz') {
     $pageTitle = 'Update quiz';
+}elseif ($currentURL === 'add') {
+    $pageTitle = 'Add';
+}elseif ($currentURL === 'edit') {
+    $pageTitle = 'Edit';
 }
 
 ?>

@@ -10,12 +10,8 @@
 <nav>
     <?= $this->element('nav3')?>
 </nav>
-<main class="pt-5 mt-5" style="height:150vh">
+<main style="height:150vh">
     <div id="quiz-container d-flex flex-column">
-        <div class="pt-3">
-
-            <p id="score">NFT : 0</p>
-        </div>
         <div id="quizzes">
             <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->
         </div>
