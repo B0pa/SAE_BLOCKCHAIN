@@ -1,9 +1,12 @@
 <?php
 /** @var \App\Model\Entity\Article[] $articles */
 foreach ($articles as $article) :
-?>
+    ?>
+    <p><?= $article->level?></p>
     <h2><?= $article->title ?></h2>
-    <p></p>
+    <p><?= $article->content?></p>
+    <?= $this->Html->image($article->image)?>
+
 <?php
 endforeach;
 ?>

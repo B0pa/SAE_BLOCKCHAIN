@@ -2,11 +2,17 @@
 /** @var \App\Model\Entity\Article[] $articles */
 foreach ($articles as $article) :
     ?>
+    <p><?= $article->level?></p>
     <h2><?= $article->title ?></h2>
-    <p></p>
+    <p><?= $article->content?></p>
+    <?= $this->Html->image($article->image)?>
+
 <?php
 endforeach;
-?><?= $this->Html->image('crypto.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+?>
+
+
+<?= $this->Html->image('crypto.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 
 <?php //= $userName ?><!-- -->
 
