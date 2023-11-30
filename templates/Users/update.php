@@ -19,28 +19,28 @@
         </a>
 
         <div class="tab text-center" >
-            <h2 class="mt-3" >Modifier des quiz</h2>
+            <h2 class="mt-3" >Modifier des Quizz</h2>
             <div class="mt-3 update-tab-contenu">
                 <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <div class="d-flex justify-content-around  " >
+                    <?= $this->Html->link(
+                        "Ajouter Articles",
+                        ['controller'=> 'Quiz', 'action' => 'add'],
+                        [
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'escapeTitle' => false
+                        ]
+                    ) ?>
 
-                <?= $this->Html->link(
-                    "Ajouter des quiz",
-                    ['controller'=> 'Quiz', 'action' => 'add'],
-                    [
-                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
-                        'escapeTitle' => false
-                    ]
-                ) ?>
-
-                <?= $this->Html->link(
-                    "Modifier des quiz",
-                    ['controller'=> 'Articles', 'action' => 'index'],
-                    [
-                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
-                        'escapeTitle' => false
-                    ]
-                ) ?>
-
+                    <?= $this->Html->link(
+                        "Modifier Articles",
+                        ['controller'=> 'Quiz', 'action' => 'index'],
+                        [
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'escapeTitle' => false
+                        ]
+                    ) ?>
+                </div>
             </div>
         </div>
 
@@ -48,24 +48,26 @@
             <h2 class="mt-3" >Modifier des informations</h2>
             <div class="mt-3 update-tab-contenu">
                 <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <div class="d-flex justify-content-around  " >
+                    <?= $this->Html->link(
+                        "Ajouter Articles",
+                        ['controller'=> 'Articles', 'action' => 'add'],
+                        [
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'escapeTitle' => false
+                        ]
+                    ) ?>
 
-                <?= $this->Html->link(
-                    "Ajouter Articles",
-                    ['controller'=> 'Articles', 'action' => 'add'],
-                    [
-                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
-                        'escapeTitle' => false
-                    ]
-                ) ?>
+                    <?= $this->Html->link(
+                        "Modifier Articles",
+                        ['controller'=> 'Articles', 'action' => 'index'],
+                        [
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'escapeTitle' => false
+                        ]
+                    ) ?>
+                </div>
 
-                <?= $this->Html->link(
-                    "Modifier Articles",
-                    ['controller'=> 'Articles', 'action' => 'index'],
-                    [
-                        'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
-                        'escapeTitle' => false
-                    ]
-                ) ?>
 
             </div>
 

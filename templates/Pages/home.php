@@ -33,7 +33,7 @@
 
 
 
-        <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
+        <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1 ">
             <h1 class="h1 text-center  ">Accueil</h1>
         </div>
 
@@ -49,7 +49,7 @@
 
             <h2 class="h2 mx-auto">Les NFT</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "NFT",
                 ['controller'=> 'Articles', 'action' => 'nft'],
                 [
@@ -65,7 +65,7 @@
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "crypto",
                 ['controller'=> 'Articles', 'action' => 'crypto'],
                 [
@@ -81,7 +81,7 @@
 
             <h2 class="h2 mx-auto" >Les dangers</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "Danger",
                 ['controller'=> 'Articles', 'action' => 'danger'],
                 [
@@ -97,7 +97,7 @@
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
             <h2 class="h2 mx-auto">Les blockchain</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "Blockchain",
                 ['controller'=> 'Articles', 'action' => 'blockchain'],
                 [
