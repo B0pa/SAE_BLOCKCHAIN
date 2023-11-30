@@ -12,8 +12,27 @@
 
 <header>
     <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
-        <a href="/pages/wallet" class="nav-link d-flex align-items-center"><?= $this->Html->image('wallet.png', ['class' => 'img-fluid image-nav','alt' => 'icone wallet']); ?></a>
-        <a  href="/pages/tempreel" class="nav-link d-flex align-items-center"><?= $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']); ?></a>
+
+        <?= $this->Html->link(
+            $this->Html->image('wallet.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone wallet']),
+            ['controller'=> 'Pages', 'action' => 'wallet'],
+            [
+                'class' => 'nav-link d-flex align-items-center',
+                'escapeTitle' => false
+            ]
+        ) ?>
+
+        <?= $this->Html->link(
+            $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']),
+            ['controller'=> 'Pages', 'action' => 'tempreel'],
+            [
+                'class' => 'nav-link d-flex align-items-center',
+                'escapeTitle' => false
+            ]
+        ) ?>
+
+
+
         <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
             <h1 class="h1 text-center  ">Accueil</h1>
         </div>
@@ -30,8 +49,14 @@
 
             <h2 class="h2 mx-auto">Les NFT</h2>
 
-                <a href="/pages/nft" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
-
+                <?= $this->Html->link(
+                "Actualité",
+                ['controller'=> 'Pages', 'action' => 'nft'],
+                [
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'escapeTitle' => false
+                ]
+            ) ?>
         </div>
 
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
@@ -40,8 +65,14 @@
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
 
-                <a href="/pages/crypto" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
-
+                <?= $this->Html->link(
+                "crypto",
+                ['controller'=> 'Pages', 'action' => 'crypto'],
+                [
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'escapeTitle' => false
+                ]
+            ) ?>
         </div>
 
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
@@ -50,8 +81,14 @@
 
             <h2 class="h2 mx-auto" >Les dangers</h2>
 
-                <a href="/pages/danger" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
-
+                <?= $this->Html->link(
+                "Danger",
+                ['controller'=> 'Pages', 'action' => 'danger'],
+                [
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'escapeTitle' => false
+                ]
+            ) ?>
         </div>
 
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
@@ -60,7 +97,14 @@
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
             <h2 class="h2 mx-auto">Les blockchain</h2>
 
-                <a href="/pages/blockchain" class="text-white text-decoration-none btn btn-secondary align-self-end" >Explications</a>
+                <?= $this->Html->link(
+                "Blockchain",
+                ['controller'=> 'Articles', 'action' => 'blockchain'],
+                [
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'escapeTitle' => false
+                ]
+            ) ?>
 
         </div>
 
@@ -83,7 +127,15 @@
                 allowfullscreen>
             </iframe>
         </div>
-        <a href="/pages/actuality" class="text-white text-decoration-none btn btn-secondary align-self-end" >Actualité</a>
+        <?= $this->Html->link(
+            "Actualité",
+            ['controller'=> 'Pages', 'action' => 'actuality'],
+            [
+                'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                'escapeTitle' => false
+            ]
+        ) ?>
+
     </aside>
 </div>
 

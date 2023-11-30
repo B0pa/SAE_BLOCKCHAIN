@@ -13,8 +13,14 @@ if ($currentURL === 'tempreel') {
 
 
 <nav class="navbar navbar-dark bg-dark d-flex align-items-center fixed-top" style="height: 100px;">
-    <a href='/pages/home' class='nav-link d-flex align-items-center'><?= $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav','alt' => 'acceuil']); ?></a>
-
+    <?= $this->Html->link(
+        $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav','alt' => 'accueil']),
+        ['controller'=> 'Pages', 'action' => 'home'],
+        [
+            'class' => 'nav-link d-flex align-items-center',
+            'escapeTitle' => false
+        ]
+    ) ?>
     <div class="bg-warning rounded-pill col-5 mx-auto">
         <h1 class="h1 text-center"><?= $pageTitle ?></h1>
     </div>

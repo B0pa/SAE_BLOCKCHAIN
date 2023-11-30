@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Cake\Form\Form;
+
 class UsersController extends AppController
 {
 
@@ -66,8 +68,33 @@ class UsersController extends AppController
     }
 
     public function updateinfo(){
-        $type = strtolower(basename($_SERVER['REQUEST_URI']));
-        $this->set(compact('type'));
+
+
+
+        $page = $this->Users->newEmptyEntity(); // entité vide
+        if (!empty($this->request->getData())) {
+            $this->Users->patchEntity($page, $this->request->getData());
+            $this->Users->save($page);
+
+
+                $titre = $this->request->getData('titre');
+                $text = $this->request->getData('text');
+
+                //$image = $this->request->getData('image');
+
+
+                //$dataimage = base64_encode($image);
+
+
+                //var_dump($titre);
+                //var_dump($text);
+                var_dump($image);
+                $this->Flash->success(__('la page a été sauvegardée'));
+
+
+              //  $this->Flash->error(__('la page na pas été enregistrer reessayer D=.'));
+        }
+        $this->set(compact('page'));
     }
 
     public function updatequizz(){

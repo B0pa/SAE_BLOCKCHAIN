@@ -1,15 +1,15 @@
 @keyframes slideInFromTop {
-  0% {
-    transform: translateY(-550%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    0% {
+        transform: translateY(-550%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .slideFromTop {
@@ -18,11 +18,11 @@
 }
 
 .btn {
-  transition: transform .2s;
+    transition: transform .2s;
 }
 
 .btn:hover , .grow:hover{
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .image-nav:hover {
