@@ -33,7 +33,7 @@
 
 
 
-        <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
+        <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1 ">
             <h1 class="h1 text-center  ">Accueil</h1>
         </div>
 
