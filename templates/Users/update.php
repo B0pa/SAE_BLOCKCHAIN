@@ -1,4 +1,5 @@
 <body class="pt-5 bg-secondary h-100 " >
+<?= $this->element('nav_admin')?>
 <main class="mt-5 pt-5 h-100" >
     <div  id="update-tab-menu" class=" container h-100" >
         <a href="/users/register" class="tab text-decoration-none text-dark text-center grow" >

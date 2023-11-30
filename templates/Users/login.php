@@ -1,5 +1,5 @@
-<main class="pt-5 mt-5 bg-secondary d-flex flex-column align-items-center my-auto" style="height:100vh;">
-    <div class="bg-danger my-5 pt-5 " ></div>
+<main class="bg-secondary d-flex flex-column align-items-center my-auto" style="height:100vh;">
+    <div class="bg-danger my-4" ></div>
     <div class="users form mt-5 bg-secondary rounded-3 col-10 mx-auto text-white p-3">
         <?= $this->Flash->render() ?>
         <div class="box text-white bg-dark m-auto">
@@ -20,7 +20,7 @@
                             'class'=>'text-white']) ?>
                     <i></i>
                 </div>
-                <?= $this->Form->submit(__('Login'), ['class' => 'mt-2 m-auto col-12 text-center align-self-center']); ?>
+                <?= $this->Form->submit(__('Login'), ['class' => 'mt-2 m-auto col-12 text-center align-self-center btn btn-secondary']); ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>
