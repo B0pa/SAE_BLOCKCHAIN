@@ -27,7 +27,7 @@
                         "Ajouter Articles",
                         ['controller'=> 'Quiz', 'action' => 'add'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>
@@ -36,7 +36,7 @@
                         "Modifier Articles",
                         ['controller'=> 'Quiz', 'action' => 'index'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>
@@ -53,7 +53,7 @@
                         "Ajouter Articles",
                         ['controller'=> 'Articles', 'action' => 'add'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>
@@ -62,7 +62,7 @@
                         "Modifier Articles",
                         ['controller'=> 'Articles', 'action' => 'index'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>
