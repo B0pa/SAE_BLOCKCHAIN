@@ -115,13 +115,49 @@ class QuizController extends AppController
         $this->set(compact('quiz'));
     }
 
-    public function quizzNFT()
-    {
-        $quiz = $this->Quiz->find()
-            ->where(['category' => 'nft'])
-            ->toArray();
 
-        $this->set(compact('quiz'));
+    public function quizzNFT() {
+
+        if ($this->request->is('post')) {
+
+            $submittedAnswer = $this->request->getData('reponse');
+            $quiz = $this->Quiz->get($this->request->getData('quiz_id'));
+
+            if($submittedAnswer == $quiz->realanswer) {
+                $this->Flash->success('Bonne réponse!');
+            } else {
+                $this->Flash->error('Mauvaise réponse!');
+            }
+
+        } else {
+
+            $quiz = $this->Quiz->find()
+                ->where(['category' => 'nft'])
+                ->toArray();
+
+            $this->set(compact('quiz'));
+
+        }
+
+    }
+    public function checkAnswer() {
+
+        // Récupérer données POST
+        $submittedAnswer = $this->request->getData('reponse');
+        $quizId = $this->request->getData('quiz_id');
+
+        // Trouver l'entité Quiz
+        $quiz = $this->Quiz->get($quizId);
+
+        // Vérifier réponse
+        if($submittedAnswer == $quiz->realanswer) {
+            $this->Flash->success('Bonne réponse!');
+        } else {
+            $this->Flash->error('Mauvaise réponse!');
+        }
+
+        return $this->redirect($this->referer());
+
     }
 
     public function quizzcrypto()

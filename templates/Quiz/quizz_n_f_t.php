@@ -8,47 +8,50 @@ foreach ($quizes as $quiz) :
     <h2><?= $quiz->question ?></h2>
 
 
-    <?php if ($quiz->questionform == "text") : ?>
-    <?= $this->Flash->render() ?>
-    <div>
-        <?= $this->Form->create() ?>
+    <?= $this->Form->create(null, ['url' => ['controller' => 'Quizzes', 'action' => 'checkAnswer']]) ?>
 
-        <?= $this->Form->control('réponse', [
+    <?= $this->Form->control('quiz_id', ['type' => 'hidden', 'value' => $quiz->id]) ?>
+
+    <h2><?= $quiz->question ?></h2>
+
+    <?php if ($quiz->type == "text"): ?>
+
+    <?= $this->Form->control('reponse', [
         'type' => 'radio',
-            '1' => $quiz->answer1,
-            '2' => $quiz->answer2,
-            '3'=> $quiz->answer3,
-        ]);?>
+        'options' => [
+            1 => $quiz->answer1,
+            2 => $quiz->answer2,
+            3 => $quiz->answer3
+        ]
+    ]); ?>
 
-        <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
-        <?= $this->Form->end() ?>
-
-
-    </div>
-
-    <?php endif; ?>
-
-
+<?php endif; ?>
 
     <?php if ($quiz->questionform == "image") :?>
-    <?= $this->Flash->render() ?>
+
     <div>
-        <?= $this->Form->create() ?>
 
 
-        <?= $this->Form->control('réponse', [
+        <?= $this->Form->control('reponse', [
             'type' => 'radio',
-            '1' => $this->Html->image("upload/" . $quiz->answer1),
-            '2' => $this->Html->image("upload/" . $quiz->answer2),
-            '3'=> $this->Html->image("upload/" . $quiz->answer3),
-        ]);?>
+            'options' => [
+                1 => $quiz->$this->Html->image("upload/" . $quiz->answer1),
+                2 => $quiz->$this->Html->image("upload/" . $quiz->answer2),
+                3 => $quiz->$this->Html->image("upload/" . $quiz->answer3),
+            ]
+        ]); ?>
         <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
         <?= $this->Form->end() ?>
 
     </div>
 
-
     <?php endif; ?>
+
+    <?= $this->Form->submit() ?>
+
+    <?= $this->Form->end() ?>
+
+    <?= $this->Flash->render() ?>
 
 <?php
 endforeach;
