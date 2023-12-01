@@ -1,11 +1,33 @@
-<!DOCTYPE html>
-<html lang="fr" >
-<head>
-    <meta charset="UTF-8">
-    <title>Quiz sur la NFT</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css" />
-</head>
+<?php
+
+/** @var \App\Model\Entity\Quiz[] $quizes */
+
+foreach ($quizes as $quiz) :
+    ?>
+    <p><?= $quiz->level ?></p>
+    <h2><?= $quiz->question ?></h2>
+    <?php if ($quiz->questionform == "text") : ?>
+
+    <p><?= $quiz->answer1 ?></p>
+    <p><?= $quiz->answer2 ?></p>
+    <p><?= $quiz->answer3 ?></p>
+
+<?php endif; ?>
+    <form method="post">
+        <?php if ($quiz->questionform == "image") :?>
+        <?= $this->Html->image("upload/" . $quiz->answer1)?>
+        <?= $this->Html->image("upload/" . $quiz->answer2)?>
+        <?= $this->Html->image("upload/" . $quiz->answer3)?>
+
+        <button type="submit">Valider</button>
+    </form>
+<?php endif; ?>
+
+<?php
+endforeach;
+?>
+
+
 <body class="bg-secondary">
 <nav>
     <?= $this->element('nav3')?>
@@ -14,7 +36,7 @@
     <div id="quiz-container d-flex flex-column">
         <div class="pt-3">
 
-            <p id="score">NFT : 0</p>
+<!--            <p id="score">NFT : 0</p>-->
         </div>
         <div id="quizzes">
             <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->

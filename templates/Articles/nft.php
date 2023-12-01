@@ -5,7 +5,7 @@ foreach ($articles as $article) :
     <p><?= $article->level?></p>
     <h2><?= $article->title ?></h2>
     <p><?= $article->content?></p>
-    <?= $this->Html->image($article->image)?>
+    <?= $this->Html->image("upload/" . $article->image)?>
 
 <?php
 endforeach;
