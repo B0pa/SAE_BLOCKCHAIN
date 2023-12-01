@@ -13,32 +13,32 @@
 <body class="bg-secondary">
 
 <header>
-    <nav class="container-fluid navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
+    <nav class="container-fluid navbar navbar-dark bg-dark d-flex fixed-top justify-content-between" style="height: 105px;">
 
-        <?= $this->Html->link(
-            $this->Html->image('wallet.png', ['class' => 'img-fluid h-100 image-nav', 'alt' => 'icone wallet']),
-            ['controller' => 'Pages', 'action' => 'wallet'],
-            [
-                'class' => 'nav-link d-flex align-items-center',
-                'escapeTitle' => false
-            ]
-        ) ?>
+        <div class="d-flex">
+            <?= $this->Html->link(
+                $this->Html->image('wallet.png', ['class' => 'img-fluid h-100 image-nav', 'alt' => 'icone wallet']),
+                ['controller' => 'Pages', 'action' => 'wallet'],
+                [
+                    'class' => 'nav-link d-flex align-items-center',
+                    'escapeTitle' => false
+                ]
+            ) ?>
 
-        <?= $this->Html->link(
-            $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav', 'alt' => 'icone temp réel']),
-            ['controller' => 'Pages', 'action' => 'tempreel'],
-            [
-                'class' => 'nav-link d-flex align-items-center',
-                'escapeTitle' => false
-            ]
-        ) ?>
+            <?= $this->Html->link(
+                $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav', 'alt' => 'icone temp réel']),
+                ['controller' => 'Pages', 'action' => 'tempreel'],
+                [
+                    'class' => 'nav-link d-flex align-items-center',
+                    'escapeTitle' => false
+                ]
+            ) ?>
+        </div>
 
-
-
-        <div
-            class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1 ">
+        <div class="d-flex bg-warning rounded-pill col-* px-5 py-1 mx-auto align-items-center justify-content-center h-auto " style="transform: translateX(-40%);">
             <h1 class="h1 text-center  ">Accueil</h1>
         </div>
+
 
     </nav>
 </header>

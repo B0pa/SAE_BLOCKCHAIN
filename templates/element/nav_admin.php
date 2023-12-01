@@ -31,7 +31,7 @@ if ($currentURL === 'update') {
         ]
     ) ?>
 
-    <div class="bg-warning rounded-pill col-5 mx-auto">
+    <div class="bg-warning rounded-pill col-* px-5 py-1 mx-auto">
         <h1 class="h1 text-center"><?= $pageTitle ?></h1>
     </div>
 

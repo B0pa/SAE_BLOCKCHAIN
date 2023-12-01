@@ -6,22 +6,49 @@ foreach ($quizes as $quiz) :
     ?>
     <p><?= $quiz->level ?></p>
     <h2><?= $quiz->question ?></h2>
+
+
     <?php if ($quiz->questionform == "text") : ?>
+    <?= $this->Flash->render() ?>
+    <div>
+        <?= $this->Form->create() ?>
 
-    <p><?= $quiz->answer1 ?></p>
-    <p><?= $quiz->answer2 ?></p>
-    <p><?= $quiz->answer3 ?></p>
+        <?= $this->Form->control('réponse', [
+        'type' => 'radio',
+            '1' => $quiz->answer1,
+            '2' => $quiz->answer2,
+            '3'=> $quiz->answer3,
+        ]);?>
 
-<?php endif; ?>
-    <form method="post">
-        <?php if ($quiz->questionform == "image") :?>
-        <?= $this->Html->image("upload/" . $quiz->answer1)?>
-        <?= $this->Html->image("upload/" . $quiz->answer2)?>
-        <?= $this->Html->image("upload/" . $quiz->answer3)?>
+        <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
+        <?= $this->Form->end() ?>
 
-        <button type="submit">Valider</button>
-    </form>
-<?php endif; ?>
+
+    </div>
+
+    <?php endif; ?>
+
+
+
+    <?php if ($quiz->questionform == "image") :?>
+    <?= $this->Flash->render() ?>
+    <div>
+        <?= $this->Form->create() ?>
+
+
+        <?= $this->Form->control('réponse', [
+            'type' => 'radio',
+            '1' => $this->Html->image("upload/" . $quiz->answer1),
+            '2' => $this->Html->image("upload/" . $quiz->answer2),
+            '3'=> $this->Html->image("upload/" . $quiz->answer3),
+        ]);?>
+        <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
+        <?= $this->Form->end() ?>
+
+    </div>
+
+
+    <?php endif; ?>
 
 <?php
 endforeach;
