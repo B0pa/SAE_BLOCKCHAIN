@@ -13,10 +13,14 @@ foreach ($quizes as $quiz) :
     <p><?= $quiz->answer3 ?></p>
 
 <?php endif; ?>
-    <?php if ($quiz->questionform == "image") :?>
-    <?= $this->Html->image("upload/" . $quiz->answer1)?>
-    <?= $this->Html->image("upload/" . $quiz->answer2)?>
-    <?= $this->Html->image("upload/" . $quiz->answer3)?>
+    <form method="post">
+        <?php if ($quiz->questionform == "image") :?>
+        <?= $this->Html->image("upload/" . $quiz->answer1)?>
+        <?= $this->Html->image("upload/" . $quiz->answer2)?>
+        <?= $this->Html->image("upload/" . $quiz->answer3)?>
+
+        <button type="submit">Valider</button>
+    </form>
 <?php endif; ?>
 
 <?php
