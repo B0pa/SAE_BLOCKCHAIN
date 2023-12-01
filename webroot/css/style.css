@@ -12,6 +12,8 @@
     }
 }
 
+
+
 .slideFromTop {
     animation: 1.3s ease-out 0s 1 slideInFromTop;
     transition: transform .2s;
@@ -30,6 +32,12 @@
     border-radius: 50%;
 }
 
+@media screen and (max-width: 768px) {
+    .grow:hover{
+        transform: none;
+    }
+
+}
 /*================LOGIN=====================*/
 .box{
     position: relative;
@@ -147,4 +155,11 @@
 .update-tab-contenu{
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+    #update-tab-menu{
+        display: block;
+    }
+
 }
