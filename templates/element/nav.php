@@ -39,7 +39,7 @@ if ($currentURL === 'explication') {
         ]
     ) ?>
 
-    <div class="bg-warning rounded-pill col-5 mx-auto">
+    <div class="d-flex bg-warning rounded-pill col-* px-5 py-1 mx-auto align-items-center justify-content-center h-auto " style="transform: translateX(-40%);">
         <h1 class="h1 text-center"><?= $pageTitle ?></h1>
     </div>
 </nav>
