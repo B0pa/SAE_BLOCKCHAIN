@@ -22,6 +22,7 @@
             <fieldset>
                 <legend><?= __('Edit Quiz') ?></legend>
                 <?php
+                    echo $this->Form->control('level');
                     echo $this->Form->control('question');
                     echo $this->Form->control('answer1');
                     echo $this->Form->control('answer2');

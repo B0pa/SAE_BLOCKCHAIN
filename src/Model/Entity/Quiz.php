@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * Quiz Entity
  *
  * @property int $id
+ * @property int|null $level
  * @property string|null $question
  * @property string|null $answer1
  * @property string|null $answer2
@@ -29,6 +30,7 @@ class Quiz extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
+        'level' => true,
         'question' => true,
         'answer1' => true,
         'answer2' => true,

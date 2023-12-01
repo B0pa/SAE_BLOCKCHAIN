@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('level') ?></th>
                     <th><?= $this->Paginator->sort('question') ?></th>
                     <th><?= $this->Paginator->sort('answer1') ?></th>
                     <th><?= $this->Paginator->sort('answer2') ?></th>
@@ -26,6 +27,7 @@
                 <?php foreach ($quiz as $quiz): ?>
                 <tr>
                     <td><?= $this->Number->format($quiz->id) ?></td>
+                    <td><?= $quiz->level === null ? '' : $this->Number->format($quiz->level) ?></td>
                     <td><?= h($quiz->question) ?></td>
                     <td><?= h($quiz->answer1) ?></td>
                     <td><?= h($quiz->answer2) ?></td>
