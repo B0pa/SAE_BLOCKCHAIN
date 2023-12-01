@@ -17,6 +17,8 @@ if ($currentURL === 'update') {
     $pageTitle = 'Update quiz';
 }elseif ($currentURL === 'add') {
     $pageTitle = 'Add ';
+}elseif ($currentURL === 'index') {
+    $pageTitle = 'Index ';
 }
 
 ?>
@@ -33,7 +35,7 @@ if ($currentURL === 'update') {
         ]
     ) ?>
 
-    <div class="bg-warning rounded-pill col-5 mx-auto">
+    <div class="bg-warning rounded-pill col-* p-2 px-5  mx-auto">
         <h1 class="h1 text-center"><?= $pageTitle ?></h1>
     </div>
 
