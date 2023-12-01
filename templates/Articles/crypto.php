@@ -1,3 +1,7 @@
+
+
+
+<?= $this->Html->image('crypto.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 <?php
 /** @var \App\Model\Entity\Article[] $articles */
 foreach ($articles as $article) :
@@ -10,9 +14,6 @@ foreach ($articles as $article) :
 <?php
 endforeach;
 ?>
-
-
-<?= $this->Html->image('crypto.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 
 <?php //= $userName ?><!-- -->
 

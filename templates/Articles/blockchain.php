@@ -1,20 +1,21 @@
-<?php
-/** @var \App\Model\Entity\Article[] $articles */
-foreach ($articles as $article) :
-    ?>
-    <p><?= $article->level?></p>
-    <h2><?= $article->title ?></h2>
-    <p><?= $article->content?></p>
-    <?= $this->Html->image("upload/" . $article->image)?>
 
-
-<?php
-endforeach;
-?>
 
 
 
     <?= $this->Html->image('blockchain.jpg', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+    <?php
+    /** @var \App\Model\Entity\Article[] $articles */
+    foreach ($articles as $article) :
+        ?>
+        <p><?= $article->level?></p>
+        <h2><?= $article->title ?></h2>
+        <p><?= $article->content?></p>
+        <?= $this->Html->image("upload/" . $article->image)?>
+
+
+    <?php
+    endforeach;
+    ?>
 
     <div class="p-5">
         <h1 class="text-justify text-center">Niveau 1: La Blockchain Expliquée en Termes Simples : Le Jeu de Confiance Mondial</h1>

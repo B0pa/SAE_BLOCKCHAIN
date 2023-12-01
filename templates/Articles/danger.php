@@ -1,3 +1,6 @@
+
+
+<?= $this->Html->image('danger.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 <?php
 /** @var \App\Model\Entity\Article[] $articles */
 foreach ($articles as $article) :
@@ -10,9 +13,6 @@ foreach ($articles as $article) :
 <?php
 endforeach;
 ?>
-
-<?= $this->Html->image('danger.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
-
 <div class="p-5">
     <h1 class="text-justify text-center">Les Dangers Potentiels de la Blockchain </h1>
     <p class="text-justify text-center fs-4" >
