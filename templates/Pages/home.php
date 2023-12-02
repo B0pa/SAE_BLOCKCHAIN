@@ -14,10 +14,10 @@
 
 <header>
     <nav class="container-fluid navbar navbar-dark bg-dark d-flex fixed-top justify-content-between" style="height: 105px;">
-
-        <div class="d-flex">
+        <div class="container-fluid h-100 position-relative d-flex justify-content-center align-items-center" >
+        
             <?= $this->Html->link(
-                $this->Html->image('wallet.png', ['class' => 'img-fluid h-100 image-nav', 'alt' => 'icone wallet']),
+                $this->Html->image('wallet.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'accueil','style' => 'left:20px;']),
                 ['controller' => 'Pages', 'action' => 'wallet'],
                 [
                     'class' => 'nav-link d-flex align-items-center',
@@ -26,25 +26,24 @@
             ) ?>
 
             <?= $this->Html->link(
-                $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav', 'alt' => 'icone temp réel']),
+                $this->Html->image('temp reel.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'icone temp réel','style' => 'left:120px;']),
                 ['controller' => 'Pages', 'action' => 'tempreel'],
                 [
                     'class' => 'nav-link d-flex align-items-center',
                     'escapeTitle' => false
                 ]
             ) ?>
-        </div>
 
-        <div class="d-flex bg-warning rounded-pill col-* px-5 py-1 mx-auto align-items-center justify-content-center h-auto " style="transform: translateX(-40%);">
-            <h1 class="h1 text-center  ">Accueil</h1>
+            <div class="d-flex bg-warning rounded-pill px-5 py-1 align-items-center justify-content-center h-auto position-absolute" style="left:50%; transform: translateX(-50%);">
+                <h1 class="h1 text-center  ">Accueil</h1>
+            </div>
         </div>
-
 
     </nav>
 </header>
 <div class="d-flex min-vh-100 flex-column flex-md-row mt-5 pt-5 mx-0 mx-md-5">
-    <main class="flex-grow-1 flex-shrink-0 h-100">
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+    <main class="flex-grow-1 flex-shrink-0 my-4">
+        <div class="slideFromTop grow bg-dark text-white rounded my-4 p-3 col-0 col-md-11 d-flex">
 
             <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT', 'style' => 'height:100px', 'class' => 'img-thumbnail img-fluid']); ?>
 
@@ -56,29 +55,29 @@
                 "NFT",
                 ['controller' => 'Articles', 'action' => 'nft'],
                 [
-                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-0 col-lg-2 px-1',
                     'escapeTitle' => false
                 ]
             ) ?>
         </div>
 
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+        <div class="slideFromTop grow bg-dark text-white rounded my-4 p-3 col-0 col-md-11 d-flex">
 
             <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
 
             <?= $this->Html->link(
-                "crypto",
+                "Crypto",
                 ['controller' => 'Articles', 'action' => 'crypto'],
                 [
-                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-0 col-lg-2 px-1',
                     'escapeTitle' => false
                 ]
             ) ?>
         </div>
 
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+        <div class="slideFromTop grow bg-dark text-white rounded my-4 p-3 col-0 col-md-11 d-flex">
 
             <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
@@ -88,13 +87,13 @@
                 "Danger",
                 ['controller' => 'Articles', 'action' => 'danger'],
                 [
-                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-0 col-lg-2 px-1',
                     'escapeTitle' => false
                 ]
             ) ?>
         </div>
 
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
+        <div class="slideFromTop grow bg-dark text-white rounded my-4 p-3 col-0 col-md-11 d-flex">
 
 
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
@@ -104,39 +103,40 @@
                 "Blockchain",
                 ['controller' => 'Articles', 'action' => 'blockchain'],
                 [
-                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end',
+                    'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-0 col-md-2 px-1',
                     'escapeTitle' => false
                 ]
             ) ?>
 
         </div>
 
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11">
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded my-4 p-3 col-0 col-md-11">
             <h2 class="h2 text-center">Qui sommes-nous ?</h2>
         </div>
     </main>
 
-    <aside class="slideFromTop home-aside text-white bg-dark rounded col-0 col-md-4 p-4 mt-4">
-        <div class="text-center">
+    <aside class="slideFromTop home-aside text-white bg-dark rounded col-0 col-md-4 p-4 my-5 ">
+        <div class="text-center ">
             <h2 class="h2">Les actualités</h2>
+            <div class="bg-secondary rounded-top p-2" >
+                <h3 class="h3 text-center mb-0">Quelques liens de médias mis a jour régulièrement que nous trouvons intéressants</h3>
+            </div> 
         </div>
-        <div class="bg-secondary rounded-2 p-3">
-            <h3 class="h3 text-center">Quelques liens de médias mis a jour régulièrement que nous trouvons
-                intéressants</h3>
+
+        <div class="bg-secondary rounded-bottom p-3">
+            
             <p class="text-center">La dernière vidéo de Hasheur:</p>
             <iframe src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UULFhlTcWDE8gd4tsl_L727NrQ"
                     width="100%" height="240" allowfullscreen>
             </iframe>
         </div>
-        <?= $this->Html->link(
-            "Actualité",
-            ['controller' => 'Pages', 'action' => 'actuality'],
-            [
-                'class' => 'mt-2 text-white text-decoration-none btn btn-secondary align-self-center',
-                'escapeTitle' => false
-            ]
-        ) ?>
 
+        <div class="bg-secondary rounded-2 p-3 my-3">
+            <p class="text-center">Un article de ce media :</p>
+            <iframe src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UULFhlTcWDE8gd4tsl_L727NrQ"
+                    width="100%" height="240" allowfullscreen>
+            </iframe>
+        </div>
     </aside>
 </div>
 
