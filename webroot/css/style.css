@@ -55,6 +55,13 @@
     }
 
 }
+/*================NAV=====================*/
+
+.centrer{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /*================LOGIN=====================*/
 .box{
     position: relative;

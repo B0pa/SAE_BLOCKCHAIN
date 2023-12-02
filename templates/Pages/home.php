@@ -34,7 +34,7 @@
                 ]
             ) ?>
 
-            <div class="d-flex bg-warning rounded-pill px-5 py-1 align-items-center justify-content-center h-auto position-absolute" style="left:50%; transform: translateX(-50%);">
+            <div class="d-flex  bg-warning rounded-pill px-5 py-1 align-items-center justify-content-center h-auto position-absolute centrer">
                 <h1 class="h1 text-center  ">Accueil</h1>
             </div>
         </div>
@@ -115,7 +115,7 @@
         </div>
     </main>
 
-    <aside class="slideFromTop home-aside text-white bg-dark rounded col-0 col-md-4 p-4 my-5 ">
+    <aside class="slideFromTop home-aside text-white bg-dark rounded col-0 col-md-4 p-4 my-0 my-md-5 ">
         <div class="text-center ">
             <h2 class="h2">Les actualités</h2>
             <div class="bg-secondary rounded-top p-2" >
