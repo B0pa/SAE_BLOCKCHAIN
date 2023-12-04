@@ -1,14 +1,19 @@
 <?php
-/** @var \App\Model\Entity\Article[] $articles */
-foreach ($articles as $article) :
-?>
-    <h2><?= $article->title ?></h2>
-    <p></p>
-<?php
-endforeach;
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+</head>
+
+<body class="bg-secondary">
+<?= $this->element('nav')?>
+<main class="mt-5 pt-5 d-flex flex-column  min-vh-100">
 
     <?= $this->Html->image('blockchain.jpg', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
 
@@ -64,14 +69,11 @@ endforeach;
     </div>
     </div>
     <div class="btn btn-dark align-self-end me-5 col-1" >
-        <?= $this->Html->link(
-            "Quizz",
-            ['controller'=> 'Pages', 'action' => '/pages/quizz_blockchain'],
-            [
-                'class' => 'nav-link d-flex align-items-center',
-                'escapeTitle' => false
-            ]
-        ) ?>
-
-
+        <a href="/pages/quizzBlockchain" class="text-white text-decoration-none" >Quiz</a>
     </div>
+</main>
+
+<?= $this->element('footer')?>
+
+</body>
+</html>

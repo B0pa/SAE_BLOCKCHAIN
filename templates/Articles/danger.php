@@ -5,9 +5,10 @@
 /** @var \App\Model\Entity\Article[] $articles */
 foreach ($articles as $article) :
     ?>
-    <p><?= $article->level?></p>
-    <h2><?= $article->title ?></h2>
-    <p><?= $article->content?></p>
+
+    <h2><?= $article->title?></h2>
+    <p><?= $article-> text?></p>
+    <a><?= $article-> link?></a>
     <?= $this->Html->image("upload/" . $article->image)?>
 
 <?php

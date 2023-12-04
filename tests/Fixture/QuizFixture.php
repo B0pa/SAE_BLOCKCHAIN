@@ -26,6 +26,7 @@ class QuizFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
+                'level' => 1,
                 'question' => 'Lorem ipsum dolor sit amet',
                 'answer1' => 'Lorem ipsum dolor sit amet',
                 'answer2' => 'Lorem ipsum dolor sit amet',

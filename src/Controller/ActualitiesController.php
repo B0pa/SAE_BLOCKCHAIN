@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\Utility\Text;
 
 /**
  * Actualities Controller
@@ -41,21 +42,44 @@ class ActualitiesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
+    // public function add()
+    // {
+    //     $actuality = $this->Actualities->newEmptyEntity();
+    //     if ($this->request->is('post')) {
+    //         $actuality = $this->Actualities->patchEntity($actuality, $this->request->getData());
+    //         if ($this->Actualities->save($actuality)) {
+    //             $this->Flash->success(__('The actuality has been saved.'));
+
+    //             return $this->redirect(['action' => 'index']);
+    //         }
+    //         $this->Flash->error(__('The actuality could not be saved. Please, try again.'));
+    //     }
+    //     $this->set(compact('actuality'));
+    // }
     public function add()
     {
-        $actuality = $this->Actualities->newEmptyEntity();
+        $actualities = $this->Actualities->newEmptyEntity();
         if ($this->request->is('post')) {
-            $actuality = $this->Actualities->patchEntity($actuality, $this->request->getData());
-            if ($this->Actualities->save($actuality)) {
+            $data = $this->request->getData();
+            if ($this->request->getData('img')) {
+                /** @var UploadedFile $image */
+                $image = $this->request->getData('img');
+                if ($image->getError() === 0 && str_contains($image->getClientMediaType(), 'image')) {
+                    $newName = strtolower(Text::slug($image->getClientFilename(), ['preserve' => '.']));
+                    $image->moveTo(WWW_ROOT . 'img/upload/' . $newName);
+                    $data['img'] = $newName;
+                }
+            }
+            $this->Actualities->patchEntity($actualities, $data);
+            if ($this->Actualities->save($actualities)) {
                 $this->Flash->success(__('The actuality has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The actuality could not be saved. Please, try again.'));
         }
-        $this->set(compact('actuality'));
+        $this->set(compact('actualities'));
     }
-
     /**
      * Edit method
      *

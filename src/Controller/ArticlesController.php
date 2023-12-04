@@ -18,7 +18,7 @@ class ArticlesController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['blockchain','nft','crypto','danger']);
+        $this->Authentication->allowUnauthenticated(['blockchain']);
     }
 
     /**
@@ -50,7 +50,6 @@ class ArticlesController extends AppController
         if ($this->request->is('post')) {
             if ($this->request->getData('upload')) {
                 /** @var UploadedFile $image */
-
                 $image = $this->request->getData('upload');
                 if ($image->getError() === 0 && str_contains($image->getClientMediaType(), 'image')) {
                     $newName = strtolower(Text::slug($image->getClientFilename(), ['preserve' => '.']));
@@ -117,31 +116,6 @@ class ArticlesController extends AppController
 
         $articles = $this->Articles->find()
             ->where(['category' => 'blockchain'])
-            ->toArray();
-
-        $this->set(compact('articles'));
-    }
-    public function crypto () {
-
-        $articles = $this->Articles->find()
-            ->where(['category' => 'crypto'])
-            ->toArray();
-
-        $this->set(compact('articles'));
-    }
-    public function danger () {
-
-        $articles = $this->Articles->find()
-            ->where(['category' => 'danger'])
-            ->toArray();
-
-        $this->set(compact('articles'));
-    }
-
-    public function nft () {
-
-        $articles = $this->Articles->find()
-            ->where(['category' => 'nft'])
             ->toArray();
 
         $this->set(compact('articles'));

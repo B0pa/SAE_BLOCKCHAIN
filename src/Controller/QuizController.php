@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+
+use Cake\Utility\Text;
+use Laminas\Diactoros\UploadedFile;
+
 /**
  * Quiz Controller
  *
@@ -15,14 +19,6 @@ class QuizController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain']);
-    }
-
-
     public function index()
     {
         $query = $this->Quiz->find();
@@ -53,18 +49,37 @@ class QuizController extends AppController
     {
         $quiz = $this->Quiz->newEmptyEntity();
         if ($this->request->is('post')) {
-            $quiz = $this->Quiz->patchEntity($quiz, $this->request->getData());
+            $data = $this->request->getData();
+            if ($data['questionform'] === 'image') {
+                foreach (['answer1', 'answer2', 'answer3'] as $answer) {
+                    /** @var UploadedFile $file */
+                    $file = $data[$answer];
+                    if (
+                        $file->getError() === 0 &&
+                        str_contains($file->getClientMediaType(), 'image')) {
+                        $newName = strtolower(Text::slug($file->getClientFilename(), ['preserve' => '.']));
+                        $file->moveTo(WWW_ROOT . 'img/upload/' . $newName);
+                        $data[$answer] = $newName;
+                    }
+                }
+            } else if ($data['questionform'] === 'text') {
+                foreach (['answer1', 'answer2', 'answer3'] as $answer) {
+                    if (isset($data[$answer]) && is_string($data[$answer])) {
+                        $data[$answer] = trim($data[$answer]);
+                    }
+                }
+            }
+            $quiz = $this->Quiz->patchEntity($quiz, $data);
             if ($this->Quiz->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
         $this->set(compact('quiz'));
-    }
 
-    /**
+    }
+     /**
      * Edit method
      *
      * @param string|null $id Quiz id.
@@ -104,77 +119,5 @@ class QuizController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function quizzDanger()
-    {
-        $quiz = $this->Quiz->find()
-            ->where(['category' => 'danger'])
-            ->toArray();
-
-        $this->set(compact('quiz'));
-    }
-
-
-    public function quizzNFT() {
-
-        if ($this->request->is('post')) {
-
-            $submittedAnswer = $this->request->getData('reponse');
-            $quiz = $this->Quiz->get($this->request->getData('quiz_id'));
-
-            if($submittedAnswer == $quiz->realanswer) {
-                $this->Flash->success('Bonne réponse!');
-            } else {
-                $this->Flash->error('Mauvaise réponse!');
-            }
-
-        } else {
-
-            $quiz = $this->Quiz->find()
-                ->where(['category' => 'nft'])
-                ->toArray();
-
-            $this->set(compact('quiz'));
-
-        }
-
-    }
-    public function checkAnswer() {
-
-        // Récupérer données POST
-        $submittedAnswer = $this->request->getData('reponse');
-        $quizId = $this->request->getData('quiz_id');
-
-        // Trouver l'entité Quiz
-        $quiz = $this->Quiz->get($quizId);
-
-        // Vérifier réponse
-        if($submittedAnswer == $quiz->realanswer) {
-            $this->Flash->success('Bonne réponse!');
-        } else {
-            $this->Flash->error('Mauvaise réponse!');
-        }
-
-        return $this->redirect($this->referer());
-
-    }
-
-    public function quizzcrypto()
-    {
-        $quiz = $this->Quiz->find()
-            ->where(['category' => 'crypto'])
-            ->toArray();
-
-        $this->set(compact('quiz'));
-    }
-
-    public function quizzBlockchain()
-    {
-        $quiz = $this->Quiz->find()
-            ->where(['category' => 'blockchain'])
-            ->toArray();
-
-        $this->set(compact('quiz'));
     }
 }
