@@ -1,7 +1,7 @@
 <body class="bg-secondary" >
     <?= $this->element('nav')?>
     <main class="pt-5 mt-5" >
-        <?= $this->Html->image('danger.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto ','alt' => 'NFT image']); ?>
+        <?= $this->Html->image('danger.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
         <?php
             /** @var \App\Model\Entity\Article[] $articles */
             foreach ($articles as $article) :
@@ -36,14 +36,17 @@
             <p class="text-justify text-center fs-4" >En somme, la blockchain offre de nombreux avantages, mais il est crucial de reconnaître et de comprendre les dangers qui y sont associés. La prudence, la sensibilisation et l'éducation sont essentielles pour naviguer en toute sécurité dans ce domaine en constante évolution.</p>
 
         </div>
-        <?= $this->Html->link(
+        <div class="d-flex btn btn-warning text-white ms-auto justify-content-center me-5 mb-5 text-decoration-none text-center text-white col-1" >
+            <?= $this->Html->link(
             "Quizz",
             ['controller'=> 'Quiz', 'action' => 'quizz_danger'],
             [
-                'class' => 'nav-link d-flex align-items-center',
+                'class' => 'nav-link d-flex align-items-center text-decoration-none text-center text-dark',
                 'escapeTitle' => false
             ]
-        ) ?>
+            ) ?>
+        </div>
+        
     </main>
 </body>
 

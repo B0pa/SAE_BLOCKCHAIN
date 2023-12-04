@@ -1,6 +1,7 @@
 <body class="bg-secondary" >
     <?= $this->element('nav')?>
-    <main class="pt-5 mt-5" >
+    <main class="pt-5 mt-5" >   
+        <?= $this->Html->image('crypto.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
     <?php
             /** @var \App\Model\Entity\Article[] $articles */
             foreach ($articles as $article) :
@@ -17,8 +18,7 @@
             ?>
 
 
-    <?= $this->Html->image('crypto.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto ','alt' => 'NFT image']); ?>
-
+ 
     <?php //= $userName ?><!-- -->
 
     <div class="p-5">
@@ -47,12 +47,12 @@
         <p class="text-justify text-center fs-4" >Les cryptomonnaies ont le potentiel de changer la façon dont nous gérons notre argent. Elles sont déjà utilisées pour des achats en ligne, des investissements, et même pour soutenir des projets artistiques. Le futur de l'argent pourrait bien être numérique.</p>
     </div>
 
-    <div class="btn btn-dark align-self-end me-5 col-1" >
+    <div class="d-flex btn btn-warning text-white ms-auto justify-content-center me-5 mb-5 text-decoration-none text-center text-white col-1" >
         <?= $this->Html->link(
             "Quizz",
             ['controller'=> 'Quiz', 'action' => 'quizzcrypto'],
             [
-                'class' => 'nav-link d-flex align-items-center',
+                'class' => 'nav-link d-flex align-items-center text-decoration-none text-center text-dark',
                 'escapeTitle' => false
             ]
         ) ?>

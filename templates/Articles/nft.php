@@ -2,12 +2,12 @@
 <body class="bg-secondary" >
     <?= $this->element('nav')?>
     <main class="pt-5 mt-5" >
-        <?= $this->Html->image('NFT.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto ','alt' => 'NFT image']); ?>
+        <?= $this->Html->image('NFT.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
         <?php
         /** @var \App\Model\Entity\Article[] $articles */
         foreach ($articles as $article) :
             ?>
-            <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+            <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop' >
                 <p class="d-none p-2" ><?= $article->level?></p>
                 <h2 class="h2 text-center mt-1 p-2" ><?= $article->title ?></h2>
                 <p class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= $article->content?></p>
@@ -45,12 +45,12 @@
                 Ils ouvrent de nouvelles possibilités passionnantes pour les artistes et les collectionneurs, et c'est une tendance passionnante à suivre dans le monde numérique.</p>
         </div>
 
-        <div class="btn btn-dark align-self-end me-5 col-1" >
+        <div class="d-flex btn btn-warning text-white ms-auto justify-content-center me-5 mb-5 text-decoration-none text-center text-white col-1" >
             <?= $this->Html->link(
                 "Quizz",
                 ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
                 [
-                    'class' => 'nav-link d-flex align-items-center',
+                    'class' => 'nav-link d-flex align-items-center text-decoration-none text-center text-dark',
                     'escapeTitle' => false
                 ]
             ) ?>
