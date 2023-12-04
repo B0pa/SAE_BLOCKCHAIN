@@ -113,7 +113,7 @@
         </div>
     </main>
 
-    <?= $this->cell('Article', [], ['cache' => ['config' => 'cell_cache']]) ?>
+    <?= $this->cell('Article') ?>
 </div>
 
 
