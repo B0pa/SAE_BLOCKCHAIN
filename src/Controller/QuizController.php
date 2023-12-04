@@ -54,10 +54,10 @@ class QuizController extends AppController
                         $data[$answer] = $newName;
                     }
                 }
-            } else {
+            } else if ($data['questionform'] === 'text') {
                 foreach (['answer1', 'answer2', 'answer3'] as $answer) {
-                    if (isset($data[$answer])) {
-                        $data[$answer] = h($data[$answer]);
+                    if (isset($data[$answer]) && is_string($data[$answer])) {
+                        $data[$answer] = trim($data[$answer]);
                     }
                 }
             }
@@ -69,6 +69,7 @@ class QuizController extends AppController
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
         $this->set(compact('quiz'));
+    
     }
      /**
      * Edit method
