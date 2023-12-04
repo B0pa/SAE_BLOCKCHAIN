@@ -36,7 +36,7 @@ if ($currentURL === 'update') {
     </div>
 
     <?= $this->Html->link(
-        $this->Html->image('logout.png', ['class' => 'img-fluid h-100 image-nav bg-warning rounded-circle ','alt' => 'icone logout']),
+        $this->Html->image('logout.png', ['class' => 'img-fluid h-100 image-nav bg-warning rounded-circle p-2 ','alt' => 'icone logout']),
         ['controller'=> 'Users', 'action' => 'logout'],
         [
             'class' => 'nav-link d-flex align-items-center',
