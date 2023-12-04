@@ -30,6 +30,24 @@
     background: #b88c06;
 }
 
+@font-face {
+    font-family: 'rob';
+    src: url(../font/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'mont';
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'mont', sans-serif;
+}
+
+p,a,li,button,span{
+    font-family: 'rob', sans-serif;
+}
+
 
 .slideFromTop {
     animation: 1.3s ease-out 0s 1 slideInFromTop;
@@ -198,3 +216,4 @@
   .spin {
     animation: spin 15s linear infinite;
   }
+
