@@ -11,14 +11,9 @@ $form = new \Cake\Form\Form();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <body class="bg-secondary" >
-
+<?= $this->element('nav_admin')?>
 <div class="container mt-5">
 
     <div class="row">
