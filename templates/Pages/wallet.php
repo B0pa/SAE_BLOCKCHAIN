@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="/css/style.css">
     </head>
 <body class="bg-secondary" >
+
 <header>
     <?= $this->element('nav2')?>
 </header>
@@ -22,15 +23,22 @@
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoblockchain.png', ['class' => 'rounded-circle','alt' => 'crypto Blockchain']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('blockchain'); ?></p>
+        <p></p>
+
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptodanger.png', ['class' => 'rounded-circle','alt' => 'crypto Danger']); ?>
         <p class="justify-content-center ms-4  ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('danger'); ?></p>
+        <p>fausse certification </p>
     </div>
+
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'rounded-circle','alt' => 'crypto NFT']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
+        <p>image perso</p>
     </div>
+
+
 
 </main>
 <?= $this->element('footer')?>

@@ -3,18 +3,9 @@ $currentURL = strtolower(basename($_SERVER['REQUEST_URI']));
 $pageTitle = 'Erreur'; // Valeur par défaut
 
 // Définissez les titres de page en fonction de l'URL
-if ($currentURL === 'explication') {
-    $pageTitle = 'Explication';
-} elseif ($currentURL === 'actualite') {
+
+if ($currentURL === 'actualite') {
     $pageTitle = 'Actualité';
-} elseif ($currentURL === 'nft') {
-    $pageTitle = 'NFT';
-} elseif ($currentURL === 'danger') {
-    $pageTitle = 'Danger';
-} elseif ($currentURL === 'crypto') {
-    $pageTitle = 'Cryptomonnaies';
-} elseif ($currentURL === 'blockchain') {
-    $pageTitle = 'Blockchain';
 }
 
 ?>
