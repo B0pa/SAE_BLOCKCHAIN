@@ -48,8 +48,8 @@ if ($currentURL === 'quizz-blockchain') {
 
 
         <div class="d-flex ">
-            <?= $this->Html->image($crypto, ['class' => ' rounded-circle','alt' => 'icone temp réel' , 'style' => 'height : 50px']); ?>
-            <p class="text-white "> <?= $nb ?> </p>
+            <?= $this->Html->image($crypto, ['class' => 'img-fluid image-nav position-absolute top-0 rounded-circle','alt' => 'icone temp réel' , 'style' => 'height:85px; left:220px']); ?>
+            <p class="text-white position-absolute" style="left:310px;top:35px" > <?= $nb ?> </p>
         </div>
         <div class="d-flex bg-warning rounded-pill px-5 py-1 align-items-center justify-content-center h-auto position-absolute" style="left:50%; transform: translateX(-50%);">
             <h1 class="h1 text-center"><?= $pageTitle ?></h1>
