@@ -27,12 +27,14 @@ foreach ($quizes as $quiz) :
 endforeach;
 ?>
 
-
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 <body class="bg-secondary">
 <nav>
     <?= $this->element('nav3')?>
 </nav>
-<main class="pt-5 mt-5" style="height:150vh">
+<main class="mt-5" style="height:150vh">
     <div id="quiz-container d-flex flex-column">
         <div class="pt-3">
 
