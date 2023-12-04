@@ -1,21 +1,21 @@
-<?php
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blockchain</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-</head>
 
-<body class="bg-secondary">
-<?= $this->element('nav')?>
-<main class="mt-5 pt-5 d-flex flex-column  min-vh-100">
 
     <?= $this->Html->image('blockchain.jpg', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+    <?php
+    /** @var \App\Model\Entity\Article[] $articles */
+    foreach ($articles as $article) :
+        ?>
+        <p><?= $article->level?></p>
+        <h2><?= $article->title ?></h2>
+        <p><?= $article->content?></p>
+        <?= $this->Html->image("upload/" . $article->image)?>
+
+
+    <?php
+    endforeach;
+    ?>
 
     <div class="p-5">
         <h1 class="text-justify text-center">Niveau 1: La Blockchain Expliquée en Termes Simples : Le Jeu de Confiance Mondial</h1>
@@ -49,9 +49,6 @@
         <p class="text-justify text-center fs-4" >La cryptographie permet également de préserver la confidentialité des transactions, malgré la transparence du grand livre. Les techniques telles que les adresses furtives et les contrats intelligents permettent de masquer les détails spécifiques des transactions tout en confirmant leur validité.</p>
         <p class="text-justify text-center fs-4" >La cryptographie est le bouclier invisible qui protège chaque transaction et chaque bloc sur la blockchain. Elle garantit que les données sont sécurisées, que les transactions sont authentiques et que l'intégrité du grand livre est maintenue. Comprendre les principes de la cryptographie est essentiel pour saisir la sécurité et la fiabilité de la blockchain.</p>
 
-
-        <?= $this->Html->image('cryptographie.png', ['class' => 'mt-3 mx-auto','alt' => 'cryptographie schema']); ?>
-
         <!-- Il faut mettre des sauts de ligne (moins que l'autre)-->
 
         <h2 class="text-justify text-center">Décentralisation : Le Pilier Fondateur de la Blockchain</h2>
@@ -69,15 +66,17 @@
         <p class="text-justify text-center fs-3" >- Évolutivité Horizontale </p>
         <p class="text-justify text-center fs-4" >La décentralisation permet une évolutivité horizontale, ce qui signifie que le réseau peut s'agrandir sans ajouter de complexité à chaque nœud individuel. Cela facilite la croissance du réseau sans sacrifier sa performance.</p>
         <p class="text-justify text-center fs-4" >En résumé, la décentralisation est bien plus qu'une simple caractéristique technique de la blockchain. C'est un changement fondamental de paradigme qui offre résistance, fiabilité et participation égale à tous les acteurs du réseau. C'est cette décentralisation qui donne à la blockchain son pouvoir de transformer la confiance et l'échange d'informations à l'échelle mondiale.</p>
-        <?= $this->Html->image('decentralisation.jpeg', ['class' => 'mt-3 mx-auto','alt' => 'decentralisation']); ?>
     </div>
-    </div>
+
     <div class="btn btn-dark align-self-end me-5 col-1" >
-        <a href="/pages/quizzBlockchain" class="text-white text-decoration-none" >Quiz</a>
+        <?= $this->Html->link(
+            "Quizz",
+            ['controller'=> 'Quiz', 'action' => 'quizz_blockchain'],
+            [
+                'class' => 'nav-link d-flex align-items-center',
+                'escapeTitle' => false
+            ]
+        ) ?>
+
+
     </div>
-</main>
-
-<?= $this->element('footer')?>
-
-</body>
-</html>
