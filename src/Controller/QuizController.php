@@ -19,6 +19,11 @@ class QuizController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        $this->Authentication->addUnauthenticatedActions(['quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain']);
+    }
     public function index()
     {
         $query = $this->Quiz->find();
