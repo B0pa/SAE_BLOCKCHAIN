@@ -9,12 +9,12 @@ if ($currentURL === 'update') {
     $pageTitle = 'Login';
 } elseif ($currentURL === 'register') {
     $pageTitle = 'Register';
-} elseif ($currentURL === 'updateactuality') {
-    $pageTitle = 'Update actuality';
-} elseif ($currentURL === 'updateinfo') {
-    $pageTitle = 'Update info';
-} elseif ($currentURL === 'updatequizz') {
-    $pageTitle = 'Update quiz';
+} elseif ($currentURL === 'add') {
+    $pageTitle = 'Ajout';
+} elseif ($currentURL === 'quiz') {
+    $pageTitle = 'Quiz';
+} elseif ($currentURL === 'articles') {
+    $pageTitle = 'Article';
 }
 
 ?>
