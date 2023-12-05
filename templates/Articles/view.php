@@ -2,7 +2,7 @@
     <?= $this->element('nav_admin')?>
     <main class="pt-3 p-3" >
         <?= $this->Html->link(
-            'Return',
+            'Aller à l\'accueil',
             ['controller'=> 'Pages', 'action' => 'home'],
             [
                 'class' => 'btn btn-warning ',
