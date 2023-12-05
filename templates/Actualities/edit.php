@@ -23,7 +23,7 @@
                 <legend><?= __('Edit Actuality') ?></legend>
                 <?php
                     echo $this->Form->control('title');
-                    echo $this->Form->control('text');
+                    echo $this->Form->control('content');
                     echo $this->Form->control('link');
                     echo $this->Form->control('img');
                 ?>
