@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+
+use Cake\Utility\Text;
+use Laminas\Diactoros\UploadedFile;
+
 /**
  * Quiz Controller
  *
@@ -48,18 +52,16 @@ class QuizController extends AppController
             $data = $this->request->getData();
             if ($data['questionform'] === 'image') {
                 foreach (['answer1', 'answer2', 'answer3'] as $answer) {
-                    if (isset($data[$answer]) && is_array($data[$answer]) && $data[$answer]['error'] === 0 && str_contains($data[$answer]['type'], 'image')) {
-                        $newName = strtolower(Text::slug($data[$answer]['name'], ['preserve' => '.']));
-                        move_uploaded_file($data[$answer]['tmp_name'], WWW_ROOT . 'img/upload/' . $newName);
+                    /** @var UploadedFile $file */
+                    $file = $data[$answer];
+                    if (
+                        $file->getError() === 0 &&
+                        str_contains($file->getClientMediaType(), 'image')) {
+                        $newName = strtolower(Text::slug($file->getClientFilename(), ['preserve' => '.']));
+                        $file->moveTo(WWW_ROOT . 'img/upload/' . $newName);
                         $data[$answer] = $newName;
                     }
-                }
-            } else if ($data['questionform'] === 'text') {
-                foreach (['answer1', 'answer2', 'answer3'] as $answer) {
-                    if (isset($data[$answer]) && is_string($data[$answer])) {
-                        $data[$answer] = trim($data[$answer]);
-                    }
-                }
+                }          
             }
             $quiz = $this->Quiz->patchEntity($quiz, $data);
             if ($this->Quiz->save($quiz)) {
@@ -69,7 +71,7 @@ class QuizController extends AppController
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
         $this->set(compact('quiz'));
-    
+
     }
      /**
      * Edit method
@@ -112,4 +114,42 @@ class QuizController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function quizzDanger()
+    {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'danger'])
+            ->toArray();
+
+        $this->set(compact('quiz'));
+    }
+
+    public function quizzNFT()
+    {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'nft'])
+            ->toArray();
+
+        $this->set(compact('quiz'));
+    }
+
+    public function quizzcrypto()
+    {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'crypto'])
+            ->toArray();
+
+        $this->set(compact('quiz'));
+    }
+
+    public function quizzBlockchain()
+    {
+        $quiz = $this->Quiz->find()
+            ->where(['category' => 'blockchain'])
+            ->toArray();
+
+        $this->set(compact('quiz'));
+    }
+
 }
+

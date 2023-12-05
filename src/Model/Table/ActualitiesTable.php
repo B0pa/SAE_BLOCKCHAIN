@@ -36,10 +36,6 @@ class ActualitiesTable extends Table
     public function initialize(array $config): void
     {
         parent::initialize($config);
-
-        $this->setTable('actualities');
-        $this->setDisplayField('title');
-        $this->setPrimaryKey('id');
     }
 
     /**
@@ -54,10 +50,6 @@ class ActualitiesTable extends Table
             ->scalar('title')
             ->maxLength('title', 255)
             ->allowEmptyString('title');
-
-        $validator
-            ->scalar('text')
-            ->allowEmptyString('text');
 
         $validator
             ->scalar('link')

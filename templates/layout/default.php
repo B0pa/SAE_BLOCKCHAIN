@@ -12,6 +12,7 @@
 <div CLASS="separateur"></div>
 
 
+<?= $this->Flash->render() ?>
     <?= $this->fetch('content') ?>
 
 </body>

@@ -13,7 +13,7 @@
     </aside>
     <div class="column column-80">
         <div class="quiz form content">
-            <?= $this->Form->create($quiz) ?>
+            <?= $this->Form->create($quiz, ['type' => 'file']) ?>
             <fieldset>
                 <legend><?= __('Add Quiz') ?></legend>
                 <?php
@@ -28,14 +28,6 @@
                         echo $this->Form->control('answer1');
                         echo $this->Form->control('answer2');
                         echo $this->Form->control('answer3');
-                    ?>
-                </div>
-
-                <div id="imageFields" style="display: none;">
-                    <?php
-                        echo $this->Form->control('answer1', ['type' => 'file', 'label' => 'Upload Image 1', 'class' => 'form-control',]);
-                        echo $this->Form->control('answer2', ['type' => 'file', 'label' => 'Upload Image 2', 'class' => 'form-control',]);
-                        echo $this->Form->control('answer3', ['type' => 'file', 'label' => 'Upload Image 3', 'class' => 'form-control',]);
                     ?>
                 </div>
 
@@ -56,12 +48,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var imageFields = document.getElementById('imageFields');
 
     questionformSelect.addEventListener('change', function () {
+        // Cache all answer fields
+        var answerFields = document.querySelectorAll('.answer-field');
+
         if (this.value === 'image') {
-            textFields.style.display = 'none';
-            imageFields.style.display = 'block';
+            // Change answer type to file
+            answerFields.forEach(function (field) {
+                field.type = 'file';
+            });
         } else {
-            textFields.style.display = 'block';
-            imageFields.style.display = 'none';
+            // Change answer type to text for other options
+            answerFields.forEach(function (field) {
+                field.type = 'text';
+            });
         }
     });
 });

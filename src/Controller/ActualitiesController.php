@@ -60,17 +60,17 @@ class ActualitiesController extends AppController
     {
         $actualities = $this->Actualities->newEmptyEntity();
         if ($this->request->is('post')) {
+            $data = $this->request->getData();
             if ($this->request->getData('img')) {
                 /** @var UploadedFile $image */
                 $image = $this->request->getData('img');
                 if ($image->getError() === 0 && str_contains($image->getClientMediaType(), 'image')) {
                     $newName = strtolower(Text::slug($image->getClientFilename(), ['preserve' => '.']));
                     $image->moveTo(WWW_ROOT . 'img/upload/' . $newName);
-                    $this->Actualities->patchEntity($actualities, ['image' => $newName]);
-                } else {
-                    dd($image);
+                    $data['img'] = $newName;
                 }
             }
+            $this->Actualities->patchEntity($actualities, $data);
             if ($this->Actualities->save($actualities)) {
                 $this->Flash->success(__('The actuality has been saved.'));
 

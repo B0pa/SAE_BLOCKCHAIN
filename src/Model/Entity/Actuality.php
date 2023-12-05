@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string|null $title
- * @property string|null $text
+ * @property string|null $content
  * @property string|null $link
  * @property string|null $img
  */
@@ -27,7 +27,7 @@ class Actuality extends Entity
      */
     protected array $_accessible = [
         'title' => true,
-        'text' => true,
+        'content' => true,
         'link' => true,
         'img' => true,
     ];
