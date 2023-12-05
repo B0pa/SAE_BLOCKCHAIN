@@ -5,7 +5,7 @@
         <a href="/users/register" class="tab text-decoration-none text-dark text-center grow" >
             <div class="my-auto">
                 <h2>Ajouter un administrateur</h2>
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mb-3 mx-auto','alt' => 'NFT image']); ?>
             </div>
 
         </a>
@@ -13,7 +13,7 @@
         <a href="/users/updateactuality" class="tab text-decoration-none text-dark text-center grow" >
             <div class="my-auto">
                 <h2>Ajouter des actualités</h2>
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mb-3 mx-auto','alt' => 'NFT image']); ?>
             </div>
 
         </a>
