@@ -30,7 +30,7 @@ function displayQuizzes() {
 
         const questionElement = document.createElement("div");
         const questionText = document.createElement("h2");
-        questionElement.classList.add("question-container","bg-dark", "text-white", "text-center", "rounded-pill","w-75","w-lg-50", "mx-auto");
+        questionElement.classList.add("question-container","bg-dark", "text-white", "text-center", "rounded-pill","w-75","w-lg-50", "mx-auto","p-2");
         questionText.textContent = `Question ${quizIndex + 1}: ${quiz.question}`;
         questionElement.appendChild(questionText);
 

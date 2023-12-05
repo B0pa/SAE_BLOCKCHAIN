@@ -1,6 +1,6 @@
 <?php
 $currentURL = strtolower(basename($_SERVER['REQUEST_URI']));
-$pageTitle = $currentURL; // Valeur par défaut
+$pageTitle = 'Erreur'; // Valeur par défaut
 
 // Définissez les titres de page en fonction de l'URL
 if ($currentURL === 'update') {
@@ -9,12 +9,12 @@ if ($currentURL === 'update') {
     $pageTitle = 'Login';
 } elseif ($currentURL === 'register') {
     $pageTitle = 'Register';
-} elseif ($currentURL === 'add') {
-    $pageTitle = 'Ajout';
-} elseif ($currentURL === 'quiz') {
-    $pageTitle = 'Quiz';
-} elseif ($currentURL === 'articles') {
-    $pageTitle = 'Article';
+} elseif ($currentURL === 'updateactuality') {
+    $pageTitle = 'Update actuality';
+} elseif ($currentURL === 'updateinfo') {
+    $pageTitle = 'Update info';
+} elseif ($currentURL === 'updatequizz') {
+    $pageTitle = 'Update quiz';
 }
 
 ?>
