@@ -50,7 +50,6 @@ class ArticlesController extends AppController
         if ($this->request->is('post')) {
             if ($this->request->getData('upload')) {
                 /** @var UploadedFile $image */
-
                 $image = $this->request->getData('upload');
                 if ($image->getError() === 0 && str_contains($image->getClientMediaType(), 'image')) {
                     $newName = strtolower(Text::slug($image->getClientFilename(), ['preserve' => '.']));

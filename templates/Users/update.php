@@ -10,13 +10,31 @@
 
         </a>
 
-        <a href="/users/updateactuality" class="tab text-decoration-none text-dark text-center grow" >
-            <div class="my-auto">
-                <h2>Ajouter des actualités</h2>
+        <div class="tab text-center" >
+            <h2 class="mt-3" >Modifier des Actualité</h2>
+            <div class="mt-3 update-tab-contenu">
                 <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
-            </div>
+                <div class="d-flex justify-content-around  " >
+                    <?= $this->Html->link(
+                        "Ajouter Actualité",
+                        ['controller'=> 'Actualities', 'action' => 'add'],
+                        [
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
+                            'escapeTitle' => false
+                        ]
+                    ) ?>
 
-        </a>
+                    <?= $this->Html->link(
+                        "Modifier Actualité",
+                        ['controller'=> 'Actualities', 'action' => 'index'],
+                        [
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
+                            'escapeTitle' => false
+                        ]
+                    ) ?>
+                </div>
+            </div>
+        </div>
 
         <div class="tab text-center" >
             <h2 class="mt-3" >Modifier des Quizz</h2>
@@ -27,7 +45,7 @@
                         "Ajouter Articles",
                         ['controller'=> 'Quiz', 'action' => 'add'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>
@@ -36,7 +54,7 @@
                         "Modifier Articles",
                         ['controller'=> 'Quiz', 'action' => 'index'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>
@@ -53,7 +71,7 @@
                         "Ajouter Articles",
                         ['controller'=> 'Articles', 'action' => 'add'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>
@@ -62,7 +80,7 @@
                         "Modifier Articles",
                         ['controller'=> 'Articles', 'action' => 'index'],
                         [
-                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-5',
+                            'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
                             'escapeTitle' => false
                         ]
                     ) ?>

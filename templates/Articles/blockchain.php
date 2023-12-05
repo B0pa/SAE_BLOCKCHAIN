@@ -1,18 +1,19 @@
+<body class="bg-secondary" >
+<?= $this->element('nav')?>
+<main class="pt-5 mt-5" >
+    <?= $this->Html->image('blockchain.jpg', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
 
-
-
-
-    <?= $this->Html->image('blockchain.jpg', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
     <?php
     /** @var \App\Model\Entity\Article[] $articles */
     foreach ($articles as $article) :
         ?>
-        <p><?= $article->level?></p>
-        <h2><?= $article->title ?></h2>
-        <p><?= $article->content?></p>
-        <?= $this->Html->image("upload/" . $article->image)?>
+        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+            <p class="d-none p-2" ><?= $article->level?></p>
+            <h2 class="h2 text-center mt-1 p-2" ><?= $article->title ?></h2>
+            <p class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= $article->content?></p>
+            <?= $this->Html->image("upload/" . $article->image, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])?>
 
-
+        </div>
     <?php
     endforeach;
     ?>
@@ -68,15 +69,18 @@
         <p class="text-justify text-center fs-4" >En résumé, la décentralisation est bien plus qu'une simple caractéristique technique de la blockchain. C'est un changement fondamental de paradigme qui offre résistance, fiabilité et participation égale à tous les acteurs du réseau. C'est cette décentralisation qui donne à la blockchain son pouvoir de transformer la confiance et l'échange d'informations à l'échelle mondiale.</p>
     </div>
 
-    <div class="btn btn-dark align-self-end me-5 col-1" >
+    <div class="d-flex btn btn-warning text-white ms-auto justify-content-center me-5 mb-5 text-decoration-none text-center text-white col-1" >
         <?= $this->Html->link(
             "Quizz",
             ['controller'=> 'Quiz', 'action' => 'quizz_blockchain'],
             [
-                'class' => 'nav-link d-flex align-items-center',
+                'class' => 'nav-link d-flex align-items-center text-decoration-none text-center text-dark',
                 'escapeTitle' => false
             ]
         ) ?>
 
 
     </div>
+
+</main>
+</body>
