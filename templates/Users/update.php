@@ -5,7 +5,7 @@
         <a href="/users/register" class="tab text-decoration-none text-dark text-center grow" >
             <div class="my-auto">
                 <h2>Ajouter un administrateur</h2>
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mb-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('administrator.png', ['class' => 'rounded-circle mt-3 mb-3 mx-auto','alt' => 'NFT image']); ?>
             </div>
 
         </a>
@@ -13,7 +13,7 @@
         <a href="/users/updateactuality" class="tab text-decoration-none text-dark text-center grow" >
             <div class="my-auto">
                 <h2>Ajouter des actualités</h2>
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mb-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('actualite.png', ['class' => 'rounded-circle mt-3 mb-3 mx-auto','alt' => 'NFT image']); ?>
             </div>
 
         </a>
@@ -21,7 +21,7 @@
         <div class="tab text-center" >
             <h2 class="mt-3" >Modifier des Quizz</h2>
             <div class="mt-3 update-tab-contenu">
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('quiz.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                 <div class="d-flex justify-content-around  " >
                     <?= $this->Html->link(
                         "Ajouter Articles",
@@ -47,7 +47,7 @@
         <div class="tab text-center">
             <h2 class="mt-3" >Modifier des informations</h2>
             <div class="mt-3 update-tab-contenu">
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('explication.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                 <div class="d-flex justify-content-around  " >
                     <?= $this->Html->link(
                         "Ajouter Articles",
