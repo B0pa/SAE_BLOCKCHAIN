@@ -4,10 +4,13 @@
  * @var iterable<\App\Model\Entity\Quiz> $quiz
  */
 ?>
-<div class="quiz index content">
+<body class="bg-secondary pt-5 mt-5 " >
+<?= $this->element('nav_admin')?>
+<main class="p-5 mt-5" >
+<div class="quiz index content bg-dark p-4 rounded-3 text-white">
     <?= $this->Html->link(__('New Quiz'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Quiz') ?></h3>
-    <div class="table-responsive">
+    <div class="table-responsive bg-secondary rounded p-3 text-dark">
         <table>
             <thead>
                 <tr>
@@ -56,3 +59,5 @@
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div>
+</main>
+</body>
