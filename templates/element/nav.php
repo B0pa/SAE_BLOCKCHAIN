@@ -23,12 +23,12 @@ if ($currentURL === 'explication') {
 <nav class="navbar navbar-dark bg-dark fixed-top " style="height: 100px;">
     <div class="container-fluid h-100 position-relative d-flex justify-content-center align-items-center" >
         <?= $this->Html->link(
-        $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'accueil','style' => 'left:20px;']),
-        ['controller'=> 'Pages', 'action' => 'home'],
-        [
-            'class' => 'nav-link',
-            'escapeTitle' => false
-        ]
+            $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'accueil','style' => 'left:20px;']),
+            ['controller'=> 'Pages', 'action' => 'home'],
+            [
+                'class' => 'nav-link',
+                'escapeTitle' => false
+            ]
         ) ?>
 
         <?= $this->Html->link(

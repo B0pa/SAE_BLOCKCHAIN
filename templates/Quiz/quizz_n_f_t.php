@@ -6,35 +6,64 @@ foreach ($quizes as $quiz) :
     ?>
     <p><?= $quiz->level ?></p>
     <h2><?= $quiz->question ?></h2>
-    <?php if ($quiz->questionform == "text") : ?>
 
-    <p><?= $quiz->answer1 ?></p>
-    <p><?= $quiz->answer2 ?></p>
-    <p><?= $quiz->answer3 ?></p>
+
+    <?php if ($quiz->questionform == "text"): ?>
+
+    <?= $this->Form->control('les réponse', [
+        'type' => 'radio',
+        'value'=>[
+            1=> 1,
+            2=> 2,
+            3=> 3
+        ],
+        'options' => [
+            1 => $quiz->answer1,
+            2 => $quiz->answer2,
+            3 => $quiz->answer3
+        ]
+    ]); ?>
 
 <?php endif; ?>
-    <form method="post">
-        <?php if ($quiz->questionform == "image") :?>
-        <?= $this->Html->image("upload/" . $quiz->answer1)?>
-        <?= $this->Html->image("upload/" . $quiz->answer2)?>
-        <?= $this->Html->image("upload/" . $quiz->answer3)?>
 
-        <button type="submit">Valider</button>
-    </form>
-<?php endif; ?>
+    <?php if ($quiz->questionform == "image") :?>
+
+    <div>
+        <?= $this->Form->control('reponse', [
+            'type' => 'radio',
+            'value'=>[
+                1=> 1,
+                2=> 2,
+                3=> 3
+            ],
+            'options' => [
+                1 => $this->Html->image("upload/" . $quiz->answer1),
+                2 => $this->Html->image("upload/" . $quiz->answer2),
+                3 => $this->Html->image("upload/" . $quiz->answer3)
+            ]
+        ]); ?>
+        <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
+        <?= $this->Form->end() ?>
+    </div>
+
+    <?php endif; ?>
+
+    <?= $this->Form->submit() ?>
+
+    <?= $this->Form->end() ?>
+
+    <?= $this->Flash->render() ?>
 
 <?php
 endforeach;
 ?>
 
-<head>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+
 <body class="bg-secondary">
 <nav>
-    <?= $this->element('nav3')?>
+
 </nav>
-<main class="mt-5" style="height:150vh">
+<main class="pt-5 mt-5" style="height:150vh">
     <div id="quiz-container d-flex flex-column">
         <div class="pt-3">
 

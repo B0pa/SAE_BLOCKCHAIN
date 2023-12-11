@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+
+use Cake\Utility\Text;
+use Laminas\Diactoros\UploadedFile;
+
 /**
  * Quiz Controller
  *
@@ -10,19 +14,17 @@ namespace App\Controller;
  */
 class QuizController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Authentication->allowUnauthenticated(['quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger']);
+    }
     /**
      * Index method
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-
-    public function beforeFilter(\Cake\Event\EventInterface $event)
-    {
-        parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain']);
-    }
-
-
     public function index()
     {
         $query = $this->Quiz->find();
@@ -53,17 +55,30 @@ class QuizController extends AppController
     {
         $quiz = $this->Quiz->newEmptyEntity();
         if ($this->request->is('post')) {
-            $quiz = $this->Quiz->patchEntity($quiz, $this->request->getData());
+            $data = $this->request->getData();
+            if ($data['questionform'] === 'image') {
+                foreach (['answer1', 'answer2', 'answer3'] as $answer) {
+                    /** @var UploadedFile $file */
+                    $file = $data[$answer];
+                    if (
+                        $file->getError() === 0 &&
+                        str_contains($file->getClientMediaType(), 'image')) {
+                        $newName = strtolower(Text::slug($file->getClientFilename(), ['preserve' => '.']));
+                        $file->moveTo(WWW_ROOT . 'img/upload/' . $newName);
+                        $data[$answer] = $newName;
+                    }
+                }
+            }
+            $quiz = $this->Quiz->patchEntity($quiz, $data);
             if ($this->Quiz->save($quiz)) {
                 $this->Flash->success(__('The quiz has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
         }
         $this->set(compact('quiz'));
-    }
 
+    }
     /**
      * Edit method
      *
@@ -73,16 +88,41 @@ class QuizController extends AppController
      */
     public function edit($id = null)
     {
-        $quiz = $this->Quiz->get($id, contain: []);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $quiz = $this->Quiz->patchEntity($quiz, $this->request->getData());
-            if ($this->Quiz->save($quiz)) {
-                $this->Flash->success(__('The quiz has been saved.'));
+        // Utilisez le "contain" au lieu de "contain:"
+        $quiz = $this->Quiz->get($id, ['contain' => []]);
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
+        // Assurez-vous que $quiz est toujours défini même si la requête n'est pas de type POST
+        if (!isset($quiz)) {
+            $quiz = $this->Quiz->newEmptyEntity();
         }
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $data = $this->request->getData();
+            if ($data['questionform'] === 'image') {
+                foreach (['answer1', 'answer2', 'answer3'] as $answer) {
+                    /** @var UploadedFile $file */
+                    $file = $data[$answer];
+                    if (
+                        $file->getError() === 0 &&
+                        str_contains($file->getClientMediaType(), 'image')
+                    ) {
+                        $newName = strtolower(Text::slug($file->getClientFilename(), ['preserve' => '.']));
+                        $file->moveTo(WWW_ROOT . 'img/upload/' . $newName);
+                        $data[$answer] = $newName;
+                    }
+                }
+            }
+
+            // Utilisez une nouvelle variable, par exemple, $editedQuiz, pour éviter la confusion avec $quiz
+            $editedQuiz = $this->Quiz->patchEntity($quiz, $data);
+            if ($this->Quiz->save($editedQuiz)) {
+                $this->Flash->success(__('The quiz has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
+            }
+        }
+
         $this->set(compact('quiz'));
     }
 
@@ -108,37 +148,38 @@ class QuizController extends AppController
 
     public function quizzDanger()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'danger'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
 
     public function quizzNFT()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'nft'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
 
     public function quizzcrypto()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'crypto'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
 
     public function quizzBlockchain()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'blockchain'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
+
 }

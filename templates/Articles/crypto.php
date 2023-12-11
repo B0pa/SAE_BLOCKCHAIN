@@ -1,24 +1,24 @@
 <body class="bg-secondary" >
-    <?= $this->element('nav')?>
-    <main class="pt-5 mt-5" >   
-        <?= $this->Html->image('crypto.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
+<?= $this->element('nav')?>
+<main class="pt-5 mt-5" >
+    <?= $this->Html->image('crypto.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
     <?php
-            /** @var \App\Model\Entity\Article[] $articles */
-            foreach ($articles as $article) :
-                ?>
-                <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
-                    <p class="d-none p-2" ><?= $article->level?></p>
-                    <h2 class="h2 text-center mt-1 p-2" ><?= $article->title ?></h2>
-                    <p class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= $article->content?></p>
-                    <?= $this->Html->image("upload/" . $article->image, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])?>
+    /** @var \App\Model\Entity\Article[] $articles */
+    foreach ($articles as $article) :
+        ?>
+        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+            <p class="d-none p-2" ><?= $article->level?></p>
+            <h2 class="h2 text-center mt-1 p-2" ><?= $article->title ?></h2>
 
-                </div>
-            <?php
-            endforeach;
-            ?>
+            <?= $this->Html->image("upload/" . $article->image, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])?>
+            <p class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= $article->content?></p>
+        </div>
+    <?php
+    endforeach;
+    ?>
 
 
- 
+
     <?php //= $userName ?><!-- -->
 
     <div class="p-5">
@@ -56,8 +56,5 @@
                 'escapeTitle' => false
             ]
         ) ?>
-    </main>
+</main>
 </body>
-
-
-

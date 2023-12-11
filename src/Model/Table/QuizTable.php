@@ -51,6 +51,10 @@ class QuizTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
+            ->integer('level')
+            ->allowEmptyString('level');
+
+        $validator
             ->scalar('question')
             ->maxLength('question', 255)
             ->allowEmptyString('question');
