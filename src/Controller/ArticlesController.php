@@ -130,27 +130,51 @@ class ArticlesController extends AppController
     }
     public function crypto () {
 
-        $articles = $this->Articles->find()
-            ->where(['category' => 'crypto'])
+        $articles1 = $this->Articles->find()
+            ->where(['category' => 'crypto' ,'level' => '1'])
             ->toArray();
 
-        $this->set(compact('articles'));
+        $articles2 = $this->Articles->find()
+            ->where(['category' => 'crypto' ,'level' => '2'])
+            ->toArray();
+
+        $articles3 = $this->Articles->find()
+            ->where(['category' => 'crypto' ,'level' => '3'])
+            ->toArray();
+
+        $this->set(compact('articles1','articles2','articles3'));
     }
     public function danger () {
 
-        $articles = $this->Articles->find()
-            ->where(['category' => 'danger'])
+        $articles1 = $this->Articles->find()
+            ->where(['category' => 'danger' ,'level' => '1'])
             ->toArray();
 
-        $this->set(compact('articles'));
+        $articles2 = $this->Articles->find()
+            ->where(['category' => 'danger' ,'level' => '2'])
+            ->toArray();
+
+        $articles3 = $this->Articles->find()
+            ->where(['category' => 'danger' ,'level' => '3'])
+            ->toArray();
+
+        $this->set(compact('articles1','articles2','articles3'));
     }
 
     public function nft () {
 
-        $articles = $this->Articles->find()
-            ->where(['category' => 'nft'])
+        $articles1 = $this->Articles->find()
+            ->where(['category' => 'nft' ,'level' => '1'])
             ->toArray();
 
-        $this->set(compact('articles'));
+        $articles2 = $this->Articles->find()
+            ->where(['category' => 'nft' ,'level' => '2'])
+            ->toArray();
+
+        $articles3 = $this->Articles->find()
+            ->where(['category' => 'nft' ,'level' => '3'])
+            ->toArray();
+
+        $this->set(compact('articles1','articles2','articles3'));
     }
 }

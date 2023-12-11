@@ -56,6 +56,9 @@ p,a,li,button,span{
 
 .btn {
     transition: transform .2s;
+    background: linear-gradient(-45deg, #6c757d, #ffc107);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
 }
 
 .btn:hover , .grow:hover{
@@ -72,6 +75,19 @@ p,a,li,button,span{
         transform: none;
     }
 
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 /*================NAV=====================*/
 
