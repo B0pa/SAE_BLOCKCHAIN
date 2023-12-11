@@ -32,10 +32,6 @@
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
     </div>
 
-    <section>
-
-    </section>
-
 </main>
 <?= $this->element('footer')?>
 </body>

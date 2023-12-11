@@ -12,6 +12,43 @@
     }
 }
 
+*::selection {
+    background-color: #ffc107aa;
+    color:rgb(255, 255, 255);
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #212529;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffc107;
+    border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b88c06;
+}
+
+@font-face {
+    font-family: 'rob';
+    src: url(../font/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'mont';
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'mont', sans-serif;
+}
+
+p,a,li,button,span{
+    font-family: 'rob', sans-serif;
+}
+
+
 .slideFromTop {
     animation: 1.3s ease-out 0s 1 slideInFromTop;
     transition: transform .2s;
@@ -28,6 +65,19 @@
 .image-nav:hover {
     filter: brightness(70%);
     border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .grow:hover{
+        transform: none;
+    }
+
+}
+/*================NAV=====================*/
+
+.centrer{
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /*================LOGIN=====================*/
@@ -147,4 +197,22 @@
 .update-tab-contenu{
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+    #update-tab-menu{
+        display: block;
+    }
+
+}
+
+/*================Explications=====================*/
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spin {
+    animation: spin 15s linear infinite;
 }

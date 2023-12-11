@@ -30,7 +30,7 @@
                     echo $this->Form->control('content',['class' => 'form-control bg-secondary']);
                     echo $this->Form->control('level',['class' => 'form-control bg-secondary', 'options' => [1 => 1, 2 => 2, 3 => 3]]);
                     echo $this->Form->control('category',['class' => 'form-control bg-secondary', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto']]);
-                ?>
+                    ?>
                 </fieldset>
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-secondary mt-3']) ?>
                 <?= $this->Form->end() ?>

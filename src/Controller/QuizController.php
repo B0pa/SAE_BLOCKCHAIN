@@ -14,6 +14,12 @@ use Laminas\Diactoros\UploadedFile;
  */
 class QuizController extends AppController
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Authentication->allowUnauthenticated(['quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger']);
+    }
     /**
      * Index method
      *
@@ -61,7 +67,7 @@ class QuizController extends AppController
                         $file->moveTo(WWW_ROOT . 'img/upload/' . $newName);
                         $data[$answer] = $newName;
                     }
-                }          
+                }
             }
             $quiz = $this->Quiz->patchEntity($quiz, $data);
             if ($this->Quiz->save($quiz)) {
@@ -142,39 +148,37 @@ class QuizController extends AppController
 
     public function quizzDanger()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'danger'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
 
     public function quizzNFT()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'nft'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
-
     public function quizzcrypto()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'crypto'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
 
     public function quizzBlockchain()
     {
-        $quiz = $this->Quiz->find()
+        $quizes = $this->Quiz->find()
             ->where(['category' => 'blockchain'])
             ->toArray();
 
-        $this->set(compact('quiz'));
+        $this->set(compact('quizes'));
     }
 
 }
-
