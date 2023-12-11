@@ -56,7 +56,7 @@ class ArticlesController extends AppController
                     $image->moveTo(WWW_ROOT . 'img/upload/' . $newName);
                     $this->Articles->patchEntity($article, ['image' => $newName]);
                 } else {
-                    dd($image);
+                    //dd($image);
                 }
             }
             $this->Articles->patchEntity($article, $this->request->getData());
@@ -114,11 +114,19 @@ class ArticlesController extends AppController
 
     public function blockchain () {
 
-        $articles = $this->Articles->find()
-            ->where(['category' => 'blockchain'])
+        $articles1 = $this->Articles->find()
+            ->where(['category' => 'blockchain' ,'level' => '1'])
             ->toArray();
 
-        $this->set(compact('articles'));
+        $articles2 = $this->Articles->find()
+            ->where(['category' => 'blockchain' ,'level' => '2'])
+            ->toArray();
+
+        $articles3 = $this->Articles->find()
+            ->where(['category' => 'blockchain' ,'level' => '3'])
+            ->toArray();
+
+        $this->set(compact('articles1','articles2','articles3'));
     }
     public function crypto () {
 

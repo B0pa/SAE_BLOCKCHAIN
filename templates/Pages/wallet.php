@@ -18,18 +18,22 @@
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptobitcoin.png', ['class' => 'rounded-circle','alt' => 'crypto Bitcoin']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2" ><?php echo $this->getRequest()->getCookie('crypto'); ?></p>
+        <a href="">avoir sa propre crypto</a>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoblockchain.png', ['class' => 'rounded-circle','alt' => 'crypto Blockchain']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('blockchain'); ?></p>
+        <a href="">Avoir son avatar</a>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptodanger.png', ['class' => 'rounded-circle','alt' => 'crypto Danger']); ?>
         <p class="justify-content-center ms-4  ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('danger'); ?></p>
+        <a href="">Avoir son justificatif</a>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'rounded-circle','alt' => 'crypto NFT']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
+        <a href="">Avoir son image personalisé</a>
     </div>
 
 </main>
