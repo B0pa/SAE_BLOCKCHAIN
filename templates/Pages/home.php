@@ -39,7 +39,7 @@
 
     </nav>
 </header>
-<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5" >
+<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5 " style="height:115vh" >
     <main class="flex-grow-1 flex-shrink-0">
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
 
