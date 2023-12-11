@@ -80,6 +80,37 @@ p,a,li,button,span{
     transform: translateX(-50%);
 }
 
+.nav-rep{
+    position:relative ;
+}
+
+.img-nav{
+    position: absolute;
+}
+
+.title-nav{
+    position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-rep{
+        position:static ;
+        flex-wrap: nowrap;
+    }
+    .img-nav{
+        position: static;
+    }
+    .title-nav{
+        position: static;
+    }
+
+    .centrer{
+        left: 50%;
+        transform:none;
+    }
+
+}
+
 /*================LOGIN=====================*/
 .box{
     position: relative;
