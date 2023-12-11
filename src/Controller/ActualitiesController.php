@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use App\Model\Table\ActualitiesTable;
 use Cake\Utility\Text;
 
 /**
@@ -120,5 +121,13 @@ class ActualitiesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function actuality()
+    {
+        /** @var ActualitiesTable $actualities */
+        $actualities = $this->fetchTable('Actualities');
+
+        $actus = $actualities->find()->toArray();
+        $this->set(compact('actus'));
     }
 }

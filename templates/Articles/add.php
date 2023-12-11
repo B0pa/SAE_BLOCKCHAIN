@@ -23,8 +23,8 @@
                     <?php
                     echo $this->Form->control('title',['class' => 'form-control bg-secondary']);
                     echo $this->Form->control('content',['class' => 'form-control bg-secondary']);
-                    echo $this->Form->control('level',['class' => 'form-control bg-secondary w-25']);
-                    echo $this->Form->control('category',['class' => 'form-control bg-secondary'] );
+                    echo $this->Form->control('level', ['class' => 'form-control bg-secondary', 'options' => [1 => 1, 2 => 2, 3 => 3]]);
+                    echo $this->Form->control('category',['class' => 'form-control bg-secondary','options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto']] );
                     echo $this->Form->control('upload', [
                         'type' => 'file',
                         'label' => 'Votre jolie image',

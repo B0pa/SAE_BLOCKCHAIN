@@ -5,7 +5,7 @@
         <a href="/users/register" class="tab text-decoration-none text-dark text-center grow" >
             <div class="my-auto">
                 <h2>Ajouter un administrateur</h2>
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('administrator.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
             </div>
 
         </a>
@@ -13,7 +13,7 @@
         <div class="tab text-center" >
             <h2 class="mt-3" >Modifier des Actualité</h2>
             <div class="mt-3 update-tab-contenu">
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('actualite.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                 <div class="d-flex justify-content-around  " >
                     <?= $this->Html->link(
                         "Ajouter Actualité",
@@ -37,12 +37,12 @@
         </div>
 
         <div class="tab text-center" >
-            <h2 class="mt-3" >Modifier des Quizz</h2>
+            <h2 class="mt-3" >Modifier des Quiz</h2>
             <div class="mt-3 update-tab-contenu">
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('quiz.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                 <div class="d-flex justify-content-around  " >
                     <?= $this->Html->link(
-                        "Ajouter Articles",
+                        "Ajouter Quiz",
                         ['controller'=> 'Quiz', 'action' => 'add'],
                         [
                             'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
@@ -51,7 +51,7 @@
                     ) ?>
 
                     <?= $this->Html->link(
-                        "Modifier Articles",
+                        "Modifier Quiz",
                         ['controller'=> 'Quiz', 'action' => 'index'],
                         [
                             'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-4 m-3',
@@ -65,7 +65,7 @@
         <div class="tab text-center">
             <h2 class="mt-3" >Modifier des informations</h2>
             <div class="mt-3 update-tab-contenu">
-                <?= $this->Html->image('NFT.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
+                <?= $this->Html->image('explication.png', ['class' => 'rounded-circle mt-3 mx-auto','alt' => 'NFT image']); ?>
                 <div class="d-flex justify-content-around  " >
                     <?= $this->Html->link(
                         "Ajouter Articles",

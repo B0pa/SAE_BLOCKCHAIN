@@ -8,16 +8,15 @@ foreach ($quizes as $quiz) :
     <h2><?= $quiz->question ?></h2>
 
 
-    <?= $this->Form->create(null, ['url' => ['controller' => 'Quizzes', 'action' => 'checkAnswer']]) ?>
+    <?php if ($quiz->questionform == "text"): ?>
 
-    <?= $this->Form->control('quiz_id', ['type' => 'hidden', 'value' => $quiz->id]) ?>
-
-    <h2><?= $quiz->question ?></h2>
-
-    <?php if ($quiz->type == "text"): ?>
-
-    <?= $this->Form->control('reponse', [
+    <?= $this->Form->control('les réponse', [
         'type' => 'radio',
+        'value'=>[
+            1=> $this->Html->image("upload/" . $quiz->answer1),
+            2=> $this->Html->image("upload/" . $quiz->answer2),
+            3=> $this->Html->image("upload/" . $quiz->answer3)
+        ],
         'options' => [
             1 => $quiz->answer1,
             2 => $quiz->answer2,
@@ -30,19 +29,16 @@ foreach ($quizes as $quiz) :
     <?php if ($quiz->questionform == "image") :?>
 
     <div>
-
-
         <?= $this->Form->control('reponse', [
             'type' => 'radio',
             'options' => [
-                1 => $quiz->$this->Html->image("upload/" . $quiz->answer1),
-                2 => $quiz->$this->Html->image("upload/" . $quiz->answer2),
-                3 => $quiz->$this->Html->image("upload/" . $quiz->answer3),
+                1 => $this->Html->image("upload/" . $quiz->answer1),
+                2 => $this->Html->image("upload/" . $quiz->answer2),
+                3 => $this->Html->image("upload/" . $quiz->answer3)
             ]
         ]); ?>
         <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
         <?= $this->Form->end() ?>
-
     </div>
 
     <?php endif; ?>
@@ -60,7 +56,7 @@ endforeach;
 
 <body class="bg-secondary">
 <nav>
-    <?= $this->element('nav3')?>
+
 </nav>
 <main class="pt-5 mt-5" style="height:150vh">
     <div id="quiz-container d-flex flex-column">

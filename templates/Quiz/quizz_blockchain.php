@@ -25,17 +25,11 @@ endforeach;
 
 <body>
 <nav>
-    <?= $this->element('nav3')?>
+<!--    --><?php //= $this->element('nav3')?>
 </nav>
 <main>
     <div id="quiz-container">
-        <div class="PTop">
 
-<!--            <p id="score">Chain : 0</p>-->
-        </div>
-        <div id="quizzes" class="grid-container">
-            <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->
-        </div>
         <button id="submit-button" onclick="checkAnswers()">Soumettre</button>
     </div>
     <?= $this->Html->script('/js/quizBlock.js') ?>
