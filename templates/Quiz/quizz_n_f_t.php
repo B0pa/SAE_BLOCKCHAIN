@@ -1,9 +1,12 @@
+<?= $this->element('nav3')?>
+
 <?php
 
 /** @var \App\Model\Entity\Quiz[] $quizes */
 
 foreach ($quizes as $quiz) :
     ?>
+    
     <p><?= $quiz->level ?></p>
     <h2><?= $quiz->question ?></h2>
 
