@@ -13,9 +13,9 @@ foreach ($quizes as $quiz) :
     <?= $this->Form->control('les réponse', [
         'type' => 'radio',
         'value'=>[
-            1=> $this->Html->image("upload/" . $quiz->answer1),
-            2=> $this->Html->image("upload/" . $quiz->answer2),
-            3=> $this->Html->image("upload/" . $quiz->answer3)
+            1=> 1,
+            2=> 2,
+            3=> 3
         ],
         'options' => [
             1 => $quiz->answer1,
@@ -31,6 +31,11 @@ foreach ($quizes as $quiz) :
     <div>
         <?= $this->Form->control('reponse', [
             'type' => 'radio',
+            'value'=>[
+                1=> 1,
+                2=> 2,
+                3=> 3
+            ],
             'options' => [
                 1 => $this->Html->image("upload/" . $quiz->answer1),
                 2 => $this->Html->image("upload/" . $quiz->answer2),

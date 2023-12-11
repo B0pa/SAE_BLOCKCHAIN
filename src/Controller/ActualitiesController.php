@@ -17,6 +17,12 @@ class ActualitiesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        $this->Authentication->addUnauthenticatedActions(['actuality']);
+    }
+
     public function index()
     {
         $query = $this->Actualities->find();
