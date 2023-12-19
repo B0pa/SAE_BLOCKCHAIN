@@ -3,6 +3,9 @@
 foreach ($quizes as $quiz) :
     echo $this->Form->create($quiz);
     ?>
+    <nav>
+        <?= $this->element('nav3')?>
+    </nav>
 
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
         <p><?= $quiz->level ?></p>
