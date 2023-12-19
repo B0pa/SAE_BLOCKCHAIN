@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Article $article
  */
+
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body class="bg-secondary pt-5 mt-5" >
@@ -79,6 +80,8 @@
 </body>
 <script>
     $(function() {
+
+
         // Initialisation de la prévisualisation
 
         $('#preview-title').text($('input[name="title"]').val());
@@ -86,10 +89,8 @@
         $('#preview-text').html(content);
 
         // Vérifiez si une image a déjà été téléchargée pour l'article
-        var imageUrl = 'img/upload/' + $('input[name="image"]').val();
-        if (imageUrl) {
-            // Si c'est le cas, affichez l'image dans la prévisualisation
-            $('#imagePreview').append("<img src='" + imageUrl + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+        if($('input[name="upload"]').val() !== null) {
+            $('#imagePreview').html('<img src="/img/upload/' + $('input[name="upload"]').val() + '" class="img-fluid w-75 mx-auto rounded-3 mt-2 mb-3" alt="accueil" style="">');
         }
 
         // Lorsque le bouton de modification du contenu est cliqué

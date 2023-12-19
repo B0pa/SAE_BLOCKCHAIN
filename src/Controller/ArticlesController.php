@@ -95,6 +95,9 @@ class ArticlesController extends AppController
         $this->set(compact('article'));
     }
 
+
+
+
     /**
      * Delete method
      *
