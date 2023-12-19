@@ -51,6 +51,8 @@ class ArticlesController extends AppController
             if ($this->request->getData('upload')) {
                 /** @var UploadedFile $image */
                 $image = $this->request->getData('upload');
+
+                //img
                 if ($image->getError() === 0 && str_contains($image->getClientMediaType(), 'image')) {
                     $newName = strtolower(Text::slug($image->getClientFilename(), ['preserve' => '.']));
                     $image->moveTo(WWW_ROOT . 'img/upload/' . $newName);
@@ -59,6 +61,7 @@ class ArticlesController extends AppController
                     //dd($image);
                 }
             }
+            // dd($this->request->getData());
             $this->Articles->patchEntity($article, $this->request->getData());
             if ($this->Articles->save($article)) {
                 $this->Flash->success(__('The article has been saved.'));

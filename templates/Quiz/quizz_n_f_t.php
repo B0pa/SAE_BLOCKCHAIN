@@ -67,5 +67,6 @@ endforeach;
     <?= $this->Html->script('/js/quizNFT.js') ?>
 </main>
 <?= $this->element('footer')?>
+
 </body>
 </html>

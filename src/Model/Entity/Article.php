@@ -28,9 +28,12 @@ class Article extends Entity
      */
     protected array $_accessible = [
         'title' => true,
+        'css_title' => true,
         'content' => true,
+        'css_content' => true,
         'level' => true,
         'category' => true,
         'image' => true,
+        'css_img' => true,
     ];
 }
