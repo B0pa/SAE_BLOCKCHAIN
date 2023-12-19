@@ -8,7 +8,7 @@ if ($currentURL === 'update') {
 } elseif ($currentURL === 'login') {
     $pageTitle = 'Login';
 } elseif ($currentURL === 'register') {
-    $pageTitle = 'Register';
+    $pageTitle = 'Enregistrement';
 } elseif ($currentURL === 'updateactuality') {
     $pageTitle = 'Update actuality';
 } elseif ($currentURL === 'updateinfo') {
