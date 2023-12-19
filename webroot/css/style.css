@@ -56,9 +56,6 @@ p,a,li,button,span{
 
 .btn {
     transition: transform .2s;
-    background: linear-gradient(-45deg, #6c757d, #ffc107);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
 }
 
 .btn:hover , .grow:hover{
@@ -76,24 +73,42 @@ p,a,li,button,span{
     }
 
 }
-
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
 /*================NAV=====================*/
 
 .centrer{
     left: 50%;
     transform: translateX(-50%);
+}
+
+.nav-rep{
+    position:relative ;
+}
+
+.img-nav{
+    position: absolute;
+}
+
+.title-nav{
+    position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-rep{
+        position:static ;
+        flex-wrap: nowrap;
+    }
+    .img-nav{
+        position: static;
+    }
+    .title-nav{
+        position: static;
+    }
+
+    .centrer{
+        left: 50%;
+        transform:none;
+    }
+
 }
 
 /*================LOGIN=====================*/

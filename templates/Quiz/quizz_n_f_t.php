@@ -1,9 +1,12 @@
+<?= $this->element('nav3')?>
+
 <?php
 
 /** @var \App\Model\Entity\Quiz[] $quizes */
 
 foreach ($quizes as $quiz) :
     ?>
+
     <p><?= $quiz->level ?></p>
     <h2><?= $quiz->question ?></h2>
 
@@ -46,7 +49,7 @@ foreach ($quizes as $quiz) :
         <?= $this->Form->end() ?>
     </div>
 
-    <?php endif; ?>
+<?php endif; ?>
 
     <?= $this->Form->submit() ?>
 
@@ -67,7 +70,7 @@ endforeach;
     <div id="quiz-container d-flex flex-column">
         <div class="pt-3">
 
-<!--            <p id="score">NFT : 0</p>-->
+            <!--            <p id="score">NFT : 0</p>-->
         </div>
         <div id="quizzes">
             <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->
