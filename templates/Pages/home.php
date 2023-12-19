@@ -11,35 +11,35 @@
 <body class="bg-secondary">
 
 <header>
-    <nav class="navbar navbar-dark bg-dark d-flex fixed-top" style="height: 105px;">
+    <nav class="container-fluid pt-3 bg-dark bg-dark d-flex fixed-top justify-content-between" style="height: 105px;">
+        <div class="container-fluid h-100 d-flex justify-content-center align-items-center nav-rep" >
 
-        <?= $this->Html->link(
-            $this->Html->image('wallet.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone wallet']),
-            ['controller'=> 'Pages', 'action' => 'wallet'],
-            [
-                'class' => 'nav-link d-flex align-items-center',
-                'escapeTitle' => false
-            ]
-        ) ?>
+            <?= $this->Html->link(
+                $this->Html->image('wallet.png', ['class' => 'img-fluid image-nav top-0 img-nav','alt' => 'accueil','style' => 'left:20px;']),
+                ['controller' => 'Pages', 'action' => 'wallet'],
+                [
+                    'class' => 'nav-link d-flex align-items-center',
+                    'escapeTitle' => false
+                ]
+            ) ?>
 
-        <?= $this->Html->link(
-            $this->Html->image('temp reel.png', ['class' => 'img-fluid h-100 image-nav','alt' => 'icone temp réel']),
-            ['controller'=> 'Pages', 'action' => 'tempreel'],
-            [
-                'class' => 'nav-link d-flex align-items-center',
-                'escapeTitle' => false
-            ]
-        ) ?>
+            <?= $this->Html->link(
+                $this->Html->image('temp reel.png', ['class' => 'img-fluid image-nav top-0 img-nav','alt' => 'icone temp réel','style' => 'left:120px;']),
+                ['controller' => 'Pages', 'action' => 'tempreel'],
+                [
+                    'class' => 'nav-link d-flex align-items-center',
+                    'escapeTitle' => false
+                ]
+            ) ?>
 
-
-
-        <div class="d-flex bg-warning rounded-pill col-4 col-md-3 mx-auto align-items-center justify-content-center h-auto p-1">
-            <h1 class="h1 text-center  ">Accueil</h1>
+            <div class="d-flex  bg-warning rounded-pill px-5 py-1 align-items-center justify-content-center h-auto title-nav centrer">
+                <h1 class="h1 text-center  ">Accueil</h1>
+            </div>
         </div>
 
     </nav>
 </header>
-<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5" >
+<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5 " style="height:115vh" >
     <main class="flex-grow-1 flex-shrink-0">
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex">
 
@@ -49,7 +49,7 @@
 
             <h2 class="h2 mx-auto">Les NFT</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "NFT",
                 ['controller'=> 'Articles', 'action' => 'nft'],
                 [
@@ -65,7 +65,7 @@
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "crypto",
                 ['controller'=> 'Articles', 'action' => 'crypto'],
                 [
@@ -81,7 +81,7 @@
 
             <h2 class="h2 mx-auto" >Les dangers</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "Danger",
                 ['controller'=> 'Articles', 'action' => 'danger'],
                 [
@@ -94,10 +94,10 @@
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
 
 
-            <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
+            
             <h2 class="h2 mx-auto">Les blockchain</h2>
 
-                <?= $this->Html->link(
+            <?= $this->Html->link(
                 "Blockchain",
                 ['controller'=> 'Articles', 'action' => 'blockchain'],
                 [

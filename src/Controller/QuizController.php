@@ -163,6 +163,7 @@ class QuizController extends AppController
 
         $this->set(compact('quizes'));
     }
+
     public function quizzcrypto()
     {
         $quizes = $this->Quiz->find()
@@ -180,5 +181,4 @@ class QuizController extends AppController
 
         $this->set(compact('quizes'));
     }
-
 }

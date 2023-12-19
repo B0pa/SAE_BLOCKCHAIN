@@ -48,6 +48,7 @@ $form = new \Cake\Form\Form();
         </div>
 
         <aside class="col-4 border border-dark overflow-auto ">
+            <h2>Prévisualisation</h2>
             <div class="preview">
                 <h3 class="h3 text-center" ><span id="display-title"></span></h3>
                 <p class="text-center" ><span id="display-text"></span></p>
@@ -73,7 +74,6 @@ $form = new \Cake\Form\Form();
         // Prévisualisation texte
         $('textarea[name="text"]').on('input', function() {
             $('#display-text').html($(this).val());
-
         });
 
         // Prévisualisation image
@@ -88,10 +88,6 @@ $form = new \Cake\Form\Form();
 
         // Interception soumission formulaire
         $('form').submit(function(e){
-
-
-
-
 
         });
 

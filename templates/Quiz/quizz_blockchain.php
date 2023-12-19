@@ -3,11 +3,14 @@
 foreach ($quizes as $quiz) :
     echo $this->Form->create($quiz);
     ?>
+    <nav>
+        <?= $this->element('nav3')?>
+    </nav>
 
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
         <p><?= $quiz->level ?></p>
         <h2><?= $quiz->question ?></h2>
-        <?php 
+        <?php
         if ($quiz->questionform == "text"): // reponse au format texte
             echo $this->Form->control('reponse', [
                 'type' => 'radio',
@@ -15,10 +18,10 @@ foreach ($quizes as $quiz) :
                     1 => $quiz->answer1,
                     2 => $quiz->answer2,
                     3 => $quiz->answer3
-                ], 
+                ],
                 'class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''
             ]);
-        endif; 
+        endif;
         ?>
         <?php if ($quiz->questionform == "image") :?>
             <label>

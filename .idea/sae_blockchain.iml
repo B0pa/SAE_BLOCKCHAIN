@@ -5,9 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/sae_blockchain/tests/TestCase" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="App\Test\" />
-      <sourceFolder url="file://$MODULE_DIR$/tests/TestCase" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/cakephp/cakephp/tests" isTestSource="true" packagePrefix="Cake\Test\" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/brick/varexporter" />
       <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/bake" />
       <excludeFolder url="file://$MODULE_DIR$/sae_blockchain/vendor/cakephp/cakephp" />
@@ -166,6 +164,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/markdown-extra" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/cakephp/authentication" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

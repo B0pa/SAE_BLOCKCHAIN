@@ -3,15 +3,41 @@
 <main class="pt-5 mt-5" >
     <?= $this->Html->image('danger.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
     <?php
-    /** @var \App\Model\Entity\Article[] $articles */
-    foreach ($articles as $article) :
+    /** @var \App\Model\Entity\Article[] $articles1 */
+    foreach ($articles1 as $article) :
         ?>
         <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
-            <p class="d-none p-2" ><?= $article->level?></p>
+            <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
             <h2 class="h2 text-center mt-1 p-2" ><?= $article->title ?></h2>
-            <p class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= $article->content?></p>
+            <pre class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= nl2br($article->content)?></pre>
             <?= $this->Html->image("upload/" . $article->image, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])?>
+        </div>
+    <?php
+    endforeach;
+    ?>
 
+    <?php
+    /** @var \App\Model\Entity\Article[] $articles2 */
+    foreach ($articles2 as $article) :
+        ?>
+        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+            <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
+            <h2 class="h2 text-center mt-1 p-2" ><?= $article->title ?></h2>
+            <pre class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= nl2br($article->content)?></pre>
+            <?= $this->Html->image("upload/" . $article->image, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])?>
+        </div>
+    <?php
+    endforeach;
+    ?>
+    <?php
+    /** @var \App\Model\Entity\Article[] $articles3 */
+    foreach ($articles3 as $article) :
+        ?>
+        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+            <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
+            <h2 class="h2 text-center mt-1 p-2" ><?= $article->title ?></h2>
+            <pre class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= nl2br($article->content)?></pre>
+            <?= $this->Html->image("upload/" . $article->image, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])?>
         </div>
     <?php
     endforeach;
