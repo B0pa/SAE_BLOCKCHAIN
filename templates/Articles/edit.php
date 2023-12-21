@@ -88,9 +88,11 @@
         var content = $('textarea[name="content"]').val().replace(/ /g, "&nbsp;").replace(/\n/g, "<br>");
         $('#preview-text').html(content);
 
+        console.log(content);
+
         // Vérifiez si une image a déjà été téléchargée pour l'article
         if($('input[name="upload"]').val() !== null) {
-            $('#imagePreview').html('<img src="/img/upload/' + $('input[name="upload"]').val() + '" class="img-fluid w-75 mx-auto rounded-3 mt-2 mb-3" alt="accueil" style="">');
+            $('#imagePreview').html('<img src="/img/upload/' + '<?= $article->image ?>' + '" class="img-fluid w-75 mx-auto rounded-3 mt-2 mb-3" alt="accueil" style="">');
         }
 
         // Lorsque le bouton de modification du contenu est cliqué
@@ -131,7 +133,7 @@
             $('#imagePreview img').attr('class', bootstrapClass);
         });
 
-        $('#css_content').trigger('input');
+        $('#css_img').trigger('input');
 
         //prévisualisation
 
@@ -146,7 +148,11 @@
             $('#imagePreview').html('');
             var total_file = document.getElementById("upload").files.length;
             for (var i = 0; i < total_file; i++) {
-                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                // Obtenez la classe Bootstrap entrée par l'utilisateur
+                var bootstrapClass = $('#css_img').val();
+
+                // Ajoutez la classe Bootstrap à l'image lors de sa création
+                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='" + bootstrapClass + " img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
             }
         });
         $('#boldButton').on('click', function() {
