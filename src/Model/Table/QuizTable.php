@@ -88,6 +88,11 @@ class QuizTable extends Table
             ->maxLength('category', 45)
             ->allowEmptyString('category');
 
+        $validator
+            ->scalar('csv_link')
+            ->maxLength('csv_link', 45)
+            ->allowEmptyString('csv_link');
+
         return $validator;
     }
 }
