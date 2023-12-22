@@ -10,7 +10,7 @@
 <?= $this->element('nav_admin')?>
 <main class="mt-5 pt-3" >
     <div class="row col-12 p-3">
-        <aside class="col">
+        <aside class="col col-12">
             <div class="side-nav">
                 <h4 class="heading"><?= __('Actions') ?></h4>
                 <?= $this->Form->postLink(
@@ -23,15 +23,15 @@
             <div class="side-nav">
                 <h2>prévisualisation</h2>
                 <div class="articles content">
-                    <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
-                        <h2 id="preview-title"></h2>
-                        <p  id="preview-text"></p>
-                        <div id="imagePreview" ></div>
+                    <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-3 rounded-3 slideFromTop">
+                        <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
+                        <p  id="preview-text" style="overflow-wrap: anywhere;padding:5px;text-align: justify;"></p>
+                        <div id="imagePreview" style="padding:20px;"></div>
                     </div>
                 </div>
 
         </aside>
-        <div class="col-9 p-3 bg-dark rounded text-white">
+        <div class="col-12 p-3 bg-dark rounded text-white">
             <div class="articles content">
                 <?= $this->Form->create($article) ?>
 

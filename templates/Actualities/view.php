@@ -8,7 +8,7 @@
 <?= $this->element('nav_admin')?>
 <main class="pt-3 p-3" >
     <div class="row">
-        <aside class="column">
+        <aside class="col">
             <div class="side-nav">
                 <h4 class="heading"><?= __('Actions') ?></h4>
                 <?= $this->Html->link(__('Edit Actuality'), ['action' => 'edit', $actuality->id], ['class' => 'side-nav-item']) ?>
@@ -17,7 +17,7 @@
                 <?= $this->Html->link(__('New Actuality'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
             </div>
         </aside>
-        <div class="column column-80">
+        <div class="col col-9">
             <div class="actualities view content">
                 <h3><?= h($actuality->title) ?></h3>
                 <table>
