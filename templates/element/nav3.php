@@ -6,20 +6,20 @@ $crypto = '';
 $nb = '';
 
 if ($currentURL === 'quizz-blockchain') {
-    $pageTitle = 'Quizz Blockchain';
+    $pageTitle = 'Quiz Blockchain';
     $crypto = 'cryptoblockchain.png';
     $nb = $this->getRequest()->getCookie('blockchain');
 } elseif ($currentURL === 'quizz-danger') {
     $crypto = 'cryptodanger.png';
-    $pageTitle = 'Quizz Danger';
+    $pageTitle = 'Quiz Danger';
     $nb = $this->getRequest()->getCookie('danger');
 } elseif ($currentURL === 'quizzcrypto') {
     $crypto ="cryptobitcoin.png";
-    $pageTitle = 'Quizz Crypto';
+    $pageTitle = 'Quiz Crypto';
     $nb = $this->getRequest()->getCookie('crypto');
 } elseif ($currentURL === 'quizz-n-f-t') {
     $crypto = "cryptoNFT.png";
-    $pageTitle = 'Quizz NFT';
+    $pageTitle = 'Quiz NFT';
     $nb = $this->getRequest()->getCookie('nft');
 }
 

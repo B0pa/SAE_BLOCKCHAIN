@@ -1,84 +1,122 @@
-<?= $this->element('nav3')?>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <?php
-
 /** @var \App\Model\Entity\Quiz[] $quizes */
+foreach ($quizes as $index => $quiz) :
+    echo $this->Form->create($quiz);
 
-foreach ($quizes as $quiz) :
+    $csv_link = $quiz->csv_link;
+
     ?>
+    <nav>
+        <?= $this->element('nav3')?>
+    </nav>
 
-    <p><?= $quiz->level ?></p>
-    <h2><?= $quiz->question ?></h2>
+    <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
+        <?php if ($quiz->questionform == "graphic") :?>
+            <p><?= $quiz->question ?></p>
 
+            <!-- Utilisez l'index de la boucle pour générer un identifiant unique -->
+            <canvas id="myChart<?= $index ?>"></canvas>
 
-    <?php if ($quiz->questionform == "text"): ?>
+            <script>
+                // Stockez la valeur de csv_link dans une variable JavaScript
+                var csv_link = "<?php echo $csv_link; ?>";
 
-    <?= $this->Form->control('les réponse', [
-        'type' => 'radio',
-        'value'=>[
-            1=> 1,
-            2=> 2,
-            3=> 3
-        ],
-        'options' => [
-            1 => $quiz->answer1,
-            2 => $quiz->answer2,
-            3 => $quiz->answer3
-        ]
-    ]); ?>
+                // Vérifiez si csv_link est un fichier CSV
+                if (csv_link.endsWith('.csv')) {
+                    console.log('Le fichier est un fichier CSV');
+                    csvFile = '/csv/' + csv_link;
+                    console.log('csvFile: ' + csvFile);
+                    fetch(csvFile)
+                        .then(response => response.text())
+                        .then(data => {
+                            // Convertir les données CSV en tableau
+                            const rows = data.split('\n').slice(1);
+                            const labels = rows.map(row => row.split(',')[0]);
+                            const values = rows.map(row => row.split(',')[1]);
+                            console.log('index: ' + <?= $index ?>);
+                            // Détruisez l'ancien graphique s'il existe
+                            if (window['myChart' + <?= $index ?>] instanceof Chart) {
+                                window['myChart' + <?= $index ?>].destroy();
+                            }
 
-<?php endif; ?>
+                            // Créez le nouveau graphique
+                            window['myChart' + <?= $index ?>] = new Chart(document.getElementById('myChart<?= $index ?>'), {
+                                type: 'line',
+                                data: {
+                                    labels: labels,
+                                    datasets: [{
+                                        label: 'My Dataset',
+                                        data: values,
+                                        fill: false,
+                                        borderColor: 'rgb(75, 192, 192)',
+                                        tension: 0.1
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                }
+            </script>
 
-    <?php if ($quiz->questionform == "image") :?>
+        <?php else: ?>
+            <h2><?= $quiz->question ?></h2>
+        <?php endif; ?>
+        <p><?= $quiz->level ?></p>
+        <?php
+        if ($quiz->questionform == "text"): // reponse au format texte
+            echo $this->Form->control('reponse', [
+                'type' => 'radio',
+                'options' => [
+                    1 => $quiz->answer1,
+                    2 => $quiz->answer2,
+                    3 => $quiz->answer3
+                ],
+                'class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''
+            ]);
 
-    <div>
-        <?= $this->Form->control('reponse', [
-            'type' => 'radio',
-            'value'=>[
-                1=> 1,
-                2=> 2,
-                3=> 3
-            ],
-            'options' => [
-                1 => $this->Html->image("upload/" . $quiz->answer1),
-                2 => $this->Html->image("upload/" . $quiz->answer2),
-                3 => $this->Html->image("upload/" . $quiz->answer3)
-            ]
-        ]); ?>
+            ?>
+        <?php endif; ?>
+        <?php
+        if ($quiz->questionform == "graphic"): // reponse au format texte
+            echo $this->Form->control('reponse', [
+                'type' => 'radio',
+                'options' => [
+                    1 => $quiz->answer1,
+                    2 => $quiz->answer2,
+                    3 => $quiz->answer3
+                ],
+                'class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''
+            ]);
+
+            ?>
+        <?php endif; ?>
+        <?php if ($quiz->questionform == "image") :?>
+            <label>
+                <?= $this->Form->radio('reponse', ['value' => 1]) ?>
+                <?= $this->Html->image("upload/" . $quiz->answer1, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
+            </label>
+            <label>
+                <?= $this->Form->radio('reponse', ['value' => 2]) ?>
+                <?= $this->Html->image("upload/" . $quiz->answer2, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
+            </label>
+            <label>
+                <?= $this->Form->radio('reponse', ['value' => 3]) ?>
+                <?= $this->Html->image("upload/" . $quiz->answer3, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
+            </label>
+        <?php endif; ?>
         <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
         <?= $this->Form->end() ?>
+        <?= $this->Flash->render() ?>
     </div>
-
-<?php endif; ?>
-
-    <?= $this->Form->submit() ?>
-
-    <?= $this->Form->end() ?>
-
-    <?= $this->Flash->render() ?>
 
 <?php
 endforeach;
 ?>
-
-
-<body class="bg-secondary">
-<nav>
-
-</nav>
-<main class="pt-5 mt-5" style="height:150vh">
-    <div id="quiz-container d-flex flex-column">
-        <div class="pt-3">
-
-            <!--            <p id="score">NFT : 0</p>-->
-        </div>
-        <div id="quizzes">
-            <!-- Cet élément sera utilisé pour afficher les quiz (ajoutés automatiquement) -->
-        </div>
-        <button id="submit-button" class="btn btn-dark my-3 position-relative start-50 translate-middle-x "  onclick="checkAnswers()" >Soumettre</button>
-    </div>
-    <?= $this->Html->script('/js/quizNFT.js') ?>
-</main>
-<?= $this->element('footer')?>
-</body>
-</html>

@@ -38,5 +38,6 @@ class Quiz extends Entity
         'realanswer' => true,
         'questionform' => true,
         'category' => true,
+        'csv_link' => true,
     ];
 }
