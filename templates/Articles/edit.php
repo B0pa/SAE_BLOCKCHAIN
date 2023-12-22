@@ -10,7 +10,7 @@
 <?= $this->element('nav_admin')?>
 <main class="mt-5 pt-3" >
     <div class="row col-12 p-3">
-        <aside class="col">
+        <aside class="col col-12">
             <div class="side-nav">
                 <h4 class="heading"><?= __('Actions') ?></h4>
                 <?= $this->Form->postLink(
@@ -23,54 +23,54 @@
             <div class="side-nav">
                 <h2>prévisualisation</h2>
                 <div class="articles content">
-                    <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
-                        <h2 id="preview-title"></h2>
-                        <p  id="preview-text"></p>
-                        <div id="imagePreview" ></div>
+                    <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-3 rounded-3 slideFromTop">
+                        <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
+                        <p  id="preview-text" style="overflow-wrap: anywhere;padding:5px;text-align: justify;"></p>
+                        <div id="imagePreview" style="padding:20px;"></div>
                     </div>
                 </div>
 
         </aside>
-        <div class="col-9 p-3 bg-dark rounded text-white">
+        <div class="col-12 p-3 bg-dark rounded text-white">
             <div class="articles content">
                 <?= $this->Form->create($article) ?>
 
-                    <fieldset>
-                        <legend class="" ><?= __('Edit Article') ?></legend>
-                        <?php
-                        echo $this->Form->button('Modifier le CSS du titre', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_title']);
-                        echo $this->Form->text('css_title', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_title']);
+                <fieldset>
+                    <legend class="" ><?= __('Edit Article') ?></legend>
+                    <?php
+                    echo $this->Form->button('Modifier le CSS du titre', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_title']);
+                    echo $this->Form->text('css_title', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_title']);
 
-                        echo $this->Form->control('title', [
-                            'class' => 'form-control bg-secondary'
-                        ]);
+                    echo $this->Form->control('title', [
+                        'class' => 'form-control bg-secondary'
+                    ]);
 
-                        echo $this->Form->button('Modifier le CSS du contenu', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_content']);
-                        echo $this->Form->text('css_content', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_content']);
-
-
-                        echo $this->Form->button('Gras', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'boldButton']);
-                        echo $this->Form->button('Souligner', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'underlineButton']);
-                        echo $this->Form->control('content',[
-                            'class' => 'form-control bg-secondary'
-                        ]);
-
-                        echo $this->Form->control('level', ['class' => 'form-control bg-secondary', 'options' => [1 => 1, 2 => 2, 3 => 3]]);
-                        echo $this->Form->control('category',['class' => 'form-control bg-secondary','options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto']] );
-
-                        echo $this->Form->button("Modifier le CSS de l'image ", ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_img']);
-                        echo $this->Form->text('css_img', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_img']);
-
-                        echo $this->Form->control('upload', [
-                            'type' => 'file',
-                            'label' => 'Votre jolie image',
-                            'class' => 'form-control bg-secondary',
-                            'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
-                        ]);
-                        ?>
+                    echo $this->Form->button('Modifier le CSS du contenu', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_content']);
+                    echo $this->Form->text('css_content', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_content']);
 
 
-                    </fieldset>
+                    echo $this->Form->button('Gras', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'boldButton']);
+                    echo $this->Form->button('Souligner', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'underlineButton']);
+                    echo $this->Form->control('content',[
+                        'class' => 'form-control bg-secondary'
+                    ]);
+
+                    echo $this->Form->control('level', ['class' => 'form-control bg-secondary', 'options' => [1 => 1, 2 => 2, 3 => 3]]);
+                    echo $this->Form->control('category',['class' => 'form-control bg-secondary','options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto']] );
+
+                    echo $this->Form->button("Modifier le CSS de l'image ", ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_img']);
+                    echo $this->Form->text('css_img', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_img']);
+
+                    echo $this->Form->control('upload', [
+                        'type' => 'file',
+                        'label' => 'Votre jolie image',
+                        'class' => 'form-control bg-secondary',
+                        'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
+                    ]);
+                    ?>
+
+
+                </fieldset>
                 <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-secondary mt-3']) ?>
                 <?= $this->Form->end() ?>
             </div>

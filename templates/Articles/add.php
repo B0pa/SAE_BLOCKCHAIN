@@ -26,7 +26,7 @@
 
                     echo $this->Form->control('title', [
                         'class' => 'form-control bg-secondary'
-                        ]);
+                    ]);
 
                     echo $this->Form->button('Modifier le CSS du contenu', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_content']);
                     echo $this->Form->text('css_content', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_content']);
@@ -62,13 +62,13 @@
 </main>
 <aside>
     <div class="side-nav">
-        <h2>prévisualisation</h2>
         <div class="articles content">
-            <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
-                <h2 id="preview-title"></h2>
-                <p  id="preview-text"></p>
-                <div id="imagePreview" ></div>
+            <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-3 rounded-3 slideFromTop">
+                <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
+                <p  id="preview-text" style="overflow-wrap: anywhere;padding:5px;text-align: justify;"></p>
+                <div id="imagePreview" style="padding:20px;"></div>
             </div>
+        </div>
     </div>
 </aside>
 </body>
