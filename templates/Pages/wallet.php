@@ -18,22 +18,48 @@
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptobitcoin.png', ['class' => 'rounded-circle','alt' => 'crypto Bitcoin']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2" ><?php echo $this->getRequest()->getCookie('crypto'); ?></p>
-        <a href="">avoir sa propre crypto</a>
+    <?php
+    $counter = $this->getRequest()->getCookie('crypto');
+
+    if ($counter == 0) {
+        $imagePathCrypto = 'crypto1.jpg';
+    } else {
+        $imagePathCrypto = 'crypto2.jpg';
+    }
+    ?>
+    <?php echo $this->Html->image($imagePathCrypto, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoblockchain.png', ['class' => 'rounded-circle','alt' => 'crypto Blockchain']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('blockchain'); ?></p>
-        <a href="">Avoir son avatar</a>
+        <?php
+        $counter = $this->getRequest()->getCookie('blockchain');
+
+        if ($counter == 0) {
+            $imagePathBlockchain = 'blockchain1.jpg';
+        } else {
+            $imagePathBlockchain = 'blockchain2.jpg';
+        }
+        ?>
+        <?php echo $this->Html->image($imagePathBlockchain, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptodanger.png', ['class' => 'rounded-circle','alt' => 'crypto Danger']); ?>
         <p class="justify-content-center ms-4  ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('danger'); ?></p>
-        <a href="">Avoir son justificatif</a>
+        <?php
+    $counter = $this->getRequest()->getCookie('danger');
+
+    if ($counter == 0) {
+        $imagePathDanger = 'certificat.png';
+    } else {
+        $imagePathDanger = 'crypto2.jpg';
+    }
+    ?>
+    <?php echo $this->Html->image($imagePathDanger, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'rounded-circle','alt' => 'crypto NFT']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
-        <a href="">Avoir son image personalisé</a>
     </div>
 
 </main>
