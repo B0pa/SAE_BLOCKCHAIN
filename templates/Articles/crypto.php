@@ -1,6 +1,18 @@
 <body class="bg-secondary" >
 <?= $this->element('nav')?>
 <main class="pt-5 mt-5" >
+
+   <div>
+
+
+       <form action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'crypto']) ?>" method="get">
+           <input type="text" name="query" placeholder="Rechercher...">
+           <button type="submit">Rechercher</button>
+       </form>
+
+
+    </div>
+
     <?= $this->Html->image('crypto.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
     <?php
     /** @var \App\Model\Entity\Article[] $articles1 */
