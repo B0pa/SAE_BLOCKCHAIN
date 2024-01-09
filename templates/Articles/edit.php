@@ -6,35 +6,27 @@
 
 ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<body class="bg-secondary pt-5 mt-5" >
+<body class="bg-secondary pt-5 mt-5 col col-12" >
 <?= $this->element('nav_admin')?>
-<main class="mt-5 pt-3" >
-    <div class="row col-12 p-3">
-        <aside class="col col-12">
-            <div class="side-nav">
-                <h4 class="heading"><?= __('Actions') ?></h4>
-                <?= $this->Form->postLink(
-                    __('Delete'),
-                    ['action' => 'delete', $article->id],
-                    ['confirm' => __('etes vous sure de supprimer cette article ? # {0}?', $article->id), 'class' => 'side-nav-item']
-                ) ?>
-                <?= $this->Html->link(__('List Articles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            </div>
-            <div class="side-nav">
-                <h2>prévisualisation</h2>
-                <div class="articles content">
-                    <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-3 rounded-3 slideFromTop">
-                        <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
-                        <p  id="preview-text" style="overflow-wrap: anywhere;padding:5px;text-align: justify;"></p>
-                        <div id="imagePreview" style="padding:20px;"></div>
-                    </div>
-                </div>
-
-        </aside>
-        <div class="col-12 p-3 bg-dark rounded text-white">
-            <div class="articles content">
+<main class="mt-5 pt-3 col col-12" >
+    <div class="d-flex col col-12" >
+        <div class="text-center col col-6" >
+            <h2 class=""><?= __('Actions') ?></h2>
+            <?= $this->Form->postLink(
+                __('Delete'),
+                ['action' => 'delete', $article->id],
+                ['confirm' => __('etes vous sure de supprimer cette article ? # {0}?', $article->id), 'class' => 'side-nav-item']
+            ) ?>
+            <?= $this->Html->link(__('List Articles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+        </div>
+        <div class="text-center col col-6" >
+            <h2>Prévisualisation</h2>
+        </div>
+    </div>
+    <div class="row col-12">
+        <div class="col col-5 my-4 mx-auto p-4 bg-dark rounded text-white slideFromTop">
+            <div class="articles content ">
                 <?= $this->Form->create($article) ?>
-
                 <fieldset>
                     <legend class="" ><?= __('Edit Article') ?></legend>
                     <?php
@@ -75,6 +67,12 @@
                 <?= $this->Form->end() ?>
             </div>
         </div>
+        <aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
+            <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
+            <p  id="preview-text" style="overflow-wrap: anywhere;padding:5px;text-align: justify;"></p>
+            <div id="imagePreview" style="padding:20px;"></div>
+        </aside>
+
     </div>
 </main>
 </body>

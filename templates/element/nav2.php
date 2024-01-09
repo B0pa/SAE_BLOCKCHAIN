@@ -8,6 +8,8 @@ if ($currentURL === 'tempreel') {
     $pageTitle = 'Temps Réel';
 } elseif ($currentURL === 'wallet') {
     $pageTitle = 'Wallet';
+}elseif ($currentURL === 'actuality') {
+    $pageTitle = 'Actualités';
 }
 ?>
 
