@@ -49,6 +49,7 @@
 
             <h2 class="h2 mx-auto">Les NFT</h2>
 
+            <p>jetons numériques uniques représentant un objet virtuel. Spéculatifs et sujets aux arnaques.</p>
             <?= $this->Html->link(
                 "NFT",
                 ['controller'=> 'Articles', 'action' => 'nft'],
@@ -65,6 +66,7 @@
 
             <h2 class="h2 mx-auto">Les Crypto</h2>
 
+            <p>monnaies numériques basées sur la blockchain, comme le Bitcoin. Volatiles et risquées.</p>
             <?= $this->Html->link(
                 "crypto",
                 ['controller'=> 'Articles', 'action' => 'crypto'],
@@ -80,6 +82,8 @@
             <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
 
             <h2 class="h2 mx-auto" >Les dangers</h2>
+
+            <p>volatilité, hacking, arnaques, bulles spéculatives, utilisation à des fins illicites, impact environnemental (mining).</p>
 
             <?= $this->Html->link(
                 "Danger",
@@ -97,6 +101,7 @@
             <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
             <h2 class="h2 mx-auto">Les blockchain</h2>
 
+            <p>technologie de stockage et de transmission d'informations, transparente, sécurisée et décentralisée.</p>
             <?= $this->Html->link(
                 "Blockchain",
                 ['controller'=> 'Articles', 'action' => 'blockchain'],
