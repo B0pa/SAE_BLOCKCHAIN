@@ -92,7 +92,7 @@ class QuizTable extends Table
             ->scalar('csv_link')
             ->maxLength('csv_link', 45)
             ->allowEmptyString('csv_link');
-        
+
         return $validator;
     }
 }

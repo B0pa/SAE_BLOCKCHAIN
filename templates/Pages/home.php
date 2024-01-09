@@ -94,7 +94,7 @@
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-0 col-md-11 d-flex" >
 
 
-            
+            <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
             <h2 class="h2 mx-auto">Les blockchain</h2>
 
             <?= $this->Html->link(

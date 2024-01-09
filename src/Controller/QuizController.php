@@ -181,4 +181,5 @@ class QuizController extends AppController
 
         $this->set(compact('quizes'));
     }
+
 }

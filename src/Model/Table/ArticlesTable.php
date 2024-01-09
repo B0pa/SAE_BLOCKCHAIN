@@ -64,7 +64,7 @@ class ArticlesTable extends Table
             ->scalar('category')
             ->maxLength('category', 45)
             ->allowEmptyString('category');
-            
+
         $validator
             ->scalar('css_title')
             ->maxLength('css_title', 45)
@@ -77,7 +77,7 @@ class ArticlesTable extends Table
             ->scalar('css_img')
             ->maxLength('css_img', 45)
             ->allowEmptyString('css_img');
-        
+
         return $validator;
     }
 }
