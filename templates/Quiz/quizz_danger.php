@@ -75,9 +75,8 @@ $csv_link = $quiz->csv_link;
         <?php else: ?>
             <h2><?= $quiz->question ?></h2>
         <?php endif; ?>
-        <p><?= $quiz->level ?></p>
-        <?php
-        if ($quiz->questionform == "text"): ?>
+        <?php // $quiz->questionform == "graphic"
+        if ($quiz->questionform == "text" ): ?>
             <label class="text-white" >
                 <?= $this->Form->control('reponse', [
                     'type' => 'radio',
@@ -96,6 +95,29 @@ $csv_link = $quiz->csv_link;
                     'options' => [1 => $quiz->answer3],
                     'label' => false]) ?>
             </label>
+        <?php endif; ?>
+        <?php
+        if ($quiz->questionform == "graphic" ): ?>
+            <div  class="d-flex justify-content-around my-5">
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer1],
+                        'label' => false]) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer2],
+                        'label' => false]) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer3],
+                        'label' => false]) ?>
+                </label>
+            </div>
         <?php endif;
         ?>
         <?php if ($quiz->questionform == "image") :?>

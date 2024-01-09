@@ -75,9 +75,8 @@ $csv_link = $quiz->csv_link;
         <?php else: ?>
             <h2><?= $quiz->question ?></h2>
         <?php endif; ?>
-        <p><?= $quiz->level ?></p>
         <?php
-        if ($quiz->questionform == "text"): ?>
+        if ($quiz->questionform == "text" || $quiz->questionform == "graphic"): ?>
             <label class="text-white" >
                 <?= $this->Form->control('reponse', [
                     'type' => 'radio',
