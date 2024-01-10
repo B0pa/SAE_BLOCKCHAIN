@@ -118,6 +118,21 @@ class ArticlesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+
+    public function search($category = null) {
+        $query = $this->request->getQuery('query');
+        $articles = $this->Articles->find()
+            ->where(['category' => $category])
+            ->andWhere(function ($exp, $q) use ($query) {
+                return $exp->or([
+                    $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
+                    $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
+                ]);
+            });
+        $this->set('articles', $articles);
+        $this->set('category', $category);
+    }
+
     public function blockchain () {
 
         $articles1 = $this->Articles->find()
@@ -148,8 +163,12 @@ class ArticlesController extends AppController
             ->where(['category' => 'crypto' ,'level' => '3'])
             ->toArray();
 
+
         $this->set(compact('articles1','articles2','articles3'));
+
+
     }
+
     public function danger () {
 
         $articles1 = $this->Articles->find()
