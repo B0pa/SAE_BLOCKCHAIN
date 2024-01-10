@@ -34,14 +34,14 @@ if ($currentURL === 'quizz-blockchain') {
                 'class' => 'nav-link d-flex align-items-center',
                 'escapeTitle' => false
             ]
-            ) ?>
+        ) ?>
 
         <?= $this->Html->link(
             $this->Html->image('temp reel.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'icone temp réel','style' => 'left:120px;']),
             ['controller'=> 'Pages', 'action' => 'tempreel'],
             [
                 'class' => 'nav-link d-flex align-items-center',
-	            'escapeTitle' => false
+                'escapeTitle' => false
             ]
         ) ?>
 

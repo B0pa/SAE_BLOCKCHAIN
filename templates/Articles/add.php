@@ -112,9 +112,12 @@
             var content = $(this).val().replace(/ /g, "&nbsp;").replace(/\n/g, "<br>");
             $('#preview-text').html(content);
         });
+
         $('input[name="title"]').on('input', function() {
             $('#preview-title').text($(this).val());
         });
+
+
         $('input[name="upload"]').on('change', function() {
             $('#imagePreview').html('');
             var total_file = document.getElementById("upload").files.length;

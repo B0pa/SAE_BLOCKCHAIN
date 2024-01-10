@@ -32,7 +32,7 @@
 
             <h3 class="h2 text-center mt-1 p-2" ><?= $actu->title ?></h3>
             <?= $this->Html->image("upload/" . $actu->img, ['class' => 'd-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3','alt' => 'image','style' => ''])?>
-            <a class="d-flex text-warning text-center p-2 col col-10 mx-auto " href=<?= $actu->link?>><?= $actu->title ?></a>
+            <a class="text-warning text-center " href=<?= $actu->link?>><?= $actu->title ?></a>
             <p class="d-flex p-2 col-10 mx-auto" style="text-align: justify;" ><?= $actu->content?></p>
         </div>
     <?php

@@ -18,7 +18,7 @@ class ArticlesController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['blockchain','nft','crypto','danger']);
+        $this->Authentication->allowUnauthenticated(['blockchain','nft','crypto','danger','search']);
     }
 
     /**
