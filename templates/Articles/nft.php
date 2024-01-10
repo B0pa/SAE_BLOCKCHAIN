@@ -95,16 +95,9 @@
 
 
 
-    <div class="d-flex btn btn-warning text-white ms-auto justify-content-center me-5 mb-5 text-decoration-none text-center text-white col-1" >
-        <?= $this->Html->link(
-            "Quizz",
-            ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
-            [
-                'class' => 'nav-link d-flex align-items-center text-decoration-none text-center text-dark',
-                'escapeTitle' => false
-            ]
-        ) ?>
-    </div>
+    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizz_n_f_t']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-1">
+        Quiz
+    </a>
 
 </main>
 </body>
