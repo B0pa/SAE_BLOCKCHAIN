@@ -8,7 +8,7 @@
             <?=$this->Html->image('search.png', ['class' => 'img-fluid image-nav img-nav bg-warning rounded-circle p-2 position-fixed ','alt' => 'accueil','style' => 'right:10px; top:130px; width: 50px; height: 50px;'])?>
         </label>
 
-        <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'nft']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;">
+        <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'crypto']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;">
             <input type="text" name="query" placeholder="Rechercher..." class="form-control">
             <button type="submit" class="btn btn-secondary my-2" >Rechercher</button>
         </form>
@@ -95,16 +95,9 @@
 
 
 
-    <div class="d-flex btn btn-warning text-white ms-auto justify-content-center me-5 mb-5 text-decoration-none text-center text-white col-1" >
-        <?= $this->Html->link(
-            "Quizz",
-            ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
-            [
-                'class' => 'nav-link d-flex align-items-center text-decoration-none text-center text-dark',
-                'escapeTitle' => false
-            ]
-        ) ?>
-    </div>
+    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizz_n_f_t']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-1">
+        Quiz
+    </a>
 
 </main>
 </body>

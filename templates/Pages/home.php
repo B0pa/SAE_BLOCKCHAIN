@@ -11,7 +11,7 @@
 <body class="bg-secondary">
 
 <header>
-    <nav class="container-fluid navbar navbar-dark bg-dark d-flex fixed-top justify-content-between" style="height: 105px;">
+    <nav class="container-fluid navbar navbar-dark bg-dark d-flex fixed-top justify-content-between" style="height: 100px;">
         <div class="container-fluid h-100 position-relative d-flex justify-content-center align-items-center" >
 
             <?= $this->Html->link(
@@ -32,7 +32,7 @@
                 ]
             ) ?>
 
-            <div class="d-flex  bg-warning rounded-pill px-5 py-1 align-items-center justify-content-center h-auto position-absolute centrer">
+            <div class="d-flex  bg-warning rounded-pill px-5 align-items-center justify-content-center h-auto position-absolute centrer">
                 <h1 class="h1 text-center  ">Accueil</h1>
             </div>
         </div>
