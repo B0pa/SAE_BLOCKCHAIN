@@ -121,16 +121,57 @@ class ArticlesController extends AppController
 
     public function search($category = null) {
         $query = $this->request->getQuery('query');
-        $articles = $this->Articles->find()
-            ->where(['category' => $category])
-            ->andWhere(function ($exp, $q) use ($query) {
-                return $exp->or([
-                    $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
-                    $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
-                ]);
-            });
-        $this->set('articles', $articles);
+
+        if ($query != null) {
+
+
+            $articles1 = $this->Articles->find()
+                ->where(['category' => $category, 'level' => '1'])
+                ->andWhere(function ($exp, $q) use ($query) {
+                    return $exp->or([
+                        $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
+                        $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
+                    ]);
+                })
+                ->toArray();
+
+
+            $articles2 = $this->Articles->find()
+                ->where(['category' => $category, 'level' => '2'])
+                ->andWhere(function ($exp, $q) use ($query) {
+                    return $exp->or([
+                        $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
+                        $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
+                    ]);
+                })
+                ->toArray();
+
+            $articles3 = $this->Articles->find()
+                ->where(['category' => $category, 'level' => '3'])
+                ->andWhere(function ($exp, $q) use ($query) {
+                    return $exp->or([
+                        $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
+                        $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
+                    ]);
+                })
+                ->toArray();
+        }else{
+            $articles1 = $this->Articles->find()
+                ->where(['category' => $category, 'level' => '1'])
+                ->toArray();
+
+            $articles2 = $this->Articles->find()
+                ->where(['category' => $category, 'level' => '2'])
+                ->toArray();
+
+            $articles3 = $this->Articles->find()
+                ->where(['category' => $category, 'level' => '3'])
+                ->toArray();
+        }
+
+
         $this->set('category', $category);
+        $this->set(compact('articles1','articles2','articles3'));
     }
 
     public function blockchain () {

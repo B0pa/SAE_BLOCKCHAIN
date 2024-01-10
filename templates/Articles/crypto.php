@@ -11,6 +11,16 @@
         <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'crypto']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;">
             <input type="text" name="query" placeholder="Rechercher..." class="form-control">
             <button type="submit" class="btn btn-secondary my-2" >Rechercher</button>
+
+
+            <input type="checkbox" checked id="Niv 1">
+            <label for="Niv 1" class="bg-secondary">Niv 1</label>
+
+            <input type="checkbox" checked id="Niv 2">
+            <label for="Niv 2" class="bg-secondary">Niv 2</label>
+
+            <input type="checkbox" checked id="Niv 3">
+            <label for="Niv 3" class="bg-secondary">Niv 3</label>
         </form>
 
     </div>
