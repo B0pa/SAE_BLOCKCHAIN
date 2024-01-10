@@ -74,28 +74,34 @@ $csv_link = $quiz->csv_link;
             </script>
 
         <?php else: ?>
-            <h2><?= $quiz->question ?></h2>
+            <h2 class="text-center" ><?= $quiz->question ?></h2>
         <?php endif; ?>
         <?php // $quiz->questionform == "graphic"
         if ($quiz->questionform == "text" ): ?>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer1],
-                    'label' => false]) ?>
-            </label>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer2],
-                    'label' => false]) ?>
-            </label>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer3],
-                    'label' => false]) ?>
-            </label>
+            <div  class="d-flex justify-content-around my-5">
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer1],
+                        'label' => false,
+                        'class' => 'btn btn-secondary']) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer2],
+                        'label' => false,
+                        'class' => 'btn btn-secondary']) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer3],
+                        'label' => false,
+                        'class' => 'btn btn-secondary']) ?>
+                </label>
+            </div>
+            
         <?php endif; ?>
         <?php
         if ($quiz->questionform == "graphic" ): ?>

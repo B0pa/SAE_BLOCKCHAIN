@@ -20,7 +20,7 @@ $csv_link = $quiz->csv_link;
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
         <p><?= $quiz->level ?></p>
         <?php if ($quiz->questionform == "graphic") :?>
-            <p><?= $quiz->question ?></p>
+            <h2 class="text-center" ><?= $quiz->question ?></h2>
 
             <!-- Utilisez l'index de la boucle pour générer un identifiant unique -->
             <canvas id="myChart<?= $index ?>"></canvas>
@@ -73,29 +73,31 @@ $csv_link = $quiz->csv_link;
                 }
             </script>
 
-        <?php else: ?>
-            <h2><?= $quiz->question ?></h2>
+<?php else: ?>
+            <h2 class="text-center" ><?= $quiz->question ?></h2>
         <?php endif; ?>
         <?php // $quiz->questionform == "graphic"
         if ($quiz->questionform == "text" ): ?>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer1],
-                    'label' => false]) ?>
-            </label>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer2],
-                    'label' => false]) ?>
-            </label>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer3],
-                    'label' => false]) ?>
-            </label>
+            <div  class="d-flex justify-content-around my-5">
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer1],
+                        'label' => false]) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer2],
+                        'label' => false]) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer3],
+                        'label' => false]) ?>
+                </label>
+            </div>
         <?php endif; ?>
         <?php
         if ($quiz->questionform == "graphic" ): ?>
