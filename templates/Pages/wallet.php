@@ -61,7 +61,23 @@
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'rounded-circle','alt' => 'crypto NFT']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
     </div>
-
+    <?php
+    // $counter = $this->getRequest()->getCookie('nft');
+    $counter = 1;
+    if ($counter == 0) {
+        $linkPathNft = 'home';
+    } else {
+        $linkPathNft = 'rewardquiz';
+    }
+    ?>
+    <?= $this->Html->link(
+                "Votre récompense, si vous en êtes digne",
+                ['controller'=> 'Pages', 'action' => $linkPathNft],
+                [
+                    'class' => 'text-white text-decoration-none btn btn-secondary',
+                    'escapeTitle' => false
+                ]
+            ) ?>
 </main>
 <?= $this->element('footer')?>
 </body>
