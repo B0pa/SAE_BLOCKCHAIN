@@ -109,8 +109,16 @@
 
 
 
-    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizzcrypto']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-1">
-        Quiz
-    </a>
+
+
+    <?= $this->Html->link(
+        "Quiz",
+        ['controller'=> 'Quiz', 'action' => 'quizzcrypto'],
+        [
+            'class' => 'd-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-1',
+            'escapeTitle' => false
+        ]
+    ) ?>
+
 </main>
 </body>
