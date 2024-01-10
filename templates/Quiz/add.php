@@ -82,19 +82,19 @@ $files = array_diff(scandir($dir), array('..', '.'));
         function createAnswerField(type, index) {
             if (type === 'graphic') {
 
-                var input = document.createElement('input');
-                input.type = 'text';
-                input.name = 'answer' + index;
-                input.classList.add('form-control', 'bg-secondary', 'answer-field');
-                textFields.appendChild(input);
-                answerFields.push(input);
+                var input = document.createElement('input'); // Créez un élément input
+                input.type = 'text'; // Définir le type sur 'text'
+                input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
+                textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
+                answerFields.push(input); // Ajoutez-le au tableau answerFields
             } else {
-                var input = document.createElement('input');
-                input.type = type;
-                input.name = 'answer' + index;
-                input.classList.add('form-control', 'bg-secondary', 'answer-field');
-                textFields.appendChild(input);
-                answerFields.push(input);
+                var input = document.createElement('input'); // Créez un élément input
+                input.type = type; // Définir le type
+                input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
+                textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
+                answerFields.push(input); // Ajoutez-le au tableau answerFields
             }
         }
 
@@ -143,6 +143,15 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 <?php endforeach; ?>
                 textFields.appendChild(select);
                 answerFields.push(select);
+                
+                // Créez un élément select pour les colonnes
+                var columnSelect = document.createElement('select');
+                columnSelect.type = 'select';
+                columnSelect.id = 'csvColumn';
+                columnSelect.name = 'csv_columne';
+
+                // Ajoutez le select des colonnes à la div textFields
+                textFields.appendChild(columnSelect);                
 
                 for (var i = 1; i <= 3; i++) {
                     createAnswerField('graphic', i);
@@ -156,29 +165,46 @@ $files = array_diff(scandir($dir), array('..', '.'));
                         .then(response => response.text())
                         .then(data => {
                             // Convertir les données CSV en tableau
-                            const rows = data.split('\n').slice(1);
-                            const labels = rows.map(row => row.split(',')[0]);
-                            const values = rows.map(row => row.split(',')[1]);
+                            const rows = data.split('\n');
+                            const headers = rows[0].split(',');
 
-                            // Détruisez l'ancien graphique s'il existe
-                            if (myChart) {
-                                myChart.destroy();
-                            }
-
-                            // Créez le nouveau graphique
-                            myChart = new Chart(document.getElementById('myChart'), {
-                                type: 'line',
-                                data: {
-                                    labels: labels,
-                                    datasets: [{
-                                        label: 'Data',
-                                        data: values,
-                                        fill: false,
-                                        borderColor: 'rgb(75, 192, 192)',
-                                        tension: 0.1
-                                    }]
-                                }
+                            // Ajoutez les en-têtes de colonne comme options dans le select des colonnes
+                            headers.forEach(function(header, index) {
+                                var option = document.createElement('option');
+                                option.value = index;
+                                option.text = header;
+                                columnSelect.appendChild(option);
                             });
+
+                            // Lorsque l'utilisateur sélectionne une colonne, mettez à jour le graphique pour afficher les données de cette colonne
+                            columnSelect.addEventListener('change', function() {
+                                var columnIndex = this.value;
+                                const labels = rows.slice(1).map(row => row.split(',')[0]);
+                                const values = rows.slice(1).map(row => row.split(',')[columnIndex]);
+
+                                // Détruisez l'ancien graphique s'il existe
+                                if (myChart) {
+                                    myChart.destroy();
+                                }
+
+                                // Créez le nouveau graphique
+                                myChart = new Chart(document.getElementById('myChart'), {
+                                    type: 'line',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: 'My Dataset',
+                                            data: values,
+                                            fill: false,
+                                            borderColor: 'rgb(75, 192, 192)',
+                                            tension: 0.1
+                                        }]
+                                    }
+                                });
+                            });
+
+                            // Déclenchez manuellement l'événement change pour la première colonne
+                            columnSelect.dispatchEvent(new Event('change'));
                         });
                 });
             } else {

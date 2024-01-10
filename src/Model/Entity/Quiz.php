@@ -17,6 +17,9 @@ use Cake\ORM\Entity;
  * @property int|null $realanswer
  * @property string|null $questionform
  * @property string|null $category
+ * @property string|null $csv_link
+ * @property string|null $csv_columne
+ * 
  */
 class Quiz extends Entity
 {
@@ -39,5 +42,6 @@ class Quiz extends Entity
         'questionform' => true,
         'category' => true,
         'csv_link' => true,
+        'csv_columne' => true,
     ];
 }

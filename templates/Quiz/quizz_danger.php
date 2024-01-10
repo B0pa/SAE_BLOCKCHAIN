@@ -28,20 +28,21 @@ $csv_link = $quiz->csv_link;
             <script>
                 // Stockez la valeur de csv_link dans une variable JavaScript
                 var csv_link = "<?php echo $csv_link; ?>";
+                var csv_col = "<?php echo $quiz->csv_columne; ?>";
 
                 // Vérifiez si csv_link est un fichier CSV
                 if (csv_link.endsWith('.csv')) {
                     console.log('Le fichier est un fichier CSV');
-                    csvFile = '/csv/' + csv_link;
+                    var csvFile = '/csv/' + csv_link;
                     console.log('csvFile: ' + csvFile);
                     fetch(csvFile)
                         .then(response => response.text())
                         .then(data => {
                             // Convertir les données CSV en tableau
-                            const rows = data.split('\n').slice(1);
-                            const labels = rows.map(row => row.split(',')[0]);
-                            const values = rows.map(row => row.split(',')[1]);
-                            console.log('index: ' + <?= $index ?>);
+                            const rows = data.split('\n');
+                            const labels = rows.slice(1).map(row => row.split(',')[0]);
+                            const values = rows.slice(1).map(row => row.split(',')[csv_col]);
+
                             // Détruisez l'ancien graphique s'il existe
                             if (window['myChart' + <?= $index ?>] instanceof Chart) {
                                 window['myChart' + <?= $index ?>].destroy();
@@ -96,28 +97,28 @@ $csv_link = $quiz->csv_link;
                     'label' => false]) ?>
             </label>
         <?php endif; ?>
-        <?php 
+        <?php
         if ($quiz->questionform == "graphic" ): ?>
-        <div  class="d-flex justify-content-around my-5">
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer1],
-                    'label' => false]) ?>
-            </label>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer2],
-                    'label' => false]) ?>
-            </label>
-            <label class="text-white" >
-                <?= $this->Form->control('reponse', [
-                    'type' => 'radio',
-                    'options' => [1 => $quiz->answer3],
-                    'label' => false]) ?>
-            </label>
-                </div>
+            <div  class="d-flex justify-content-around my-5">
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer1],
+                        'label' => false]) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer2],
+                        'label' => false]) ?>
+                </label>
+                <label class="text-white" >
+                    <?= $this->Form->control('reponse', [
+                        'type' => 'radio',
+                        'options' => [1 => $quiz->answer3],
+                        'label' => false]) ?>
+                </label>
+            </div>
         <?php endif;
         ?>
         <?php if ($quiz->questionform == "image") :?>
