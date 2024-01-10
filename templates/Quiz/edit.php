@@ -16,10 +16,9 @@ $files = array_diff(scandir($dir), array('..', '.'));
 
 <body class="bg-secondary pt-5" >
 <?= $this->element('nav_admin')?>
-<main class="mt-5"></main>
-<div class="row col-12 p-3">
-    <aside class="col">
-        <div class="side-nav">
+<main class="mt-5 pt-3 col col-12"></main>
+    <div class="d-flex col col-12">
+        <div class="text-center col col-12">
             <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
                 __('Delete'),
@@ -28,49 +27,51 @@ $files = array_diff(scandir($dir), array('..', '.'));
             ) ?>
             <?= $this->Html->link(__('List Quiz'), ['action' => 'index'], ['class' => 'side-nav-item text-warning']) ?>
         </div>
-    </aside>
-    <div class="col-9 p-3 bg-dark rounded text-white">
-        <div class="quiz content">
-            <?= $this->Form->create($quiz, ['type' => 'file']) ?>
-            <fieldset>
-                <legend><?= __('Edit Quiz') ?></legend>
-                <?php
-                echo $this->Form->control('level', ['options' => [1 => 1, 2 => 2, 3 => 3],
-                    'class' => 'form-control bg-secondary'
-                ]);
-                echo $this->Form->control('question',['class' => 'form-control bg-secondary']);
-                //  Affichez les messages flash
-                $this->Flash->render()
-                ?>
-
-                <!-- Créez un élément canvas pour le graphique -->
-                <canvas id="myChart"></canvas>
-
-                <?php
-                echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3],
-                    'class' => 'form-control bg-secondary'
-                ]);
-                echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
-                    'class' => 'form-control bg-secondary'
-                ]);
-                ?>
-
-                <div id="textFields">
-                </div>
-
-                <?php
-                echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
-                    'class' => 'form-control bg-secondary'
-                ]);
-                ?>
-
-
-            </fieldset>
-            <?= $this->Form->button(__('Submit'),['class' => 'btn btn-secondary mt-3']) ?>
-            <?= $this->Form->end() ?>
-        </div>
     </div>
-</div>
+    <div class="row col-12">
+        <div class="col col-10 my-4 mx-auto p-4 bg-dark rounded text-white slideFromTop">
+            <div class="quiz content">
+                <?= $this->Form->create($quiz, ['type' => 'file']) ?>
+                <fieldset>
+                    <legend><?= __('Edit Quiz') ?></legend>
+                    <?php
+                    echo $this->Form->control('level', ['options' => [1 => 1, 2 => 2, 3 => 3],
+                        'class' => 'form-control bg-secondary'
+                    ]);
+                    echo $this->Form->control('question',['class' => 'form-control bg-secondary']);
+                    //  Affichez les messages flash
+                    $this->Flash->render()
+                    ?>
+
+                    <!-- Créez un élément canvas pour le graphique -->
+                    <canvas id="myChart"></canvas>
+
+                    <?php
+                    echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3],
+                        'class' => 'form-control bg-secondary'
+                    ]);
+                    echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
+                        'class' => 'form-control bg-secondary'
+                    ]);
+                    ?>
+
+                    <div id="textFields">
+                    </div>
+
+                    <?php
+                    echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
+                        'class' => 'form-control bg-secondary'
+                    ]);
+                    ?>
+
+
+                </fieldset>
+                <?= $this->Form->button(__('Submit'),['class' => 'btn btn-secondary mt-3']) ?>
+                <?= $this->Form->end() ?>
+            </div>
+        </div>
+        
+    </div>
 </main>
 </body>
 
