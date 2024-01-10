@@ -32,7 +32,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 <?php
                 echo $this->Form->control('level', ['options' => [1 => 1, 2 => 2, 3 => 3],
                     'class' => 'form-control bg-secondary'
-                    ]);
+                ]);
                 echo $this->Form->control('question',['class' => 'form-control bg-secondary']);
                 //  Affichez les messages flash
                 $this->Flash->render()
@@ -42,12 +42,12 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 <canvas id="myChart"></canvas>
 
                 <?php
-                echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3], 
+                echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3],
                     'class' => 'form-control bg-secondary'
-                    ]);
-                echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'], 
+                ]);
+                echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
                     'class' => 'form-control bg-secondary'
-                    ]);
+                ]);
                 ?>
 
                 <div id="textFields">
@@ -56,7 +56,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 <?php
                 echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
                     'class' => 'form-control bg-secondary'
-                    ]);
+                ]);
                 ?>
 
 

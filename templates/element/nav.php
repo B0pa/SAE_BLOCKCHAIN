@@ -1,5 +1,7 @@
 <?php
-$currentURL = strtolower(basename($_SERVER['REQUEST_URI']));
+$urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$segments = explode('/', trim($urlPath, '/'));
+$currentURL = strtolower(end($segments));
 $pageTitle = 'Erreur'; // Valeur par défaut
 
 // Définissez les titres de page en fonction de l'URL
@@ -16,6 +18,13 @@ if ($currentURL === 'explication') {
 } elseif ($currentURL === 'blockchain') {
     $pageTitle = 'Blockchain';
 }
+elseif ($currentURL === 'search') {
+    $query = $_GET['query'] ?? 'Recherche';
+    $pageTitle = 'Recherche : ' . $query;
+}
+
+
+
 
 ?>
 

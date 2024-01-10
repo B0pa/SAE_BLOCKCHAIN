@@ -10,7 +10,7 @@
                 ]
             ) ?>
         </h4>
-        
+
     </div>
     <div class="bg-secondary rounded-2 p-2" >
         <h3 class="h3 text-center">Quelques liens de médias mis a jour régulièrement que nous trouvons intéressants</h3>
@@ -38,6 +38,6 @@
     <?php
     endforeach;
     ?>
-    
+
 
 </aside>
