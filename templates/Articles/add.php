@@ -66,11 +66,9 @@
         </div>
         <aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
             <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
-            <div>
-                <div id="imagePreview" style=" width: 33%; float: right;">
-
-                </div>
-                <p id="preview-text" class="overflow-auto"></p>
+            <div id="div-parent-preview" style="overflow-y: auto; overflow-x: hidden;">
+                <div id="imagePreview" class="p-2 mx-auto " style="width:33%;"></div>
+                <p id="preview-text" class=" " style=" overflow-wrap: break-word;" ></p>
                 <div style="clear: both;"></div>
             </div>
         </aside>
@@ -139,15 +137,20 @@
             var position = $(this).val();
 
             // Supprimez toutes les classes de position existantes
-            $('#imagePreview').removeClass('float-left float-right');
+            var div = document.getElementById("div-parent-preview");
+            div.style.cssText = "overflow-y: auto; overflow-x: hidden;";
+            $('#imagePreview').removeClass('float-start float-end order-1 order-2');
 
             // Ajoutez la nouvelle classe de position
             if (position === 'g') {
-                $('#imagePreview').addClass('float-left');
+                $('#imagePreview').addClass('float-start');
             } else if (position === 'd') {
-                $('#imagePreview').addClass('float-right');
+                $('#imagePreview').addClass('float-end');
             } else if (position === 'b') {
-                $('#imagePreview').removeClass('float-left float-right');
+                $('#imagePreview').removeClass('float-start float-end');
+                div.style.cssText = "overflow-y: auto; overflow-x: hidden;display:flex;flex-direction:column;";
+                $('#imagePreview').addClass('order-2');
+                $('#preview-text').addClass('order-1');
             }
         });
 

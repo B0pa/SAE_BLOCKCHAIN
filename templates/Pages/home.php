@@ -116,34 +116,25 @@
 <!-- Add this line -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            // Vérifiez si l'utilisateur a déjà accepté les cookies
+<script>
+    $(document).ready(function() {
+        if (<?php echo $this->getRequest()->getCookie('validation'); ?> == 0) {
+            $('#cookieModal').modal('show');
+        }
 
+        $('#acceptCookies').click(function() {
+            <?php
+            $cookie = \Cake\Http\Cookie\Cookie::create('validation', 'true', [
+                'expires' => new \DateTime('+1 day'),
+                'httpOnly' => true
+            ]);
+            $this->getResponse()->withCookie($cookie);
 
-            // peut etre pb avec MAJ remplacer 0 par false
-            if (<?php echo $this->getRequest()->getCookie('validation'); ?> == false) {
-                // Si l'utilisateur n'a pas encore accepté les cookies, affichez la boîte de dialogue modale
-                $('#cookieModal').modal('show');
-            }
-
-            // Lorsque l'utilisateur clique sur "J'accepte", enregistrez son choix et fermez la boîte de dialogue modale
-            $('#acceptCookies').click(function() {
-                <?php
-                $this->get('validation', [], [
-                    'cookies' => ['value' => true]
-                ]);
-
-                ?>
-
-                $('#cookieModal').modal('hide');
-
-
-
-            });
+            ?>
+            $('#cookieModal').modal('hide');
         });
-
-    </script>
+    });
+</script>
 </body>
 </html>
 
