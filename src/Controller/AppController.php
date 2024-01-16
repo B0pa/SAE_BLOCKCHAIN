@@ -74,6 +74,19 @@ class AppController extends Controller
                 'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
             ]
         ));
+        $this->response = $this->response->withCookie(Cookie::create(
+            'validation',
+            0,
+            // All keys are optional
+            [
+                'expires' => new DateTime('+1 day'),
+                'path' => '',
+                'domain' => '',
+                'secure' => false,
+                'httponly' => false,
+                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+            ]
+        ));
 
         $this->response = $this->response->withCookie(Cookie::create(
             'crypto',
@@ -104,7 +117,7 @@ class AppController extends Controller
         ));
         $this->response = $this->response->withCookie(Cookie::create(
             'blockchain',
-            0,
+            False,
             // All keys are optional
             [
                 'expires' => new DateTime('+1 day'),
