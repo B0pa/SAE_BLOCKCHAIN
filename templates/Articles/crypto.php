@@ -1,6 +1,6 @@
-<body class="bg-secondary" >
+<body class="bg-secondary col-12" >
 <?= $this->element('nav')?>
-<main class="pt-5 mt-5" >
+<main class="pt-5 mt-5 col-12" >
 
     <div class="d-flex">
         <input type="checkbox" id="toggleForm" class="d-none">
@@ -8,18 +8,9 @@
             <?=$this->Html->image('search.png', ['class' => 'img-fluid image-nav img-nav bg-warning rounded-circle p-2 position-fixed ','alt' => 'accueil','style' => 'right:10px; top:130px; width: 50px; height: 50px;'])?>
         </label>
 
-        <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'crypto']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;">
+        <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'crypto']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;z-index:1;">
             <input type="text" name="query" placeholder="Rechercher..." class="form-control">
             <button type="submit" class="btn btn-secondary my-2" >Rechercher</button>
-
-            <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1">
-            <label for="Niv 1" class="bg-secondary">Niv 1</label>
-
-            <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2">
-            <label for="Niv 2" class="bg-secondary">Niv 2</label>
-
-            <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3">
-            <label for="Niv 3" class="bg-secondary">Niv 3</label>
         </form>
 
     </div>
@@ -41,7 +32,7 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
             <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
@@ -67,7 +58,7 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
             <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
@@ -93,7 +84,7 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
             <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
@@ -109,16 +100,8 @@
 
 
 
-
-
-    <?= $this->Html->link(
-        "Quiz",
-        ['controller'=> 'Quiz', 'action' => 'quizzcrypto'],
-        [
-            'class' => 'd-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-1',
-            'escapeTitle' => false
-        ]
-    ) ?>
-
+    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizzcrypto']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-6">
+        Quiz
+    </a>
 </main>
 </body>
