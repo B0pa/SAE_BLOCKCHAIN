@@ -101,7 +101,7 @@ $csv_link = $quiz->csv_link;
                         'class' => 'btn btn-secondary']) ?>
                 </label>
             </div>
-            
+
         <?php endif; ?>
         <?php
         if ($quiz->questionform == "graphic" ): ?>

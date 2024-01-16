@@ -17,82 +17,80 @@ $files = array_diff(scandir($dir), array('..', '.'));
 
 <body class="bg-secondary pt-5" >
 <?= $this->element('nav_admin')?>
-<main class="mt-5 pt-3 col col-12"></main>
-    <div class="d-flex col col-12">
-        <div class="text-center col col-6">
-            <h2 class="heading"><?= __('Actions') ?></h2>
+<main class="mt-5"></main>
+<div class="row col-12 p-3">
+    <aside class="col">
+        <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Html->link(__('List Quiz'), ['action' => 'index'], ['class' => 'side-nav-item text-warning']) ?>
         </div>
-        <div class="text-center col col-6" >
-            <h2>Prévisualisation</h2>
+    </aside>
+    <div class="col-9 p-3 bg-dark rounded text-white">
+        <div class="quiz content">
+            <?= $this->Form->create($quiz, ['type' => 'file']) ?>
+            <fieldset>
+                <legend><?= __('Add Quiz') ?></legend>
+                <?php
+                echo $this->Form->control('level', ['options' => [1 => 1, 2 => 2, 3 => 3],
+                    'class' => 'form-control bg-secondary'
+                ]);
+                echo $this->Form->control('question',['class' => 'form-control bg-secondary']);
+                //  Affichez les messages flash
+                $this->Flash->render()
+                ?>
+
+
+                <?php
+                echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3],
+                    'class' => 'form-control bg-secondary'
+                ]);
+                echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
+                    'class' => 'form-control bg-secondary'
+                ]);
+                ?>
+
+                <div id="textFields">
+
+                </div>
+
+                <?php
+                echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
+                    'class' => 'form-control bg-secondary'
+                ]);
+                ?>
+
+
+            </fieldset>
+            <?= $this->Form->button(__('Submit'),['class' => 'btn btn-secondary mt-3']) ?>
+            <?= $this->Form->end() ?>
         </div>
     </div>
-    <div class="row col-12">
-        <div class="col col-5 my-4 mx-auto p-4 bg-dark rounded text-white slideFromTop">
-            <div class="quiz content">
-                <?= $this->Form->create($quiz, ['type' => 'file']) ?>
-                <fieldset>
-                    <legend><?= __('Add Quiz') ?></legend>
-                    <?php
-                    echo $this->Form->control('level', ['options' => [1 => 1, 2 => 2, 3 => 3],
-                        'class' => 'form-control bg-secondary'
-                    ]);
-                    echo $this->Form->control('question',['class' => 'form-control bg-secondary']);
-                    //  Affichez les messages flash
-                    $this->Flash->render()
-                    ?>
-
-
-                    <?php
-                    echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3],
-                        'class' => 'form-control bg-secondary'
-                    ]);
-                    echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
-                        'class' => 'form-control bg-secondary'
-                    ]);
-                    ?>
-
-                    <div id="textFields">
-
-                    </div>
-
-                    <?php
-                    echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
-                        'class' => 'form-control bg-secondary'
-                    ]);
-                    ?>
-
-
-                </fieldset>
-                <?= $this->Form->button(__('Submit'),['class' => 'btn btn-secondary mt-3']) ?>
-                <?= $this->Form->end() ?>
-            </div>
-        </div>
-        <aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
-            <h2 id="preview-question" style="text-align: center;padding:5px;"></h2>
-            <canvas id="myChart"></canvas>
-            <div  class="d-flex justify-content-around my-5">
-
-                <label class="text-white" id = "label-answer1">
-                    <input type="radio" id="preview-answer1" name="preview-answer" value="1">
-                    <div id="imagePreview1" style="padding:20px;"></div>
-                </label>
-
-                <label class="text-white btn btn-secondary" id = "label-answer2" >
-                    <input type="radio" id="preview-answer2" name="preview-answer" value="2">
-                    <div id="imagePreview2" style="padding:20px;"></div>
-                </label>
-
-                <label class="text-white" id = "label-answer3">
-                    <input type="radio" id="preview-answer3" name="preview-answer" value="3">
-                    <div id="imagePreview3" style="padding:20px;"></div>
-                </label>
-            </div>
-        </aside>
-    </div>
+</div>
 </main>
 
+<aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
+    <h2 id="preview-question" style="text-align: center;padding:5px;"></h2>
+    <canvas id="myChart"></canvas>
+    <div  class="d-flex justify-content-around my-5">
 
+        <label class="text-white" id = "label-answer1">
+            <input type="radio" id="preview-answer1" name="preview-answer" value="1">
+            <div id="imagePreview1" style="padding:20px;"></div>
+        </label>
+
+        <label class="text-white" id = "label-answer2" >
+            <input type="radio" id="preview-answer2" name="preview-answer" value="2">
+            <div id="imagePreview2" style="padding:20px;"></div>
+        </label>
+
+        <label class="text-white" id = "label-answer3">
+            <input type="radio" id="preview-answer3" name="preview-answer" value="3">
+            <div id="imagePreview3" style="padding:20px;"></div>
+        </label>
+
+    </div>
+
+</aside>
 </body>
 
 

@@ -13,7 +13,7 @@
         </form>
 
     </div>
-    <?= $this->Html->image('blockchain.jpg', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
+    <?= $this->Html->image('blockchain.gif', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
 
     <?php
     /** @var \App\Model\Entity\Article[] $articles1 */

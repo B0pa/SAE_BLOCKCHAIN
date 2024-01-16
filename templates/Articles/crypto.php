@@ -15,7 +15,7 @@
 
     </div>
 
-    <?= $this->Html->image('crypto.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
+    <?= $this->Html->image('crypto.gif', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
     <?php
     /** @var \App\Model\Entity\Article[] $articles1 */
     foreach ($articles1 as $article) :

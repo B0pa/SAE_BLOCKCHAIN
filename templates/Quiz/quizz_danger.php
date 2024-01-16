@@ -3,10 +3,12 @@
 <?php
 /** @var \App\Model\Entity\Quiz[] $quizes */
 foreach ($quizes as $index => $quiz) :
-echo $this->Form->create($quiz);
+echo $this->Form->create($quiz, ['url' => ['controller' => 'Quiz', 'action' => 'submitAnswer']]);
 
 $csv_link = $quiz->csv_link;
 
+// Ajoutez le champ caché pour l'ID de la question
+echo $this->Form->hidden('question_id', ['value' => $quiz->id]);
 
 ?>
 <body class="bg-secondary" >
@@ -73,7 +75,7 @@ $csv_link = $quiz->csv_link;
                 }
             </script>
 
-<?php else: ?>
+        <?php else: ?>
             <h2 class="text-center" ><?= $quiz->question ?></h2>
         <?php endif; ?>
         <?php // $quiz->questionform == "graphic"
