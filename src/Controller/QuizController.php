@@ -18,7 +18,7 @@ class QuizController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger']);
+        $this->Authentication->allowUnauthenticated(['quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger','submitAnswer']);
     }
     /**
      * Index method
@@ -179,7 +179,44 @@ class QuizController extends AppController
             ->where(['category' => 'blockchain'])
             ->toArray();
 
+
         $this->set(compact('quizes'));
     }
 
+    public function submitAnswer()
+    {
+        // Récupérez la réponse soumise par l'utilisateur
+        $user_answer = $this->request->getData('reponse');
+
+        // Récupérez l'ID de la question
+        $question_id = $this->request->getData('question_id');
+
+        // Récupérez la bonne réponse
+        $quiz = $this->Quiz->find()
+            ->where(['id' => $question_id])
+            ->first();
+
+        if ($quiz) {
+            $correct_answer = null;
+            if ($quiz->realanswer == 1) {
+                $correct_answer = $quiz->answer1;
+            } elseif ($quiz->realanswer == 2) {
+                $correct_answer = $quiz->answer2;
+            } elseif ($quiz->realanswer == 3) {
+                $correct_answer = $quiz->answer3;
+            }
+
+            // Comparez la réponse de l'utilisateur avec la bonne réponse
+            if ($user_answer == $correct_answer) {
+                $this->Flash->success(__('La réponse est correcte.'));
+            } else {
+                $this->Flash->error(__('La réponse est incorrecte.'));
+            }
+        } else {
+            $this->Flash->error(__('Question not found.'));
+        }
+
+        // Redirigez l'utilisateur vers la page précédente
+        return $this->redirect($this->referer());
+    }
 }
