@@ -32,5 +32,36 @@
 </div>
 </main>
 <?= $this->element('footer')?>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.querySelector('form');
+
+        form.addEventListener('submit', function (event) {
+            var questions = ['question_1', 'question_2', 'question_3'];
+            var hasSelectedAnswer = false;
+
+            questions.forEach(function (question) {
+                var radioButtons = document.getElementsByName(question);
+                var isChecked = Array.from(radioButtons).some(function (radio) {
+                    return radio.checked;
+                });
+
+                if (!isChecked) {
+                    alert('Veuillez sélectionner une réponse pour la question ' + question.substr(-1));
+                    event.preventDefault();
+                    return;
+                }
+
+                hasSelectedAnswer = true;
+            });
+
+            if (!hasSelectedAnswer) {
+                alert('Veuillez sélectionner au moins une réponse pour l\'une des questions.');
+                event.preventDefault();
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

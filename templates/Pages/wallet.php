@@ -19,15 +19,15 @@
         <?= $this->Html->image('cryptobitcoin.png', ['class' => 'rounded-circle','alt' => 'crypto Bitcoin']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2" ><?php echo $this->getRequest()->getCookie('crypto'); ?></p>
     <?php
-    $counter = $this->getRequest()->getCookie('crypto');
+    $counter = 1;
 
     if ($counter == 0) {
-        $imagePathCrypto = 'crypto1.jpg';
+        $imagePathCrypto = '';
     } else {
-        $imagePathCrypto = 'crypto2.jpg';
+        $imagePathCrypto = 'cryptoreward.png';
+        echo $this->Html->image($imagePathCrypto, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']);
     }
     ?>
-    <?php echo $this->Html->image($imagePathCrypto, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoblockchain.png', ['class' => 'rounded-circle','alt' => 'crypto Blockchain']); ?>
@@ -47,15 +47,15 @@
         <?= $this->Html->image('cryptodanger.png', ['class' => 'rounded-circle','alt' => 'crypto Danger']); ?>
         <p class="justify-content-center ms-4  ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('danger'); ?></p>
         <?php
-    $counter = $this->getRequest()->getCookie('danger');
+    $counter = 1;
 
     if ($counter == 0) {
-        $imagePathDanger = 'certificat.png';
+        $imagePathDanger = '';
     } else {
-        $imagePathDanger = 'crypto2.jpg';
+        $imagePathDanger = 'certificat.png';
+        echo $this->Html->image($imagePathDanger, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); 
     }
     ?>
-    <?php echo $this->Html->image($imagePathDanger, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'rounded-circle','alt' => 'crypto NFT']); ?>
