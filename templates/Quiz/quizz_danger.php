@@ -2,7 +2,7 @@
 
 <?php
 /** @var \App\Model\Entity\Quiz[] $quizes */
-echo $this->Form->create($quiz);
+echo $this->Form->create(null, ['url' => ['action' => 'checkAnswers']]) ;
 
 
 foreach ($quizes as $index => $quiz) :
@@ -132,8 +132,7 @@ $csv_link = $quiz->csv_link;
     <?php
     endforeach;
     ?>
-    <?= $this->Form->submit(__('valider'), ['class' => 'd-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop']); ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
     <?= $this->Form->end() ?>
-    <?= $this->Flash->render() ?>
 </main>
 </body>

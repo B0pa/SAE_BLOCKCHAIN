@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use Cake\Utility\Text;
 use Laminas\Diactoros\UploadedFile;
+use Cake\Http\Cookie\Cookie;
 
 /**
  * Quiz Controller
@@ -18,7 +19,8 @@ class QuizController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger']);
+        $this->Authentication->allowUnauthenticated(['quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger', 'checkAnswers']);
+
     }
     /**
      * Index method
@@ -154,28 +156,6 @@ class QuizController extends AppController
 
         $this->set(compact('quizes'));
 
-        if ($this->request->is('post')) {
-            $data = $this->request->getData();
-            $quizes = $this->Quiz->find()
-                ->where(['category' => 'danger'])
-                ->toArray();
-
-            $score = 0;
-
-            foreach ($quizes as $quiz) {
-                if ($quiz->correctanswer == $data['reponse'][$quiz->id]) {
-                    $score++;
-                }
-            }
-
-            // Set score in a cookie
-            $this->response = $this->response->withCookie('danger', [
-                'value' => $score,
-                'expire' => new \DateTime('+1 year'),
-            ]);
-
-            $this->set(compact('score'));
-        }
     }
     
     public function quizzNFT()
@@ -203,5 +183,52 @@ class QuizController extends AppController
             ->toArray();
 
         $this->set(compact('quizes'));
+    }
+
+    public function checkAnswers()
+    {
+        if ($this->request->is('post')) {
+            $data = $this->request->getData();
+            $correctAnswers = 0;
+
+            foreach ($data['reponse'] as $quizId => $selectedAnswer) {
+                $quiz = $this->Quiz->get($quizId);
+                if ($quiz->correctAnswer == $selectedAnswer) {
+                    $correctAnswers++;
+                }
+            }
+
+            $dangerValue = $this->request->getCookie('danger');
+            
+            if ($dangerValue === null) {
+                $dangerValue = 0;
+            }
+
+            $points = $correctAnswers * 100;
+            $newDangerValue = $dangerValue + $points;
+
+            $this->Flash->success(__('You have earned ' . $points . ' points.'));
+
+            $cookie = $this->request->getCookie('danger');
+            if ($cookie) {
+                $this->Flash->success(__('Le cookie est modifié.'));
+                $cookie = $cookie->withValue($newDangerValue)->withSameSite('None');
+                $this->response = $this->response->withCookie($cookie);
+            } else {
+                $this->Flash->success(__('Le cookie est créé.'));
+                $cookie = (new Cookie(
+                    'danger', // name
+                    $newDangerValue, // value
+                    new \DateTime('+1 year'), // expiration time, if applicable
+                    '/', // path
+                    '', // domain
+                    false, // secure only, if applicable
+                    false // http only, if applicable
+                ))->withSameSite('None');
+                $this->response = $this->response->withCookie($cookie);
+            }
+
+            return $this->redirect(['action' => 'index']);
+        }
     }
 }
