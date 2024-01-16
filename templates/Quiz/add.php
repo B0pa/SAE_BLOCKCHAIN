@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\Quiz $quiz
  */
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <?php
 // Lisez le contenu du répertoire 'csv'
@@ -38,8 +39,6 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 $this->Flash->render()
                 ?>
 
-                <!-- Créez un élément canvas pour le graphique -->
-                <canvas id="myChart"></canvas>
 
                 <?php
                 echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3],
@@ -51,6 +50,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 ?>
 
                 <div id="textFields">
+
                 </div>
 
                 <?php
@@ -67,6 +67,30 @@ $files = array_diff(scandir($dir), array('..', '.'));
     </div>
 </div>
 </main>
+
+<aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
+    <h2 id="preview-question" style="text-align: center;padding:5px;"></h2>
+    <canvas id="myChart"></canvas>
+    <div  class="d-flex justify-content-around my-5">
+
+        <label class="text-white" id = "label-answer1">
+            <input type="radio" id="preview-answer1" name="preview-answer" value="1">
+            <div id="imagePreview1" style="padding:20px;"></div>
+        </label>
+
+        <label class="text-white" id = "label-answer2" >
+            <input type="radio" id="preview-answer2" name="preview-answer" value="2">
+            <div id="imagePreview2" style="padding:20px;"></div>
+        </label>
+
+        <label class="text-white" id = "label-answer3">
+            <input type="radio" id="preview-answer3" name="preview-answer" value="3">
+            <div id="imagePreview3" style="padding:20px;"></div>
+        </label>
+
+    </div>
+
+</aside>
 </body>
 
 
@@ -74,6 +98,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
         var questionformSelect = document.getElementById('questionform');
         var textFields = document.getElementById('textFields');
         var answerFields = [];
@@ -85,6 +110,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 var input = document.createElement('input'); // Créez un élément input
                 input.type = 'text'; // Définir le type sur 'text'
                 input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.id = 'answer' + index; // Définir l'ID sur 'answer1', 'answer2', etc.
                 input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
                 textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
                 answerFields.push(input); // Ajoutez-le au tableau answerFields
@@ -92,6 +118,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 var input = document.createElement('input'); // Créez un élément input
                 input.type = type; // Définir le type
                 input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.id = 'answer' + index; // Définir l'ID sur 'answer1', 'answer2', etc.
                 input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
                 textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
                 answerFields.push(input); // Ajoutez-le au tableau answerFields
@@ -120,12 +147,47 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 for (var i = 1; i <= 3; i++) {
                     createAnswerField('file', i);
                 }
+                document.getElementById('answer1').addEventListener('change', function() {
+                    $('#imagePreview1').html('');
+                        var total_file = document.getElementById("answer1").files.length;
+                        for (var i = 0; i < total_file; i++) {
+                            $('#imagePreview1').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                        }
+                });
+
+                document.getElementById('answer2').addEventListener('change', function() {
+                        $('#imagePreview2').html('');
+                        var total_file = document.getElementById("answer2").files.length;
+                        for (var i = 0; i < total_file; i++) {
+                            $('#imagePreview2').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                        }
+                });
+
+                document.getElementById('answer3').addEventListener('change', function() {
+                    $('#imagePreview3').html('');
+                    var total_file = document.getElementById("answer3").files.length;
+                    for (var i = 0; i < total_file; i++) {
+                        $('#imagePreview3').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                    }
+                });
+
             } else if (questionFormValue === 'text'){
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'none';
                 for (var i = 1; i <= 3; i++) {
                     createAnswerField('text', i);
                 }
+                document.getElementById('answer1').addEventListener('input', function() {
+                    document.getElementById('label-answer1').textContent = this.value;
+                });
+
+                document.getElementById('answer2').addEventListener('input', function() {
+                    document.getElementById('label-answer2').textContent = this.value;
+                });
+
+                document.getElementById('answer3').addEventListener('input', function() {
+                    document.getElementById('label-answer3').textContent = this.value;
+                });
             } else if (questionFormValue === 'graphic') {
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'block';
@@ -143,7 +205,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 <?php endforeach; ?>
                 textFields.appendChild(select);
                 answerFields.push(select);
-                
+
                 // Créez un élément select pour les colonnes
                 var columnSelect = document.createElement('select');
                 columnSelect.type = 'select';
@@ -151,11 +213,23 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 columnSelect.name = 'csv_columne';
 
                 // Ajoutez le select des colonnes à la div textFields
-                textFields.appendChild(columnSelect);                
+                textFields.appendChild(columnSelect);
 
                 for (var i = 1; i <= 3; i++) {
                     createAnswerField('graphic', i);
                 }
+
+                document.getElementById('answer1').addEventListener('input', function() {
+                    document.getElementById('label-answer1').textContent = this.value;
+                });
+
+                document.getElementById('answer2').addEventListener('input', function() {
+                    document.getElementById('label-answer2').textContent = this.value;
+                });
+
+                document.getElementById('answer3').addEventListener('input', function() {
+                    document.getElementById('label-answer3').textContent = this.value;
+                });
 
                 // Lorsque l'utilisateur sélectionne un fichier CSV, récupérez les données et créez le graphique
                 document.getElementById('csvFile').addEventListener('change', function() {
@@ -211,13 +285,31 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'none';
             }
+
         }
+
+
+
+
 
         // Initial setup based on the current value
         handleQuestionFormChange();
 
         // Écoutez les changements de sélection
         questionformSelect.addEventListener('change', handleQuestionFormChange);
+
+
+        //previsualisation de la question
+
+
+        document.getElementById('question').addEventListener('input', function() {
+            document.getElementById('preview-question').textContent = this.value;
+        });
+
+        document.getElementById('myChart').addEventListener('input', function() {
+            document.getElementById('preview-myChart').textContent = this.value;
+        });
+
     });
 
 </script>

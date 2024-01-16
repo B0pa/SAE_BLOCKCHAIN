@@ -53,7 +53,10 @@
                         'class' => 'form-control bg-secondary',
                         'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
                     ]);
+
+                    echo $this->Form->control('position_image', ['class' => 'form-control bg-secondary', 'options' => ["" =>" ", "b" => "en bas", "d" => "à droite", "g" => "à gauche"]]);
                     ?>
+
 
 
                 </fieldset>
@@ -63,8 +66,10 @@
         </div>
         <aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
             <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
-            <p  id="preview-text" style="overflow-wrap: anywhere;padding:5px;text-align: justify;"></p>
-            <div id="imagePreview" style="padding:20px;"></div>
+            <div >
+                <p  id="preview-text"  ></p>
+                <div id="imagePreview"  style="padding:20px;"></div>
+            </div>
         </aside>
     </div>
 </main>
@@ -112,9 +117,12 @@
             var content = $(this).val().replace(/ /g, "&nbsp;").replace(/\n/g, "<br>");
             $('#preview-text').html(content);
         });
+
         $('input[name="title"]').on('input', function() {
             $('#preview-title').text($(this).val());
         });
+
+
         $('input[name="upload"]').on('change', function() {
             $('#imagePreview').html('');
             var total_file = document.getElementById("upload").files.length;
@@ -122,6 +130,26 @@
                 $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
             }
         });
+        // position img
+
+        $('select[name="position_image"]').on('change', function() {
+            var position = $(this).val();
+
+            // Supprimez toutes les classes de position existantes
+            $('#imagePreview img').removeClass('float-start float-end text-center');
+            $('#imagePreview').removeClass('text-center');
+
+
+            // Ajoutez la nouvelle classe de position
+            if (position === 'g') {
+                $('#imagePreview img').addClass('float-start ');
+            } else if (position === 'd') {
+                $('#imagePreview img').addClass('float-end');
+            }else if (position === 'b') {
+                $('#imagePreview').addClass('text-center');
+            }
+        });
+
         $('#boldButton').on('click', function() {
             wrapSelection('content', '<strong>', '</strong>');
         });

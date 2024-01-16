@@ -153,8 +153,31 @@ class QuizController extends AppController
             ->toArray();
 
         $this->set(compact('quizes'));
-    }
 
+        if ($this->request->is('post')) {
+            $data = $this->request->getData();
+            $quizes = $this->Quiz->find()
+                ->where(['category' => 'danger'])
+                ->toArray();
+
+            $score = 0;
+
+            foreach ($quizes as $quiz) {
+                if ($quiz->correctanswer == $data['reponse'][$quiz->id]) {
+                    $score++;
+                }
+            }
+
+            // Set score in a cookie
+            $this->response = $this->response->withCookie('danger', [
+                'value' => $score,
+                'expire' => new \DateTime('+1 year'),
+            ]);
+
+            $this->set(compact('score'));
+        }
+    }
+    
     public function quizzNFT()
     {
         $quizes = $this->Quiz->find()
@@ -181,5 +204,4 @@ class QuizController extends AppController
 
         $this->set(compact('quizes'));
     }
-
 }

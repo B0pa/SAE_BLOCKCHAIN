@@ -19,7 +19,7 @@ use Cake\ORM\Entity;
  * @property string|null $category
  * @property string|null $csv_link
  * @property string|null $csv_columne
- * 
+ *
  */
 class Quiz extends Entity
 {

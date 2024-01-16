@@ -145,7 +145,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 <?php endforeach; ?>
                 textFields.appendChild(select);
                 answerFields.push(select);
-                
+
                 // Créez un élément select pour les colonnes
                 var columnSelect = document.createElement('select');
                 columnSelect.type = 'select';
@@ -153,7 +153,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 columnSelect.name = 'csv_columne';
 
                 // Ajoutez le select des colonnes à la div textFields
-                textFields.appendChild(columnSelect);                
+                textFields.appendChild(columnSelect);
 
                 for (var i = 1; i <= 3; i++) {
                     createAnswerField('graphic', i);
