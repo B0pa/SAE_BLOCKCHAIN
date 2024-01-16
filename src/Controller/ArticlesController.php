@@ -118,7 +118,6 @@ class ArticlesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-
     public function search($category = null) {
         $query = $this->request->getQuery('query');
 
@@ -139,8 +138,8 @@ class ArticlesController extends AppController
                     ->where(['category' => $category, 'level' => '1'])
                     ->andWhere(function ($exp, $q) use ($query) {
                         return $exp->or([
-                            $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
-                            $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
+                            $q->newExpr()->like('title', '%' . $query . '%'),
+                            $q->newExpr()->like('content', '%' . $query . '%')
                         ]);
                     })
                     ->toArray();
@@ -151,8 +150,8 @@ class ArticlesController extends AppController
                     ->where(['category' => $category, 'level' => '2'])
                     ->andWhere(function ($exp, $q) use ($query) {
                         return $exp->or([
-                            $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
-                            $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
+                            $q->newExpr()->like('title', '%' . $query . '%'),
+                            $q->newExpr()->like('content', '%' . $query . '%')
                         ]);
                     })
                     ->toArray();
@@ -162,8 +161,8 @@ class ArticlesController extends AppController
                     ->where(['category' => $category, 'level' => '3'])
                     ->andWhere(function ($exp, $q) use ($query) {
                         return $exp->or([
-                            $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
-                            $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
+                            $q->newExpr()->like('title', '%' . $query . '%'),
+                            $q->newExpr()->like('content', '%' . $query . '%')
                         ]);
                     })
                     ->toArray();
@@ -189,10 +188,11 @@ class ArticlesController extends AppController
 
         }
 
-
         $this->set('category', $category);
         $this->set(compact('articles1','articles2','articles3'));
     }
+
+
 
     public function blockchain () {
 
