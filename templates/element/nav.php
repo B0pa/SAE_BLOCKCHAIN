@@ -55,7 +55,7 @@ elseif ($currentURL === 'search') {
             ]
         ) ?>
 
-        <div class="d-flex bg-warning rounded-pill px-5 align-items-center justify-content-center h-auto position-absolute" style="left:50%; transform: translateX(-50%);">
+        <div class="d-flex bg-warning rounded-pill px-md-5 px-3 ms-5 align-items-center justify-content-center h-auto position-absolute" style="left:50%; transform: translateX(-50%);">
             <h1 class="h1 text-center"><?= $pageTitle ?></h1>
         </div>
     </div>

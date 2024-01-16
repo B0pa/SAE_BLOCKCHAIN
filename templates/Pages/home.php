@@ -41,7 +41,7 @@
 <div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5 " style="height:auto" >
     <main class="col col-12 col-md-8">
         <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>">
-            <div class=" d-flex slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 justify-content-between  ">
+            <div class=" d-flex slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 justify-content-between  align-items-center  ">
                 <?= $this->Html->image('NFT.png', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail img-fluid']); ?>
                 <div class="px-3" >
                     <h2 class="h2 text-center">Les NFT</h2>
@@ -51,7 +51,7 @@
         </a>
 
         <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>">
-            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex justify-content-between">
+            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex justify-content-between  align-items-center">
                 <?= $this->Html->image('crypto.png', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
                 <div class="px-3" >
                     <h2 class="h2 text-center">Les Crypto</h2>
@@ -61,7 +61,7 @@
         </a>
 
         <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>">
-            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex justify-content-between">
+            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex justify-content-between  align-items-center">
                 <?= $this->Html->image('danger.png', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
                 <div class="px-3" >
                     <h2 class="h2 text-center">Les dangers</h2>
@@ -71,7 +71,7 @@
         </a>
 
         <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>">
-            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex justify-content-between">
+            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex justify-content-between  align-items-center">
                 <?= $this->Html->image('blockchain.jpg', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
                 <div class="px-3" >
                     <h2 class="h2 text-center">Les blockchain</h2>
@@ -80,7 +80,7 @@
             </div>
         </a>
 
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 justify-content-between">
+        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 justify-content-between   align-items-center">
             <h2 class="h2 text-center" >Qui sommes-nous ?</h2>
         </div>
     </main>
