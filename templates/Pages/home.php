@@ -88,6 +88,17 @@
     <?= $this->cell('Article') ?>
 </div>
 
+<div id="cookie-popup" class="bg-dark text-white p-3 position-fixed bottom-0" style="display: ;">
+    <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site.
+         Ces cookies nous permettent de sauvegarder vos scores de quiz.
+        En continuant à utiliser notre site, vous acceptez notre utilisation des cookies.
+         Vous pouvez à tous moment supprimer les cookies depuis les paramètres de votre navigateur.
+        </p>
+    <div class="d-flex justify-content-around ">
+        <button id="accept-cookies"class="btn-warning rounded">Accepter</button>
+        <button id="refuse-cookies"class="btn-secondary rounded">Refuser</button>
+    </div>
+</div>
 
 <?= $this->element('footer')?>
 
