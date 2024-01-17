@@ -12,14 +12,14 @@
     <?= $this->element('nav2')?>
     </header>
     <main class="mt-5 pt-5 justify-content-around d-md-flex col-sm- min-vh-100" >
-    <div class="mt-3 d-flex align-items-center d-md-block" >
+    <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop" >
 <h1>Questionnaire</h1>
 <?= $this->Form->create(null, ['url' => ['controller' => 'Pages', 'action' => 'rewardquiz']]) ?>
-<p>Vous vous considerez plutot comme: </p>
+<p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Vous vous considerez plutot comme: </p>
 <?= $this->Form->radio('question_1', ['Ser' => 'Sérieux', 'Opt' => 'Optimiste', 'Far' => 'Farceur']) ?>
-<p>Vous vous considerez plutot comme: </p>
+<p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Vous vous considerez plutot comme: </p>
 <?= $this->Form->radio('question_2', ['Ori' => 'Original', 'Sob' => 'Sobre', 'Lib' => 'Libre']) ?>
-<p>Votre couleur préférée dans cette liste: </p>
+<p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Votre couleur préférée dans cette liste: </p>
 <?= $this->Form->radio('question_3', ['Rou' => 'Rouge', 'Ble' => 'Bleu', 'Ver' => 'Vert']) ?>
 
 <?= $this->Form->button('Soumettre') ?>

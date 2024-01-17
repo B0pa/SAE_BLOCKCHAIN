@@ -25,12 +25,12 @@
         $imagePathCrypto = '';
     } else {
         $imagePathCrypto = 'cryptoreward.png';
-        echo $this->Html->image($imagePathCrypto, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']);
+        echo $this->Html->image($imagePathCrypto, ['class' => 'd-flex mt-3 mx-auto imageCliquable', 'style' => 'height:100px', 'alt' => 'Recompense']);
     }
     ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
-        <?= $this->Html->image('cryptoblockchain.png', ['class' => 'rounded-circle','alt' => 'crypto Blockchain']); ?>
+        <?= $this->Html->image('cryptoblockchain.png', ['class' => 'rounded-circle ','alt' => 'crypto Blockchain']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('blockchain'); ?></p>
         <?php
         $counter = $this->getRequest()->getCookie('blockchain');
@@ -41,7 +41,7 @@
             $imagePathBlockchain = 'blockchain2.jpg';
         }
         ?>
-        <?php echo $this->Html->image($imagePathBlockchain, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); ?>
+        <?php echo $this->Html->image($imagePathBlockchain, ['class' => 'd-flex mt-3 mx-auto imageCliquable', 'style' => 'height:300px', 'alt' => 'Recompense']); ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
         <?= $this->Html->image('cryptodanger.png', ['class' => 'rounded-circle','alt' => 'crypto Danger']); ?>
@@ -53,7 +53,7 @@
         $imagePathDanger = '';
     } else {
         $imagePathDanger = 'certificat.png';
-        echo $this->Html->image($imagePathDanger, ['class' => 'd-flex mt-3 mx-auto ', 'style' => 'height:400px', 'alt' => 'Recompense']); 
+        echo $this->Html->image($imagePathDanger, ['class' => 'd-flex mt-3 mx-auto imageCliquable', 'style' => 'height:300px', 'alt' => 'Recompense']); 
     }
     ?>
     </div>
@@ -80,5 +80,16 @@
             ) ?>
 </main>
 <?= $this->element('footer')?>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Ajouter un gestionnaire d'événements au clic de l'image
+    $('.imageCliquable').click(function() {
+        // Ouvrir l'image en grand ou dans un nouvel onglet
+        window.open($(this).attr('src'), '_blank');
+    });
+});
+</script>
+
 </body>
 </html>
