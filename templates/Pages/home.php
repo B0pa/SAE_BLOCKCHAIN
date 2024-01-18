@@ -55,7 +55,7 @@
                         Ce site utilise des cookies pour améliorer votre expérience. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Je refuse</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="disableCookies">Je refuse</button>
                         <button type="button" class="btn btn-primary" id="acceptCookies">J'accepte</button>
                     </div>
                 </div>
@@ -130,6 +130,17 @@
             ]);
             $this->getResponse()->withCookie($cookie);
 
+            ?>
+            $('#cookieModal').modal('hide');
+        });
+
+        $('#disableCookies').click(function() {
+            <?php
+            $cookie = \Cake\Http\Cookie\Cookie::create('validation', 'false', [
+                'expires' => new \DateTime('+1 day'),
+                'httpOnly' => true
+            ]);
+            $this->getResponse()->withCookie($cookie);
             ?>
             $('#cookieModal').modal('hide');
         });

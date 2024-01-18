@@ -266,9 +266,9 @@ p,a,li,button,span{
     display: grid;
     flex: auto;
     grid-template-columns: 50% 50%;
+    grid-template-rows: 40vh 40vh;
     align-self: center;
     height: auto;
-    min-height: 85vh;
 }
 
 .tab{
@@ -277,15 +277,15 @@ p,a,li,button,span{
     background-color:#ffc107;
     margin: 1vh 2vw 1vh 2vw;
     border-radius: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     box-shadow:25px 25px 40px rgb(80, 80, 80);
     height: auto;
 }
-
+/*
 .update-tab-contenu{
     display: flex;
     flex-direction: column;
-}
+} */
 
 @media screen and (max-width: 768px) {
     #update-tab-menu{
