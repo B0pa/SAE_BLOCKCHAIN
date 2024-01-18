@@ -1,3 +1,6 @@
+<?php // use log;
+use Cake\Log\Log; ?>
+
 <!DOCTYPE html>
 <html lang="en-FR">
 <head>
@@ -55,8 +58,12 @@
                         Ce site utilise des cookies pour améliorer votre expérience. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="disableCookies">Je refuse</button>
-                        <button type="button" class="btn btn-primary" id="acceptCookies">J'accepte</button>
+                        <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieAccept']]) ;?>
+                        <?= $this->Form->button(__('Accept'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
+                        <?= $this->Form->end() ?>
+                        <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieRefuse']]) ;?>
+                        <?= $this->Form->button(__('Refuse'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
+                        <?= $this->Form->end() ?>
                     </div>
                 </div>
             </div>
@@ -107,7 +114,6 @@
             <h2 class="h2 text-center" >Qui sommes-nous ?</h2>
         </div>
     </main>
-
     <?= $this->cell('Article') ?>
 </div>
 
@@ -123,25 +129,12 @@
         }
 
         $('#acceptCookies').click(function() {
-            <?php
-            $cookie = \Cake\Http\Cookie\Cookie::create('validation', 'true', [
-                'expires' => new \DateTime('+1 day'),
-                'httpOnly' => true
-            ]);
-            $this->getResponse()->withCookie($cookie);
 
-            ?>
             $('#cookieModal').modal('hide');
         });
 
         $('#disableCookies').click(function() {
-            <?php
-            $cookie = \Cake\Http\Cookie\Cookie::create('validation', 'false', [
-                'expires' => new \DateTime('+1 day'),
-                'httpOnly' => true
-            ]);
-            $this->getResponse()->withCookie($cookie);
-            ?>
+
             $('#cookieModal').modal('hide');
         });
     });

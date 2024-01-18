@@ -36,7 +36,7 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','rewardquiz','adminLogin']);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','rewardquiz','adminLogin','cookieAccept', 'cookieRefuse']);
     }
 
     /**
@@ -160,6 +160,81 @@ class PagesController extends AppController
 
         return $imageName;
         $imageName = null;
+    }
+    public function cookieAccept() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        $this->disableAutoRender();
+
+        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+    }
+
+    public function cookieRefuse() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        $this->disableAutoRender();
+
+        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
     }
 
 
