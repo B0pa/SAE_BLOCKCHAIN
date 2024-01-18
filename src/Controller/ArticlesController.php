@@ -18,7 +18,7 @@ class ArticlesController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['blockchain','nft','crypto','danger']);
+        $this->Authentication->allowUnauthenticated(['blockchain','nft','crypto','danger','search']);
     }
 
     /**
@@ -118,20 +118,81 @@ class ArticlesController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-
     public function search($category = null) {
         $query = $this->request->getQuery('query');
-        $articles = $this->Articles->find()
-            ->where(['category' => $category])
-            ->andWhere(function ($exp, $q) use ($query) {
-                return $exp->or([
-                    $q->newExpr()->like($q->func()->lower(['title' => 'identifier']), '%' . strtolower($query) . '%'),
-                    $q->newExpr()->like($q->func()->lower(['content' => 'identifier']), '%' . strtolower($query) . '%')
-                ]);
-            });
-        $this->set('articles', $articles);
+
+        $levels = $this->request->getQuery('levels');
+
+        if ($levels === null) {
+            $levels = [];
+        }
+
+        $articles1 = [];
+        $articles2 = [];
+        $articles3 = [];
+
+        if ($query != null) {
+
+            if (in_array('Niv 1', $levels)) {
+                $articles1 = $this->Articles->find()
+                    ->where(['category' => $category, 'level' => '1'])
+                    ->andWhere(function ($exp, $q) use ($query) {
+                        return $exp->or([
+                            $q->newExpr()->like('title', '%' . $query . '%'),
+                            $q->newExpr()->like('content', '%' . $query . '%')
+                        ]);
+                    })
+                    ->toArray();
+            }
+
+            if (in_array('Niv 2', $levels)) {
+                $articles2 = $this->Articles->find()
+                    ->where(['category' => $category, 'level' => '2'])
+                    ->andWhere(function ($exp, $q) use ($query) {
+                        return $exp->or([
+                            $q->newExpr()->like('title', '%' . $query . '%'),
+                            $q->newExpr()->like('content', '%' . $query . '%')
+                        ]);
+                    })
+                    ->toArray();
+            }
+            if (in_array('Niv 3', $levels)) {
+                $articles3 = $this->Articles->find()
+                    ->where(['category' => $category, 'level' => '3'])
+                    ->andWhere(function ($exp, $q) use ($query) {
+                        return $exp->or([
+                            $q->newExpr()->like('title', '%' . $query . '%'),
+                            $q->newExpr()->like('content', '%' . $query . '%')
+                        ]);
+                    })
+                    ->toArray();
+            }
+        }else{
+            if (in_array('Niv 1', $levels)) {
+                $articles1 = $this->Articles->find()
+                    ->where(['category' => $category, 'level' => '1'])
+                    ->toArray();
+            }
+
+            if (in_array('Niv 2', $levels)) {
+                $articles2 = $this->Articles->find()
+                    ->where(['category' => $category, 'level' => '2'])
+                    ->toArray();
+            }
+
+            if(in_array('Niv 3', $levels)) {
+                $articles3 = $this->Articles->find()
+                    ->where(['category' => $category, 'level' => '3'])
+                    ->toArray();
+            }
+
+        }
+
         $this->set('category', $category);
+        $this->set(compact('articles1','articles2','articles3'));
     }
+
+
 
     public function blockchain () {
 

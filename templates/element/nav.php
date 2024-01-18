@@ -35,10 +35,10 @@ elseif ($currentURL === 'search') {
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<nav class="container-fluid pt-3 bg-dark bg-dark d-flex fixed-top justify-content-between" style="height: 105px;">
-    <div class="container-fluid h-100 d-flex justify-content-center align-items-center nav-rep" >
+<nav class="navbar navbar-dark bg-dark fixed-top col-12 " style="height: 100px;">
+    <div class="container-fluid h-100 position-relative d-flex justify-content-center align-items-center col-12" >
         <?= $this->Html->link(
-            $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav top-0 img-nav','alt' => 'accueil','style' => 'left:20px;']),
+            $this->Html->image('acceuil.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'accueil','style' => 'left:20px;']),
             ['controller'=> 'Pages', 'action' => 'home'],
             [
                 'class' => 'nav-link',
@@ -47,7 +47,7 @@ elseif ($currentURL === 'search') {
         ) ?>
 
         <?= $this->Html->link(
-            $this->Html->image('temp reel.png', ['class' => 'img-fluid image-nav top-0 img-nav','alt' => 'icone temp réel','style' => 'left:120px;']),
+            $this->Html->image('temp reel.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'icone temp réel','style' => 'left:120px;']),
             ['controller'=> 'Pages', 'action' => 'tempreel'],
             [
                 'class' => 'nav-link',
@@ -55,7 +55,7 @@ elseif ($currentURL === 'search') {
             ]
         ) ?>
 
-        <div class="d-flex  bg-warning rounded-pill px-5 py-1 align-items-center justify-content-center h-auto title-nav centrer">
+        <div class="d-flex bg-warning rounded-pill px-md-5 px-3 ms-5 align-items-center justify-content-center h-auto position-absolute" style="left:50%; transform: translateX(-50%);">
             <h1 class="h1 text-center"><?= $pageTitle ?></h1>
         </div>
     </div>

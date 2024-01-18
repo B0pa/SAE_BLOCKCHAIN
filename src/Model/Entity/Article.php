@@ -35,5 +35,6 @@ class Article extends Entity
         'category' => true,
         'image' => true,
         'css_img' => true,
+        'position_image' => true,
     ];
 }
