@@ -45,18 +45,18 @@
 
 
         <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
+            <div class="modal-dialog text-white">
+                <div class="modal-content bg-secondary border-3 border-dark">
+                    <div class="modal-header border-dark">
                         <h5 class="modal-title" id="cookieModalLabel">Politique des cookies</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Ce site utilise des cookies pour améliorer votre expérience. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.
+                        Ce site utilise des cookies pour améliorer votre expérience. Ils servent à sauvegarder votre score. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="disableCookies">Je refuse</button>
-                        <button type="button" class="btn btn-primary" id="acceptCookies">J'accepte</button>
+                    <div class="modal-footer border-dark">
+                        <button type="button" class="btn btn-dark" data-bs-dismiss="modal" id="disableCookies">Je refuse</button>
+                        <button type="button" class="btn btn-warning" id="acceptCookies">J'accepte</button>
                     </div>
                 </div>
             </div>
