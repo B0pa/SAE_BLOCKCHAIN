@@ -101,17 +101,21 @@ $csv_link = $quiz->csv_link;
         <?php endif; ?>
         <?php if ($quiz->questionform == "image") :?>
             <div class="d-flex justify-content-around my-5">
-            <?php echo $this->Form->control('reponse' . $quiz->id, [
-                'options' => [
-                    1 => $this->Html->image("upload/" . $quiz->answer1, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']),
-                    2 => $this->Html->image("upload/" . $quiz->answer2, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']),
-                    3 => $this->Html->image("upload/" . $quiz->answer3, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])
-                ],
-                'type' => 'radio',
-                'label' => false,
-                'inline' => false
-            ]); ?>
-        </div>
+                <?php 
+                    for ($i = 1; $i <= 3; $i++) {
+                        echo '<label>';
+                        echo $this->Html->image("upload/" . $quiz->{'answer'.$i}, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']);
+                        echo '</label>';
+                    }
+                ?>
+            
+            </div>
+            <?php echo $this->Form->control('reponse'. $quiz->id, [
+                                            'options' => [1 => " ", 2 => " " , 3 => " "],
+                                            'type' => 'radio',
+                                            'label' => false
+                                            ]);
+            ?>
         <?php endif; ?>
     </div>
     <?php
