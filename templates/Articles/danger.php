@@ -22,6 +22,8 @@
         </form>
 
     </div>
+
+    <?= $this->Html->image('danger.gif', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image','style'=> 'width :200px']); ?>
     <?php
     /** @var \App\Model\Entity\Article[] $articles1 */
     foreach ($articles1 as $article) :
