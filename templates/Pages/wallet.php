@@ -36,7 +36,7 @@
         <a href="">Avoir son image personalisé</a>
     </div>
 
-</main>
+</main>  
 <?= $this->element('footer')?>
 </body>
 </html>

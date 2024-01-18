@@ -2,7 +2,7 @@
 
 <?php
 /** @var \App\Model\Entity\Quiz[] $quizes */
-echo $this->Form->create(null, ['url' => ['action' => 'checkAnswers']]) ;
+echo $this->Form->create(null, ['url' => ['action' => 'checkAnswersDanger']]) ;
 
 
 foreach ($quizes as $index => $quiz) :
@@ -79,55 +79,40 @@ $csv_link = $quiz->csv_link;
             <h2 class="text-center" ><?= $quiz->question ?></h2>
         <?php endif; ?>
         <?php if ($quiz->questionform == "text" ): ?>
-            <div  class="d-flex justify-content-around my-5">
-                <label class="text-white" >
-                <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 1]) ?>
-                    <?= $quiz->answer1 ?>
-                </label>
-                <label class="text-white" >
-                    <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 2]) ?>
-                    <?= $quiz->answer2 ?>
-                </label>
-                <label class="text-white" >
-                    <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 3]) ?>
-                    <?= $quiz->answer3 ?>
-                </label>
+            <div>
+            <?php echo $this->Form->control('reponse'. $quiz->id, [
+                                            'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
+                                            'type' => 'radio',
+                                            'label' => false
+                                        ]);
+            ?>
             </div>
         <?php endif; ?>
 
         <?php if ($quiz->questionform == "graphic" ): ?>
             <div  class="d-flex justify-content-around my-5">
-                <label class="text-white">
-                <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 1]) ?>
-                    <?= $quiz->answer1 ?>
-                </label>
-                <label class="text-white">
-                <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 2]) ?>
-                    <?= $quiz->answer2 ?>
-                </label>
-                <label class="text-white">
-                <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 3]) ?>
-                    <?= $quiz->answer3 ?>
-                </label>
+            <?php echo $this->Form->control('reponse'. $quiz->id, [
+                                            'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
+                                            'type' => 'radio',
+                                            'label' => false
+                                            ]);
+            ?>
             </div>
         <?php endif; ?>
         <?php if ($quiz->questionform == "image") :?>
             <div class="d-flex justify-content-around my-5">
-                <label>
-                    <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 1]) ?>
-                    <?= $this->Html->image("upload/" . $quiz->answer1, ['class' => 'd-flex rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
-                </label>
-                <label>
-                    <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 2]) ?>
-                    <?= $this->Html->image("upload/" . $quiz->answer2, ['class' => 'd-flex rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
-                </label>
-                <label>
-                    <?= $this->Form->radio('reponse[' . $quiz->id . ']', ['value' => 3]) ?>
-                    <?= $this->Html->image("upload/" . $quiz->answer3, ['class' => 'd-flex rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
-                </label>
-            </div>
+            <?php echo $this->Form->control('reponse' . $quiz->id, [
+                'options' => [
+                    1 => $this->Html->image("upload/" . $quiz->answer1, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']),
+                    2 => $this->Html->image("upload/" . $quiz->answer2, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']),
+                    3 => $this->Html->image("upload/" . $quiz->answer3, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => ''])
+                ],
+                'type' => 'radio',
+                'label' => false,
+                'inline' => false
+            ]); ?>
+        </div>
         <?php endif; ?>
-        
     </div>
     <?php
     endforeach;
