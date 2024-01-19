@@ -9,17 +9,17 @@
         </label>
 
         <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'crypto']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;">
-            <input type="text" name="query" placeholder="Rechercher..." class="form-control">
-            <button type="submit" class="btn btn-secondary my-2" >Rechercher</button>
+            <button type="submit" class="btn btn-secondary my-2 col-12" >Rechercher</button>
+            <div class="d-flex" >
+                <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1" class="myformcheck form-check-input align-self-center">
+                <label for="Niv 1" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 1</label>
 
-            <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1">
-            <label for="Niv 1" class="bg-secondary">Niv 1</label>
+                <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2" class="myformcheck form-check-input align-self-center">
+                <label for="Niv 2" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 2</label>
 
-            <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2">
-            <label for="Niv 2" class="bg-secondary">Niv 2</label>
-
-            <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3">
-            <label for="Niv 3" class="bg-secondary">Niv 3</label>
+                <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3" class="myformcheck form-check-input align-self-center">
+                <label for="Niv 3" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 3</label>
+            </div>
         </form>
 
     </div>
@@ -47,8 +47,9 @@
         }
 
         if ($article->position_image == "b"){
-            $divposition = "order-2";
-            $article->css_content = $article->css_content . " order-1";
+            $divposition = "d-flex p-2 mx-auto order-2";
+            $article->css_content = $article->css_content . "order-1";
+            echo "<div class='d-flex flex-column'>";
         }
 
         if ($article->position_image == "d"){
@@ -66,7 +67,7 @@
             <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
 
 
-            <div id="div-parent-preview" class="flex-column "  style="overflow-y: auto;">
+            <div id="div-parent-preview" class=" flex-column "  style="overflow-y: auto;">
 
                 <div class=<?= $divposition ?> >
                     <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => ''])?>
@@ -74,6 +75,11 @@
 
                 <p class=<?= $article->css_content ?> style="text-align:justify;word-break:break-word;" ><?= nl2br($article->content)?></p>
                 <div style="clear: both;"></div>
+                <?php
+                    if ($article->position_image == "b") {
+                        echo "</div>";
+                    }
+                ?>
             </div>
         </div>
 
@@ -97,11 +103,11 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 px-4 px-md-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
-            <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
+            <h2 class= 'my-3'<?= $article->css_title ?>><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
-            <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => ''])?>
+            <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'my-3','alt' => 'accueil','style' => ''])?>
         </div>
     <?php
     endforeach;
@@ -123,11 +129,11 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 px-4 px-md-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
-            <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
+            <h2 class= 'my-3'<?= $article->css_title ?>><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
-            <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => ''])?>
+            <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'my-3','alt' => 'accueil','style' => ''])?>
         </div>
     <?php
     endforeach;
