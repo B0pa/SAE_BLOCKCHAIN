@@ -37,21 +37,26 @@
 
         if ($counter == 0) {
             $imagePathBlockchain = 'blockchain1.jpg';
-        } else {
+        } else if ($counter == 100){
             $imagePathBlockchain = 'blockchain2.jpg';
+        } else if ($counter == 300){
+            $imagePathBlockchain = 'blockchain3.jpg';
+        } else if ($counter == 500){
+            $imagePathBlockchain = 'blockchain4.jpg';
         }
         ?>
         <?php echo $this->Html->image($imagePathBlockchain, ['class' => 'd-flex mt-3 mx-auto imageCliquable', 'style' => 'height:300px', 'alt' => 'Recompense']); ?>
     </div>
     <div class="mt-3 d-flex align-items-center d-md-block" >
+
         <?= $this->Html->image('cryptodanger.png', ['class' => 'rounded-circle','alt' => 'crypto Danger']); ?>
         <p class="justify-content-center ms-4  ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('danger'); ?></p>
         <?php
-        $counter = 1;
+        $counter =  $this->getRequest()->getCookie('danger');
 
         if ($counter == 0) {
             $imagePathDanger = '';
-        } else {
+        } else if ($counter == 500) {
             $imagePathDanger = 'certificat.png';
             echo $this->Html->image($imagePathDanger, ['class' => 'd-flex mt-3 mx-auto imageCliquable', 'style' => 'height:300px', 'alt' => 'Recompense']);
         }
@@ -61,23 +66,50 @@
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'rounded-circle','alt' => 'crypto NFT']); ?>
         <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
     </div>
-    <?php
-    // $counter = $this->getRequest()->getCookie('nft');
-    $counter = 1;
-    if ($counter == 0) {
+    <?php // Gérer l'affichage du formulaire en fonction du nombre de cookies
+    $counter = $this->getRequest()->getCookie('nft'); ?>
+
+    <?= $this->Form->create(null, ['url' => ['controller' => 'Pages', 'action' => 'wallet']]) ?>
+
+    <?php if ($counter > 0 && $counter <= 500) { ?>
+
+        <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop" >
+            <h1>Questionnaire</h1>
+            <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Vous vous considerez plutot comme: </p>
+            <?= $this->Form->radio('question_1', ['Ser' => 'Sérieux', 'Opt' => 'Optimiste', 'Far' => 'Farceur']) ?>
+        </div>
+
+    <?php }
+    if ($counter > 200 && $counter <= 500) { ?>
+
+        <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop" >
+            <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Vous vous considerez plutot comme: </p>
+            <?= $this->Form->radio('question_2', ['Ori' => 'Original', 'Sob' => 'Sobre', 'Lib' => 'Libre']) ?>
+        </div>
+
+
+    <?php } if ($counter == 500 ) {?>
+
+        <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop" >
+            <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Votre couleur préférée dans cette liste: </p>
+            <?= $this->Form->radio('question_3', ['Rou' => 'Rouge', 'Ble' => 'Bleu', 'Ver' => 'Vert']) ?>
+        </div>
+
+    <?php } else {
         $linkPathNft = 'home';
-    } else {
-        $linkPathNft = 'rewardquiz';
     }
     ?>
-    <?= $this->Html->link(
-        "Votre récompense, si vous en êtes digne",
-        ['controller'=> 'Pages', 'action' => $linkPathNft],
-        [
-            'class' => 'text-white text-decoration-none btn btn-secondary',
-            'escapeTitle' => false
-        ]
-    ) ?>
+
+    <?php if ($counter > 0) { ?>
+        <?= $this->Form->button('Soumettre') ?>
+    <?php } ?>
+
+    <?php if ($imageName) : ?>
+        <h1>Votre Image Personnalisée</h1>
+        <?= $this->Html->image($imageName, ['alt' => 'Image personnalisée']) ?>
+    <?php endif; ?>
+
+    <?= $this->Form->end() ?>
 </main>
 <?= $this->element('footer')?>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -89,7 +121,5 @@
             window.open($(this).attr('src'), '_blank');
         });
     });
-</script>
-
-</body>
-</html>
+    </body>
+    </html>

@@ -35,6 +35,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                     'class' => 'form-control bg-secondary'
                 ]);
                 echo $this->Form->control('question',['class' => 'form-control bg-secondary']);
+                //  Affichez les messages flash
                 $this->Flash->render()
                 ?>
 

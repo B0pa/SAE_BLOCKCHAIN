@@ -81,7 +81,7 @@ $csv_link = $quiz->csv_link;
         <?php if ($quiz->questionform == "text" ): ?>
             <i class=" m-3 border-top border-2 border-white"></i>
             <div class="d-flex flex-column ms-5 fs-5">
-                <?php 
+                <?php
                 echo $this->Form->radio('reponse'. $quiz->id, [
                     ['value' => 1, 'text' => $quiz->answer1, 'class' => 'me-2'],
                     ['value' => 2, 'text' => $quiz->answer2, 'class' => 'me-2'],
@@ -94,7 +94,7 @@ $csv_link = $quiz->csv_link;
         <?php if ($quiz->questionform == "graphic" ): ?>
             <i class=" m-3 border-top border-2 border-white"></i>
             <div class="d-flex flex-column">
-                <?php 
+                <?php
                 echo $this->Form->radio('reponse'. $quiz->id, [
                     ['value' => 1, 'text' => $quiz->answer1, 'class' => ''],
                     ['value' => 2, 'text' => $quiz->answer2],
@@ -116,7 +116,7 @@ $csv_link = $quiz->csv_link;
 
             </div>
             <div class="d-flex justify-content-around">
-                <?php 
+                <?php
                 echo $this->Form->radio('reponse'. $quiz->id, [
                     ['value' => 1, 'text' => '', 'class' => ''],
                     ['value' => 2, 'text' => ''],

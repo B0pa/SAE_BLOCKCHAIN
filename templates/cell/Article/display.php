@@ -1,4 +1,4 @@
-<aside class="slideFromTop home-aside overflow-scroll text-white bg-dark rounded col-0 col-md-4 p-3 mt-4 border border-4 border-dark" style="max-height: 100%; ">
+<aside class="slideFromTop home-aside overflow-auto text-white bg-dark rounded col-0 col-md-4 p-3 mt-4 border border-4 border-dark" style="max-height: 100%; ">
     <div class="text-center" >
         <h4>
             <?= $this->Html->link(

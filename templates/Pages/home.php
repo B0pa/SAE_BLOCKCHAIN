@@ -47,7 +47,7 @@ use Cake\Log\Log; ?>
     <main class="col col-12 col-md-8">
 
 
-    <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+        <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
             <div class="modal-dialog text-white">
                 <div class="modal-content bg-secondary border-3 border-dark">
                     <div class="modal-header border-dark">
@@ -125,7 +125,7 @@ use Cake\Log\Log; ?>
     <?= $this->cell('Article') ?>
 </div>
 
-    <?= $this->element('footer')?>
+<?= $this->element('footer')?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Add this line -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -149,5 +149,4 @@ use Cake\Log\Log; ?>
 </script>
 </body>
 </html>
-
 

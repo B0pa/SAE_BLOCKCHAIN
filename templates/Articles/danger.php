@@ -8,7 +8,7 @@
         </label>
 
         <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'danger']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;">
-        <button type="submit" class="btn btn-secondary my-2 col-12" >Rechercher</button>
+            <button type="submit" class="btn btn-secondary my-2 col-12" >Rechercher</button>
             <div class="d-flex" >
                 <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1" class="myformcheck form-check-input align-self-center">
                 <label for="Niv 1" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 1</label>
@@ -80,7 +80,7 @@
                     <div class="clear"></div>
                 </div>
             </div>
-            
+
         </div>
 
     <?php
@@ -143,7 +143,7 @@
                     <div class="clear"></div>
                 </div>
             </div>
-            
+
         </div>
 
     <?php
@@ -206,7 +206,7 @@
                     <div class="clear"></div>
                 </div>
             </div>
-            
+
         </div>
 
     <?php
