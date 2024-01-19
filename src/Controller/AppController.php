@@ -20,6 +20,7 @@ use Cake\Controller\Controller;
 use Cake\Http\Response;
 use Cake\Http\Cookie\Cookie;
 use Cake\I18n\DateTime;
+use Cake\Http\Cookie\CookieCollection;
 
 /**
  * Application Controller
@@ -40,6 +41,13 @@ class AppController extends Controller
      *
      * @return void
      */
+
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
+        $this->defineCookie();
+    }
+
     public function initialize(): void
     {
 
@@ -47,9 +55,6 @@ class AppController extends Controller
 
         $this->loadComponent('Flash');
         $this->loadComponent('Authentication.Authentication');
-        $this->defineNFTCookie();
-
-
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.
@@ -59,77 +64,96 @@ class AppController extends Controller
     }
 
 
-    public function defineNftCookie()
+    public function defineCookie()
     {
-        $this->response = $this->response->withCookie(Cookie::create(
-            'nft',
-            0,
-            // All keys are optional
-            [
-                'expires' => new DateTime('+1 day'),
-                'path' => '',
-                'domain' => '',
-                'secure' => false,
-                'httponly' => false,
-                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-            ]
-        ));
-        $this->response = $this->response->withCookie(Cookie::create(
-            'validation',
-            0,
-            // All keys are optional
-            [
-                'expires' => new DateTime('+1 day'),
-                'path' => '',
-                'domain' => '',
-                'secure' => false,
-                'httponly' => false,
-                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-            ]
-        ));
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
 
-        $this->response = $this->response->withCookie(Cookie::create(
-            'crypto',
-            0,
-            // All keys are optional
-            [
-                'expires' => new DateTime('+1 day'),
-                'path' => '',
-                'domain' => '',
-                'secure' => false,
-                'httponly' => false,
-                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-            ]
-        ));
+        $cookie = $this->request->getCookie('nft');
+        if ($cookie == null) {
+            $nft_cookie = Cookie::create(
+                'nft',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($nft_cookie);
+        }
+        $cookie = $this->request->getCookie('crypto');
+        if ($cookie == null) {
+            $crypto_cookie = Cookie::create(
+                'crypto',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($crypto_cookie);
+        }
 
-        $this->response = $this->response->withCookie(Cookie::create(
-            'danger',
-            0,
-            // All keys are optional
-            [
-                'expires' => new DateTime('+1 day'),
-                'path' => '',
-                'domain' => '',
-                'secure' => false,
-                'httponly' => false,
-                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-            ]
-        ));
-        $this->response = $this->response->withCookie(Cookie::create(
-            'blockchain',
-            False,
-            // All keys are optional
-            [
-                'expires' => new DateTime('+1 day'),
-                'path' => '',
-                'domain' => '',
-                'secure' => false,
-                'httponly' => false,
-                'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-            ]
-        ));
+        $cookie = $this->request->getCookie('danger');
+        if ($cookie == null) {
+            $danger_cookie = Cookie::create(
+                'danger',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($danger_cookie);
+        }
+        $cookie = $this->request->getCookie('blockchain');
+        if ($cookie == null) {
+            $blockchain_cookie = Cookie::create(
+                'blockchain',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($blockchain_cookie);
+        }
     }
 
 }
-
 

@@ -2,8 +2,10 @@
 
 <?php
 /** @var \App\Model\Entity\Quiz[] $quizes */
+echo $this->Form->create(null, ['url' => ['action' => 'checkAnswersNFT']]) ;
+
+
 foreach ($quizes as $index => $quiz) :
-echo $this->Form->create($quiz);
 
 $csv_link = $quiz->csv_link;
 
@@ -20,7 +22,7 @@ $csv_link = $quiz->csv_link;
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
         <p><?= $quiz->level ?></p>
         <?php if ($quiz->questionform == "graphic") :?>
-            <p><?= $quiz->question ?></p>
+            <h2 class="text-center" ><?= $quiz->question ?></h2>
 
             <!-- Utilisez l'index de la boucle pour générer un identifiant unique -->
             <canvas id="myChart<?= $index ?>"></canvas>
@@ -76,75 +78,50 @@ $csv_link = $quiz->csv_link;
         <?php else: ?>
             <h2 class="text-center" ><?= $quiz->question ?></h2>
         <?php endif; ?>
-        <?php // $quiz->questionform == "graphic"
-        if ($quiz->questionform == "text" ): ?>
-            <div  class="d-flex justify-content-around my-5">
-                <label class="text-white" >
-                    <?= $this->Form->control('reponse', [
-                        'type' => 'radio',
-                        'options' => [1 => $quiz->answer1],
-                        'label' => false,
-                        'class' => 'btn btn-secondary']) ?>
-                </label>
-                <label class="text-white" >
-                    <?= $this->Form->control('reponse', [
-                        'type' => 'radio',
-                        'options' => [1 => $quiz->answer2],
-                        'label' => false,
-                        'class' => 'btn btn-secondary']) ?>
-                </label>
-                <label class="text-white" >
-                    <?= $this->Form->control('reponse', [
-                        'type' => 'radio',
-                        'options' => [1 => $quiz->answer3],
-                        'label' => false,
-                        'class' => 'btn btn-secondary']) ?>
-                </label>
+        <?php if ($quiz->questionform == "text" ): ?>
+            <div>
+                <?php echo $this->Form->control('reponse'. $quiz->id, [
+                    'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
+                    'type' => 'radio',
+                    'label' => false
+                ]);
+                ?>
             </div>
-
         <?php endif; ?>
-        <?php
-        if ($quiz->questionform == "graphic" ): ?>
+
+        <?php if ($quiz->questionform == "graphic" ): ?>
             <div  class="d-flex justify-content-around my-5">
-                <label class="text-white" >
-                    <?= $this->Form->control('reponse', [
-                        'type' => 'radio',
-                        'options' => [1 => $quiz->answer1],
-                        'label' => false]) ?>
-                </label>
-                <label class="text-white" >
-                    <?= $this->Form->control('reponse', [
-                        'type' => 'radio',
-                        'options' => [1 => $quiz->answer2],
-                        'label' => false]) ?>
-                </label>
-                <label class="text-white" >
-                    <?= $this->Form->control('reponse', [
-                        'type' => 'radio',
-                        'options' => [1 => $quiz->answer3],
-                        'label' => false]) ?>
-                </label>
+                <?php echo $this->Form->control('reponse'. $quiz->id, [
+                    'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
+                    'type' => 'radio',
+                    'label' => false
+                ]);
+                ?>
             </div>
-        <?php endif;
-        ?>
+        <?php endif; ?>
         <?php if ($quiz->questionform == "image") :?>
-            <label class="d-flex justify-content-around" >
-                <?= $this->Form->radio('reponse', ['value' => 1]) ?>
-                <?= $this->Html->image("upload/" . $quiz->answer1, ['class' => 'd-flex img-fluid w-50 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
+            <div class="d-flex justify-content-around my-5">
+                <?php
+                for ($i = 1; $i <= 3; $i++) {
+                    echo '<label>';
+                    echo $this->Html->image("upload/" . $quiz->{'answer'.$i}, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']);
+                    echo '</label>';
+                }
+                ?>
 
-                <?= $this->Form->radio('reponse', ['value' => 2]) ?>
-                <?= $this->Html->image("upload/" . $quiz->answer2, ['class' => 'd-flex img-fluid w-50 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
-
-                <?= $this->Form->radio('reponse', ['value' => 3]) ?>
-                <?= $this->Html->image("upload/" . $quiz->answer3, ['class' => 'd-flex img-fluid w-50 mx-auto rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']) ?>
-            </label>
+            </div>
+            <?php echo $this->Form->control('reponse'. $quiz->id, [
+                'options' => [1 => " ", 2 => " " , 3 => " "],
+                'type' => 'radio',
+                'label' => false
+            ]);
+            ?>
         <?php endif; ?>
-        <?= $this->Form->submit(__('valider'), ['class' => 'btn btn-secondary']); ?>
-        <?= $this->Form->end() ?>
-        <?= $this->Flash->render() ?>
     </div>
     <?php
     endforeach;
     ?>
+    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
+    <?= $this->Form->end() ?>
 </main>
 </body>
