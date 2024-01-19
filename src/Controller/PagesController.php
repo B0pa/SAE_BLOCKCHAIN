@@ -148,19 +148,6 @@ class PagesController extends AppController
         }
     }
 
-    public function rewardquiz() {
-        $imageName = null;
-
-        if ($this->request->is('post')) {
-            // Si le formulaire est soumis, traiter les réponses et afficher l'image
-            $data = $this->request->getData();
-            $imageName = $this->generateImageName($data);
-        }
-
-        // Afficher le formulaire du questionnaire
-        $this->set(compact('imageName'));
-    }
-
     private function generateImageName($data) {
         $question1 = isset($data['question_1']) ? $data['question_1'] : 'Ser';
         $question2 = isset($data['question_2']) ? $data['question_2'] : 'Sob';
