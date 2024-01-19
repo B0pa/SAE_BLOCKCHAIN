@@ -116,18 +116,6 @@ p,a,li,button,span{
 
 }
 
-.myformcheck {
-    display: none;
-}
-
-.myformlabel {
-    color: white;
-}
-
-.myformcheck:checked + .myformlabel {
-    background-color:#ffc107!important;
-}
-
 /*================HOME=====================*/
 
 .home-aside{
