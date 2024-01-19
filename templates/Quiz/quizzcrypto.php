@@ -59,7 +59,7 @@ $csv_link = $quiz->csv_link;
                                         label: 'My Dataset',
                                         data: values,
                                         fill: false,
-                                        borderColor: 'rgb(75, 192, 192)',
+                                        borderColor: 'rgb(255, 193, 7)',
                                         tension: 0.1
                                     }]
                                 },
