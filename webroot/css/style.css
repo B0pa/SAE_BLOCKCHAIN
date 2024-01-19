@@ -272,8 +272,6 @@ p,a,li,button,span{
 }
 
 .tab{
-    display: flex;
-    flex-direction: column;
     background-color:#ffc107;
     margin: 1vh 2vw 1vh 2vw;
     border-radius: 40px;
@@ -281,7 +279,7 @@ p,a,li,button,span{
     box-shadow:25px 25px 40px rgb(80, 80, 80);
     height: auto;
 }
-/*
+/* 
 .update-tab-contenu{
     display: flex;
     flex-direction: column;
