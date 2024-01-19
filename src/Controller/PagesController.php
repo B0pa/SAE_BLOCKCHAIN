@@ -194,9 +194,7 @@ class PagesController extends AppController
             );
             $this->response = $this->response->withCookie($validation_cookie);
         }
-        $this->disableAutoRender();
-
-        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+        return $this->redirect($this->referer());
     }
 
     public function cookieRefuse() {
@@ -232,12 +230,10 @@ class PagesController extends AppController
             );
             $this->response = $this->response->withCookie($validation_cookie);
         }
-        $this->disableAutoRender();
+        return $this->redirect($this->referer());
 
-        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+
     }
-
-
 }
 
 
