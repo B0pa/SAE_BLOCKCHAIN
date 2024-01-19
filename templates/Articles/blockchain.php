@@ -8,17 +8,17 @@
         </label>
 
         <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'blockchain']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;">
-            <input type="text" name="query" placeholder="Rechercher..." class="form-control">
-            <button type="submit" class="btn btn-secondary my-2" >Rechercher</button>
+        <button type="submit" class="btn btn-secondary my-2 col-12" >Rechercher</button>
+            <div class="d-flex" >
+                <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1" class="myformcheck form-check-input align-self-center">
+                <label for="Niv 1" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 1</label>
 
-            <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1">
-            <label for="Niv 1" class="bg-secondary">Niv 1</label>
+                <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2" class="myformcheck form-check-input align-self-center">
+                <label for="Niv 2" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 2</label>
 
-            <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2">
-            <label for="Niv 2" class="bg-secondary">Niv 2</label>
-
-            <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3">
-            <label for="Niv 3" class="bg-secondary">Niv 3</label>
+                <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3" class="myformcheck form-check-input align-self-center">
+                <label for="Niv 3" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 3</label>
+            </div>
         </form>
 
     </div>
