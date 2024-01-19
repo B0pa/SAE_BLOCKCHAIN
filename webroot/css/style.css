@@ -180,6 +180,32 @@ p,a,li,button,span{
 
 }
 
+#titrenav{
+    left:50%; 
+    transform: translateX(-50%);
+
+}
+
+#titrenav3{
+    left:50%; 
+    transform: translateX(-50%);
+}
+
+@media screen and (max-width: 768px) {
+    #titrenav{
+        right: 20px;
+        left:auto ;
+        transform:none;
+    }
+    #titrenav>h1{
+        font-size: 1.5em;
+    }
+
+    #titrenav3{
+        display: none!important;
+    }
+}
+
 /*================LOGIN=====================*/
 .box{
     position: relative;
