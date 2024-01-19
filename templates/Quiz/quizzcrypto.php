@@ -22,6 +22,13 @@
         </div>
     </div>
 </div>
+<body class="bg-secondary" >
+<header>
+    <nav>
+        <?= $this->element('nav3')?>
+    </nav>
+</header>
+<main class="pt-5 mt-5" >
 
 
 <?php
@@ -35,13 +42,6 @@ $csv_link = $quiz->csv_link;
 
 
 ?>
-<body class="bg-secondary" >
-<header>
-    <nav>
-        <?= $this->element('nav3')?>
-    </nav>
-</header>
-<main class="pt-5 mt-5" >
 
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
         <p><?= $quiz->level ?></p>
