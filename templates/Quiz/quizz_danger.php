@@ -129,7 +129,10 @@ $csv_link = $quiz->csv_link;
     <?php
     endforeach;
     ?>
-    <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
-    <?= $this->Form->end() ?>
+    <div class="d-flex flex-row-reverse col-10 mx-auto" >
+        <?= $this->Form->button(__('Envoyer'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
+        <?= $this->Form->end() ?>
+    </div>
+    <?= $this->element('footer')?>
 </main>
 </body>
