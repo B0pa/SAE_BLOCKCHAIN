@@ -1,6 +1,6 @@
 <body class="bg-secondary col-12" >
 <?= $this->element('nav')?>
-<main class="pt-5 mt-5 col-12" >
+<main class="pt-5 mt-5 col-12" style="min-height: 100vh; "  >
     <div class="d-flex">
         <input type="checkbox" id="toggleForm" class="d-none">
         <label for="toggleForm">
@@ -221,4 +221,5 @@
     </a>
 
 </main>
+<?= $this->element('footer')?>
 </body>
