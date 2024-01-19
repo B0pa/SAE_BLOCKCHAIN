@@ -6,7 +6,7 @@
 
 </head>
 
-<body>
+<body class="bg-secondary">
 <?= $this->element('nav2')?>
 
 <main>
