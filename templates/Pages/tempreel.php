@@ -14,52 +14,51 @@
 
 </main>
 <script>
+    var data = {
+        labels: [],
+        datasets: [{
+            data: [],
+            borderColor: 'rgb(255, 193, 7)',
+        }]
+    };
 
-    // Récupérer le canvas
+    var options = {
+        scales: {
+            x: {
+                display: true,
+                time: {
+                    displayFormats: {
+                        minute: 'HH:mm'
+                    }
+                }
+            }
+        }
+    };
+
     var ctx = document.getElementById('chart').getContext('2d');
-
-    // Graphique
     var chart = new Chart(ctx, {
         type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                data: []
-            }]
-        }
+        data: data,
+        options: options
     });
 
-    // Fetch des données
-    function fetchData() {
-        fetch('https://api.coindesk.com/v1/bpi/currentprice.json')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                // Vérifier les données
-                if(!data || !data.bpi || !data.bpi.USD) {
-                    return;
-                }
+    async function fetchData() {
+        const response = await fetch('//api.coindesk.com/v1/bpi/currentprice.json');
+        const json = await response.json();
+        const price = parseFloat(json.bpi.USD.rate.replace(/,/g,''));
 
-                // Cours en USD
-                var price = parseFloat(data.bpi.USD.rate.replace(/,/g, ''));
+        data.labels.push(new Date());
+        data.datasets[0].data.push(price);
 
-                // Ajouter au graph
-                var timestamp = new Date();
-                chart.data.labels.push(timestamp);
-                chart.data.datasets[0].data.push(price);
+        data.labels = data.labels.slice(-24);
+        data.datasets[0].data = data.datasets[0].data.slice(-24);
 
-                // Update
-                chart.update();
-
-            });
+        chart.update();
     }
 
-    // Premier appel
+    setInterval(fetchData, 1000 * 60);
+
     fetchData();
-
-    // Refresh toutes les minutes
-    setInterval(fetchData, 60000);
-
 </script>
 
 </body>
