@@ -66,9 +66,10 @@
         </div>
         <aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
             <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
-            <div >
-                <p  id="preview-text"  ></p>
-                <div id="imagePreview"  style="padding:20px;"></div>
+            <div id="div-parent-preview" style="overflow-y: auto; overflow-x: hidden;">
+                <div id="imagePreview" class="p-2 mx-auto " style="width:33%;"></div>
+                <p id="preview-text" class=" " style=" overflow-wrap: break-word;" ></p>
+                <div style="clear: both;"></div>
             </div>
         </aside>
     </div>
@@ -127,7 +128,7 @@
             $('#imagePreview').html('');
             var total_file = document.getElementById("upload").files.length;
             for (var i = 0; i < total_file; i++) {
-                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style='width: 100%'>");
             }
         });
         // position img
@@ -136,17 +137,20 @@
             var position = $(this).val();
 
             // Supprimez toutes les classes de position existantes
-            $('#imagePreview img').removeClass('float-start float-end text-center');
-            $('#imagePreview').removeClass('text-center');
-
+            var div = document.getElementById("div-parent-preview");
+            div.style.cssText = "overflow-y: auto; overflow-x: hidden;";
+            $('#imagePreview').removeClass('float-start float-end order-1 order-2');
 
             // Ajoutez la nouvelle classe de position
             if (position === 'g') {
-                $('#imagePreview img').addClass('float-start ');
+                $('#imagePreview').addClass('float-start');
             } else if (position === 'd') {
-                $('#imagePreview img').addClass('float-end');
-            }else if (position === 'b') {
-                $('#imagePreview').addClass('text-center');
+                $('#imagePreview').addClass('float-end');
+            } else if (position === 'b') {
+                $('#imagePreview').removeClass('float-start float-end');
+                div.style.cssText = "overflow-y: auto; overflow-x: hidden;display:flex;flex-direction:column;";
+                $('#imagePreview').addClass('order-2');
+                $('#preview-text').addClass('order-1');
             }
         });
 

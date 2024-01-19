@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Core\Configure;
+use Cake\Http\Cookie\Cookie;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
@@ -35,7 +36,7 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel']);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','rewardquiz','adminLogin','cookieAccept', 'cookieRefuse']);
     }
 
     /**
@@ -135,6 +136,108 @@ class PagesController extends AppController
             $this->Flash->error('Identifiants invalides');
         }
     }
+
+    public function rewardquiz() {
+        $imageName = null;
+
+        if ($this->request->is('post')) {
+            // Si le formulaire est soumis, traiter les réponses et afficher l'image
+            $data = $this->request->getData();
+            $imageName = $this->generateImageName($data);
+        }
+
+        // Afficher le formulaire du questionnaire
+        $this->set(compact('imageName'));
+    }
+
+    private function generateImageName($data) {
+        $question1 = $data['question_1'];
+        $question2 = $data['question_2'];
+        $question3 = $data['question_3'];
+
+        // Construire le nom de l'image en fonction des réponses
+        $imageName = $question1 . $question2 . $question3 . '.png';
+
+        return $imageName;
+        $imageName = null;
+    }
+    public function cookieAccept() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        $this->disableAutoRender();
+
+        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+    }
+
+    public function cookieRefuse() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        $this->disableAutoRender();
+
+        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+    }
+
+
 }
 
 

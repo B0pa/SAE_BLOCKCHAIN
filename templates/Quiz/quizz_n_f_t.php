@@ -80,41 +80,41 @@ $csv_link = $quiz->csv_link;
         <?php endif; ?>
         <?php if ($quiz->questionform == "text" ): ?>
             <div>
-            <?php echo $this->Form->control('reponse'. $quiz->id, [
-                                            'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
-                                            'type' => 'radio',
-                                            'label' => false
-                                        ]);
-            ?>
+                <?php echo $this->Form->control('reponse'. $quiz->id, [
+                    'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
+                    'type' => 'radio',
+                    'label' => false
+                ]);
+                ?>
             </div>
         <?php endif; ?>
 
         <?php if ($quiz->questionform == "graphic" ): ?>
             <div  class="d-flex justify-content-around my-5">
-            <?php echo $this->Form->control('reponse'. $quiz->id, [
-                                            'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
-                                            'type' => 'radio',
-                                            'label' => false
-                                            ]);
-            ?>
+                <?php echo $this->Form->control('reponse'. $quiz->id, [
+                    'options' => [1 => $quiz->answer1, 2 => $quiz->answer2 , 3 => $quiz->answer3],
+                    'type' => 'radio',
+                    'label' => false
+                ]);
+                ?>
             </div>
         <?php endif; ?>
         <?php if ($quiz->questionform == "image") :?>
             <div class="d-flex justify-content-around my-5">
-                <?php 
-                    for ($i = 1; $i <= 3; $i++) {
-                        echo '<label>';
-                        echo $this->Html->image("upload/" . $quiz->{'answer'.$i}, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']);
-                        echo '</label>';
-                    }
+                <?php
+                for ($i = 1; $i <= 3; $i++) {
+                    echo '<label>';
+                    echo $this->Html->image("upload/" . $quiz->{'answer'.$i}, ['class' => 'd-flex w-50 rounded-3 mt-2 mb-3','alt' => 'accueil','style' => '']);
+                    echo '</label>';
+                }
                 ?>
-            
+
             </div>
             <?php echo $this->Form->control('reponse'. $quiz->id, [
-                                            'options' => [1 => " ", 2 => " " , 3 => " "],
-                                            'type' => 'radio',
-                                            'label' => false
-                                            ]);
+                'options' => [1 => " ", 2 => " " , 3 => " "],
+                'type' => 'radio',
+                'label' => false
+            ]);
             ?>
         <?php endif; ?>
     </div>

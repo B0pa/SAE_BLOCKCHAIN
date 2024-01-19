@@ -1,7 +1,7 @@
 
 <body class="bg-secondary" >
 <?= $this->element('nav')?>
-<main class="pt-5 mt-5" >
+<main class="pt-5 mt-5 col-12" >
     <div class="d-flex">
         <input type="checkbox" id="toggleForm" class="d-none">
         <label for="toggleForm">
@@ -23,7 +23,7 @@
         </form>
 
     </div>
-    <?= $this->Html->image('NFT.png', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
+    <?= $this->Html->image('NFT.gif', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop ','alt' => 'NFT image' ,'style'=> 'width :200px']); ?>
     <?php
     /** @var \App\Model\Entity\Article[] $articles1 */
     foreach ($articles1 as $article) :
@@ -40,7 +40,7 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
             <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
@@ -66,7 +66,7 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto  my-4 p-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
             <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
@@ -92,7 +92,7 @@
         }
 
         ?>
-        <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
+        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3' >
             <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
             <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
             <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
@@ -104,15 +104,9 @@
 
 
 
-
-    <?= $this->Html->link(
-        "Quiz",
-        ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
-        [
-            'class' => 'd-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-1',
-            'escapeTitle' => false
-        ]
-    ) ?>
+    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizz_n_f_t']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-6">
+        Quiz
+    </a>
 
 </main>
 </body>

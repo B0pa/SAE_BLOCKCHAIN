@@ -66,6 +66,24 @@ class AppController extends Controller
 
     public function defineCookie()
     {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+
         $cookie = $this->request->getCookie('nft');
         if ($cookie == null) {
             $nft_cookie = Cookie::create(
@@ -82,7 +100,7 @@ class AppController extends Controller
                 ]
             );
             $this->response = $this->response->withCookie($nft_cookie);
-        } 
+        }
         $cookie = $this->request->getCookie('crypto');
         if ($cookie == null) {
             $crypto_cookie = Cookie::create(
@@ -100,6 +118,7 @@ class AppController extends Controller
             );
             $this->response = $this->response->withCookie($crypto_cookie);
         }
+
         $cookie = $this->request->getCookie('danger');
         if ($cookie == null) {
             $danger_cookie = Cookie::create(
@@ -137,5 +156,4 @@ class AppController extends Controller
     }
 
 }
-
 
