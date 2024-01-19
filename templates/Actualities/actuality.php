@@ -7,9 +7,8 @@
             <p class="text-center" >La dernière vidéo de Hasheur:</p>
             <iframe
                 src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UULFhlTcWDE8gd4tsl_L727NrQ"
-                width="75%"
-                height="400"
-                allowfullscreen class="mx-auto">
+                
+                allowfullscreen class="d-flex h-auto w-75 mx-auto ">
             </iframe>
         </div>
         <?php
