@@ -1,58 +1,64 @@
 
 <head>
-
     <title>Temp réel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.1.0"></script>
-</head>
-<body>
-<?= $this->element('nav2')?>
-<main>
-    <div>
-        <h1>bitcoin</h1>
-        <canvas id="chartContainer"></canvas>
-    </div>
-</main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
 
+</head>
+
+<body class="bg-secondary">
+<?= $this->element('nav2')?>
+
+<main>
+    <canvas id="chart"></canvas>
+
+</main>
 <script>
-    var ctx = document.getElementById('chartContainer').getContext('2d');
-    var chart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'Bitcoin Price',
-                data: [],
-                borderColor: 'rgba(75, 192, 192, 1)',
-                fill: false
-            }]
-        },
-        options: {
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'minute'
+    var data = {
+        labels: [],
+        datasets: [{
+            data: [],
+            borderColor: 'rgb(255, 193, 7)',
+        }]
+    };
+
+    var options = {
+        scales: {
+            x: {
+                display: true,
+                time: {
+                    displayFormats: {
+                        minute: 'HH:mm'
                     }
                 }
             }
         }
+    };
+
+    var ctx = document.getElementById('chart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
     });
 
-    function fetchBitcoinPrice() {
-        fetch('https://api.coindesk.com/v1/bpi/currentprice/BTC.json')
-            .then(response => response.json())
-            .then(data => {
-                var date = new Date();
-                chart.data.labels.push(date);
-                chart.data.datasets[0].data.push(data.bpi.USD.rate_float);
-                chart.update();
-            });
+    async function fetchData() {
+        const response = await fetch('//api.coindesk.com/v1/bpi/currentprice.json');
+        const json = await response.json();
+        const price = parseFloat(json.bpi.USD.rate.replace(/,/g,''));
+
+        data.labels.push(new Date());
+        data.datasets[0].data.push(price);
+
+        data.labels = data.labels.slice(-24);
+        data.datasets[0].data = data.datasets[0].data.slice(-24);
+
+        chart.update();
     }
 
-    fetchBitcoinPrice();
-    setInterval(fetchBitcoinPrice, 60000); // Update every minute
+    setInterval(fetchData, 1000 * 60);
+
+    fetchData();
 </script>
 
 </body>

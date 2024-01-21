@@ -116,6 +116,18 @@ p,a,li,button,span{
 
 }
 
+.myformcheck {
+    display: none;
+}
+
+.myformlabel {
+    color: white;
+}
+
+.myformcheck:checked + .myformlabel {
+    background-color:#ffc107!important;
+}
+
 /*================HOME=====================*/
 
 .home-aside{
@@ -166,6 +178,32 @@ p,a,li,button,span{
         transform:none;
     }
 
+}
+
+#titrenav{
+    left:50%;
+    transform: translateX(-50%);
+
+}
+
+#titrenav3{
+    left:50%;
+    transform: translateX(-50%);
+}
+
+@media screen and (max-width: 768px) {
+    #titrenav{
+        right: 20px;
+        left:auto ;
+        transform:none;
+    }
+    #titrenav>h1{
+        font-size: 1.5em;
+    }
+
+    #titrenav3{
+        display: none!important;
+    }
 }
 
 /*================LOGIN=====================*/
@@ -272,8 +310,6 @@ p,a,li,button,span{
 }
 
 .tab{
-    display: flex;
-    flex-direction: column;
     background-color:#ffc107;
     margin: 1vh 2vw 1vh 2vw;
     border-radius: 40px;

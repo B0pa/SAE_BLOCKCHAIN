@@ -21,7 +21,6 @@ class QuizController extends AppController
         parent::beforeFilter($event);
 
         $this->Authentication->allowUnauthenticated(['quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger', 'checkAnswersDanger', 'checkAnswersCrypto', 'checkAnswersNFT', 'checkAnswersBlockchain']);
-
     }
     /**
      * Index method
