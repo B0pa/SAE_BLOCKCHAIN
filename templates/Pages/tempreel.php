@@ -50,13 +50,12 @@
         data.labels.push(new Date());
         data.datasets[0].data.push(price);
 
-        data.labels = data.labels.slice(-24);
-        data.datasets[0].data = data.datasets[0].data.slice(-24);
+
 
         chart.update();
     }
 
-    setInterval(fetchData, 1000 * 60);
+    setInterval(fetchData, 100 * 60);
 
     fetchData();
 </script>

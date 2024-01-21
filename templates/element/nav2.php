@@ -24,7 +24,7 @@ if ($currentURL === 'tempreel') {
                 'escapeTitle' => false
             ]
         ) ?>
-        <div class="d-flex  bg-warning rounded-pill px-5 align-items-center justify-content-center h-auto title-nav">
+        <div class="d-flex  bg-warning rounded-pill px-5 align-items-center justify-content-center h-auto title-nav centrer ">
             <h1 class="h1 text-center"><?= $pageTitle ?></h1>
         </div>
     </div>
