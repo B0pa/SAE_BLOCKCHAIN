@@ -86,7 +86,7 @@
             // Sélectionnez tous les éléments de ce niveau
             const elements = document.querySelectorAll(`.${level}`);
 
-            // Affichez ou masquez les éléments en fonction de l'état de la case à cocher
+            // Affichez ou masquez les éléments en fonction de l'état de la case à coche
             elements.forEach(element => {
                 element.style.display = this.checked ? 'block' : 'none';
             });
