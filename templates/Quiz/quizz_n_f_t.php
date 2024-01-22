@@ -118,9 +118,9 @@ $csv_link = $quiz->csv_link;
             <div class="d-flex justify-content-around">
                 <?php
                 echo $this->Form->radio('reponse'. $quiz->id, [
-                    ['value' => 1, 'text' => '', 'class' => ''],
-                    ['value' => 2, 'text' => ''],
-                    ['value' => 3, 'text' => '']
+                    ['value' => 1, 'text' => $quiz->answer1, 'class' => 'me-2 mt-2'],
+                    ['value' => 2, 'text' => $quiz->answer2, 'class' => 'me-2 mt-2'],
+                    ['value' => 3, 'text' => $quiz->answer3, 'class' => 'me-2 mt-2']
                 ], ['label' => true, 'class' => 'd-flex flex-column']);
                 ?>
             </div>
