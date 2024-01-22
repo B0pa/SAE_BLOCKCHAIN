@@ -11,7 +11,10 @@
 
 <main class="mt-5 pt-5" >
     <h2 class=" mt-3 text-center" >Courbe du Bitcoin</h2>
-    <canvas id="chart" class="m-5" style="max-height:65vh"></canvas>
+    <div class="d-flex bg-dark border-1 border border-warning p-2 w-75 mx-auto rounded-3" >
+        <canvas id="chart" class="m-5" style="max-height:65vh"></canvas>
+    </div>
+    
 
 </main>
 <?= $this->element('footer')?>
@@ -32,10 +35,10 @@
                 //Axe X
                 display: true,
                 grid: {
-                    color: 'rgb(197, 222, 198)'
+                    color: 'rgb(108, 117, 125)'
                 },
                 ticks: {
-                    color: 'rgb(197, 222, 198)'
+                    color: 'rgb(255, 255, 255)'
                 },
                 time: {
                     displayFormats: {
@@ -46,10 +49,10 @@
             //Axe Y
             y: {
                 grid: {
-                    color: 'rgb(197, 222, 198)'
+                    color: 'rgb(108, 117, 125)'
                 },
                 ticks: {
-                    color: 'rgb(197, 222, 198)'
+                    color: 'rgb(255, 255, 255)'
                 }
             }
         },
