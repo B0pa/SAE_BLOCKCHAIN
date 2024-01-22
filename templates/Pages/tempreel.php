@@ -70,16 +70,18 @@
     });
 
     async function fetchData() {
+
+        const now = new Date();
+
         const response = await fetch('//api.coindesk.com/v1/bpi/currentprice.json');
         const json = await response.json();
-        const price = parseFloat(json.bpi.USD.rate.replace(/,/g,''));
+        const price = parseFloat(json.bpi.USD.rate.replace(/,/g, ''));
 
-        data.labels.push(new Date().toISOString().slice(11,19));
+        data.labels.push(now.toLocaleTimeString());
         data.datasets[0].data.push(price);
 
-
-
         chart.update();
+
     }
 
     setInterval(fetchData, 100 * 60);
