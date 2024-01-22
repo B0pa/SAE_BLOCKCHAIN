@@ -36,13 +36,13 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','rewardquiz','adminLogin','cookieAccept', 'cookieRefuse']);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse']);
     }
 
     /**
-    * actuality method
-    *
-    */
+     * actuality method
+     *
+     */
     public function actuality()
     {
         /**
@@ -57,10 +57,10 @@ class PagesController extends AppController
     }
 
     /**
-    * home method
-    *
-    * @return void
-    */
+     * home method
+     *
+     * @return void
+     */
     public function home()
     {
 
@@ -111,7 +111,28 @@ class PagesController extends AppController
 
     public function wallet()
     {
+        $imageName = null;
+        $counter = $this->getRequest()->getCookie('nft'); // Ajoutez cette ligne
 
+        if ($this->request->is('post')) {
+            // Si le formulaire est soumis, traiter les réponses et afficher l'image
+            $data = $this->request->getData();
+            $imageName = $this->generateImageName($data);
+        }
+
+        // Afficher le formulaire du questionnaire
+        $this->set(compact('imageName', 'counter')); // Modifiez cette ligne pour passer 'counter' à la vue
+    }
+
+    private function generateImageName($data) { // Code nft
+        $question1 = isset($data['question_1']) ? $data['question_1'] : 'Ser';
+        $question2 = isset($data['question_2']) ? $data['question_2'] : 'Sob';
+        $question3 = isset($data['question_3']) ? $data['question_3'] : 'Ble';
+
+        // Construire le nom de l'image en fonction des réponses
+        $imageName = $question1 . $question2 . $question3 . '.png';
+
+        return $imageName;
     }
 
     public function tempreel()
@@ -137,30 +158,6 @@ class PagesController extends AppController
         }
     }
 
-    public function rewardquiz() {
-        $imageName = null;
-
-        if ($this->request->is('post')) {
-            // Si le formulaire est soumis, traiter les réponses et afficher l'image
-            $data = $this->request->getData();
-            $imageName = $this->generateImageName($data);
-        }
-
-        // Afficher le formulaire du questionnaire
-        $this->set(compact('imageName'));
-    }
-
-    private function generateImageName($data) {
-        $question1 = $data['question_1'];
-        $question2 = $data['question_2'];
-        $question3 = $data['question_3'];
-
-        // Construire le nom de l'image en fonction des réponses
-        $imageName = $question1 . $question2 . $question3 . '.png';
-
-        return $imageName;
-        $imageName = null;
-    }
     public function cookieAccept() {
         $cookie = $this->request->getCookie('validation');
         if ($cookie == null) {
@@ -194,9 +191,7 @@ class PagesController extends AppController
             );
             $this->response = $this->response->withCookie($validation_cookie);
         }
-        $this->disableAutoRender();
-
-        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+        return $this->redirect($this->referer());
     }
 
     public function cookieRefuse() {
@@ -232,12 +227,9 @@ class PagesController extends AppController
             );
             $this->response = $this->response->withCookie($validation_cookie);
         }
-        $this->disableAutoRender();
+        return $this->redirect($this->referer());
 
-        return $this->redirect(['controller' => 'Pages', 'action' => 'home']);
+
     }
-
-
 }
-
 
