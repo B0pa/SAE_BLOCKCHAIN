@@ -22,7 +22,7 @@ $csv_link = $quiz->csv_link;
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
         <p><?= $quiz->level ?></p>
         <?php if ($quiz->questionform == "graphic") :?>
-            <h2 class="text-center" ><?= $quiz->question ?></h2>
+            <h2 class="text-center bg-warning p-2 rounded-pill" ><?= $quiz->question ?></h2>
 
             <!-- Utilisez l'index de la boucle pour générer un identifiant unique -->
             <canvas id="myChart<?= $index ?>"></canvas>
@@ -76,7 +76,7 @@ $csv_link = $quiz->csv_link;
             </script>
 
         <?php else: ?>
-            <h2 class="text-center" ><?= $quiz->question ?></h2>
+            <h2 class="text-center bg-warning p-2 rounded-pill" ><?= $quiz->question ?></h2>
         <?php endif; ?>
         <?php if ($quiz->questionform == "text" ): ?>
             <i class=" m-3 border-top border-2 border-white"></i>
@@ -118,9 +118,9 @@ $csv_link = $quiz->csv_link;
             <div class="d-flex justify-content-around">
                 <?php
                 echo $this->Form->radio('reponse'. $quiz->id, [
-                    ['value' => 1, 'text' => '', 'class' => ''],
-                    ['value' => 2, 'text' => ''],
-                    ['value' => 3, 'text' => '']
+                    ['value' => 1, 'text' => $quiz->answer1, 'class' => 'me-2 mt-2'],
+                    ['value' => 2, 'text' => $quiz->answer2, 'class' => 'me-2 mt-2'],
+                    ['value' => 3, 'text' => $quiz->answer3, 'class' => 'me-2 mt-2']
                 ], ['label' => true, 'class' => 'd-flex flex-column']);
                 ?>
             </div>
