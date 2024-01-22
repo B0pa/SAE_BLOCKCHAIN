@@ -13,7 +13,7 @@
 <header>
     <?= $this->element('nav2')?>
 </header>
-<main class="pt-5 mt-5 d-flex flex-column flex-md-row" style="min-height: 100%; " >
+<main class="pt-5 mt-5 d-flex flex-column flex-md-row" style="min-height: 100vh; " >
     <div class="mt-3 align-items-center d-md-block col col-pousse overflow-hidden border-start border-end border-1 border-dark " >
         <?= $this->Html->image('cryptobitcoin.png', ['class' => 'd-flex rounded-circle mx-auto','alt' => 'crypto Bitcoin']); ?>
         <p class="justify-content-center text-center mt-2" ><?php echo $this->getRequest()->getCookie('crypto'); ?></p>
