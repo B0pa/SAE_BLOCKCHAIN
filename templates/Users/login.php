@@ -1,13 +1,13 @@
 <main class="bg-secondary d-flex flex-column align-items-center my-auto" style="height:100vh;">
     <?= $this->Html->link(
-                "Retourner à l'accueil",
-                ['controller'=> 'Pages', 'action' => 'home'],
-                [
-                    'class' => 'text-white fs-5 text-decoration-none btn btn-warning align-self-start m-2',
-                    'style' => 'z-index:1;',
-                    'escapeTitle' => false
-                ]
-            ) ?>
+        "Retourner à l'accueil",
+        ['controller'=> 'Pages', 'action' => 'home'],
+        [
+            'class' => 'text-white fs-5 text-decoration-none btn btn-warning align-self-start m-2',
+            'style' => 'z-index:1;',
+            'escapeTitle' => false
+        ]
+    ) ?>
 
     <div class="bg-danger my-4" ></div>
     <div class="users form mt-5 bg-secondary rounded-3 col-10 mx-auto text-white p-3">
