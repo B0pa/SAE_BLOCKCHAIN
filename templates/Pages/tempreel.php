@@ -18,22 +18,49 @@
         labels: [],
         datasets: [{
             data: [],
+            // barre de la courbe
             borderColor: 'rgb(255, 193, 7)',
         }]
     };
 
     var options = {
+
         scales: {
             x: {
+                //Axe X
                 display: true,
+                grid: {
+                    color: 'rgb(197, 222, 198)'
+                },
+                ticks: {
+                    color: 'rgb(197, 222, 198)'
+                },
                 time: {
                     displayFormats: {
-                        minute: 'HH:mm'
+                        minute: 'HH:mm:ss'
                     }
                 }
+            },
+            //Axe Y
+            y: {
+                grid: {
+                    color: 'rgb(197, 222, 198)'
+                },
+                ticks: {
+                    color: 'rgb(197, 222, 198)'
+                }
+            }
+        },
+        // point de la courbe
+        elements: {
+            line: {
+                borderColor: 'rgb(0, 0, 0)'
+            },
+            point: {
+                backgroundColor: 'rgb(0, 0, 0)'
             }
         }
-    };
+    }
 
     var ctx = document.getElementById('chart').getContext('2d');
     var chart = new Chart(ctx, {
@@ -47,7 +74,7 @@
         const json = await response.json();
         const price = parseFloat(json.bpi.USD.rate.replace(/,/g,''));
 
-        data.labels.push(new Date());
+        data.labels.push(new Date().toISOString().slice(11,19));
         data.datasets[0].data.push(price);
 
 
