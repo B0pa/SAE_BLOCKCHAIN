@@ -69,7 +69,7 @@
     <div class="mt-3 align-items-center d-md-block col col-pousse overflow-hidden border-start border-end border-1 border-dark " >
         <?= $this->Html->image('cryptoNFT.png', ['class' => 'd-flex rounded-circle mx-auto','alt' => 'crypto NFT']); ?>
         <p class="text-center mt-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
-            <?php // Gérer l'affichage du formulaire en fonction du nombre de cookies
+        <?php // Gérer l'affichage du formulaire en fonction du nombre de cookies
         $counter = $this->getRequest()->getCookie('nft'); ?>
 
         <?= $this->Form->create(null, ['url' => ['controller' => 'Pages', 'action' => 'wallet']]) ?>
@@ -114,7 +114,7 @@
 
         <?= $this->Form->end() ?>
     </div>
-    
+
 </main>
 <?= $this->element('footer')?>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
