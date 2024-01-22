@@ -15,9 +15,9 @@
             <?= $this->Form->postLink(
                 __('Delete'),
                 ['action' => 'delete', $article->id],
-                ['confirm' => __('etes vous sure de supprimer cette article ? # {0}?', $article->id), 'class' => 'side-nav-item']
+                ['confirm' => __('etes vous sure de supprimer cette article ? # {0}?', $article->id), 'class' => 'side-nav-item text-warning']
             ) ?>
-            <?= $this->Html->link(__('List Articles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List Articles'), ['action' => 'index'], ['class' => 'side-nav-item text-warning']) ?>
         </div>
         <div class="text-center col col-6" >
             <h2>Prévisualisation</h2>
