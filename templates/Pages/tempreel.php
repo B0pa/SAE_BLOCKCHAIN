@@ -6,7 +6,7 @@
 
 </head>
 
-<body class="bg-secondary">
+<body class="bg-secondary" style="min-height:100vh;" >
 <?= $this->element('nav2')?>
 
 <main class="mt-5 pt-5" >
