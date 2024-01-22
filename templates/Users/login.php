@@ -3,7 +3,7 @@
         "Retourner à l'accueil",
         ['controller'=> 'Pages', 'action' => 'home'],
         [
-            'class' => 'text-white fs-5 text-decoration-none btn btn-warning align-self-start m-2',
+            'class' => 'text-white fs-6 text-decoration-none btn btn-warning align-self-start m-2',
             'style' => 'z-index:1;',
             'escapeTitle' => false
         ]
