@@ -8,7 +8,7 @@
 <?= $this->element('nav_admin')?>
 <main class="p-5 mt-5" >
     <div class="quiz index content bg-dark p-4 rounded-3 text-white">
-        <?= $this->Html->link(__('New Quiz'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+        <?= $this->Html->link(__('New Quiz'), ['action' => 'add'],  ['class' => 'btn btn-warning']) ?>
         <h3><?= __('Quiz') ?></h3>
         <div class="table-responsive bg-secondary rounded p-3 text-dark">
             <table>
