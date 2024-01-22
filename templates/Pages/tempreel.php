@@ -11,14 +11,14 @@
 
 <main class="mt-5 pt-5" >
     <div class=" mt-3 d-flex align-items-center mx-auto w-75">
-    <?=$this->Html->image('cryptobitcoin.png', ['class' => 'img-fluid rounded-circle p-2 ','alt' => 'accueil','style' => 'width: 100px; height: 100px;'])?>
+        <?=$this->Html->image('cryptobitcoin.png', ['class' => 'img-fluid rounded-circle p-2 ','alt' => 'accueil','style' => 'width: 100px; height: 100px;'])?>
         <h2 class="text-center" >Courbe du Bitcoin</h2>
     </div>
-    
+
     <div class="d-flex mt-2 bg-dark border-1 border border-warning p-2 w-75 mx-auto rounded-3" >
         <canvas id="chart" class="m-2" style="max-height:60vh"></canvas>
     </div>
-    
+
 
 </main>
 <?= $this->element('footer')?>
@@ -27,6 +27,7 @@
         labels: [],
         datasets: [{
             data: [],
+            label: 'Bitcoin',
             // barre de la courbe
             borderColor: 'rgb(255, 193, 7)',
         }]

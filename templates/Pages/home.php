@@ -112,9 +112,6 @@ use Cake\Log\Log; ?>
 
         <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 justify-content-between   align-items-center">
             <h2 class="h2 text-center" >Qui sommes-nous ?</h2>
-            <p class="text-center" >
-                Nous sommes une équipe de 4 étudiants en 2ème année de BUT Informatique à l'IUT lyon 1 site de Bourg-en-Bresse. Nous avons réalisé ce site dans le cadre d'un projet tutoré.
-            </p>
         </div>
     </main>
     <?= $this->cell('Article') ?>
@@ -144,4 +141,3 @@ use Cake\Log\Log; ?>
 </script>
 </body>
 </html>
-

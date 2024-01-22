@@ -56,7 +56,7 @@ $csv_link = $quiz->csv_link;
                                 data: {
                                     labels: labels,
                                     datasets: [{
-                                        label: 'My Dataset',
+                                        label: 'Value',
                                         data: values,
                                         fill: false,
                                         borderColor: 'rgb(255, 193, 7)',
