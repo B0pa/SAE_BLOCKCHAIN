@@ -340,3 +340,9 @@ p,a,li,button,span{
 .spin {
     animation: spin 15s linear infinite;
 }
+
+/*================Wallet=====================*/
+
+.col-pousse{
+    transition: all 1.5s ease;
+}
