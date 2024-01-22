@@ -9,10 +9,12 @@
 <body class="bg-secondary">
 <?= $this->element('nav2')?>
 
-<main>
-    <canvas id="chart"></canvas>
+<main class="mt-5 pt-5" >
+    <h2 class=" mt-3 text-center" >Courbe du Bitcoin</h2>
+    <canvas id="chart" class="m-5" style="max-height:65vh"></canvas>
 
 </main>
+<?= $this->element('footer')?>
 <script>
     var data = {
         labels: [],
