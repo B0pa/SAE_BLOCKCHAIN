@@ -22,7 +22,7 @@ $csv_link = $quiz->csv_link;
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
         <p><?= $quiz->level ?></p>
         <?php if ($quiz->questionform == "graphic") :?>
-            <h2 class="text-center bg-warning p-2 rounded-pill" ><?= $quiz->question ?></h2>
+            <h2 class="text-center bg-warning p-2 rounded-pill text-dark" ><?= $quiz->question ?></h2>
 
             <!-- Utilisez l'index de la boucle pour générer un identifiant unique -->
             <canvas id="myChart<?= $index ?>"></canvas>
@@ -56,7 +56,7 @@ $csv_link = $quiz->csv_link;
                                 data: {
                                     labels: labels,
                                     datasets: [{
-                                        label: 'My Dataset',
+                                        label: 'Value',
                                         data: values,
                                         fill: false,
                                         borderColor: 'rgb(255, 193, 7)',
@@ -76,7 +76,7 @@ $csv_link = $quiz->csv_link;
             </script>
 
         <?php else: ?>
-            <h2 class="text-center bg-warning p-2 rounded-pill" ><?= $quiz->question ?></h2>
+            <h2 class="text-center bg-warning p-2 rounded-pill text-dark" ><?= $quiz->question ?></h2>
         <?php endif; ?>
         <?php if ($quiz->questionform == "text" ): ?>
             <i class=" m-3 border-top border-2 border-white"></i>

@@ -9,6 +9,7 @@
         </label>
 
         <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'crypto']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;z-index: 1;">
+            <input type="text" name="query" placeholder="Rechercher..." class="form-control">
             <button type="submit" class="btn btn-secondary my-2 col-12" >Rechercher</button>
             <div class="d-flex" >
                 <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1" class="myformcheck form-check-input align-self-center">
@@ -202,7 +203,7 @@
                         <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => 'width:100%'])?>
                     </div>
 
-                    <p class="<?= $article->css_content ?> w-100" style="text-align:justify;  " ><?= nl2br(htmlspecialchars($article->content))?></p>
+                    <p class="<?= $article->css_content ?> w-100" style="text-align:justify;  " ><?= nl2br($article->content)?></p>
                     <div class="clear"></div>
                 </div>
             </div>

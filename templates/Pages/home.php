@@ -70,51 +70,43 @@ use Cake\Log\Log; ?>
         </div>
 
 
-        <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>">
-            <div class="d-flex slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 align-items-center" style="justify-content: space-between;">
-                <div>
-                    <?= $this->Html->image('NFT.gif', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail img-fluid']); ?>
-                </div>
-                <div class="px-3" style="margin: auto;">
-                    <h2 class="h2 text-center">Les NFT</h2>
-                    <p>Jetons numériques uniques représentant un objet virtuel. Spéculatifs et sujets aux arnaques.</p>
-                </div>
+        <a class="text-decoration-none d-flex slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>">
+            <div>
+                <?= $this->Html->image('NFT.gif', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail img-fluid']); ?>
+            </div>
+            <div class="px-3" style="margin: auto;">
+                <h2 class="h2 text-center">Les NFT</h2>
+                <p>Jetons numériques uniques représentant un objet virtuel. Spéculatifs et sujets aux arnaques.</p>
             </div>
         </a>
 
-        <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>">
-            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;">
-                <div>
-                    <?= $this->Html->image('crypto.gif', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-                </div>
-                <div class="px-3" style="margin: auto;">
-                    <h2 class="h2 text-center">Les Crypto</h2>
-                    <p>Monnaies numériques basées sur la blockchain, comme le Bitcoin. Volatiles et risquées.</p>
-                </div>
+        <a class="text-decoration-none slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>">
+            <div>
+                <?= $this->Html->image('crypto.gif', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
+            </div>
+            <div class="px-3" style="margin: auto;">
+                <h2 class="h2 text-center">Les Crypto</h2>
+                <p>Monnaies numériques basées sur la blockchain, comme le Bitcoin. Volatiles et risquées.</p>
             </div>
         </a>
 
-        <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>">
-            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;">
-                <div>
-                    <?= $this->Html->image('danger.gif', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-                </div>
-                <div class="px-3" style="margin: auto;">
-                    <h2 class="h2 text-center">Les dangers</h2>
-                    <p>volatilité, hacking, arnaques, bulles spéculatives, utilisation à des fins illicites, impact environnemental (mining).</p>
-                </div>
+        <a class="text-decoration-none slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>">
+            <div>
+                <?= $this->Html->image('danger.gif', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
+            </div>
+            <div class="px-3" style="margin: auto;">
+                <h2 class="h2 text-center">Les dangers</h2>
+                <p>volatilité, hacking, arnaques, bulles spéculatives, utilisation à des fins illicites, impact environnemental (mining).</p>
             </div>
         </a>
 
-        <a class="text-decoration-none " href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>">
-            <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;">
-                <div>
-                    <?= $this->Html->image('blockchain.gif', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-                </div>
-                <div class="px-3" style="margin: auto;">
-                    <h2 class="h2 text-center">Les blockchain</h2>
-                    <p>technologie de stockage et de transmission d'informations, transparente, sécurisée et décentralisée.</p>
-                </div>
+        <a class="text-decoration-none slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>">
+            <div>
+                <?= $this->Html->image('blockchain.gif', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
+            </div>
+            <div class="px-3" style="margin: auto;">
+                <h2 class="h2 text-center">Les blockchain</h2>
+                <p>technologie de stockage et de transmission d'informations, transparente, sécurisée et décentralisée.</p>
             </div>
         </a>
 
@@ -149,4 +141,3 @@ use Cake\Log\Log; ?>
 </script>
 </body>
 </html>
-
