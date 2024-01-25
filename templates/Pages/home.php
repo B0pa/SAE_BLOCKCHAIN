@@ -1,48 +1,7 @@
 <?php // use log;
 use Cake\Log\Log; ?>
-
-<!DOCTYPE html>
-<html lang="en-FR">
-<head>
-    <meta charset="UTF-8">
-    <title>ACCUEIL</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-
-
-</head>
-
-<body class="bg-secondary">
-
-<header>
-    <nav class="container-fluid navbar navbar-dark bg-dark d-flex fixed-top justify-content-between" style="height: 100px;">
-        <div class="container-fluid h-100 position-relative d-flex justify-content-center align-items-center" >
-
-            <?= $this->Html->link(
-                $this->Html->image('wallet.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'accueil','style' => 'left:20px;']),
-                ['controller' => 'Pages', 'action' => 'wallet'],
-                [
-                    'class' => 'nav-link d-flex align-items-center',
-                    'escapeTitle' => false
-                ]
-            ) ?>
-
-            <?= $this->Html->link(
-                $this->Html->image('temp reel.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'icone temp réel','style' => 'left:120px;']),
-                ['controller' => 'Pages', 'action' => 'tempreel'],
-                [
-                    'class' => 'nav-link d-flex align-items-center',
-                    'escapeTitle' => false
-                ]
-            ) ?>
-
-            <div class="d-flex  bg-warning rounded-pill px-md-5 px-4 ms-4 align-items-center justify-content-center h-auto position-absolute centrer">
-                <h1 class="h1 text-center ">Accueil</h1>
-            </div>
-        </div>
-    </nav>
-</header>
-<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5 " style="height:auto" >
+<?= $this->element('nav')?>
+<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5 " style="margin-top:60px" >
     <main class="col col-12 col-md-8">
 
 
@@ -118,9 +77,6 @@ use Cake\Log\Log; ?>
 
 <?= $this->element('footer')?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Add this line -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 <script>
     $(document).ready(function() {
         if (<?php echo $this->getRequest()->getCookie('validation'); ?> == 0) {
@@ -138,5 +94,3 @@ use Cake\Log\Log; ?>
         });
     });
 </script>
-</body>
-</html>
