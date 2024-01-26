@@ -36,7 +36,7 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse']);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse','profil','deleteAllCookies']);
     }
 
     /**
@@ -85,26 +85,6 @@ class PagesController extends AppController
     }
 
     public function blockchain()
-    {
-
-    }
-
-    public function quizzDanger()
-    {
-
-    }
-
-    public function quizzNFT()
-    {
-
-    }
-
-    public function quizzcrypto()
-    {
-
-    }
-
-    public function quizzBlockchain()
     {
 
     }
@@ -230,6 +210,21 @@ class PagesController extends AppController
         return $this->redirect($this->referer());
 
 
+    }
+
+    public function profil() {
+
+    }
+
+    public function deleteAllCookies()
+    {
+        $cookies = $this->request->getCookieCollection();
+        foreach ($cookies as $cookie) {
+            $cookieToDelete = Cookie::create($cookie->getName(), '');
+            $this->response = $this->response->withExpiredCookie($cookieToDelete);
+        }
+
+        return $this->redirect($this->referer());
     }
 }
 

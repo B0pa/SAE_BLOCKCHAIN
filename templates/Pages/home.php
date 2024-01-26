@@ -37,6 +37,15 @@ use Cake\Log\Log; ?>
                 ]
             ) ?>
 
+            <?= $this->Html->link(
+                $this->Html->image('crypto.png', ['class' => 'img-fluid image-nav position-absolute top-0 ','alt' => 'icone temp réel','style' => 'left:120px;']),
+                ['controller' => 'Pages', 'action' => 'profil'],
+                [
+                    'class' => 'nav-link d-flex align-items-center',
+                    'escapeTitle' => false
+                ]
+            ) ?>
+
             <div class="d-flex  bg-warning rounded-pill px-md-5 px-4 ms-4 align-items-center justify-content-center h-auto position-absolute centrer">
                 <h1 class="h1 text-center ">Accueil</h1>
             </div>
