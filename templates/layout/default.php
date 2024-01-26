@@ -5,6 +5,7 @@ $pageTitle = 'Erreur'; // Valeur par défaut
 $crypto = '';
 $nb = '';
 
+
 // Définissez les titres de page en fonction de l'URL
 switch ($currentURL) {
     case '':
@@ -67,6 +68,7 @@ switch ($currentURL) {
 }
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -83,10 +85,13 @@ switch ($currentURL) {
     <?= $this->fetch('content') ?>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
+    
     document.getElementById('mobile-menu').addEventListener('click', function() {
     document.querySelector('.navbar').classList.toggle('show');
     this.classList.toggle('cross');
     }); 
+
 </script>
 </html>

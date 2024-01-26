@@ -159,7 +159,7 @@ header{
     height: 100%;
 }
 
-.navbar ul {
+.navbar>ul {
     list-style: none;
     display: flex;
 }
@@ -172,30 +172,29 @@ header{
 }
 
 .sousmenu{
+    display: none;
+    position: absolute;
+    list-style: none;
     width: max-content;
     padding: 10px;
     margin-left: -20px;
     color: #ffffff;
-    display: flex;
-    position: absolute;
     flex-direction: column;
     opacity: 0;
-    text-align: center;
     border-radius: 0 0 20px 20px;
     transition: all 0.3s ease;
 }
 
-nav ul li h2{
-    text-align: center;
+nav ul li h4{
     width: fit-content;
 }
 
-
-
-nav ul li:hover .sousmenu{
+li:hover .sousmenu {
+    display: block;
     opacity: 1;
     background-color: #000000;
     color: #ffffff;
+    transition: all 0.3s ease;
 }
 
 .navbtn a{
@@ -203,11 +202,19 @@ nav ul li:hover .sousmenu{
     color: #ffffff;
 }
 
-.navbtn:hover a{
+.navbtn.active{
+    border-top: #FAFF1C solid 4px;
+}
+
+.sousmenu .navbtn.active a{
     color: #FAFF1C;
 }
 
-.navbtn:hover h2{
+.navbtn.active a{
+    color: #FAFF1C;
+}
+
+.navbtn h4:hover {
     color: #FAFF1C;
 }
 
@@ -234,7 +241,6 @@ nav ul li:hover .sousmenu{
 }
 
 #conteneur-lien:hover #nav-profil-img {
-    
     transition: all 0.7s ease;
     filter: brightness(0);
 }
