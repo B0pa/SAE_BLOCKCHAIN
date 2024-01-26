@@ -9,6 +9,7 @@
 <body class="bg-secondary" style="min-height:100vh;" >
 <?= $this->element('nav2')?>
 
+<?= $this->element('cookie_popup') ?>
 <main class="mt-5 pt-5" >
     <div class=" mt-3 d-flex align-items-center mx-auto w-75">
         <?=$this->Html->image('cryptobitcoin.png', ['class' => 'img-fluid rounded-circle p-2 ','alt' => 'accueil','style' => 'width: 100px; height: 100px;'])?>
@@ -98,6 +99,7 @@
 
     fetchData();
 </script>
+
 
 </body>
 </html>

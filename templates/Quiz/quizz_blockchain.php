@@ -16,6 +16,7 @@ $csv_link = $quiz->csv_link;
     <nav>
         <?= $this->element('nav3')?>
     </nav>
+    <?= $this->element('cookie_popup') ?>
 </header>
 <main class="pt-5 mt-5" >
 

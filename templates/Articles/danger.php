@@ -1,5 +1,6 @@
 <body class="bg-secondary col-12" >
 <?= $this->element('nav')?>
+<?= $this->element('cookie_popup') ?>
 <main class="pt-5 mt-5 col-12" style="min-height: 100vh; "  >
     <div class="d-flex">
         <input type="checkbox" id="toggleForm" class="d-none">
@@ -11,13 +12,13 @@
             <input type="text" name="query" placeholder="Rechercher..." class="form-control">
             <button type="submit" class="btn btn-secondary my-2 col-12" >Rechercher</button>
             <div class="d-flex" >
-                <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1" class="myformcheck form-check-input align-self-center">
+                <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1" class="myformcheck form-check-input align-self-center" checked>
                 <label for="Niv 1" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 1</label>
 
-                <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2" class="myformcheck form-check-input align-self-center">
+                <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2" class="myformcheck form-check-input align-self-center" checked>
                 <label for="Niv 2" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 2</label>
 
-                <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3" class="myformcheck form-check-input align-self-center">
+                <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3" class="myformcheck form-check-input align-self-center" checked>
                 <label for="Niv 3" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 3</label>
             </div>
         </form>

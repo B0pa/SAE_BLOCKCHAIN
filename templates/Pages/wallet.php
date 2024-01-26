@@ -12,6 +12,7 @@
 <body class="bg-secondary" >
 <header>
     <?= $this->element('nav2')?>
+    <?= $this->element('cookie_popup') ?>
 </header>
 <main class="pt-5 mt-5 d-flex flex-column flex-md-row" style="min-height: 100vh; " >
     <div class="mt-3 align-items-center d-md-block col col-pousse overflow-hidden border-start border-end border-1 border-dark " >
@@ -184,5 +185,6 @@
         processImage();
     });
 </script>
+
 </body>
 </html>

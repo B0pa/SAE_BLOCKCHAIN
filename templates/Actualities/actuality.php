@@ -1,5 +1,6 @@
 <body class="mt-5 pt-5 bg-secondary" >
 <?= $this->element('nav2')?>
+<?= $this->element('cookie_popup') ?>
 <main class="mt-5">
 
     <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">

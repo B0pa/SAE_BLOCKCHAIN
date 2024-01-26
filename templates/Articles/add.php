@@ -7,6 +7,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body class="bg-secondary pt-5 mt-5 col col-12" >
 <?= $this->element('nav_admin')?>
+
 <main class="mt-5 pt-3 col col-12" >
     <div class="d-flex col col-12">
         <div class="text-center col col-6">

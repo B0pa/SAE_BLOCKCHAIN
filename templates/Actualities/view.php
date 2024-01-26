@@ -6,6 +6,7 @@
 ?>
 <body class="mt-5 pt-5 bg-secondary" >
 <?= $this->element('nav_admin')?>
+
 <main class="pt-3 p-3" >
     <div class="row">
         <aside class="col">
