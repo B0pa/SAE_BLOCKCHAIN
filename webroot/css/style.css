@@ -307,5 +307,16 @@ li:hover .sousmenu {
     }
 
 }
+/*=====================FOOTER==========================*/
+footer{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
 
 /*=====================HOME==========================*/
