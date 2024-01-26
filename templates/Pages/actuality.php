@@ -1,6 +1,7 @@
 <?php
 $this->assign('title', 'Actualités');
 ?>
+<?= $this->element('nav')?>
 <main>
     <div>
         <h2>titre</h2>

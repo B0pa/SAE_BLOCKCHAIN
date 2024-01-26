@@ -10,11 +10,9 @@
 $dir = WWW_ROOT . 'csv';
 $files = array_diff(scandir($dir), array('..', '.'));
 ?>
-<!-- Incluez Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-<body class="bg-secondary pt-5" >
+
 <?= $this->element('nav_admin')?>
 <main class="mt-5"></main>
 <div class="row col-12 p-3">
@@ -72,8 +70,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
     </div>
 </div>
 </main>
-</body>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var questionformSelect = document.getElementById('questionform');

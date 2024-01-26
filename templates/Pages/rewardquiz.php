@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wallet</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body class="bg-secondary" >
-<header>
-    <?= $this->element('nav2')?>
-</header>
+
+<?= $this->element('nav')?>
 <main class="mt-5 pt-5 justify-content-around d-md-flex col-sm- min-vh-100" >
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop" >
         <h1>Questionnaire</h1>
@@ -30,7 +20,6 @@
         <?php endif; ?>
     </div>
 </main>
-<?= $this->element('footer')?>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var form = document.querySelector('form');
@@ -62,5 +51,3 @@
     });
 </script>
 
-</body>
-</html>

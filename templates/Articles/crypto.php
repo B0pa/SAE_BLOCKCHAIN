@@ -1,4 +1,4 @@
-<body class="bg-secondary col-12" >
+
 <?= $this->element('nav')?>
 <main class="pt-5 mt-5 col-12"  style="min-height: 100vh; " >
 
@@ -224,5 +224,3 @@
         Quiz
     </a>
 </main>
-<?= $this->element('footer')?>
-</body>

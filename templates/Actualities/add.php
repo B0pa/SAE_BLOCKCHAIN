@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\Actuality $actuality
  */
 ?>
-<body class="bg-secondary pt-5" >
 <?= $this->element('nav_admin')?>
 <main class="mt-5 pt-3 " >
     <div class="row col-12 p-3">
@@ -44,4 +43,3 @@
         </div>
     </div>
 </main>
-</body>

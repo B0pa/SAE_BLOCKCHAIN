@@ -1,13 +1,6 @@
 
-<head>
-    <title>Temp réel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
 
-</head>
-
-<body class="bg-secondary" style="min-height:100vh;" >
-<?= $this->element('nav2')?>
+<?= $this->element('nav')?>
 
 <main class="mt-5 pt-5" >
     <div class=" mt-3 d-flex align-items-center mx-auto w-75">
@@ -21,7 +14,7 @@
 
 
 </main>
-<?= $this->element('footer')?>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
 <script>
     var data = {
         labels: [],
@@ -98,6 +91,3 @@
 
     fetchData();
 </script>
-
-</body>
-</html>
