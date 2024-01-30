@@ -1,19 +1,4 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Wallet</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body class="bg-secondary" >
-<header>
-    <?= $this->element('nav2')?>
-    <?= $this->element('cookie_popup') ?>
-</header>
+<?= $this->element('nav')?>
 <main class="pt-5 mt-5 d-flex flex-column flex-md-row" style="min-height: 100vh; " >
     <div class="mt-3 align-items-center d-md-block col col-pousse overflow-hidden border-start border-end border-1 border-dark " >
         <?= $this->Html->image('cryptobitcoin.png', ['class' => 'd-flex rounded-circle mx-auto','alt' => 'crypto Bitcoin']); ?>
@@ -117,7 +102,6 @@
     </div>
 
 </main>
-<?= $this->element('footer')?>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -185,6 +169,3 @@
         processImage();
     });
 </script>
-
-</body>
-</html>
