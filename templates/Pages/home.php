@@ -5,14 +5,14 @@ use Cake\Log\Log; ?>
     <div id="home-contenu-main-aside" >
         <main id="home-main" >
 
-            <!-- METTRE POPUP ICI -->
+            <?= $this->element('cookie_popup')?>
 
             <!-- ------------ -->
 
             <div id="home-conteneur-h1" class="slideFromTop" >
                 <h1 id="home-h1" >Découvrer le fonctionnement de la <span>blockchain</span></h1>
             </div>
-            
+
             <div id="home-conteneur-card" >
                 <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>">
                     <?= $this->Html->image('blockchain.gif', ['alt' => 'icone blockchain', 'class' => 'home-card-categories-img']); ?>
@@ -46,7 +46,7 @@ use Cake\Log\Log; ?>
                     </div>
                 </a>
             </div>
-            
+
 
         </main>
         <?= $this->cell('Article') ?>
@@ -58,21 +58,21 @@ use Cake\Log\Log; ?>
             </div>
             <div id="home-aside-whoarewe-back">
                 <p id="home-aside-whoarewe-p" >Nous sommes une équipe de 4 étudiants en
-                     informatique à l'IUT Lyon 1 site de Bourg-en-Bresse.
-                      Nous avons créé ce site dans le cadre d'un projet.
-                       Nous avons choisi le sujet de la blockchain car
-                        c'est un sujet qui nous intéresse et qui est d'actualité.
-                         Nous avons voulu créer un site qui permettrait à des personnes
-                          qui ne connaissent pas la blockchain de découvrir
-                           ce qu'est cette technologie et comment elle fonctionne.
-                            Nous avons également voulu parler des dangers de la blockchain
-                             car c'est un sujet qui est souvent mis de côté.</p>
+                    informatique à l'IUT Lyon 1 site de Bourg-en-Bresse.
+                    Nous avons créé ce site dans le cadre d'un projet.
+                    Nous avons choisi le sujet de la blockchain car
+                    c'est un sujet qui nous intéresse et qui est d'actualité.
+                    Nous avons voulu créer un site qui permettrait à des personnes
+                    qui ne connaissent pas la blockchain de découvrir
+                    ce qu'est cette technologie et comment elle fonctionne.
+                    Nous avons également voulu parler des dangers de la blockchain
+                    car c'est un sujet qui est souvent mis de côté.</p>
             </div>
         </div>
     </div>
-    
-</div>
 
+</div>
+<?=$this->element('footer')?>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -93,3 +93,5 @@ use Cake\Log\Log; ?>
         });
     });
 </script>
+
+

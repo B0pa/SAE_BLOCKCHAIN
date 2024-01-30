@@ -6,6 +6,7 @@
 ?>
 <body class="bg-secondary pt-5 mt-5 " >
 <?= $this->element('nav_admin')?>
+
 <main class="p-5 mt-5" >
     <div class="actualities index content bg-dark p-4 rounded-3 text-white">
         <?= $this->Html->link(__('New Actuality'), ['action' => 'add'], ['class' => 'btn btn-warning']) ?>

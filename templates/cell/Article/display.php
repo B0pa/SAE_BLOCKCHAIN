@@ -14,8 +14,8 @@
             <h3 id="home-aside-actu-h3-video">Quelques liens de médias mis a jour régulièrement que nous trouvons intéressants</h3>
             <h4 id="home-aside-actu-h4-video" >La dernière vidéo de Hasheur :</h4>
             <iframe id="home-aside-actu-video"
-                src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UULFhlTcWDE8gd4tsl_L727NrQ"
-                allowfullscreen>
+                    src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UULFhlTcWDE8gd4tsl_L727NrQ"
+                    allowfullscreen>
             </iframe>
         </div>
 
@@ -36,6 +36,6 @@
         ?>
     </div>
 
-    
-    
+
+
 </aside>

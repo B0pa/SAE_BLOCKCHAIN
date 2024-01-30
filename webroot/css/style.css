@@ -164,6 +164,7 @@ header{
     flex-direction: column;
     cursor: pointer;
     width: 50px;
+    margin-left: 5px;
 }
 
 .menu-toggle span {
@@ -359,10 +360,16 @@ footer{
     background-color: #000000;
     color: #ffffff;
     padding: 5px;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+}
+
+footer>p{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -522,6 +529,7 @@ footer{
 
 .home-aside-actus-lien{
     text-align: center;
+    text-decoration: underline;
     color: #FFE30A;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -634,4 +642,13 @@ footer{
     .home-aside-actus{
         border-radius: 0px;
     }
+
+    #home-aside-whoarewe-conteneur{
+        width: 100%;
+    }
+
+    #home-aside-whoarewe-inner {
+        border-radius: 0px;
+    }
+
 }

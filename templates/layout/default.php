@@ -77,23 +77,23 @@ switch ($currentURL) {
     <meta charset="UTF-8">
     <title><?= $pageTitle ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link  href="/css/style.css" rel="stylesheet">
 </head>
 <body>
 
-    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
+<?= $this->Flash->render() ?>
+<?= $this->fetch('content') ?>
 
-    <?= $this->element('footer')?>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    
+
     document.getElementById('mobile-menu').addEventListener('click', function() {
-    document.querySelector('.navbar').classList.toggle('show');
-    this.classList.toggle('cross');
-    }); 
+        document.querySelector('.navbar').classList.toggle('show');
+        this.classList.toggle('cross');
+    });
 
 </script>
 </html>
