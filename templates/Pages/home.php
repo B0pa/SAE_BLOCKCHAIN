@@ -1,79 +1,79 @@
 <?php // use log;
 use Cake\Log\Log; ?>
 <?= $this->element('nav')?>
-<div class="d-flex flex-column flex-md-row mx-1 mt-5 pt-5 mx-md-5 " style="margin-top:60px" >
-    <main class="col col-12 col-md-8">
+<div id="home-conteneur" class="navmarge">
+    <div id="home-contenu-main-aside" >
+        <main id="home-main" >
 
+            <!-- METTRE POPUP ICI -->
 
-        <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
-            <div class="modal-dialog text-white">
-                <div class="modal-content bg-secondary border-3 border-dark">
-                    <div class="modal-header border-dark">
-                        <h5 class="modal-title" id="cookieModalLabel">Politique des cookies</h5>
-                        <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- ------------ -->
+
+            <div id="home-conteneur-h1" class="slideFromTop" >
+                <h1 id="home-h1" >Découvrer le fonctionnement de la <span>blockchain</span></h1>
+            </div>
+            
+            <div id="home-conteneur-card" >
+                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>">
+                    <?= $this->Html->image('blockchain.gif', ['alt' => 'icone blockchain', 'class' => 'home-card-categories-img']); ?>
+                    <div class="home-card-categories-text">
+                        <h2>Les blockchains</h2>
+                        <p>Technologie de stockage et de transmission d'informations, transparente, sécurisée et décentralisée.</p>
                     </div>
-                    <div class="modal-body">
-                        Ce site utilise des cookies pour améliorer votre expérience. Ils servent à sauvegarder votre score. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.
+                </a>
+
+                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>">
+                    <?= $this->Html->image('NFT.gif', ['alt' => 'icone NFT', 'class' => 'home-card-categories-img']); ?>
+                    <div class="home-card-categories-text">
+                        <h2>Les NFTs</h2>
+                        <p>Jetons numériques uniques représentant un objet virtuel. Spéculatifs et sujets aux arnaques.</p>
                     </div>
-                    <div class="modal-footer border-dark">
-                        <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieAccept']]) ;?>
-                        <?= $this->Form->button(__('Accept'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
-                        <?= $this->Form->end() ?>
-                        <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieRefuse']]) ;?>
-                        <?= $this->Form->button(__('Refuse'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
-                        <?= $this->Form->end() ?>
+                </a>
+
+                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>">
+                    <?= $this->Html->image('crypto.gif', ['alt' => 'icone cryptomonnais','class' => 'home-card-categories-img']); ?>
+                    <div class="home-card-categories-text">
+                        <h2>Les Cryptommonaies</h2>
+                        <p>Monnaies numériques basées sur la blockchain, comme le Bitcoin. Volatiles et risquées.</p>
                     </div>
-                </div>
+                </a>
+
+                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>">
+                    <?= $this->Html->image('danger.gif', ['alt' => 'icone danger','class' => 'home-card-categories-img']); ?>
+                    <div class="home-card-categories-text">
+                        <h2>Les dangers</h2>
+                        <p>Volatilité, hacking, arnaques, bulles spéculatives, utilisation à des fins illicites, impact environnemental (mining).</p>
+                    </div>
+                </a>
+            </div>
+            
+
+        </main>
+        <?= $this->cell('Article') ?>
+    </div>
+    <div id="home-aside-whoarewe-conteneur"  class="slideFromTop">
+        <div id="home-aside-whoarewe-inner">
+            <div id="home-aside-whoarewe-front">
+                <h2 id="home-aside-whoarewe-h2" >Qui sommes-nous ?</h2>
+            </div>
+            <div id="home-aside-whoarewe-back">
+                <p id="home-aside-whoarewe-p" >Nous sommes une équipe de 4 étudiants en
+                     informatique à l'IUT Lyon 1 site de Bourg-en-Bresse.
+                      Nous avons créé ce site dans le cadre d'un projet.
+                       Nous avons choisi le sujet de la blockchain car
+                        c'est un sujet qui nous intéresse et qui est d'actualité.
+                         Nous avons voulu créer un site qui permettrait à des personnes
+                          qui ne connaissent pas la blockchain de découvrir
+                           ce qu'est cette technologie et comment elle fonctionne.
+                            Nous avons également voulu parler des dangers de la blockchain
+                             car c'est un sujet qui est souvent mis de côté.</p>
             </div>
         </div>
-
-
-        <a class="text-decoration-none d-flex slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>">
-            <div>
-                <?= $this->Html->image('NFT.gif', ['alt' => 'icone NFT', 'style' => 'height:100px' , 'class' => 'img-thumbnail img-fluid']); ?>
-            </div>
-            <div class="px-3" style="margin: auto;">
-                <h2 class="h2 text-center">Les NFT</h2>
-                <p>Jetons numériques uniques représentant un objet virtuel. Spéculatifs et sujets aux arnaques.</p>
-            </div>
-        </a>
-
-        <a class="text-decoration-none slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>">
-            <div>
-                <?= $this->Html->image('crypto.gif', ['alt' => 'icone cryptomonnais', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-            </div>
-            <div class="px-3" style="margin: auto;">
-                <h2 class="h2 text-center">Les Crypto</h2>
-                <p>Monnaies numériques basées sur la blockchain, comme le Bitcoin. Volatiles et risquées.</p>
-            </div>
-        </a>
-
-        <a class="text-decoration-none slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>">
-            <div>
-                <?= $this->Html->image('danger.gif', ['alt' => 'icone danger', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-            </div>
-            <div class="px-3" style="margin: auto;">
-                <h2 class="h2 text-center">Les dangers</h2>
-                <p>volatilité, hacking, arnaques, bulles spéculatives, utilisation à des fins illicites, impact environnemental (mining).</p>
-            </div>
-        </a>
-
-        <a class="text-decoration-none slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 d-flex align-items-center" style="justify-content: space-between;" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>">
-            <div>
-                <?= $this->Html->image('blockchain.gif', ['alt' => 'blockchain', 'style' => 'height:100px', 'class' => 'img-thumbnail']); ?>
-            </div>
-            <div class="px-3" style="margin: auto;">
-                <h2 class="h2 text-center">Les blockchain</h2>
-                <p>technologie de stockage et de transmission d'informations, transparente, sécurisée et décentralisée.</p>
-            </div>
-        </a>
-
-        <div class="slideFromTop grow p-3 bg-dark text-white rounded mt-4 p-3 col-12 col-md-11 justify-content-between   align-items-center">
-            <h2 class="h2 text-center" >Qui sommes-nous ?</h2>
-        </div>
-    </main>
-    <?= $this->cell('Article') ?>
+    </div>
+    
 </div>
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
