@@ -5,7 +5,7 @@ use Cake\Log\Log; ?>
     <div id="home-contenu-main-aside" >
         <main id="home-main" >
 
-            <!-- METTRE POPUP ICI -->
+            <?= $this->element('cookie_popup')?>
 
             <!-- ------------ -->
 
@@ -72,7 +72,7 @@ use Cake\Log\Log; ?>
     </div>
 
 </div>
-
+<?=$this->element('footer')?>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -93,3 +93,5 @@ use Cake\Log\Log; ?>
         });
     });
 </script>
+
+
