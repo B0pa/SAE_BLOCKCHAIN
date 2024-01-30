@@ -7,8 +7,6 @@ use Cake\Log\Log; ?>
 
             <?= $this->element('cookie_popup')?>
 
-            <!-- ------------ -->
-
             <div id="home-conteneur-h1" class="slideFromTop" >
                 <h1 id="home-h1" >Découvrer le fonctionnement de la <span>blockchain</span></h1>
             </div>
