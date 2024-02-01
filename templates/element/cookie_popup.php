@@ -1,14 +1,14 @@
-<div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
-    <div class="modal-dialog text-white">
+<div id="cookie-modal-overlay">
+    <div id="cookie-modal-conteneur">
         <div class="modal-content bg-secondary border-3 border-dark">
-            <div class="modal-header border-dark">
-                <h5 class="modal-title" id="cookieModalLabel">Politique des cookies</h5>
-                <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+            <div id="cookie-modal-header">
+                <h4 id="cookie-modal-title">Politique des cookies</h4>
+                <hr>
             </div>
-            <div class="modal-body">
-                Ce site utilise des cookies pour améliorer votre expérience. Ils servent à sauvegarder votre score. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.
+            <div id="cookie-modal-body">
+                <p>Ce site utilise des cookies pour améliorer votre expérience. Ils servent à sauvegarder votre score. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.</p>
             </div>
-            <div class="modal-footer border-dark">
+            <div id="cookie-modal-footer">
                 <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieAccept']]) ;?>
                 <?= $this->Form->button(__('Accept'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
                 <?= $this->Form->end() ?>
@@ -19,7 +19,6 @@
         </div>
     </div>
 </div>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
