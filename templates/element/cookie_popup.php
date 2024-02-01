@@ -8,8 +8,12 @@
             <p>Ce site utilise des cookies pour améliorer votre expérience. Ils servent à sauvegarder votre score. En continuant à utiliser ce site, vous acceptez notre utilisation des cookies.</p>
         </div>
         <div id="cookie-modal-footer">
-            <button id="acceptCookies" class="grow" ><b>Accepter</b></button>
-            <button id="disableCookies" class="grow" ><b>Refuser</b></button>
+                <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieAccept']]) ;?>
+                <?= $this->Form->button(__('Accept'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
+                <?= $this->Form->end() ?>
+                <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieRefuse']]) ;?>
+                <?= $this->Form->button(__('Refuse'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
+                <?= $this->Form->end() ?>
         </div>
     </div>
 </div>
@@ -24,12 +28,12 @@
 
         $('#acceptCookies').click(function() {
             document.getElementById('cookie-modal-overlay').style.display = 'none';
-            
+
         });
 
         $('#disableCookies').click(function() {
             document.getElementById('cookie-modal-overlay').style.display = 'none';
-            
+
         });
     });
 
