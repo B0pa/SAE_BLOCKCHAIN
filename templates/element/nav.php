@@ -13,8 +13,8 @@ $currentURL = strtolower(end($segments));
     <nav class="navbar">
         <ul>
             <li class="navbtn<?php if($currentURL==="") echo' active';?>"  ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'home']) ?>"><h4>Accueil</h4></a></li>
-            <li class="navbtn" >
-                <h4>Les Infos :</h4>
+            <li class="navbtn <?php if($currentURL==="blockchain"||$currentURL==="nft"||$currentURL==="crypto"||$currentURL==="danger") echo' active';?>" >
+                <h4 class="" >Les Infos :</h4>
                 <ul class="sousmenu">
                     <li class="navbtn<?php if($currentURL==="blockchain") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>"><h4>Les Blockchain</h4></a></li>
                     <li class="navbtn<?php if($currentURL==="nft") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>"><h4>Les NFT</h4></a></li>
