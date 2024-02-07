@@ -9,10 +9,10 @@
         </div>
         <div id="cookie-modal-footer">
                 <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieAccept']]) ;?>
-                <?= $this->Form->button(__('Accept'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
+                <?= $this->Form->button(__('Accept'), ['id'=>'acceptCookies','class'=>'grow']) ?>
                 <?= $this->Form->end() ?>
                 <?php echo $this->Form->create(null, ['url' => ['action' => 'cookieRefuse']]) ;?>
-                <?= $this->Form->button(__('Refuse'), ['class' => 'btn btn-secondary bg-dark text-white rounded-3 slideFromTop ']) ?>
+                <?= $this->Form->button(__('Refuse'), ['id'=>'disableCookies','class'=>'grow']) ?>
                 <?= $this->Form->end() ?>
         </div>
     </div>
