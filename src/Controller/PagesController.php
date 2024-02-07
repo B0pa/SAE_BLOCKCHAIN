@@ -36,13 +36,13 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse']);
+        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse','profil','deleteAllCookies']);
     }
 
     /**
-    * actuality method
-    *
-    */
+     * actuality method
+     *
+     */
     public function actuality()
     {
         /**
@@ -57,10 +57,10 @@ class PagesController extends AppController
     }
 
     /**
-    * home method
-    *
-    * @return void
-    */
+     * home method
+     *
+     * @return void
+     */
     public function home()
     {
 
@@ -89,26 +89,6 @@ class PagesController extends AppController
 
     }
 
-    public function quizzDanger()
-    {
-
-    }
-
-    public function quizzNFT()
-    {
-
-    }
-
-    public function quizzcrypto()
-    {
-
-    }
-
-    public function quizzBlockchain()
-    {
-
-    }
-
     public function wallet()
     {
         $imageName = null;
@@ -123,8 +103,8 @@ class PagesController extends AppController
         // Afficher le formulaire du questionnaire
         $this->set(compact('imageName', 'counter')); // Modifiez cette ligne pour passer 'counter' à la vue
     }
-    
-    private function generateImageName($data) { // Code nft 
+
+    private function generateImageName($data) { // Code nft
         $question1 = isset($data['question_1']) ? $data['question_1'] : 'Ser';
         $question2 = isset($data['question_2']) ? $data['question_2'] : 'Sob';
         $question3 = isset($data['question_3']) ? $data['question_3'] : 'Ble';
@@ -134,7 +114,7 @@ class PagesController extends AppController
 
         return $imageName;
     }
-    
+
     public function tempreel()
     {
 
@@ -231,6 +211,20 @@ class PagesController extends AppController
 
 
     }
-}
 
+    public function profil() {
+
+    }
+
+    public function deleteAllCookies()
+    {
+        $cookies = $this->request->getCookieCollection();
+        foreach ($cookies as $cookie) {
+            $cookieToDelete = Cookie::create($cookie->getName(), '');
+            $this->response = $this->response->withExpiredCookie($cookieToDelete);
+        }
+
+        return $this->redirect($this->referer());
+    }
+}
 

@@ -5,8 +5,7 @@
  */
 
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<body class="bg-secondary pt-5 mt-5 col col-12" >
+
 <?= $this->element('nav_admin')?>
 <main class="mt-5 pt-3 col col-12" >
     <div class="d-flex col col-12" >
@@ -15,9 +14,9 @@
             <?= $this->Form->postLink(
                 __('Delete'),
                 ['action' => 'delete', $article->id],
-                ['confirm' => __('etes vous sure de supprimer cette article ? # {0}?', $article->id), 'class' => 'side-nav-item']
+                ['confirm' => __('etes vous sure de supprimer cette article ? # {0}?', $article->id), 'class' => 'side-nav-item text-warning']
             ) ?>
-            <?= $this->Html->link(__('List Articles'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('List Articles'), ['action' => 'index'], ['class' => 'side-nav-item text-warning']) ?>
         </div>
         <div class="text-center col col-6" >
             <h2>Prévisualisation</h2>
@@ -75,7 +74,7 @@
 
     </div>
 </main>
-</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(function() {
 

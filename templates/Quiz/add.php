@@ -4,18 +4,15 @@
  * @var \App\Model\Entity\Quiz $quiz
  */
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <?php
-// Lisez le contenu du répertoire 'csv'
+// Lire le contenu du répertoire 'csv'
 $dir = WWW_ROOT . 'csv';
 $files = array_diff(scandir($dir), array('..', '.'));
 ?>
-<!-- Incluez Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-<body class="bg-secondary pt-5" >
+
 <?= $this->element('nav_admin')?>
 <main class="mt-5"></main>
 <div class="row col-12 p-3">
@@ -91,11 +88,10 @@ $files = array_diff(scandir($dir), array('..', '.'));
     </div>
 
 </aside>
-</body>
 
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -149,18 +145,18 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 }
                 document.getElementById('answer1').addEventListener('change', function() {
                     $('#imagePreview1').html('');
-                        var total_file = document.getElementById("answer1").files.length;
-                        for (var i = 0; i < total_file; i++) {
-                            $('#imagePreview1').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
-                        }
+                    var total_file = document.getElementById("answer1").files.length;
+                    for (var i = 0; i < total_file; i++) {
+                        $('#imagePreview1').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                    }
                 });
 
                 document.getElementById('answer2').addEventListener('change', function() {
-                        $('#imagePreview2').html('');
-                        var total_file = document.getElementById("answer2").files.length;
-                        for (var i = 0; i < total_file; i++) {
-                            $('#imagePreview2').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
-                        }
+                    $('#imagePreview2').html('');
+                    var total_file = document.getElementById("answer2").files.length;
+                    for (var i = 0; i < total_file; i++) {
+                        $('#imagePreview2').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                    }
                 });
 
                 document.getElementById('answer3').addEventListener('change', function() {

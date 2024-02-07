@@ -1,5 +1,4 @@
 
-<body class="bg-secondary" >
 <?= $this->element('nav')?>
 <main class="pt-5 mt-5 col-12" style="min-height: 100vh; " >
     <div class="d-flex">
@@ -8,19 +7,7 @@
             <?=$this->Html->image('search.png', ['class' => 'img-fluid image-nav img-nav bg-warning rounded-circle p-2 position-fixed ','alt' => 'accueil','style' => 'right:10px; top:130px; width: 50px; height: 50px;'])?>
         </label>
 
-        <form id="searchForm" action="<?= $this->Url->build(['controller' => 'Articles', 'action' => 'search', 'nft']) ?>" method="get" class="bg-dark position-fixed slideFromRight p-4 rounded-3 border border-1 border-warning" style="top:200px; right:-2px;z-index: 1;">
-            <button type="submit" class="btn btn-secondary my-2 col-12" >Rechercher</button>
-            <div class="d-flex" >
-                <input type="checkbox" name="levels[]" value="Niv 1" id="Niv 1" class="myformcheck form-check-input align-self-center">
-                <label for="Niv 1" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 1</label>
-
-                <input type="checkbox" name="levels[]" value="Niv 2" id="Niv 2" class="myformcheck form-check-input align-self-center">
-                <label for="Niv 2" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 2</label>
-
-                <input type="checkbox" name="levels[]" value="Niv 3" id="Niv 3" class="myformcheck form-check-input align-self-center">
-                <label for="Niv 3" class="myformlabel form-check-label bg-secondary p-2 rounded-3 mx-auto">Niv 3</label>
-            </div>
-        </form>
+        <?= $this->element('search')?>
 
     </div>
     <?= $this->Html->image('NFT.gif', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop ','alt' => 'NFT image' ,'style'=> 'width :200px']); ?>
@@ -202,7 +189,7 @@
                         <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => 'width:100%'])?>
                     </div>
 
-                    <p class="<?= $article->css_content ?> w-100" style="text-align:justify;  " ><?= nl2br($article->content)?></p>
+                    <p class="<?= $article->css_content ?> w-100" style="text-align:justify;  " ><?= nl2br(htmlspecialchars($article->content))?></p>
                     <div class="clear"></div>
                 </div>
             </div>
@@ -220,5 +207,3 @@
     </a>
 
 </main>
-<?= $this->element('footer')?>
-</body>
