@@ -11,14 +11,10 @@
     </div>
 </main>
 
-
-<--! script pour le graphique -->
 <script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.1/dist/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.0.0"></script>
-
 <?= $this->Html->script('chartjs-chart-financial') ?>
-
 
 <script>
     var ctx = document.getElementById('chart').getContext('2d');
@@ -35,29 +31,29 @@
         }
     });
 
+    function formatBar(candle) {
+        return {
+            x: candle[0], // Pass the timestamp directly
+            o: parseFloat(candle[1]),
+            h: parseFloat(candle[2]),
+            l: parseFloat(candle[3]),
+            c: parseFloat(candle[4])
+        };
+    }
+
     function updateChart() {
         fetch('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=60')
             .then(response => response.json())
             .then(data => {
-                console.log('Raw data:', data); // Log the raw data
+                var formattedData = data.map(formatBar);
 
-                var formattedData = data.map(candle => ({
-                    t: new Date(candle[0]), // Convert timestamp to JavaScript Date
-                    o: parseFloat(candle[1]),
-                    h: parseFloat(candle[2]),
-                    l: parseFloat(candle[3]),
-                    c: parseFloat(candle[4])
-                }));
-
-                console.log('Formatted data:', formattedData); // Log the formatted data
-
+                // insertion dans le graphique
                 chart.data.datasets[0].data = []; // Clear the existing data
                 chart.data.datasets[0].data = formattedData; // Add the new data
                 chart.update();
             })
             .catch(error => {
                 console.error('An error occurred: ', error);
-                console.log('Error data:', error); // Log the error data
             });
     }
 
