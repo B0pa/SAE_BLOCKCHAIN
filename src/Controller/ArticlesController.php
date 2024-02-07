@@ -210,6 +210,7 @@ class ArticlesController extends AppController
 
         $this->set(compact('articles1','articles2','articles3'));
     }
+    
     public function crypto () {
 
         $articles1 = $this->Articles->find()
