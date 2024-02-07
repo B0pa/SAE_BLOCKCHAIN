@@ -142,6 +142,10 @@ body{
     background-color: #000000;
 }
 
+.clear{
+    clear: both;
+}
+
 
 /*==================cookie popup====================*/
 
@@ -180,6 +184,8 @@ body{
 
 #cookie-modal-footer{
     gap: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #cookie-modal-footer button{
@@ -211,6 +217,47 @@ body{
     }
 }
 
+/*=====================Recherches Articles==========================*/
+
+#recherche-conteneur{
+    display: flex;
+}
+
+#toggleForm{
+    display: none;
+}
+
+#recherche-img{
+    right:10px;
+    top:130px;
+    width: 50px;
+    height: 50px;
+    padding: 6px;
+    background-color: #FFE30A;
+    border-radius: 25px;
+    position: fixed;
+}
+
+#searchForm {
+    display: none;
+}
+
+#toggleForm:checked ~ #searchForm {
+    display: block;
+    position: fixed;
+}
+
+.myformcheck {
+    display: none;
+}
+
+.myformlabel {
+    color: white;
+}
+
+.myformcheck:checked + .myformlabel {
+    background-color:#FFE30A!important;
+}
 
 
 /*=====================NAV==========================*/
@@ -318,10 +365,12 @@ li:hover .sousmenu {
 
 .navbtn h4:hover {
     color: #FFE30A;
+    transition: ease 0.7s;
 }
 
 .navbtn:hover>h4 {
     color: #FFE30A;
+    transition: ease 0.7s;
 }
 
 .sousmenu .navbtn a{
@@ -330,6 +379,7 @@ li:hover .sousmenu {
 
 .sousmenu .navbtn:hover a{
     color: #FFE30A;
+    transition: ease 0.7s;
 }
 
 #conteneur-lien {
@@ -530,11 +580,10 @@ footer>p{
 #home-aside{
     margin-top: 40px;
     height: 100%;
-    overflow-y: auto;
 }
 
 #home-aside-conteneur-actu{
-    background-color: #394648;
+    background-color: #474747;
     padding: 20px;
     text-align: center;
     border-radius: 15px;
@@ -723,4 +772,66 @@ footer>p{
         border-radius: 0px;
     }
 
+}
+
+/*====================CRYPTO========================*/
+
+#crypto-main{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 40px 80px 40px 80px;
+    min-height: 100vh;
+}
+
+#crypto-conteneur-titreimg{
+    color: #ffffff;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+#crypto-img-entete{
+    border-radius: 50%;
+    width: 125px;
+}
+
+#crypto-h1{
+    color: #ffffff;
+}
+
+.crypto-conteneur-articles{
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px 60px 60px 60px;
+    margin: 30px 0 30px 0px;
+    border-radius: 30px;
+}
+
+.crypto-titre-articles{
+    text-align: center;
+    margin: 20px;
+}
+
+.crypto-conteneur-bas-articles{
+    border-top: #000000 solid 3px;
+    padding-top: 20px;
+    justify-content: center;
+    display: flex;
+}
+
+.crypto-img-textes-articles{
+    width: auto;
+}
+
+.crypto-conteneur-img-articles{
+    margin: 20px auto;
+}
+
+.crypto-img-articles{
+    border-radius: 20px;
+}
+
+.crypto-texte-articles{
+    margin: 20px auto;
 }

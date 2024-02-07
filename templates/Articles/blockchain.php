@@ -1,14 +1,17 @@
 <?= $this->element('nav')?>
 <main class="pt-5 mt-5 col-12"  style="min-height: 100vh; " >
-    <div class="d-flex">
-        <input type="checkbox" id="toggleForm" class="d-none">
-        <label for="toggleForm">
-            <?=$this->Html->image('search.png', ['class' => 'img-fluid image-nav img-nav bg-warning rounded-circle p-2 position-fixed ','alt' => 'accueil','style' => 'right:10px; top:130px; width: 50px; height: 50px;'])?>
+
+
+    <div id="recherche-conteneur">
+        <input type="checkbox" id="toggleForm">
+        <label for="toggleForm" id="recherche-img">
+            <?=$this->Html->image('search.png', ['id' => 'recherche-img','alt' => 'recherche'])?>
         </label>
 
         <?= $this->element('search')?>
-
     </div>
+
+
     <?= $this->Html->image('blockchain.gif', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
 
     <?php
