@@ -36,7 +36,7 @@ class PagesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse','profil','deleteAllCookies']);
+        $this->Authentication->addUnauthenticatedActions(['manageCookies','actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse','profil','deleteAllCookies']);
     }
 
     /**
@@ -226,5 +226,87 @@ class PagesController extends AppController
 
         return $this->redirect($this->referer());
     }
-}
 
+    public function manageCookies()
+        /*
+        Information utile :
+
+        Category :  'blockchain' = 0,           'crypto' = 1,     'nft' = 2,        'danger' = 3
+
+        Level    :  'Tout les niveaux' = 0,     'Niv 1' = 1,      'Niv 2' = 2,      'Niv 3' = 3
+
+        */
+    {
+        $data = $this->request->getData();
+
+        $category = $data['category'];
+        $level = $data['level'];
+
+        if ($category == 0) { // Si category = 0 alors blockchain.
+            $cookie = $this->request->getCookie('blockchainLevel');
+            $cookie = Cookie::create(
+                'blockchainLevel',
+                $level, // Mettre le cookie a Level (le niveaux selectionner dans profile)
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($cookie);
+        } else if ($category == 1) { // Si category = 1 alors crypto.
+            $cookie = $this->request->getCookie('cryptoLevel');
+            $cookie = Cookie::create(
+                'cryptoLevel',
+                $level, // Mettre le cookie a Level (le niveaux selectionner dans profile)
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($cookie);
+        } else if ($category == 2) { // Si category = 2 alors nft.
+            $cookie = $this->request->getCookie('nftLevel');
+            $cookie = Cookie::create(
+                'nftLevel',
+                $level, // Mettre le cookie a Level (le niveaux selectionner dans profile)
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($cookie);
+        } else if ($category == 3) { // Si category = 3 alors danger
+            $cookie = $this->request->getCookie('dangerLevel');
+            $cookie = Cookie::create(
+                'dangerLevel',
+                $level, // Mettre le cookie a Level (le niveaux selectionner dans profile)
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($cookie);
+        }
+        return $this->redirect($this->referer());
+    }
+}

@@ -153,7 +153,75 @@ class AppController extends Controller
             );
             $this->response = $this->response->withCookie($blockchain_cookie);
         }
+        $cookie = $this->request->getCookie('blockchainLevel');
+        if ($cookie == null) {
+            $blockchain_level_cookie = Cookie::create(
+                'blockchainLevel',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($blockchain_level_cookie);
+        }
+        $cookie = $this->request->getCookie('cryptoLevel');
+        if ($cookie == null) {
+            $crypto_level_cookie = Cookie::create(
+                'cryptoLevel',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($crypto_level_cookie);
+        }
+        $cookie = $this->request->getCookie('dangerLevel');
+        if ($cookie == null) {
+            $danger_level_cookie = Cookie::create(
+                'dangerLevel',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($danger_level_cookie);
+        }
+        $cookie = $this->request->getCookie('nftLevel');
+        if ($cookie == null) {
+            $nft_level_cookie = Cookie::create(
+                'nftLevel',
+                0,
+                // All keys are optional
+                [
+                    'expires' => new DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($nft_level_cookie);
+        }
+
     }
 
 }
-

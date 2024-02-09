@@ -74,7 +74,7 @@ switch ($currentURL) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<?= $this->Html->charset() ?>
+    <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         <?= $this->fetch('title') ?>

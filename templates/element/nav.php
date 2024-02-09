@@ -22,7 +22,7 @@ $currentURL = strtolower(end($segments));
                     <li class="navbtn<?php if($currentURL==="danger") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>"><h4>Les Dangers</h4></a></li>
                 </ul>
             </li>
-            <li class="navbtn<?php if($currentURL==="actuality") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'actuality']) ?>"><h4>Les Actus</h4></a></li>
+            <li class="navbtn<?php if($currentURL==="actuality") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Actualities', 'action' => 'actuality']) ?>"><h4>Les Actus</h4></a></li>
             <li class="navbtn<?php if($currentURL==="tempreel") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'tempreel']) ?>"><h4>Courbe en Temps Réel</h4></a></li>
             <li class="navbtn<?php if($currentURL==="wallet") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'wallet']) ?>"><h4>Wallet</h4></a></li>
         </ul>

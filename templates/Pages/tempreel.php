@@ -1,5 +1,3 @@
-
-
 <?= $this->element('nav')?>
 
 <main class="mt-5 pt-5" >
@@ -8,86 +6,60 @@
         <h2 class="text-center" >Courbe du Bitcoin</h2>
     </div>
 
-    <div class="d-flex mt-2 bg-dark border-1 border border-warning p-2 w-75 mx-auto rounded-3" >
+    <div class="" >
         <canvas id="chart" class="m-2" style="max-height:60vh"></canvas>
     </div>
-
-
 </main>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.3.2/dist/chart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.1/dist/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.0.0"></script>
+<?= $this->Html->script('chartjs-chart-financial') ?>
+
 <script>
-    var data = {
-        labels: [],
-        datasets: [{
-            data: [],
-            label: 'Bitcoin',
-            // barre de la courbe
-            borderColor: 'rgb(255, 193, 7)',
-        }]
-    };
-
-    var options = {
-
-        scales: {
-            x: {
-                //Axe X
-                display: true,
-                grid: {
-                    color: 'rgb(108, 117, 125)'
-                },
-                ticks: {
-                    color: 'rgb(255, 255, 255)'
-                },
-                time: {
-                    displayFormats: {
-                        minute: 'HH:mm:ss'
-                    }
-                }
-            },
-            //Axe Y
-            y: {
-                grid: {
-                    color: 'rgb(108, 117, 125)'
-                },
-                ticks: {
-                    color: 'rgb(255, 255, 255)'
-                }
-            }
-        },
-        // point de la courbe
-        elements: {
-            line: {
-                borderColor: 'rgb(0, 0, 0)'
-            },
-            point: {
-                backgroundColor: 'rgb(0, 0, 0)'
-            }
-        }
-    }
-
     var ctx = document.getElementById('chart').getContext('2d');
+    ctx.canvas.width = 1000;
+    ctx.canvas.height = 250;
+
     var chart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: options
+        type: 'candlestick',
+        data: {
+            datasets: [{
+                label: 'BTC/USDT',
+                data: []
+            }]
+        }
     });
 
-    async function fetchData() {
-
-        const now = new Date();
-
-        const response = await fetch('//api.coindesk.com/v1/bpi/currentprice.json');
-        const json = await response.json();
-        const price = parseFloat(json.bpi.USD.rate.replace(/,/g, ''));
-
-        data.labels.push(now.toLocaleTimeString());
-        data.datasets[0].data.push(price);
-
-        chart.update();
-
+    function formatBar(candle) {
+        return {
+            x: candle[0], // Pass the timestamp directly
+            o: parseFloat(candle[1]),
+            h: parseFloat(candle[2]),
+            l: parseFloat(candle[3]),
+            c: parseFloat(candle[4])
+        };
     }
 
-    setInterval(fetchData, 100 * 60);
+    function updateChart() {
+        fetch('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=60')
+            .then(response => response.json())
+            .then(data => {
+                var formattedData = data.map(formatBar);
 
-    fetchData();
+                // insertion dans le graphique
+                chart.data.datasets[0].data = []; // Clear the existing data
+                chart.data.datasets[0].data = formattedData; // Add the new data
+                chart.update();
+            })
+            .catch(error => {
+                console.error('An error occurred: ', error);
+            });
+    }
+
+    // Appellez la fonction updateChart
+    updateChart();
+
+    // Appellez la fonction updateChart toutes les 10 secondes
+    setInterval(updateChart, 10000);
 </script>
