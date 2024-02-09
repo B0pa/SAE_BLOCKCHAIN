@@ -33,6 +33,7 @@
 
 
     <?php
+    if (isset($articles1)) {
     /** @var \App\Model\Entity\Article[] $articles1 */
     foreach ($articles1 as $article) :
         $divposition = "";
@@ -96,9 +97,11 @@
 
     <?php
     endforeach;
+    }
     ?>
 
     <?php
+    if (isset($articles2)) {
     /** @var \App\Model\Entity\Article[] $articles2 */
     foreach ($articles2 as $article) :
         $divposition = "";
@@ -161,9 +164,11 @@
 
     <?php
     endforeach;
+    }
     ?>
 
     <?php
+    if (isset($articles3)) {
     /** @var \App\Model\Entity\Article[] $articles3 */
     foreach ($articles3 as $article) :
 
@@ -228,6 +233,7 @@
 
     <?php
     endforeach;
+    }
     ?>
 
 
