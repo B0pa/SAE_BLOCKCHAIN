@@ -1013,3 +1013,48 @@ table.profil-tab {
     justify-content: flex-end;
     gap: 20px;
   }
+
+  @media only screen and (max-width: 768px) {
+
+    #profil-main{
+        padding: 40px 0px;
+        min-height: calc(100vh - 130px);
+    }
+
+    #profil-niveau-conteneur{
+        display: block;
+        border-radius: 0px;
+        width: 100%;
+    }
+
+    #profil-niveau-choix{
+        width: 100%;
+        display: flex;
+    }
+
+    #profil-niveau-choix>form>div{
+        flex-direction: column;
+    }
+
+    #profil-niveau-choix>form{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    table.profil-tab {
+        width: 100%;
+    }
+
+    #profil-main h2{
+        text-align: center;
+    }
+
+    #profil-btn-suppcookie-conteneur{
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+  }
