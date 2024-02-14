@@ -1,5 +1,4 @@
 
-<?= $this->element('nav')?>
 <main id="crypto-main" class="navmarge" >
 
     <div id="recherche-conteneur">
@@ -14,7 +13,7 @@
     <div id="crypto-conteneur-titreimg" >
         <?= $this->Html->image('danger.gif', ['id' => 'crypto-img-entete']); ?>
         <h1 id="crypto-h1" >
-            Les Cryptomonnaies
+            Les Dangers
         </h1>
     </div>
 
@@ -233,4 +232,4 @@
         Quiz
     </a>
 </main>
-<?=$this->element('footer')?>
+

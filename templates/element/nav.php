@@ -27,10 +27,12 @@ $currentURL = strtolower(end($segments));
             <li class="navbtn<?php if($currentURL==="wallet") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'wallet']) ?>"><h4>Wallet</h4></a></li>
         </ul>
     </nav>
-    <?= $this->Html->link(
-        $this->Html->image('profil.png', ['alt' => 'image de profil', 'id' => 'nav-profil-img']),
+    <?php
+    $class = ($currentURL === "profil") ? 'active' : '';
+    echo $this->Html->link(
+        $this->Html->image('profil.png', ['alt' => 'image de profil', 'id' => 'nav-profil-img', 'class' => $class]),
         ['controller'=> 'Pages', 'action' => 'profil'],
-        ['id' => 'conteneur-lien',
-            'escapeTitle' => false]
-    ) ?>
+        ['id' => 'conteneur-lien', 'escapeTitle' => false, 'class' => $class]
+    );
+    ?>
 </header>

@@ -88,11 +88,11 @@ switch ($currentURL) {
     <?= $this->fetch('script') ?>
 </head>
 <body>
-
+<?= $this->element('nav')?>
 <?= $this->Flash->render() ?>
 <?= $this->fetch('content') ?>
 
-
+<?=$this->element('footer')?>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
@@ -103,4 +103,3 @@ switch ($currentURL) {
     });
 
 </script>
-</html>
