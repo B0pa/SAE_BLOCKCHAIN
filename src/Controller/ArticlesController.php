@@ -18,7 +18,7 @@ class ArticlesController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['blockchain','nft','crypto','danger','search']);
+        $this->Authentication->allowUnauthenticated(['cookieAccept', 'cookieRefuse','blockchain','nft','crypto','danger','search']);
     }
 
     /**
@@ -195,72 +195,279 @@ class ArticlesController extends AppController
 
 
     public function blockchain () {
+        $cookie = $this->request->getCookie('blockchainLevel');
+        if ($cookie == 0) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '1'])
+                ->toArray();
 
-        $articles1 = $this->Articles->find()
-            ->where(['category' => 'blockchain' ,'level' => '1'])
-            ->toArray();
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '2'])
+                ->toArray();
 
-        $articles2 = $this->Articles->find()
-            ->where(['category' => 'blockchain' ,'level' => '2'])
-            ->toArray();
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '3'])
+                ->toArray();
 
-        $articles3 = $this->Articles->find()
-            ->where(['category' => 'blockchain' ,'level' => '3'])
-            ->toArray();
+            $this->set(compact('articles1','articles2','articles3'));
+        } else if ($cookie == 1) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '1'])
+                ->toArray();
 
-        $this->set(compact('articles1','articles2','articles3'));
+            $this->set(compact('articles1'));
+        } else if ($cookie == 2) {
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '2'])
+                ->toArray();
+
+            $this->set(compact('articles2'));
+        } else if ($cookie == 3) {
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '3'])
+                ->toArray();
+
+            $this->set(compact('articles3'));
+        } else {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '1'])
+                ->toArray();
+
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '2'])
+                ->toArray();
+
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'blockchain' ,'level' => '3'])
+                ->toArray();
+
+            $this->set(compact('articles1','articles2','articles3'));
+
+        }
     }
     public function crypto () {
+        $cookie = $this->request->getCookie('cryptoLevel');
+        if ($cookie == 0) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '1'])
+                ->toArray();
 
-        $articles1 = $this->Articles->find()
-            ->where(['category' => 'crypto' ,'level' => '1'])
-            ->toArray();
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '2'])
+                ->toArray();
 
-        $articles2 = $this->Articles->find()
-            ->where(['category' => 'crypto' ,'level' => '2'])
-            ->toArray();
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '3'])
+                ->toArray();
 
-        $articles3 = $this->Articles->find()
-            ->where(['category' => 'crypto' ,'level' => '3'])
-            ->toArray();
+            $this->set(compact('articles1','articles2','articles3'));
+        } else if ($cookie == 1) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '1'])
+                ->toArray();
 
+            $this->set(compact('articles1'));
+        } else if ($cookie == 2) {
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '2'])
+                ->toArray();
 
-        $this->set(compact('articles1','articles2','articles3'));
+            $this->set(compact('articles2'));
+        } else if ($cookie == 3) {
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '3'])
+                ->toArray();
 
+            $this->set(compact('articles3'));
+        } else {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '1'])
+                ->toArray();
 
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '2'])
+                ->toArray();
+
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'crypto' ,'level' => '3'])
+                ->toArray();
+
+            $this->set(compact('articles1','articles2','articles3'));
+        }
     }
 
     public function danger () {
+        $cookie = $this->request->getCookie('dangerLevel');
+        if ($cookie == 0) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '1'])
+                ->toArray();
 
-        $articles1 = $this->Articles->find()
-            ->where(['category' => 'danger' ,'level' => '1'])
-            ->toArray();
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '2'])
+                ->toArray();
 
-        $articles2 = $this->Articles->find()
-            ->where(['category' => 'danger' ,'level' => '2'])
-            ->toArray();
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '3'])
+                ->toArray();
 
-        $articles3 = $this->Articles->find()
-            ->where(['category' => 'danger' ,'level' => '3'])
-            ->toArray();
+            $this->set(compact('articles1','articles2','articles3'));
+        } else if ($cookie == 1) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '1'])
+                ->toArray();
 
-        $this->set(compact('articles1','articles2','articles3'));
+            $this->set(compact('articles1'));
+        } else if ($cookie == 2) {
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '2'])
+                ->toArray();
+
+            $this->set(compact('articles2'));
+        } else if ($cookie == 3) {
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '3'])
+                ->toArray();
+
+            $this->set(compact('articles3'));
+        } else {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '1'])
+                ->toArray();
+
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '2'])
+                ->toArray();
+
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'danger' ,'level' => '3'])
+                ->toArray();
+
+            $this->set(compact('articles1','articles2','articles3'));
+        }
     }
 
     public function nft () {
+        $cookie = $this->request->getCookie('nftLevel');
+        if ($cookie == 0) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '1'])
+                ->toArray();
 
-        $articles1 = $this->Articles->find()
-            ->where(['category' => 'nft' ,'level' => '1'])
-            ->toArray();
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '2'])
+                ->toArray();
 
-        $articles2 = $this->Articles->find()
-            ->where(['category' => 'nft' ,'level' => '2'])
-            ->toArray();
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '3'])
+                ->toArray();
 
-        $articles3 = $this->Articles->find()
-            ->where(['category' => 'nft' ,'level' => '3'])
-            ->toArray();
+            $this->set(compact('articles1','articles2','articles3'));
+        } else if ($cookie == 1) {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '1'])
+                ->toArray();
 
-        $this->set(compact('articles1','articles2','articles3'));
+            $this->set(compact('articles1'));
+        } else if ($cookie == 2) {
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '2'])
+                ->toArray();
+
+            $this->set(compact('articles2'));
+        } else if ($cookie == 3) {
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '3'])
+                ->toArray();
+
+            $this->set(compact('articles3'));
+        } else {
+            $articles1 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '1'])
+                ->toArray();
+
+            $articles2 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '2'])
+                ->toArray();
+
+            $articles3 = $this->Articles->find()
+                ->where(['category' => 'nft' ,'level' => '3'])
+                ->toArray();
+
+            $this->set(compact('articles1','articles2','articles3'));
+        }
+    }
+    public function cookieAccept() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        return $this->redirect($this->referer());
+    }
+
+    public function cookieRefuse() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        return $this->redirect($this->referer());
+
+
     }
 }

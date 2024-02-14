@@ -1,4 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 <?php
 /** @var \App\Model\Entity\Quiz[] $quizes */
@@ -11,12 +11,7 @@ $csv_link = $quiz->csv_link;
 
 
 ?>
-<body class="bg-secondary" >
-<header>
-    <nav>
-        <?= $this->element('nav3')?>
-    </nav>
-</header>
+<?= $this->element('nav')?>
 <main class="pt-5 mt-5" >
 
     <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop">
@@ -133,6 +128,6 @@ $csv_link = $quiz->csv_link;
         <?= $this->Form->button(__('Envoyer'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
         <?= $this->Form->end() ?>
     </div>
-    <?= $this->element('footer')?>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>

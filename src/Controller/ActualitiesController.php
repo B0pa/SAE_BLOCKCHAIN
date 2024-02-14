@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 use App\Model\Table\ActualitiesTable;
+use Cake\Http\Cookie\Cookie;
 use Cake\Utility\Text;
 
 /**
@@ -20,7 +21,7 @@ class ActualitiesController extends AppController
     public function beforeFilter(\Cake\Event\EventInterface $event)
     {
         parent::beforeFilter($event);
-        $this->Authentication->addUnauthenticatedActions(['actuality']);
+        $this->Authentication->addUnauthenticatedActions(['cookieAccept', 'cookieRefuse','actuality']);
     }
 
     public function index()
@@ -135,5 +136,79 @@ class ActualitiesController extends AppController
 
         $actus = $actualities->find()->toArray();
         $this->set(compact('actus'));
+    }
+
+    public function cookieAccept() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                1,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        return $this->redirect($this->referer());
+    }
+
+    public function cookieRefuse() {
+        $cookie = $this->request->getCookie('validation');
+        if ($cookie == null) {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        } else {
+            $validation_cookie = Cookie::create(
+                'validation',
+                2,
+                // All keys are optional
+                [
+                    'expires' => new \DateTime('+1 day'),
+                    'path' => '/',
+                    'domain' => '',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                ]
+            );
+            $this->response = $this->response->withCookie($validation_cookie);
+        }
+        return $this->redirect($this->referer());
+
+
     }
 }
