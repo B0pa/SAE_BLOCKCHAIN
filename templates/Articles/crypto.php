@@ -1,5 +1,5 @@
 
-<?= $this->element('nav')?>
+
 <main id="crypto-main" class="navmarge" >
 
     <div id="recherche-conteneur">
@@ -246,4 +246,4 @@
         Quiz
     </a>
 </main>
-<?=$this->element('footer')?>
+

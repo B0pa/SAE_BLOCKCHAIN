@@ -1,6 +1,5 @@
 <?php // use log;
 use Cake\Log\Log; ?>
-<?= $this->element('nav')?>
 <div id="home-conteneur" class="navmarge">
     <div id="home-contenu-main-aside" >
         <main id="home-main" >
@@ -70,7 +69,6 @@ use Cake\Log\Log; ?>
     </div>
 
 </div>
-<?=$this->element('footer')?>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
