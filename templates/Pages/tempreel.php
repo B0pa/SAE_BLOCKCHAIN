@@ -1,4 +1,4 @@
-<?= $this->element('nav')?>
+
 
 <main class="mt-5 pt-5" >
     <div class=" mt-3 d-flex align-items-center mx-auto w-75">
