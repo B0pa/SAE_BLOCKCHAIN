@@ -1058,3 +1058,100 @@ table.profil-tab {
     }
 
   }
+
+  /*==========================================*/
+  /*================ADMIN=====================*/
+  /*==========================================*/
+
+
+  /*================LOGIN=====================*/
+.box{
+    position: relative;
+    width: 380px;
+    height: 420px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.box::before{
+    content:'';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,#ffc107,#ffc107);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+.box::after{
+    content:'';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg,transparent,#ffc107,#ffc107);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.form{
+    position: absolute;
+    inset: 2px;
+    border-radius: 8px;
+    z-index: 10;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+.form h2{
+    color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+.inputBox{
+    position: relative;
+    width: 300px;
+    margin-top: 25px;
+
+}
+.inputBox>div>input{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #23242a;
+    font-size: 1.5em;
+    letter-spacing: 0.05em;
+    z-index: 10;
+
+}
+
+.inputBox i{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffc107;
+    border-radius: 4px;
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: 9;
+}
+.inputBox>div>input:valid ~ i,
+.inputBox>div>input:focus ~ i
+{
+    height: 44px;
+}
