@@ -543,7 +543,6 @@ footer>p{
 #home-main{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     width: 110%;
 }
 
@@ -642,6 +641,7 @@ footer>p{
     color: #000000;
     border-radius: 20px;
     padding: 20px;
+    margin-top: 20px;
 }
 .home-aside-actus-h3{
     text-align: center;
