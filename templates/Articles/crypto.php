@@ -1,7 +1,7 @@
 
 
 <main id="crypto-main" class="navmarge" >
-
+    <?= $this->element('cookie_popup')?>
     <div id="recherche-conteneur">
         <input type="checkbox" id="toggleForm">
         <label for="toggleForm" id="recherche-img">

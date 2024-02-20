@@ -1,5 +1,6 @@
 
 <main id="crypto-main" class="navmarge" >
+    <?= $this->element('cookie_popup')?>
 
     <div id="recherche-conteneur">
         <input type="checkbox" id="toggleForm">
@@ -233,3 +234,21 @@
     </a>
 </main>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        if (<?php echo $this->getRequest()->getCookie('validation'); ?> == 0) {
+            $('#cookieModal').modal('show');
+        }
+
+        $('#acceptCookies').click(function() {
+
+            $('#cookieModal').modal('hide');
+        });
+
+        $('#disableCookies').click(function() {
+
+            $('#cookieModal').modal('hide');
+        });
+    });
+</script>
