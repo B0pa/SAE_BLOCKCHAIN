@@ -31,6 +31,7 @@ class UsersController extends AppController
             $this->Flash->error('Invalid username or password');
             return $this->redirect($this->referer());
         }
+        $this->viewBuilder()->setLayout('mini');
     }
 
     public function logout()
