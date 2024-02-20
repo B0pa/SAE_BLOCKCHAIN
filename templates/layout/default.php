@@ -89,8 +89,8 @@ switch ($currentURL) {
 </head>
 <body>
 <?= $this->element('nav')?>
-    <?= $this->Flash->render() ?>
-    <?= $this->fetch('content') ?>
+<?= $this->Flash->render() ?>
+<?= $this->fetch('content') ?>
 
 <?=$this->element('footer')?>
 </body>
@@ -103,4 +103,3 @@ switch ($currentURL) {
     });
 
 </script>
-</html>

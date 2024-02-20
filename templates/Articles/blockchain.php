@@ -1,6 +1,6 @@
-<?= $this->element('nav')?>
-<main class="pt-5 mt-5 col-12"  style="min-height: 100vh; " >
 
+
+<main id="crypto-main" class="navmarge" >
 
     <div id="recherche-conteneur">
         <input type="checkbox" id="toggleForm">
@@ -11,208 +11,226 @@
         <?= $this->element('search')?>
     </div>
 
+    <div id="crypto-conteneur-titreimg" >
+        <?= $this->Html->image('blockchain.gif', ['id' => 'crypto-img-entete']); ?>
+        <h1 id="crypto-h1" >
+            Les Cryptomonnaies
+        </h1>
+    </div>
 
-    <?= $this->Html->image('blockchain.gif', ['class' => 'd-flex rounded-circle mt-3 mx-auto spin slideFromTop','alt' => 'NFT image']); ?>
 
     <?php
     if (isset($articles1)) {
-    /** @var \App\Model\Entity\Article[] $articles1 */
-    foreach ($articles1 as $article) :
+        /** @var \App\Model\Entity\Article[] $articles1 */
+        foreach ($articles1 as $article) :
+            $divposition = "";
+            $flexStyle = " ";
+            // si article par default
+            if ($article->css_title == null){
+                $article->css_title = "";
+            }
+            if ($article->css_content == null){
+                $article->css_content = "display:flex;";
+            }
+            if ($article->css_img == null){
+                $article->css_img = "width:100%;";
+            }
 
-        $divposition = "";
-        $flexStyle = " ";
-        // si article par default
-        if ($article->css_title == null){
-            $article->css_title = "h2 text-center mt-1 p-2";
-        }
-        if ($article->css_content == null){
-            $article->css_content = "d-flex p-2 col-10 mx-auto";
-        }
-        if ($article->css_img == null){
-            $article->css_img = "img-fluid";
-        }
+            if ($article->position_image == null){
+                $article->position_image = "display:flex;width:75%; margin-left:auto;margin-right:auto;";
+            }
 
-        if ($article->position_image == null){
-            $article->position_image = "d-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3";
-        }
+            if ($article->position_image == "b"){
+                $divposition = "width:50%;order:2;";
+                $article->css_content = $article->css_content . " order:1;";
+                $flexStyle = "flex-direction:column; ";
+                $article->css_img = "width:100%;";
+            }
 
-        if ($article->position_image == "b"){
-            $divposition = "order-2";
-            $article->css_content = $article->css_content . " order-1";
-            $flexStyle = "d-flex";
-        }
+            if ($article->position_image == "d"){
+                $divposition = "width:25%;float:right;margin-left:20px; ";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-end;";
+                $article->css_img = "width:100%;";
+            }
 
-        if ($article->position_image == "d"){
-            $divposition = "w-25 float-end m-2 ms-4";
-            $article->css_content = "p-2 col-10 mx-auto";
-            $flexStyle = "";
-        }
+            if ($article->position_image == "g"){
+                $divposition = "width:25%;float:left;margin-right:20px;";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-start;";
+                $article->css_img = "width:100%;";
 
-        if ($article->position_image == "g"){
-            $divposition = "w-25 float-start m-2 me-4";
-            $article->css_content = "p-2 col-10";
-            $flexStyle = "";
+            }
+            ?>
 
-        }
-        ?>
+            <div class="crypto-conteneur-articles" >
+                <p class="crypto-level-articles" ><?= $article->level?></p>
+                <h2 class="crypto-titre-articles" style="<?= $article->css_title ?>" ><?= $article->title ?></h2>
 
-        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3 justify-content-end ' >
-            <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
-            <h2 class="<?= $article->css_title ?>" ><?= $article->title ?></h2>
+                <div class="crypto-conteneur-bas-articles" >
+                    <div id="div-parent-preview" class="crypto-img-textes-articles" style="<?= $flexStyle ?>">
 
-            <div class="d-flex col-10 mx-auto align-content-center border-top border-2 border-white pt-2" >
-                <div id="div-parent-preview" class="<?= $flexStyle ?> flex-column "  style="overflow-y: auto;">
+                        <div class="crypto-conteneur-img-articles" style="<?= $divposition ?>" >
+                            <?= $this->Html->image("upload/" . $article->image, ['class'=>'crypto-img-articles','style' => $article->css_img ,'alt' => 'accueil'])?>
+                        </div>
 
-                    <div class="<?= $divposition ?>" >
-                        <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => 'width:100%'])?>
+                        <p class="crypto-texte-articles"  style="<?= $article->css_content ?>"><?= nl2br($article->content)?></p>
+                        <div class="clear"></div>
                     </div>
-
-                    <p class="<?= $article->css_content ?> w-100" style="text-align:justify;  " ><?= nl2br($article->content)?></p>
-                    <div class="clear"></div>
                 </div>
+
             </div>
 
-        </div>
 
-    <?php
-    endforeach;
+        <?php
+        endforeach;
     }
     ?>
 
     <?php
     if (isset($articles2)) {
-    /** @var \App\Model\Entity\Article[] $articles2 */
-    foreach ($articles2 as $article) :
+        /** @var \App\Model\Entity\Article[] $articles2 */
+        foreach ($articles2 as $article) :
+            $divposition = "";
+            $flexStyle = " ";
+            // si article par default
+            if ($article->css_title == null){
+                $article->css_title = "";
+            }
+            if ($article->css_content == null){
+                $article->css_content = "display:flex;";
+            }
+            if ($article->css_img == null){
+                $article->css_img = "width:100%;";
+            }
 
-        $divposition = "";
-        $flexStyle = " ";
-        // si article par default
-        if ($article->css_title == null){
-            $article->css_title = "h2 text-center mt-1 p-2";
-        }
-        if ($article->css_content == null){
-            $article->css_content = "d-flex p-2 col-10 mx-auto";
-        }
-        if ($article->css_img == null){
-            $article->css_img = "img-fluid";
-        }
+            if ($article->position_image == null){
+                $article->position_image = "display:flex;width:75%; margin-left:auto;margin-right:auto;";
+            }
 
-        if ($article->position_image == null){
-            $article->position_image = "d-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3";
-        }
+            if ($article->position_image == "b"){
+                $divposition = "width:50%;order:2;";
+                $article->css_content = $article->css_content . " order:1;";
+                $flexStyle = "flex-direction:column; ";
+                $article->css_img = "width:100%;";
+            }
 
-        if ($article->position_image == "b"){
-            $divposition = "order-2";
-            $article->css_content = $article->css_content . " order-1";
-            $flexStyle = "d-flex";
-        }
+            if ($article->position_image == "d"){
+                $divposition = "width:25%;float:right;margin-left:20px; ";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-end;";
+                $article->css_img = "width:100%;";
+            }
 
-        if ($article->position_image == "d"){
-            $divposition = "w-25 float-end m-2 ms-4";
-            $article->css_content = "p-2 col-10 mx-auto";
-            $flexStyle = "";
-        }
+            if ($article->position_image == "g"){
+                $divposition = "width:25%;float:left;margin-right:20px;";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-start;";
+                $article->css_img = "width:100%;";
 
-        if ($article->position_image == "g"){
-            $divposition = "w-25 float-start m-2 me-4";
-            $article->css_content = "p-2 col-10";
-            $flexStyle = "";
+            }
+            ?>
 
-        }
-        ?>
+            <div class="crypto-conteneur-articles" >
+                <p class="crypto-level-articles" ><?= $article->level?></p>
+                <h2 class="crypto-titre-articles" style="<?= $article->css_title ?>" ><?= $article->title ?></h2>
 
-        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3 justify-content-end ' >
-            <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
-            <h2 class="<?= $article->css_title ?>" ><?= $article->title ?></h2>
+                <div class="crypto-conteneur-bas-articles" >
+                    <div id="div-parent-preview" class="crypto-img-textes-articles" style="<?= $flexStyle ?>">
 
-            <div class="d-flex col-10 mx-auto align-content-center border-top border-2 border-white pt-2" >
-                <div id="div-parent-preview" class="<?= $flexStyle ?> flex-column "  style="overflow-y: auto;">
+                        <div class="crypto-conteneur-img-articles" style="<?= $divposition ?>" >
+                            <?= $this->Html->image("upload/" . $article->image, ['class'=>'crypto-img-articles','style' => $article->css_img ,'alt' => 'accueil'])?>
+                        </div>
 
-                    <div class="<?= $divposition ?>" >
-                        <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => 'width:100%'])?>
+                        <p class="crypto-texte-articles"  style="<?= $article->css_content ?>"><?= nl2br($article->content)?></p>
+                        <div class="clear"></div>
                     </div>
-
-                    <p class="<?= $article->css_content ?> w-100" style="text-align:justify;  " ><?= nl2br($article->content)?></p>
-                    <div class="clear"></div>
                 </div>
+
             </div>
 
-        </div>
-
-    <?php
-    endforeach;
+        <?php
+        endforeach;
     }
     ?>
 
     <?php
     if (isset($articles3)) {
-    /** @var \App\Model\Entity\Article[] $articles3 */
-    foreach ($articles3 as $article) :
+        /** @var \App\Model\Entity\Article[] $articles3 */
+        foreach ($articles3 as $article) :
 
-        $divposition = "";
-        $flexStyle = " ";
-        // si article par default
-        if ($article->css_title == null){
-            $article->css_title = "h2 text-center mt-1 p-2";
-        }
-        if ($article->css_content == null){
-            $article->css_content = "d-flex p-2 col-10 mx-auto";
-        }
-        if ($article->css_img == null){
-            $article->css_img = "img-fluid";
-        }
+            $divposition = "";
+            $flexStyle = " ";
+            // si article par default
+            if ($article->css_title == null){
+                $article->css_title = "";
+            }
+            if ($article->css_content == null){
+                $article->css_content = "display:flex;";
+            }
+            if ($article->css_img == null){
+                $article->css_img = "width:100%;";
+            }
 
-        if ($article->position_image == null){
-            $article->position_image = "d-flex img-fluid w-75 mx-auto rounded-3 mt-2 mb-3";
-        }
+            if ($article->position_image == null){
+                $article->position_image = "display:flex;width:75%; margin-left:auto;margin-right:auto;";
+            }
 
-        if ($article->position_image == "b"){
-            $divposition = "order-2";
-            $article->css_content = $article->css_content . " order-1";
-            $flexStyle = "d-flex";
-        }
+            if ($article->position_image == "b"){
+                $divposition = "width:50%;order:2;";
+                $article->css_content = $article->css_content . " order:1;";
+                $flexStyle = "flex-direction:column; ";
+                $article->css_img = "width:100%;";
+            }
 
-        if ($article->position_image == "d"){
-            $divposition = "w-25 float-end m-2 ms-4";
-            $article->css_content = "p-2 col-10 mx-auto";
-            $flexStyle = "";
-        }
+            if ($article->position_image == "d"){
+                $divposition = "width:25%;float:right;margin-left:20px; ";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-end;";
+                $article->css_img = "width:100%;";
+            }
 
-        if ($article->position_image == "g"){
-            $divposition = "w-25 float-start m-2 me-4";
-            $article->css_content = "p-2 col-10";
-            $flexStyle = "";
+            if ($article->position_image == "g"){
+                $divposition = "width:25%;float:left;margin-right:20px;";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-start;";
+                $article->css_img = "width:100%;";
 
-        }
-        ?>
+            }
+            ?>
 
-        <div class='d-flex flex-column bg-dark text-white col-12 col-md-10 mx-0 mx-md-auto my-4 p-2 rounded-3 justify-content-end ' >
-            <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
-            <h2 class="<?= $article->css_title ?>" ><?= $article->title ?></h2>
+            <div class="crypto-conteneur-articles" >
+                <p class="crypto-level-articles" ><?= $article->level?></p>
+                <h2 class="crypto-titre-articles" style="<?= $article->css_title ?>" ><?= $article->title ?></h2>
 
-            <div class="d-flex col-10 mx-auto align-content-center border-top border-2 border-white pt-2" >
-                <div id="div-parent-preview" class="<?= $flexStyle ?> flex-column "  style="overflow-y: auto;">
+                <div class="crypto-conteneur-bas-articles" >
+                    <div id="div-parent-preview" class="crypto-img-textes-articles" style="<?= $flexStyle ?>">
 
-                    <div class="<?= $divposition ?>" >
-                        <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => 'width:100%'])?>
+                        <div class="crypto-conteneur-img-articles" style="<?= $divposition ?>" >
+                            <?= $this->Html->image("upload/" . $article->image, ['class'=>'crypto-img-articles','style' => $article->css_img ,'alt' => 'accueil'])?>
+                        </div>
+
+                        <p class="crypto-texte-articles"  style="<?= $article->css_content ?>"><?= nl2br($article->content)?></p>
+                        <div class="clear"></div>
                     </div>
-
-                    <p class="<?= $article->css_content ?> w-100" style="text-align:justify;  " ><?= nl2br(htmlspecialchars($article->content))?></p>
-                    <div class="clear"></div>
                 </div>
+
             </div>
 
-        </div>
 
-    <?php
-    endforeach;
+        <?php
+        endforeach;
     }
     ?>
+
+
+
+    <?php //= $userName ?><!-- -->
 
 
 
     <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizz_blockchain']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-6">
         Quiz
     </a>
-
 </main>
+

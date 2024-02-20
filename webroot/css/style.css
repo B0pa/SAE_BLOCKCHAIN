@@ -702,7 +702,7 @@ footer>p{
 #home-aside-whoarewe-conteneur:hover #home-aside-whoarewe-inner {
     transform: rotateY(180deg);
 }
-/* 
+/*
 #home-aside-whoarewe-conteneur:hover #home-aside-whoarewe-front {
     opacity: 0;
 } */
@@ -920,55 +920,55 @@ table.profil-tab {
     width: 50%;
     text-align: left;
     border-collapse: collapse;
-  }
-  table.profil-tab td, table.profil-tab th {
+}
+table.profil-tab td, table.profil-tab th {
     border: 1px solid #000000;
     padding: 6px 10px;
-  }
-  table.profil-tab tbody td {
+}
+table.profil-tab tbody td {
     font-size: 13px;
     color: #000000;
-  }
-  table.profil-tab thead {
+}
+table.profil-tab thead {
     background: #FFE30A;
     color: #000000;
     border-bottom: 2px solid #000000;
-  }
-  table.profil-tab thead th {
+}
+table.profil-tab thead th {
     font-size: 15px;
     font-weight: bold;
     color: #000000;
     text-align: center;
     border-left: 2px solid #000000;
-  }
-  table.profil-tab thead th:first-child {
+}
+table.profil-tab thead th:first-child {
     border-left: none;
-  }
-  
-  table.profil-tab tfoot td {
+}
+
+table.profil-tab tfoot td {
     font-size: 14px;
-  }
-  table.profil-tab tfoot .links {
+}
+table.profil-tab tfoot .links {
     text-align: right;
-  }
-  table.profil-tab tfoot .links a{
+}
+table.profil-tab tfoot .links a{
     display: inline-block;
     background: #1C6EA4;
     color: #FFFFFF;
     padding: 2px 8px;
     border-radius: 5px;
-  }
+}
 
-  #profil-btn-suppcookie-conteneur{
+#profil-btn-suppcookie-conteneur{
     background-color: #f44336;
     border: none;
     width: fit-content;
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
-  }
+}
 
-  #profil-modal-suppcookie-overlay{
+#profil-modal-suppcookie-overlay{
     display: none;
     position: fixed;
     z-index: 1000;
@@ -980,9 +980,9 @@ table.profil-tab {
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0, 0, 0, 0.541);
-  }
+}
 
-  #profil-modal-suppcookie{
+#profil-modal-suppcookie{
     position: relative;
     background-color: #474747;
     border-radius: 20px;
@@ -990,31 +990,31 @@ table.profil-tab {
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
-  }
+}
 
-  #btn-supp-cookie-ever{
+#btn-supp-cookie-ever{
     background-color: #f44336;
     padding: 5px 20px;
     border: none;
     color: #000000;
     border-radius: 10px;
-  }
+}
 
-  #btn-cancel-suppcookie{
+#btn-cancel-suppcookie{
     background-color: #FFE30A;
     border: none;
     color: #000000;
     padding: 5px 20px;
     border-radius: 10px;
-  }
+}
 
-  #profil-buttons-choix{
+#profil-buttons-choix{
     display: flex;
     justify-content: flex-end;
     gap: 20px;
-  }
+}
 
-  @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
 
     #profil-main{
         padding: 40px 0px;
@@ -1057,14 +1057,14 @@ table.profil-tab {
         margin-right: auto;
     }
 
-  }
+}
 
-  /*==========================================*/
-  /*================ADMIN=====================*/
-  /*==========================================*/
+/*==========================================*/
+/*================ADMIN=====================*/
+/*==========================================*/
 
 
-  /*================LOGIN=====================*/
+/*================LOGIN=====================*/
 .box{
     position: relative;
     width: 380px;
