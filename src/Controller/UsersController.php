@@ -16,9 +16,9 @@ class UsersController extends AppController
     }
 
     /**
-    * login method
-    *
-    */
+     * login method
+     *
+     */
     public function login()
     {
         $result = $this->Authentication->getResult();
@@ -31,6 +31,7 @@ class UsersController extends AppController
             $this->Flash->error('Invalid username or password');
             return $this->redirect($this->referer());
         }
+        $this->viewBuilder()->setLayout('mini');
     }
 
     public function logout()
@@ -77,22 +78,22 @@ class UsersController extends AppController
             $this->Users->save($page);
 
 
-                $titre = $this->request->getData('titre');
-                $text = $this->request->getData('text');
+            $titre = $this->request->getData('titre');
+            $text = $this->request->getData('text');
 
-                //$image = $this->request->getData('image');
-
-
-                //$dataimage = base64_encode($image);
+            //$image = $this->request->getData('image');
 
 
-                //var_dump($titre);
-                //var_dump($text);
-                var_dump($image);
-                $this->Flash->success(__('la page a été sauvegardée'));
+            //$dataimage = base64_encode($image);
 
 
-              //  $this->Flash->error(__('la page na pas été enregistrer reessayer D=.'));
+            //var_dump($titre);
+            //var_dump($text);
+            var_dump($image);
+            $this->Flash->success(__('la page a été sauvegardée'));
+
+
+            //  $this->Flash->error(__('la page na pas été enregistrer reessayer D=.'));
         }
         $this->set(compact('page'));
     }
@@ -102,6 +103,5 @@ class UsersController extends AppController
     }
 
 }
-
 
 
