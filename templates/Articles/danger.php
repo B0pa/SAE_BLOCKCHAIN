@@ -228,8 +228,13 @@
 
 
 
-    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizz_danger']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-6">
-        Quiz
-    </a>
+    <?= $this->Html->link(
+                "Quiz",
+                ['controller'=> 'Quiz', 'action' => 'quizz_danger'],
+                [
+                    'class' => 'grow articles-btn-quiz',
+                    'escapeTitle' => false
+                ]
+            ) ?>
 </main>
 
