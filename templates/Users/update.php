@@ -13,7 +13,7 @@
             <?= $this->Html->image('administrator.png', ['class' => 'img-fluid h-100','alt' => 'NFT image', 'style' => 'max-height: 100%;' ]); ?>
             <?= $this->Html->link(
                 "Supprimer administrateur",
-                ['controller'=> 'Users', 'action' => 'view'],
+                ['controller'=> 'Users', 'action' => 'index'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-2 m-3',
                     'escapeTitle' => false
