@@ -815,11 +815,6 @@ footer>p{
     color: #ffffff;
 }
 
-#crypto-h1 span{
-    color: #FFE30A;
-    font-family: 'mont', sans-serif;
-}
-
 .crypto-conteneur-articles{
     background-color: #ffffff;
     color: #000000;
@@ -854,13 +849,6 @@ footer>p{
 
 .crypto-texte-articles{
     margin: 20px auto;
-}
-
-.crypto-level-articles{
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top:20px;
 }
 
 /*====================PROFIL========================*/
@@ -1255,11 +1243,12 @@ table.profil-tab tfoot .links a{
 
 .tab{
     background-color:#FFE30A;
-    margin: 20px 40px;
+    margin: 30px 40px;
     border-radius: 40px;
     margin-bottom: 10px;
     box-shadow:25px 25px 40px #464331;
     height: auto;
+    padding: 5px;
 }
 
 .tab h2{
@@ -1271,14 +1260,59 @@ table.profil-tab tfoot .links a{
     flex-direction: column;
 } */
 
+.update-tab-liens{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
 .update-tab-liens img{
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: 28vh;
+}
+
+.update-tab-liens a{
+    align-self: end;
+    margin: 20px 5px;
+    padding: 7px;
+    color: #FFFFFF;
+    height: fit-content;
+    background-color: #474747;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 768px) {
     #update-main{
         display: block;
+    }
+
+    .tab{
+        margin: 20px 0;
+        border-radius: 0px;
+    }
+
+    .update-tab-liens{
+        flex-direction: column ;
+    }
+
+    .update-tab-liens a{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .update-tab-liens img{
+        display: flex;
+        width: 70%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .update-tab-liens:nth-child(1){
+        order: 2;
+    }
+
+    .update-tab-liens:nth-child(2){
+        order: 1;
     }
 
 }
