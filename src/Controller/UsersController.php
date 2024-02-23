@@ -81,14 +81,8 @@ class UsersController extends AppController
             $titre = $this->request->getData('titre');
             $text = $this->request->getData('text');
 
-            //$image = $this->request->getData('image');
 
-
-            //$dataimage = base64_encode($image);
-
-
-            //var_dump($titre);
-            //var_dump($text);
+            
             var_dump($image);
             $this->Flash->success(__('la page a été sauvegardée'));
 

@@ -815,6 +815,11 @@ footer>p{
     color: #ffffff;
 }
 
+#crypto-h1 span{
+    color: #FFE30A;
+    font-family: 'mont', sans-serif;
+}
+
 .crypto-conteneur-articles{
     background-color: #ffffff;
     color: #000000;
@@ -849,6 +854,13 @@ footer>p{
 
 .crypto-texte-articles{
     margin: 20px auto;
+}
+
+.crypto-level-articles{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top:20px;
 }
 
 /*====================PROFIL========================*/

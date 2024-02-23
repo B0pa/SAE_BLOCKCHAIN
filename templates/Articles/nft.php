@@ -14,7 +14,7 @@
     <div id="crypto-conteneur-titreimg" >
         <?= $this->Html->image('nft.gif', ['id' => 'crypto-img-entete']); ?>
         <h1 id="crypto-h1" >
-            Les Cryptomonnaies
+            Les <span>NFT</span>
         </h1>
     </div>
 
@@ -229,9 +229,16 @@
 
 
 
-    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizz_n_f_t']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-6">
-        Quiz
-    </a>
+    <?= $this->Html->link(
+        "Quiz",
+        ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
+        [
+            'id' => 'profil-btn-accueil',
+            'class' => 'grow',
+            'escapeTitle' => false
+        ]
+    ) ?>
+
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

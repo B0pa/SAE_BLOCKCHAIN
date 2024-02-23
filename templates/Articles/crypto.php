@@ -27,7 +27,7 @@
     <div id="crypto-conteneur-titreimg" >
         <?= $this->Html->image('crypto.gif', ['id' => 'crypto-img-entete']); ?>
         <h1 id="crypto-h1" >
-            Les Cryptomonnaies
+            Les <span>Cryptomonnaies</span>
         </h1>
     </div>
 
@@ -238,11 +238,13 @@
 
 
 
-    <?php //= $userName ?><!-- -->
-
-
-
-    <a href="<?= $this->Url->build(['controller'=> 'Quiz', 'action' => 'quizzcrypto']) ?>" class="d-flex btn btn-warning text-white mx-auto justify-content-center mb-5 text-decoration-none text-center text-white col-6">
-        Quiz
-    </a>
+    <?= $this->Html->link(
+        "Quiz",
+        ['controller'=> 'Quiz', 'action' => 'quizzcrypto'],
+        [
+            'id' => 'profil-btn-accueil',
+            'class' => 'grow',
+            'escapeTitle' => false
+        ]
+    ) ?>
 </main>
