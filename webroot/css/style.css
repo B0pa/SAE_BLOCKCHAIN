@@ -895,6 +895,37 @@ footer>p{
     width: min-content;
     float: right;
 }
+/*====================TEMPS REEL========================*/
+
+#temps-main{
+    color: #FFFFFF;
+    padding: 10px 20px;
+    min-height: calc(100vh - 130px);
+}
+
+#temps-titre-conteneur{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+#temps-titre-conteneur>img{
+    border-radius: 50% ;
+    width: 100px;
+    height: 100px;
+}
+
+#temps-graphics-conteneur{
+    margin-top: 10px;
+    background-color: #474747;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#temps-graphics-conteneur>select{
+    border-radius: 5px;
+}
+
 /*====================PROFIL========================*/
 
 #profil-main{
