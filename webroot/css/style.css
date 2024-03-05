@@ -1240,6 +1240,66 @@ table.profil-tab tfoot .links a{
 
 }
 
+/*================REGISTER=====================*/
+
+#register-main{
+    padding: 10px 20px;
+    min-height: calc(100vh - 130px);
+}
+
+#register-h1{
+    color: #FFFFFF;
+    margin: 10px 0 20px 20px;
+}
+
+#register-conteneur{
+    background-color: #474747;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#register-conteneur>form div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+#register-conteneur>form>div input{
+    border-radius: 5px;
+    width: 25%;
+}
+
+#register-conteneur>form>div:last-child {
+    border-radius: 5px;
+    width: auto;
+}
+
+#register-conteneur>form>div:last-child>input {
+    border-radius: 5px;
+    background-color: #FFE30A;
+    padding: 2px 5px;
+    width: 15%;
+}
+
+@media screen and (max-width: 768px) {
+    #register-main{
+        padding: 10px 0px;
+    }
+
+    #register-conteneur{
+            border-radius: 0;
+    }
+
+    #register-conteneur>form>div input{
+        width: 100%;
+    }  
+
+    #register-conteneur>form>div:last-child>input {
+        width: 50%;
+    } 
+}
+
 /*================UPDATE=====================*/
 
 #update-main{

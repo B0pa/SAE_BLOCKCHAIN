@@ -45,6 +45,9 @@ switch ($currentURL) {
     case 'actuality':
         $pageTitle = 'Actualités';
         break;
+    case 'register':
+        $pageTitle = 'Register';
+        break;
     case 'quizz-blockchain':
         $pageTitle = 'Quiz Blockchain';
         $crypto = 'cryptoblockchain.png';
