@@ -788,6 +788,34 @@ footer>p{
     }
 
 }
+/*=====================Actu==========================*/
+
+.actualite-conteneur-articles{
+    background-color: rgb(100,100,100);
+    color: #000000;
+    padding: 10px 60px 60px 60px;
+    margin: 30px 0 30px 0px;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+.actualite-img-articles{
+    width: 50%;
+    border-radius: 20px;
+
+}
+.actualite-titre-articles{
+    text-align: center;
+    margin: 20px;
+    border-radius: 0;
+}
+.actualite-texte-articles{
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 0;
+}
+
 
 /*====================CRYPTO========================*/
 
@@ -856,6 +884,17 @@ footer>p{
     margin: 20px auto;
 }
 
+.articles-btn-quiz{
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+    background-color: #FFE30A;
+    padding: 7px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: min-content;
+    float: right;
+}
 /*====================PROFIL========================*/
 
 #profil-main{
@@ -1068,7 +1107,6 @@ table.profil-tab tfoot .links a{
 /*=====================ADMIN===========================*/
 /*=====================================================*/
 
-
 /*================LOGIN=====================*/
 #login-profil{
     min-height: 100vh;
@@ -1176,7 +1214,6 @@ table.profil-tab tfoot .links a{
     border: none;
     outline: none;
     color: #ffffff;
-    font-size: 1.5em;
     letter-spacing: 0.05em;
     z-index: 10;
 
@@ -1232,6 +1269,66 @@ table.profil-tab tfoot .links a{
     border-radius: 4px;
     cursor: pointer;
 
+}
+
+/*================REGISTER=====================*/
+
+#register-main{
+    padding: 10px 20px;
+    min-height: calc(100vh - 130px);
+}
+
+#register-h1{
+    color: #FFFFFF;
+    margin: 10px 0 20px 20px;
+}
+
+#register-conteneur{
+    background-color: #474747;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#register-conteneur>form div{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+#register-conteneur>form>div input{
+    border-radius: 5px;
+    width: 25%;
+}
+
+#register-conteneur>form>div:last-child {
+    border-radius: 5px;
+    width: auto;
+}
+
+#register-conteneur>form>div:last-child>input {
+    border-radius: 5px;
+    background-color: #FFE30A;
+    padding: 2px 5px;
+    width: 15%;
+}
+
+@media screen and (max-width: 768px) {
+    #register-main{
+        padding: 10px 0px;
+    }
+
+    #register-conteneur{
+        border-radius: 0;
+    }
+
+    #register-conteneur>form>div input{
+        width: 100%;
+    }
+
+    #register-conteneur>form>div:last-child>input {
+        width: 50%;
+    }
 }
 
 /*================UPDATE=====================*/

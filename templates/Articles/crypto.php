@@ -1,7 +1,7 @@
 
 
 <main id="crypto-main" class="navmarge" >
-    <?= $this->element('cookie_popup')?>
+
     <div id="recherche-conteneur">
         <input type="checkbox" id="toggleForm">
         <label for="toggleForm" id="recherche-img">
@@ -27,7 +27,7 @@
     <div id="crypto-conteneur-titreimg" >
         <?= $this->Html->image('crypto.gif', ['id' => 'crypto-img-entete']); ?>
         <h1 id="crypto-h1" >
-            Les <span>Cryptomonnaies</span>
+            Les Cryptomonnaies
         </h1>
     </div>
 
@@ -238,12 +238,13 @@
 
 
 
+    <?php //= $userName ?><!-- -->
+
     <?= $this->Html->link(
         "Quiz",
         ['controller'=> 'Quiz', 'action' => 'quizzcrypto'],
         [
-            'id' => 'profil-btn-accueil',
-            'class' => 'grow',
+            'class' => 'grow articles-btn-quiz',
             'escapeTitle' => false
         ]
     ) ?>

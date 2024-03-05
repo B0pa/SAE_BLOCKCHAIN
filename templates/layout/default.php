@@ -67,8 +67,6 @@ switch ($currentURL) {
         break;
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
