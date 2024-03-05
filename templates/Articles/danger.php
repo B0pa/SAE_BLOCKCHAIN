@@ -229,7 +229,7 @@
 
     <?= $this->Html->link(
         "Quiz",
-        ['controller'=> 'Quiz', 'action' => 'quizz_danger'],
+        ['controller'=> 'Quizzes', 'action' => 'quizz_danger'],
         [
             'id' => 'profil-btn-accueil',
             'class' => 'grow',
