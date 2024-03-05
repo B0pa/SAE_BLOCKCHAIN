@@ -229,12 +229,11 @@
 
 
     <?= $this->Html->link(
-                "Quiz",
-                ['controller'=> 'Quiz', 'action' => 'quizz_danger'],
-                [
-                    'class' => 'grow articles-btn-quiz',
-                    'escapeTitle' => false
-                ]
-            ) ?>
+        "Quiz",
+        ['controller'=> 'Quiz', 'action' => 'quizz_danger'],
+        [
+            'class' => 'grow articles-btn-quiz',
+            'escapeTitle' => false
+        ]
+    ) ?>
 </main>
-

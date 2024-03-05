@@ -28,6 +28,8 @@
 
     ctx.canvas.width = 1000;
     ctx.canvas.height = 250;
+    color ='yellow';
+
 
     // Création du graphique
     var chart;
@@ -46,7 +48,7 @@
                 datasets: [{
                     label: 'BTCUSDT',
                     data: [],
-                    borderColor: 'yellow',
+                    borderColor: color,
                 }]
             },
             options: {
@@ -64,6 +66,7 @@
 
     // Formatter pour les données en mode Line
     function formatLine(candle) {
+        color = 'white';
         return {
             x: candle[0],
             y: candle[4]
@@ -72,6 +75,7 @@
 
     // Formatter pour les données en mode Candlestick
     function formatBar(candle) {
+        color = 'yellow';
         return {
             x: candle[0], // Pass the timestamp directly
             o: parseFloat(candle[1]),

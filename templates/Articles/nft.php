@@ -228,13 +228,12 @@
     <?php //= $userName ?><!-- -->
 
     <?= $this->Html->link(
-                "Quiz",
-                ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
-                [
-                    'class' => 'grow articles-btn-quiz',
-                    'escapeTitle' => false
-                ]
-            ) ?>
+        "Quiz",
+        ['controller'=> 'Quiz', 'action' => 'quizz_n_f_t'],
+        [
+            'class' => 'grow articles-btn-quiz',
+            'escapeTitle' => false
+        ]
+    ) ?>
 </main>
-
 

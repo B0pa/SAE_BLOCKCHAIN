@@ -788,6 +788,34 @@ footer>p{
     }
 
 }
+/*=====================Actu==========================*/
+
+.actualite-conteneur-articles{
+    background-color: rgb(100,100,100);
+    color: #000000;
+    padding: 10px 60px 60px 60px;
+    margin: 30px 0 30px 0px;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+
+}
+.actualite-img-articles{
+    width: 50%;
+    border-radius: 20px;
+
+}
+.actualite-titre-articles{
+    text-align: center;
+    margin: 20px;
+    border-radius: 0;
+}
+.actualite-texte-articles{
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 0;
+}
+
 
 /*====================CRYPTO========================*/
 
@@ -813,6 +841,11 @@ footer>p{
 
 #crypto-h1{
     color: #ffffff;
+}
+
+#crypto-h1 span{
+    color: #FFE30A;
+    font-family: 'mont', sans-serif;
 }
 
 .crypto-conteneur-articles{
@@ -862,7 +895,6 @@ footer>p{
     width: min-content;
     float: right;
 }
-
 /*====================PROFIL========================*/
 
 #profil-main{
@@ -1075,7 +1107,6 @@ table.profil-tab tfoot .links a{
 /*=====================ADMIN===========================*/
 /*=====================================================*/
 
-
 /*================LOGIN=====================*/
 #login-profil{
     min-height: 100vh;
@@ -1172,7 +1203,7 @@ table.profil-tab tfoot .links a{
     position: relative;
     width: 300px;
     margin-top: 25px;
-    
+
 }
 
 .inputBox input{
@@ -1288,16 +1319,16 @@ table.profil-tab tfoot .links a{
     }
 
     #register-conteneur{
-            border-radius: 0;
+        border-radius: 0;
     }
 
     #register-conteneur>form>div input{
         width: 100%;
-    }  
+    }
 
     #register-conteneur>form>div:last-child>input {
         width: 50%;
-    } 
+    }
 }
 
 /*================UPDATE=====================*/

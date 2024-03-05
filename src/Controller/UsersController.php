@@ -16,9 +16,9 @@ class UsersController extends AppController
     }
 
     /**
-    * login method
-    *
-    */
+     * login method
+     *
+     */
     public function login()
     {
         $result = $this->Authentication->getResult();
@@ -60,49 +60,30 @@ class UsersController extends AppController
 
     }
 
-    public function update(){
+    public function update()
+    {
 
     }
 
-    public function updateactuality(){
+    public function index()
 
+    {
+        $query = $this->Users->find();
+        $users = $this->paginate($query);
+        $this->set(compact('users'));
     }
 
-    public function updateinfo(){
 
+    public function delete($id = null)
 
-
-        $page = $this->Users->newEmptyEntity(); // entité vide
-        if (!empty($this->request->getData())) {
-            $this->Users->patchEntity($page, $this->request->getData());
-            $this->Users->save($page);
-
-
-                $titre = $this->request->getData('titre');
-                $text = $this->request->getData('text');
-
-                //$image = $this->request->getData('image');
-
-
-                //$dataimage = base64_encode($image);
-
-
-                //var_dump($titre);
-                //var_dump($text);
-                var_dump($image);
-                $this->Flash->success(__('la page a été sauvegardée'));
-
-
-              //  $this->Flash->error(__('la page na pas été enregistrer reessayer D=.'));
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $user = $this->Users->get($id);
+        if ($this->Users->delete($user)) {
+            $this->Flash->success(__('The user has been deleted.'));
+        } else {
+            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
         }
-        $this->set(compact('page'));
+        return $this->redirect(['action' => 'index']);
     }
-
-    public function updatequizz(){
-
-    }
-
 }
-
-
-

@@ -38,6 +38,14 @@ $loggedIn = $this->Authentication->isLoggedIn();
             endif; ?>
         </ul>
     </nav>
+
+    <?php
+    if ($loggedIn):
+        ?>
+       <a href="<?= $this->Url->build(['controller'=> 'Users', 'action' => 'logout']) ?>"><h4>logout</h4></a>
+    <?php
+    endif; ?>
+
     <?php
     $class = ($currentURL === "profil") ? 'active' : '';
     echo $this->Html->link(

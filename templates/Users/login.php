@@ -33,28 +33,28 @@
     </div>
 </main>
 <script>
-var logInput = document.getElementById('email');
-var passInput = document.getElementById('password');
-var logi =document.getElementById('loginI');
-var passi =document.getElementById('passwordI');
+    var logInput = document.getElementById('email');
+    var passInput = document.getElementById('password');
+    var logi =document.getElementById('loginI');
+    var passi =document.getElementById('passwordI');
 
-logInput.addEventListener('focus',function(){
-    logi.style.height = '44px';
-    logInput.style.color = 'black'
-})
+    logInput.addEventListener('focus',function(){
+        logi.style.height = '44px';
+        logInput.style.color = 'black'
+    })
 
-logInput.addEventListener('blur',function(){
-    logi.style.height = '';
-    logInput.style.color = 'white' 
-})
+    logInput.addEventListener('blur',function(){
+        logi.style.height = '';
+        logInput.style.color = 'white'
+    })
 
-passInput.addEventListener('focus',function(){
-    passi.style.height = '44px';
-    passInput.style.color = 'black'
-})
+    passInput.addEventListener('focus',function(){
+        passi.style.height = '44px';
+        passInput.style.color = 'black'
+    })
 
-passInput.addEventListener('blur',function(){
-    passi.style.height = '';
-    passInput.style.color = 'white' 
-})
+    passInput.addEventListener('blur',function(){
+        passi.style.height = '';
+        passInput.style.color = 'white'
+    })
 </script>

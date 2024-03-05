@@ -3,20 +3,20 @@
     <div id="register-conteneur">
         <?= $this->Flash->render() ?>
         <?= $this->Form->create() ?>
-        
+
         <?= $this->Form->control('email', [
-                'required' => true,
-                'class' => 'form-control bg-secondary',
-            ]) ?>
-            <?= $this->Form->control('name', [
-                'required' => true,
-                'class' => 'form-control bg-secondary',
-            ]) ?>
-            <?= $this->Form->control('password', ['required' => true,
-                'class' => 'form-control bg-secondary mb-3',
-            ]) ?>
-            <?= $this->Form->submit(__('Ajouter'), ['class' => 'btn btn-secondary']); ?>
-            <?= $this->Form->end() ?>
+            'required' => true,
+            'class' => 'form-control bg-secondary',
+        ]) ?>
+        <?= $this->Form->control('name', [
+            'required' => true,
+            'class' => 'form-control bg-secondary',
+        ]) ?>
+        <?= $this->Form->control('password', ['required' => true,
+            'class' => 'form-control bg-secondary mb-3',
+        ]) ?>
+        <?= $this->Form->submit(__('Ajouter'), ['class' => 'btn btn-secondary']); ?>
+        <?= $this->Form->end() ?>
 
     </div>
 </main>
