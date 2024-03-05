@@ -1,21 +1,18 @@
 <?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Quiz $quiz
- */
+    /**
+     * @var \App\View\AppView $this
+     * @var \App\Model\Entity\Quiz $quiz
+     */
+
+    // Lire le contenu du répertoire 'csv'
+    $dir = WWW_ROOT . 'csv';
+    $files = array_diff(scandir($dir), array('..', '.'));
 ?>
-
-<?php
-// Lire le contenu du répertoire 'csv'
-$dir = WWW_ROOT . 'csv';
-$files = array_diff(scandir($dir), array('..', '.'));
-?>
-
-
 
 <?= $this->element('nav_admin')?>
+
 <main class="mt-5"></main>
-<div class="row col-12 p-3">
+<div class="row col-12 p-3" style="color:#FFF">
     <aside class="col">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
@@ -36,9 +33,13 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 $this->Flash->render()
                 ?>
 
-
                 <?php
-                echo $this->Form->control('realanswer', ['type' => 'select', 'options' => [1 => 1, 2 => 2, 3 => 3],
+                // bouton pour ajouter une réponse
+                echo $this->Form->button(__('Add answer'), ['id' => 'add-answer', 'class' => 'btn btn-secondary']);
+                // bouton pour supprimer une reponse
+                echo $this->Form->button(__('Remove answer'), ['id' => 'remove-answer', 'class' => 'btn btn-secondary']);
+
+                echo $this->Form->control('realanswer', ['type' => 'select',
                     'class' => 'form-control bg-secondary'
                 ]);
                 echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
@@ -46,9 +47,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 ]);
                 ?>
 
-                <div id="textFields">
-
-                </div>
+                <div id="textFields"></div>
 
                 <?php
                 echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
@@ -56,8 +55,8 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 ]);
                 ?>
 
-
             </fieldset>
+
             <?= $this->Form->button(__('Submit'),['class' => 'btn btn-secondary mt-3']) ?>
             <?= $this->Form->end() ?>
         </div>
@@ -89,11 +88,13 @@ $files = array_diff(scandir($dir), array('..', '.'));
 
 </aside>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        var nb_answer = 3;
 
         var questionformSelect = document.getElementById('questionform');
         var textFields = document.getElementById('textFields');
@@ -129,8 +130,8 @@ $files = array_diff(scandir($dir), array('..', '.'));
             answerFields = [];
         }
 
-        // Fonction pour gérer les champs en fonction de la sélection
-        function handleQuestionFormChange() {
+        // Fonction pour mettre à jour les champs de réponse
+        function updateAnswerFields() {
             var myChart;
 
             clearAnswerFields();
@@ -140,53 +141,34 @@ $files = array_diff(scandir($dir), array('..', '.'));
             if (questionFormValue === 'image') {
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'none';
-                for (var i = 1; i <= 3; i++) {
+
+                // pour nb_answer reponses
+                for (var i = 1; i <= nb_answer; i++) {
                     createAnswerField('file', i);
+                    
+                    document.getElementById('answer' + i).addEventListener('change', function() {
+                        $('#imagePreview' + i).html('');
+                        var total_file = document.getElementById("answer" + i).files.length;
+                        for (var j = 0; j < total_file; j++) {
+                            $('#imagePreview' + i).append("<img src='" + URL.createObjectURL(event.target.files[j]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                        }
+                    });
                 }
-                document.getElementById('answer1').addEventListener('change', function() {
-                    $('#imagePreview1').html('');
-                    var total_file = document.getElementById("answer1").files.length;
-                    for (var i = 0; i < total_file; i++) {
-                        $('#imagePreview1').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
-                    }
-                });
-
-                document.getElementById('answer2').addEventListener('change', function() {
-                    $('#imagePreview2').html('');
-                    var total_file = document.getElementById("answer2").files.length;
-                    for (var i = 0; i < total_file; i++) {
-                        $('#imagePreview2').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
-                    }
-                });
-
-                document.getElementById('answer3').addEventListener('change', function() {
-                    $('#imagePreview3').html('');
-                    var total_file = document.getElementById("answer3").files.length;
-                    for (var i = 0; i < total_file; i++) {
-                        $('#imagePreview3').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
-                    }
-                });
-
             } else if (questionFormValue === 'text'){
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'none';
-                for (var i = 1; i <= 3; i++) {
+                
+                for (var i = 1; i <= nb_answer; i++) {
                     createAnswerField('text', i);
+                    document.getElementById('answer' + i).addEventListener('input', function() {
+                        document.getElementById('label-answer' + i).textContent = this.value;
+                    });
                 }
-                document.getElementById('answer1').addEventListener('input', function() {
-                    document.getElementById('label-answer1').textContent = this.value;
-                });
-
-                document.getElementById('answer2').addEventListener('input', function() {
-                    document.getElementById('label-answer2').textContent = this.value;
-                });
-
-                document.getElementById('answer3').addEventListener('input', function() {
-                    document.getElementById('label-answer3').textContent = this.value;
-                });
+                
             } else if (questionFormValue === 'graphic') {
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'block';
+
                 // Créez un élément select qui liste tous les fichiers CSV du dossier csv
                 var select = document.createElement('select');
                 select.type = 'select';
@@ -211,21 +193,12 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 // Ajoutez le select des colonnes à la div textFields
                 textFields.appendChild(columnSelect);
 
-                for (var i = 1; i <= 3; i++) {
+                for (var i = 1; i <= nb_answer; i++) {
                     createAnswerField('graphic', i);
+                    document.getElementById('answer' + i).addEventListener('input', function() {
+                        document.getElementById('label-answer' + i).textContent = this.value;
+                    });
                 }
-
-                document.getElementById('answer1').addEventListener('input', function() {
-                    document.getElementById('label-answer1').textContent = this.value;
-                });
-
-                document.getElementById('answer2').addEventListener('input', function() {
-                    document.getElementById('label-answer2').textContent = this.value;
-                });
-
-                document.getElementById('answer3').addEventListener('input', function() {
-                    document.getElementById('label-answer3').textContent = this.value;
-                });
 
                 // Lorsque l'utilisateur sélectionne un fichier CSV, récupérez les données et créez le graphique
                 document.getElementById('csvFile').addEventListener('change', function() {
@@ -281,23 +254,36 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'none';
             }
-
         }
 
-
-
-
+        // Fonction pour gérer les champs en fonction de la sélection
+        function handleQuestionFormChange() {
+            // Mettre à jour les champs de réponse
+            updateAnswerFields();
+        }
 
         // Initial setup based on the current value
         handleQuestionFormChange();
 
         // Écoutez les changements de sélection
         questionformSelect.addEventListener('change', handleQuestionFormChange);
-
+        
+        // Ecouter l'appui sur le bouton + pour ajouter une réponse
+        document.getElementById('add-answer').addEventListener('click', function() {
+            event.preventDefault();
+            nb_answer++;
+            updateAnswerFields();
+        });
+        // Ecouter l'appui sur le bouton - pour supprimer une réponse
+        document.getElementById('remove-answer').addEventListener('click', function() {
+            event.preventDefault();
+            if (nb_answer > 2) {
+                nb_answer--;
+            }
+            updateAnswerFields();
+        });
 
         //previsualisation de la question
-
-
         document.getElementById('question').addEventListener('input', function() {
             document.getElementById('preview-question').textContent = this.value;
         });

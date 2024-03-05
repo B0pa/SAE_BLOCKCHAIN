@@ -2,6 +2,11 @@
 $urlPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $segments = explode('/', trim($urlPath, '/'));
 $currentURL = strtolower(end($segments));
+
+$identity = $this->Authentication->getIdentity();
+$loggedIn = $this->Authentication->isLoggedIn();
+
+
 ?>
 
 <header>
@@ -25,12 +30,28 @@ $currentURL = strtolower(end($segments));
             <li class="navbtn<?php if($currentURL==="actuality") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Actualities', 'action' => 'actuality']) ?>"><h4>Les Actus</h4></a></li>
             <li class="navbtn<?php if($currentURL==="tempreel") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'tempreel']) ?>"><h4>Courbe en Temps Réel</h4></a></li>
             <li class="navbtn<?php if($currentURL==="wallet") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'wallet']) ?>"><h4>Wallet</h4></a></li>
+            <?php
+            if ($loggedIn):
+                ?>
+                <li class="navbtn<?php if($currentURL==="update") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Users', 'action' => 'update']) ?>"><h4>Admin</h4></a></li>
+            <?php
+            endif; ?>
         </ul>
     </nav>
-    <?= $this->Html->link(
-        $this->Html->image('profil.png', ['alt' => 'image de profil', 'id' => 'nav-profil-img']),
+
+    <?php
+    if ($loggedIn):
+        ?>
+       <a href="<?= $this->Url->build(['controller'=> 'Users', 'action' => 'logout']) ?>"><h4>logout</h4></a>
+    <?php
+    endif; ?>
+
+    <?php
+    $class = ($currentURL === "profil") ? 'active' : '';
+    echo $this->Html->link(
+        $this->Html->image('profil.png', ['alt' => 'image de profil', 'id' => 'nav-profil-img', 'class' => $class]),
         ['controller'=> 'Pages', 'action' => 'profil'],
-        ['id' => 'conteneur-lien',
-            'escapeTitle' => false]
-    ) ?>
+        ['id' => 'conteneur-lien', 'escapeTitle' => false, 'class' => $class]
+    );
+    ?>
 </header>

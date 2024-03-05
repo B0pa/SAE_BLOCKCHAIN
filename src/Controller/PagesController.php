@@ -227,15 +227,15 @@ class PagesController extends AppController
         return $this->redirect($this->referer());
     }
 
-    public function manageCookies() 
-    /*
-    Information utile :
-    
-    Category :  'blockchain' = 0,           'crypto' = 1,     'nft' = 2,        'danger' = 3
-    
-    Level    :  'Tout les niveaux' = 0,     'Niv 1' = 1,      'Niv 2' = 2,      'Niv 3' = 3
-    
-    */
+    public function manageCookies()
+        /*
+        Information utile :
+
+        Category :  'blockchain' = 0,           'crypto' = 1,     'nft' = 2,        'danger' = 3
+
+        Level    :  'Tout les niveaux' = 0,     'Niv 1' = 1,      'Niv 2' = 2,      'Niv 3' = 3
+
+        */
     {
         $data = $this->request->getData();
 
@@ -310,4 +310,3 @@ class PagesController extends AppController
         return $this->redirect($this->referer());
     }
 }
-

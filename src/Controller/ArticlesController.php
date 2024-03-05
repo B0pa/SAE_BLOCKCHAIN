@@ -3,8 +3,12 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Cake\Utility\Text;
-use Laminas\Diactoros\UploadedFile;
+use Cake\Core\Configure;
+use Cake\Http\Cookie\Cookie;
+use Cake\Http\Exception\ForbiddenException;
+use Cake\Http\Exception\NotFoundException;
+use Cake\Http\Response;
+use Cake\View\Exception\MissingTemplateException;
 
 /**
  * Articles Controller
@@ -242,7 +246,7 @@ class ArticlesController extends AppController
                 ->toArray();
 
             $this->set(compact('articles1','articles2','articles3'));
-        
+
         }
     }
     public function crypto () {
@@ -470,4 +474,6 @@ class ArticlesController extends AppController
 
 
     }
+
+
 }

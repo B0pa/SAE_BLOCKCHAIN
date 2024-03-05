@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\QuizTable;
+use App\Model\Table\AnswersTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\QuizTable Test Case
+ * App\Model\Table\AnswersTable Test Case
  */
-class QuizTableTest extends TestCase
+class AnswersTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\QuizTable
+     * @var \App\Model\Table\AnswersTable
      */
-    protected $Quiz;
+    protected $Answers;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class QuizTableTest extends TestCase
      * @var array<string>
      */
     protected array $fixtures = [
-        'app.Quiz',
+        'app.Answers',
     ];
 
     /**
@@ -35,8 +35,8 @@ class QuizTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Quiz') ? [] : ['className' => QuizTable::class];
-        $this->Quiz = $this->getTableLocator()->get('Quiz', $config);
+        $config = $this->getTableLocator()->exists('Answers') ? [] : ['className' => AnswersTable::class];
+        $this->Answers = $this->getTableLocator()->get('Answers', $config);
     }
 
     /**
@@ -46,7 +46,7 @@ class QuizTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Quiz);
+        unset($this->Answers);
 
         parent::tearDown();
     }
@@ -55,7 +55,7 @@ class QuizTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\QuizTable::validationDefault()
+     * @uses \App\Model\Table\AnswersTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

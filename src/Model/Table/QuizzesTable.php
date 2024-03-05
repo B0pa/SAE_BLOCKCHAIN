@@ -9,7 +9,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Quiz Model
+ * Quizzes Model
  *
  * @method \App\Model\Entity\Quiz newEmptyEntity()
  * @method \App\Model\Entity\Quiz newEntity(array $data, array $options = [])
@@ -25,7 +25,7 @@ use Cake\Validation\Validator;
  * @method iterable<\App\Model\Entity\Quiz>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Quiz>|false deleteMany(iterable $entities, array $options = [])
  * @method iterable<\App\Model\Entity\Quiz>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Quiz> deleteManyOrFail(iterable $entities, array $options = [])
  */
-class QuizTable extends Table
+class QuizzesTable extends Table
 {
     /**
      * Initialize method
@@ -37,9 +37,8 @@ class QuizTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('quiz');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+        // Ajouter cette ligne pour définir l'association hasMany avec le modèle Answer
+        $this->hasMany('Answers');
     }
 
     /**
@@ -60,22 +59,8 @@ class QuizTable extends Table
             ->allowEmptyString('question');
 
         $validator
-            ->scalar('answer1')
-            ->maxLength('answer1', 255)
-            ->allowEmptyString('answer1');
-
-        $validator
-            ->scalar('answer2')
-            ->maxLength('answer2', 255)
-            ->allowEmptyString('answer2');
-
-        $validator
-            ->scalar('answer3')
-            ->maxLength('answer3', 255)
-            ->allowEmptyString('answer3');
-
-        $validator
-            ->integer('realanswer')
+            ->scalar('realanswer')
+            ->maxLength('realanswer', 255)
             ->allowEmptyString('realanswer');
 
         $validator
@@ -92,6 +77,11 @@ class QuizTable extends Table
             ->scalar('csv_link')
             ->maxLength('csv_link', 45)
             ->allowEmptyString('csv_link');
+
+        $validator
+            ->scalar('csv_columne')
+            ->maxLength('csv_columne', 45)
+            ->allowEmptyString('csv_columne');
 
         return $validator;
     }

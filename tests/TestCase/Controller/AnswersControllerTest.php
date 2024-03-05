@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\QuizController;
+use App\Controller\AnswersController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\QuizController Test Case
+ * App\Controller\AnswersController Test Case
  *
- * @uses \App\Controller\QuizController
+ * @uses \App\Controller\AnswersController
  */
-class QuizControllerTest extends TestCase
+class AnswersControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,14 +22,14 @@ class QuizControllerTest extends TestCase
      * @var array<string>
      */
     protected array $fixtures = [
-        'app.Quiz',
+        'app.Answers',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\QuizController::index()
+     * @uses \App\Controller\AnswersController::index()
      */
     public function testIndex(): void
     {
@@ -40,7 +40,7 @@ class QuizControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\QuizController::view()
+     * @uses \App\Controller\AnswersController::view()
      */
     public function testView(): void
     {
@@ -51,7 +51,7 @@ class QuizControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\QuizController::add()
+     * @uses \App\Controller\AnswersController::add()
      */
     public function testAdd(): void
     {
@@ -62,7 +62,7 @@ class QuizControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\QuizController::edit()
+     * @uses \App\Controller\AnswersController::edit()
      */
     public function testEdit(): void
     {
@@ -73,7 +73,7 @@ class QuizControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\QuizController::delete()
+     * @uses \App\Controller\AnswersController::delete()
      */
     public function testDelete(): void
     {

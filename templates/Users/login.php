@@ -1,36 +1,32 @@
-<main class="bg-secondary d-flex flex-column align-items-center my-auto" style="height:100vh;">
+<main id="login-profil" >
     <?= $this->Html->link(
         "Retourner à l'accueil",
         ['controller'=> 'Pages', 'action' => 'home'],
         [
-            'class' => 'text-white fs-6 text-decoration-none btn btn-warning align-self-start m-2',
-            'style' => 'z-index:1;',
+            'id' => 'profil-btn-accueil',
+            'class' => 'grow',
             'escapeTitle' => false
         ]
     ) ?>
 
-    <div class="bg-danger my-4" ></div>
-    <div class="users form mt-5 bg-secondary rounded-3 col-10 mx-auto text-white p-3">
+    <div class="form">
         <?= $this->Flash->render() ?>
-        <div class="box text-white bg-dark m-auto">
-            <div class="form d-flex bg-dark">
+        <div class="box">
+            <div class="form1">
                 <?= $this->Form->create() ?>
                 <h2>Connexion</h2>
                 <div class="inputBox">
                     <?= $this->Form->control('email', [
-                        'required' => true,
-                        'class' => 'bg-transparent text-white',
-                        'style' => 'outline:none;'
+                        'required' => true
                     ]) ?>
                     <i></i>
                 </div>
                 <div class="inputBox">
                     <?= $this->Form->control('password',
-                        ['required' => true,
-                            'class'=>'text-white']) ?>
+                        ['required' => true]) ?>
                     <i></i>
                 </div>
-                <?= $this->Form->submit(__('Login'), ['class' => 'mt-2 m-auto col-12 text-center align-self-center btn btn-secondary']); ?>
+                <?= $this->Form->submit(__('Login'), ['id' => 'login-btn-connexion','class'=>'grow']); ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>
