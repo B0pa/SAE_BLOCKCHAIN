@@ -1,3 +1,3 @@
 <footer>
-    <p>Tous droits réservés à Arnaud Decourt , Thomas Perin , Thomas Domenech et Lucas Dilas</p>
+    <p>Tous droits réservés à Decourt, Perrin, Domenech et Dilas</p>
 </footer>
