@@ -28,7 +28,15 @@
 
                 <h3 class="home-aside-actus-h3" ><?= $actu->title ?></h3>
                 <?= $this->Html->image("upload/" . $actu->img, ['class' => 'home-aside-actus-img','alt' => 'image'])?>
-                <a class="home-aside-actus-lien " href=<?= $actu->link?>><?= $actu->title ?></a>
+
+                <?= $this->html->link(
+                    $actu->title,
+                    $actu->link,
+                    [
+                        'class' => 'home-aside-actus-lien',
+                        'escapeTitle' => false
+                        ]
+                ) ?>
                 <p class="home-aside-actus-p"><?= $actu->content?></p>
             </div>
         <?php
