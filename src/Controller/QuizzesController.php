@@ -167,9 +167,10 @@ class QuizzesController extends AppController
     public function quizzBlockchain()
     {
         $quizes = $this->Quizzes->find()
+            ->contain(['Answers'])
             ->where(['category' => 'blockchain'])
             ->toArray();
-
+    
         $this->set(compact('quizes'));
     }
 
@@ -220,26 +221,34 @@ class QuizzesController extends AppController
     {
         if ($this->request->is('post')) {
             $valide = $this->request->getCookie('validation');
+            
             if ($valide == 1) {
                 $data = $this->request->getData();
-
+                // dd($data);
+    
                 $correctAnswers = 0;
-
-                $allQuizIds = $this->Quizzes->find('list')->toArray();
-
-                foreach ($allQuizIds as $quizId) { // compter les bonnes reponses
-                    if (isset($data['reponse'.$quizId])) {
-                        $selectedAnswer = $data['reponse'.$quizId];
-                        $quiz = $this->Quizzes->get($quizId);
-                        if (!empty($selectedAnswer) && $quiz->realanswer == $selectedAnswer) {
-                            $correctAnswers++;
+    
+                $allQuizzes = $this->Quizzes->find()
+                    ->contain(['Answers'])
+                    ->where(['category' => 'blockchain'])
+                    ->toArray();
+    
+                foreach ($allQuizzes as $quiz) { // compter les bonnes reponses
+                    if (isset($data['reponse'.$quiz->id])) {
+                        $selectedAnswer = $data['reponse'.$quiz->id];
+                        // dd($quiz->answers);
+                        foreach ($quiz->answers as $answer) {
+                            // dd($answer->toArray());
+                            if (!empty($selectedAnswer) && $answer->num == $quiz->realanswer) {
+                                $correctAnswers++;
+                            }
                         }
                     }
                 }
-
+    
                 $points = $correctAnswers * 100; // Calculer les points
                 $cookie = $this->request->getCookie('blockchain');
-
+    
                 if ($cookie != null) {
                     // Le cookie existe, modifiez sa valeur
                     $newCookie = (new \Cake\Http\Cookie\Cookie('blockchain'))
