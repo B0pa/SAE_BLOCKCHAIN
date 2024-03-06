@@ -1,17 +1,17 @@
 
 
-<main class="mt-5 pt-5" >
-    <div class=" mt-3 d-flex align-items-center mx-auto w-75">
-        <?=$this->Html->image('cryptobitcoin.png', ['class' => 'img-fluid rounded-circle p-2 ','alt' => 'accueil','style' => 'width: 100px; height: 100px;'])?>
-        <h2 class="text-center" >Courbe du Bitcoin</h2>
+<main id="temps-main" class="navmarge" >
+    <div id="temps-titre-conteneur">
+        <?=$this->Html->image('cryptobitcoin.png', ['alt' => 'accueil'])?>
+        <h2>Courbe du Bitcoin</h2>
     </div>
 
-    <div class="" >
+    <div id="temps-graphics-conteneur" >
         <select id="chartType" onchange="changeChartType()">
             <option value="line">Line</option>
             <option value="candlestick">Candlestick</option>
         </select>
-        <canvas id="chart" class="m-2" style="max-height:60vh"></canvas>
+        <canvas id="chart"></canvas>
     </div>
 </main>
 
@@ -26,8 +26,14 @@
     // Récupération du context du canvas
     const ctx = document.getElementById('chart').getContext('2d');
 
+
+
     ctx.canvas.width = 1000;
     ctx.canvas.height = 250;
+
+
+
+
     color ='yellow';
 
 
@@ -120,4 +126,20 @@
         createChart(this.value);
         updateData();
     });
+
+    function isMobileDevice() {
+        if (
+            navigator.userAgent.match(/iPhone/i) ||
+            navigator.userAgent.match(/webOS/i) ||
+            navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/iPad/i) ||
+            navigator.userAgent.match(/iPod/i) ||
+            navigator.userAgent.match(/BlackBerry/i) ||
+            navigator.userAgent.match(/Windows Phone/i)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 </script>
