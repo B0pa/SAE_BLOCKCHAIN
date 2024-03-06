@@ -21,7 +21,7 @@ $loggedIn = $this->Authentication->isLoggedIn();
             <li class="navbtn <?php if($currentURL==="blockchain"||$currentURL==="nft"||$currentURL==="crypto"||$currentURL==="danger") echo' active';?>" >
                 <h4 class="" >Les Infos :</h4>
                 <ul class="sousmenu">
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>La Blockchain</h4>', ['controller'=> 'Articles', 'action' => 'blockchain'], [($currentURL === "blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>La Blockchain </h4>', ['controller'=> 'Articles', 'action' => 'blockchain'], [($currentURL === "blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                     <li class="navbtn" ><?php echo $this->Html->link('<h4>Les NFT</h4>', ['controller'=> 'Articles', 'action' => 'nft'], [($currentURL === "nft" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                     <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Crypto</h4>', ['controller'=> 'Articles', 'action' => 'crypto'], [($currentURL === "crypto" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                     <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Dangers</h4>', ['controller'=> 'Articles', 'action' => 'danger'], [($currentURL === "danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>

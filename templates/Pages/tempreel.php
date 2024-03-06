@@ -56,6 +56,7 @@
                     data: [],
                     borderColor: color,
                 }]
+
             },
             options: {
                 scales: {
@@ -63,10 +64,35 @@
                         type: 'time',
                         time: {
                             unit: 'minute'
+                        },
+                        grid: {
+                            display: true,
+                            color: 'rgba(255, 255, 255, 0.4)',
+                        },
+                        ticks:{
+                            color: 'rgba(255, 255, 255, 0.6)'
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: true,
+                            color: 'rgba(255, 255, 255, 0.4)',
+                        },
+                        ticks:{
+                            color: 'rgba(255, 255, 255, 0.6)'
+                        }
+                    }
+
+                },
+                plugins: {
+                    legend:{
+                        labels:{
+                            color:'rgba(255, 255, 255, 0.6)'
                         }
                     }
                 }
             }
+
         });
     }
 
