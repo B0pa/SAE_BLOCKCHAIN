@@ -27,7 +27,7 @@
     <div id="crypto-conteneur-titreimg" >
         <?= $this->Html->image('crypto.gif', ['id' => 'crypto-img-entete']); ?>
         <h1 id="crypto-h1" >
-            Les Cryptomonnaies
+            Les <span>Cryptomonnaies</span>
         </h1>
     </div>
 

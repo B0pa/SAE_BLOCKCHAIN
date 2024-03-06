@@ -808,15 +808,15 @@ footer>p{
 .actuality-conteneur-iframe{
     overflow: hidden;
     padding-bottom:56.25%;
-    position:relative; 
+    position:relative;
     height: 0;
 }
 
 .actualite-img-articles{
     left: 50%;
-    top:50%; 
+    top:50%;
     transform: translate(-50%,-50%);
-    
+
     height:75%;
     width:75%;
     position:absolute;
@@ -846,7 +846,7 @@ footer>p{
 }
 
 @media only screen and (max-width: 768px) {
-    
+
     #actuality-main{
         padding: 10px 0px;
     }
@@ -855,7 +855,7 @@ footer>p{
         padding: 10px;
         border-radius: 0;
     }
-    
+
     .actualite-img-articles{
         width:100%;
         height:100%;

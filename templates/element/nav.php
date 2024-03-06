@@ -17,34 +17,33 @@ $loggedIn = $this->Authentication->isLoggedIn();
     </div>
     <nav class="navbar">
         <ul>
-            <li class="navbtn<?php if($currentURL==="") echo' active';?>"  ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'home']) ?>"><h4>Accueil</h4></a></li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Acceuil</h4>', ['controller'=> 'Pages', 'action' => 'home'], ['class' => 'navbtn' . ($currentURL === "" ? ' active' : ''), 'escapeTitle' => false]);?></li>
             <li class="navbtn <?php if($currentURL==="blockchain"||$currentURL==="nft"||$currentURL==="crypto"||$currentURL==="danger") echo' active';?>" >
                 <h4 class="" >Les Infos :</h4>
                 <ul class="sousmenu">
-                    <li class="navbtn<?php if($currentURL==="blockchain") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>"><h4>Les Blockchain</h4></a></li>
-                    <li class="navbtn<?php if($currentURL==="nft") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>"><h4>Les NFT</h4></a></li>
-                    <li class="navbtn<?php if($currentURL==="crypto") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>"><h4>Les Crypto</h4></a></li>
-                    <li class="navbtn<?php if($currentURL==="danger") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>"><h4>Les Dangers</h4></a></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>La Blockchain </h4>', ['controller'=> 'Articles', 'action' => 'blockchain'], [($currentURL === "blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les NFT</h4>', ['controller'=> 'Articles', 'action' => 'nft'], [($currentURL === "nft" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Crypto</h4>', ['controller'=> 'Articles', 'action' => 'crypto'], [($currentURL === "crypto" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Dangers</h4>', ['controller'=> 'Articles', 'action' => 'danger'], [($currentURL === "danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                 </ul>
             </li>
-            <li class="navbtn<?php if($currentURL==="actuality") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Actualities', 'action' => 'actuality']) ?>"><h4>Les Actus</h4></a></li>
-            <li class="navbtn<?php if($currentURL==="tempreel") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'tempreel']) ?>"><h4>Courbe en Temps Réel</h4></a></li>
-            <li class="navbtn<?php if($currentURL==="wallet") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'wallet']) ?>"><h4>Wallet</h4></a></li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Actu</h4>', ['controller'=> 'Actualities', 'action' => 'actuality'], ['class' => 'navbtn' . ($currentURL === "actuality" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Courbe en Temps Réel</h4>', ['controller'=> 'Pages', 'action' => 'tempreel'], ['class' => 'navbtn' . ($currentURL === "tempreel" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Wallet</h4>', ['controller'=> 'Pages', 'action' => 'wallet'], ['class' => 'navbtn' . ($currentURL === "wallet" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+
             <?php
             if ($loggedIn):
                 ?>
-                <li class="navbtn<?php if($currentURL==="update") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Users', 'action' => 'update']) ?>"><h4>Admin</h4></a></li>
+
+                <li class="navbtn" ><?php echo $this->Html->link('<h4>Admin</h4>', ['controller'=> 'Users', 'action' => 'update'], ['class' => 'navbtn' . ($currentURL === "update" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                <li class="navbtn" ><?php echo $this->Html->link('<h4>Logout</h4>', ['controller'=> 'Users', 'action' => 'logout'], ['class' => 'navbtn' . ($currentURL === "logout" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+
             <?php
             endif; ?>
         </ul>
     </nav>
 
-    <?php
-    if ($loggedIn):
-        ?>
-       <a href="<?= $this->Url->build(['controller'=> 'Users', 'action' => 'logout']) ?>"><h4>logout</h4></a>
-    <?php
-    endif; ?>
 
     <?php
     $class = ($currentURL === "profil") ? 'active' : '';

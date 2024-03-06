@@ -27,11 +27,11 @@
     const ctx = document.getElementById('chart').getContext('2d');
 
 
-    
-        ctx.canvas.width = 1000;
-        ctx.canvas.height = 250;
-    
-    
+
+    ctx.canvas.width = 1000;
+    ctx.canvas.height = 250;
+
+
 
 
     color ='yellow';
@@ -67,7 +67,7 @@
                         },
                         grid: {
                             display: true,
-                            color: 'rgba(255, 255, 255, 0.4)', 
+                            color: 'rgba(255, 255, 255, 0.4)',
                         },
                         ticks:{
                             color: 'rgba(255, 255, 255, 0.6)'
@@ -75,14 +75,14 @@
                     },
                     y: {
                         grid: {
-                            display: true, 
-                            color: 'rgba(255, 255, 255, 0.4)', 
+                            display: true,
+                            color: 'rgba(255, 255, 255, 0.4)',
                         },
                         ticks:{
                             color: 'rgba(255, 255, 255, 0.6)'
                         }
                     }
-                    
+
                 },
                 plugins: {
                     legend:{
@@ -92,7 +92,7 @@
                     }
                 }
             }
-            
+
         });
     }
 
@@ -154,18 +154,18 @@
     });
 
     function isMobileDevice() {
-    if (
-        navigator.userAgent.match(/iPhone/i) ||
-        navigator.userAgent.match(/webOS/i) ||
-        navigator.userAgent.match(/Android/i) ||
-        navigator.userAgent.match(/iPad/i) ||
-        navigator.userAgent.match(/iPod/i) ||
-        navigator.userAgent.match(/BlackBerry/i) ||
-        navigator.userAgent.match(/Windows Phone/i)
-    ) {
-        return true;
-    } else {
-        return false;
+        if (
+            navigator.userAgent.match(/iPhone/i) ||
+            navigator.userAgent.match(/webOS/i) ||
+            navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/iPad/i) ||
+            navigator.userAgent.match(/iPod/i) ||
+            navigator.userAgent.match(/BlackBerry/i) ||
+            navigator.userAgent.match(/Windows Phone/i)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
     }
-}
 </script>

@@ -13,7 +13,7 @@
     <div id="crypto-conteneur-titreimg" >
         <?= $this->Html->image('danger.gif', ['id' => 'crypto-img-entete']); ?>
         <h1 id="crypto-h1" >
-            Les Dangers
+            Les <span>Dangers</span>
         </h1>
     </div>
 

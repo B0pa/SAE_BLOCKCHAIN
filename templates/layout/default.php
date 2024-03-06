@@ -79,7 +79,8 @@ switch ($currentURL) {
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['style']) ?>
+
+    <link rel="stylesheet" href="/css/style.css?v=<?= random_int(1000000, 9999999)  ?>">
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

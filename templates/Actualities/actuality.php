@@ -6,7 +6,7 @@
     <div class="actualite-conteneur-articles" >
         <h3 class="actualite-titre-articles">Quelques liens de médias mis a jour régulièrement que nous trouvons intéressants</h3>
         <p class="actualite-texte-articles" >La dernière vidéo de Hasheur:</p>
-        
+
         <div class="actuality-conteneur-iframe" >
             <iframe
                 src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UULFhlTcWDE8gd4tsl_L727NrQ"
@@ -29,8 +29,12 @@
             <p class="actualite-texte-articles" ><?= $actu->content?></p>
             <p class="actualite-lien-articles">
                 <a href=<?= $actu->link?>><?= $actu->title ?></a>
+                <?= $this->Html->link(
+                    $actu->title, // The text to be displayed as the link
+                    $actu->link// The URL where the link should redirect to
+                ); ?>
             </p>
-            
+
         </div>
     <?php
     endforeach;
