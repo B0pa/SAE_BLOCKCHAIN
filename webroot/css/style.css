@@ -106,7 +106,7 @@ h1,h2,h3,h4,h5,h6{
     font-family: 'mont', sans-serif!important;
 }
 
-p,a,li,button,span,label{
+p,a,li,button,span,label,td,th{
     font-family: 'rob', sans-serif!important;
 }
 
@@ -1495,4 +1495,49 @@ table.profil-tab tfoot .links a{
         order: 1;
     }
 
+}
+
+/*================USERS (DELETE)=====================*/
+
+#usersdelete-main{
+    padding: 20px 40px;
+    min-height: calc(100vh - 130px);
+}
+
+#usersdelete-title{
+    color: #FFFFFF;
+    margin: 20px;
+}
+
+#usersdelete-conteneur-table{
+    background-color: #888;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.usersdelete-table-th-td{
+    padding: 5px 10px;
+}
+
+#usersdelete-table-thead>tr>*>*{
+    color: #FFE30A;
+}
+
+.actions>a{
+    color: #FFE30A;
+}
+
+#usersdelete-paginator{
+    color: #FFFFFF;
+    margin-left: 10px;
+}
+
+#usersdelete-paginator>ul{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+#usersdelete-paginator>ul>li>a{
+    color: #FFE30A;
 }
