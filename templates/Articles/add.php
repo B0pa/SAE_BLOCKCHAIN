@@ -5,65 +5,129 @@
  */
 ?>
 
-<?= $this->element('nav_admin')?>
-<main class="mt-5 pt-3 col col-12" >
-    <div class="d-flex col col-12">
-        <div class="text-center col col-6">
-            <h2 class="heading"><?= __('Actions') ?></h2>
-            <?= $this->Html->link(__('List Articles'), ['action' => 'index'], ['class' => 'side-nav-item text-warning']) ?>
-        </div>
-        <div class="text-center col col-6" >
-            <h2>Prévisualisation</h2>
-        </div>
-    </div>
-    <div class="row col-12">
-        <div class="col col-5 my-4 mx-auto p-4 bg-dark rounded text-white slideFromTop">
-            <div class="articles content">
-                <?= $this->Form->create($article, ['type' => 'file']) ?>
-                <fieldset>
-                    <legend class="" ><?= __('Add Article') ?></legend>
-                    <?php
-                    echo $this->Form->button('Modifier le CSS du titre', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_title']);
-                    echo $this->Form->text('css_title', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_title']);
+<main id="addarticles-main" class="navmarge" >
+    <div id="addarticles-conteneur">
+        <div id="addarticles-add-conteneur" class="slideFromTop">
+            <div id="addarticles-add-action-conteneur" >
+                <h2 class="heading"><?= __('Actions') ?></h2>
+                <?= $this->Html->link(__('List Articles'), ['action' => 'index'],
+                    ['id' => 'addarticles-add-actions']) ?>
+            </div>
 
+            <?= $this->Form->create($article, ['type' => 'file']) ?>
+            <fieldset id="addarticles-add-content-conteneur">
+                <legend class="" ><?= __('Add Article') ?></legend>
+                <div id="addarticles-add-content-title">
+                    <?php
                     echo $this->Form->control('title', [
-                        'class' => 'form-control bg-secondary'
+                        'class' => 'form-control bg-secondary',
+                        'id'=>'addarticles-add-input-title'
                     ]);
 
-                    echo $this->Form->button('Modifier le CSS du contenu', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_content']);
-                    echo $this->Form->text('css_content', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_content']);
+                    echo $this->Form->button('Modifier le CSS du titre', [
+                        'type' => 'button',
+                        'class' => 'btn btn-secondary mt-3',
+                        'id' => 'addarticles-add-edit-css-title-btn',
+                        'data-target' => '#addarticles-css-title'
+                    ]);
 
+                    echo $this->Form->text('css_title', [
+                        'style' => 'display: none;',
+                        'class' => 'form-control bg-secondary',
+                        'id' => 'addarticles-css-title'
+                    ]);
 
-                    echo $this->Form->button('Gras', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'boldButton']);
-                    echo $this->Form->button('Souligner', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'underlineButton']);
+                    ?>
+                </div>
+
+                <div id="addarticles-add-content-content">
+                    <?php
                     echo $this->Form->control('content',[
                         'class' => 'form-control bg-secondary'
                     ]);
 
-                    echo $this->Form->control('level', ['class' => 'form-control bg-secondary', 'options' => [1 => 1, 2 => 2, 3 => 3]]);
-                    echo $this->Form->control('category',['class' => 'form-control bg-secondary','options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto']] );
+                    echo $this->Form->button('Gras',
+                        ['type' => 'button',
+                            'class' => 'btn btn-secondary mt-3',
+                            'id' => 'boldButton']);
 
-                    echo $this->Form->button("Modifier le CSS de l'image ", ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_img']);
-                    echo $this->Form->text('css_img', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_img']);
+                    echo $this->Form->button('Souligner',
+                        ['type' => 'button',
+                            'class' => 'btn btn-secondary mt-3',
+                            'id' => 'underlineButton']);
+
+                    echo $this->Form->button('Modifier le CSS du contenu',
+                        ['type' => 'button',
+                            'class' => 'btn btn-secondary mt-3',
+                            'id' => 'addarticles-edit-css-content-btn',
+                            'data-target' => '#addarticles-css-content'
+                        ]);
+
+                    echo $this->Form->text('css_content',
+                        ['style' => 'display: none;',
+                            'class' => 'form-control bg-secondary',
+                            'id' => 'addarticles-css-content'
+                        ]);
+
+                    ?>
+                </div>
+
+                <div id="addarticles-add-content-options">
+                    <?php
+                    echo $this->Form->control('level',
+                        ['class' => 'form-control bg-secondary',
+                            'options' => [1 => 1, 2 => 2, 3 => 3]]);
+
+                    echo $this->Form->control('category',
+                        ['class' => 'form-control bg-secondary',
+                            'options' => ['blockchain' => 'Blockchain',
+                                'danger' => 'Danger', 'nft' => 'NFT',
+                                'crypto' => 'Crypto']] );
 
                     echo $this->Form->control('upload', [
                         'type' => 'file',
                         'label' => 'Votre jolie image',
                         'class' => 'form-control bg-secondary',
-                        'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
+                        'id' => 'addarticles-inputfile',
+                        'after' => $this->Form->button('Modifier l\'image',
+                            ['type' => 'button',
+                                'class' => 'btn btn-secondary mt-3',
+                                'id' => 'edit-upload-btn',
+                                'data-target' => '#upload-input']),
                     ]);
 
-                    echo $this->Form->control('position_image', ['class' => 'form-control bg-secondary', 'options' => ["" =>" ", "b" => "en bas", "d" => "à droite", "g" => "à gauche"]]);
+                    echo $this->Form->button("Modifier le CSS de l'image ",
+                        ['type' => 'button',
+                            'class' => 'btn btn-secondary mt-3',
+                            'id' => 'addarticles-edit-content-img-btn',
+                            'data-target' => '#addarticles-css-img']);
+
+                    echo $this->Form->text('css_img',
+                        ['style' => 'display: none;',
+                            'class' => 'form-control bg-secondary',
+                            'id' => 'addarticles-css-img']);
+
+                    echo $this->Form->control('position_image',
+                        ['class' => 'form-control bg-secondary',
+                            'options' => ["" =>" ", "b" => "en bas",
+                                "d" => "à droite", "g" => "à gauche"]]);
                     ?>
+                </div>
 
 
 
-                </fieldset>
-                <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-secondary mt-3']) ?>
-                <?= $this->Form->end() ?>
-            </div>
+
+            </fieldset>
+            <?= $this->Form->button(__('Submit'),
+                ['id' => 'addarticles-add-content-btn-add','class' => 'grow']) ?>
+            <?= $this->Form->end() ?>
+
         </div>
-        <aside class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
+        <aside id="addarticles-prev-conteneur" class="col side-nav col-5 d-flex flex-column bg-dark text-white mx-auto p-4 my-4 rounded-3 slideFromTop articles content">
+            <div id="addarticles-prev-title" >
+                <h2>Prévisualisation</h2>
+                <hr>
+            </div>
             <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
             <div id="div-parent-preview" style="overflow-y: auto; overflow-x: hidden;">
                 <div id="imagePreview" class="p-2 mx-auto " style="width:33%;"></div>
@@ -87,28 +151,28 @@
         });
 
         // Lorsque le champ title-input change
-        $('#css_title').on('input', function() {
+        $('#addarticles-css-title').on('input', function() {
             // Obtenez la classe Bootstrap entrée par l'utilisateur
             var bootstrapClass = $(this).val();
 
             // Appliquez la classe Bootstrap à l'élément de titre
-            $('#preview-title').attr('class', bootstrapClass);
+            $('#preview-title').attr('style', bootstrapClass);
         });
 
-        $('#css_content').on('input', function() {
+        $('#addarticles-css-content').on('input', function() {
             // Obtenez la classe Bootstrap entrée par l'utilisateur
             var bootstrapClass = $(this).val();
 
             // Appliquez la classe Bootstrap à l'élément de titre
-            $('#preview-text').attr('class', bootstrapClass);
+            $('#preview-text').attr('style', bootstrapClass);
         });
 
-        $('#css_img').on('input', function() {
+        $('#addarticles-css-img').on('input', function() {
             // Obtenez la classe Bootstrap entrée par l'utilisateur
             var bootstrapClass = $(this).val();
 
             // Appliquez la classe Bootstrap à l'image elle-même
-            $('#imagePreview img').attr('class', bootstrapClass);
+            $('#imagePreview img').attr('style', bootstrapClass);
         });
 
 

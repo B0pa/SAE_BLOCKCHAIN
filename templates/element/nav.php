@@ -17,7 +17,7 @@ $loggedIn = $this->Authentication->isLoggedIn();
     </div>
     <nav class="navbar">
         <ul>
-            <li class="navbtn" ><?php echo $this->Html->link('<h4>Acceuil</h4>', ['controller'=> 'Pages', 'action' => 'home'], ['class' => 'navbtn' . ($currentURL === "" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Accueil</h4>', ['controller'=> 'Pages', 'action' => 'home'], ['class' => 'navbtn' . ($currentURL === "" ? ' active' : ''), 'escapeTitle' => false]);?></li>
             <li class="navbtn <?php if($currentURL==="blockchain"||$currentURL==="nft"||$currentURL==="crypto"||$currentURL==="danger") echo' active';?>" >
                 <h4 class="" >Les Infos :</h4>
                 <ul class="sousmenu">
@@ -28,7 +28,7 @@ $loggedIn = $this->Authentication->isLoggedIn();
                 </ul>
             </li>
             <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Actu</h4>', ['controller'=> 'Actualities', 'action' => 'actuality'], ['class' => 'navbtn' . ($currentURL === "actuality" ? ' active' : ''), 'escapeTitle' => false]);?></li>
-            <li class="navbtn" ><?php echo $this->Html->link('<h4>Courbe en Temps Réel</h4>', ['controller'=> 'Pages', 'action' => 'tempreel'], ['class' => 'navbtn' . ($currentURL === "tempreel" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Courbes en Temps Réel</h4>', ['controller'=> 'Pages', 'action' => 'tempreel'], ['class' => 'navbtn' . ($currentURL === "tempreel" ? ' active' : ''), 'escapeTitle' => false]);?></li>
 
             <li class="navbtn" ><?php echo $this->Html->link('<h4>Wallet</h4>', ['controller'=> 'Pages', 'action' => 'wallet'], ['class' => 'navbtn' . ($currentURL === "wallet" ? ' active' : ''), 'escapeTitle' => false]);?></li>
 
