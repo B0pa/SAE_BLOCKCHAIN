@@ -106,7 +106,7 @@ h1,h2,h3,h4,h5,h6{
     font-family: 'mont', sans-serif!important;
 }
 
-p,a,li,button,span,label,td,th{
+p,a,li,button,span,label,td,th,legend{
     font-family: 'rob', sans-serif!important;
 }
 
@@ -1540,4 +1540,162 @@ table.profil-tab tfoot .links a{
 
 #usersdelete-paginator>ul>li>a{
     color: #FFE30A;
+}
+
+/*================ADD ARTICLES=====================*/
+
+#addarticles-main{
+    color: #FFFFFF;
+    padding: 20px 40px;
+    min-height: calc(100vh - 130px);
+}
+
+#addarticles-conteneur{
+    display: flex;
+    color: #000000;
+    background-color: #888;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#addarticles-add-conteneur{
+    width: 50%;
+    padding: 10px 20px;
+}
+
+#addarticles-add-actions{
+    color: #FFE30A;
+}
+
+#addarticles-add-action-conteneur{
+    margin-bottom: 10px;
+}
+
+#addarticles-add-content-conteneur{
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px 0;
+}
+
+#addarticles-add-content-title>div{
+    display: flex;
+    flex-direction: column;
+}
+
+#addarticles-add-content-title>div input{
+    width: 52%;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 3px;
+}
+
+#addarticles-add-edit-css-title-btn{
+    border-radius: 5px;
+    padding: 3px;
+    margin: 5px 5px 5px 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#addarticles-css-title{
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#addarticles-add-content-content>div{
+    display: flex;
+    flex-direction: column;
+}
+
+#addarticles-add-content-content>div textarea{
+    
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 3px;
+}
+
+#boldButton{
+    border-radius: 5px;
+    padding: 3px;
+    margin: 5px 5px 5px 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#underlineButton{
+    border-radius: 5px;
+    padding: 3px;
+    margin: 5px 5px 5px 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#addarticles-edit-css-content-btn{
+    border-radius: 5px;
+    padding: 3px;
+    margin: 5px 5px 5px 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#addarticles-css-content{
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#addarticles-add-content-options>div{
+    display: flex;
+    flex-direction: column;
+}
+
+#addarticles-add-content-options>div select{
+    width: 20%;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 3px;
+}
+
+#addarticles-add-content-options>div input{
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+#addarticles-edit-content-img-btn{
+    border-radius: 5px;
+    padding: 3px;
+    margin: 5px 5px 5px 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+#addarticles-css-img{
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#addarticles-add-content-btn-add{
+    color: #000000;
+    background-color: #FFE30A;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#addarticles-prev-conteneur{
+    width: 50%;
+    padding: 20px;
+}
+
+#addarticles-prev-title{
+    text-align: center;
+}
+
+#addarticles-prev-title hr{
+    border-color: #000000;
+    margin-top: 10px;
 }
