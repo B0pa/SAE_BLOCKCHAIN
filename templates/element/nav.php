@@ -36,7 +36,7 @@ $loggedIn = $this->Authentication->isLoggedIn();
             if ($loggedIn):
                 ?>
 
-                <li class="navbtn" ><?php echo $this->Html->link('<h4>Admin</h4>', ['controller'=> 'Users', 'action' => 'update'], ['class' => 'navbtn' . ($currentURL === "update" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                <li class="navbtn" ><?php echo $this->Html->link('<h4>Admin</h4>', ['controller'=> 'Users', 'action' => 'update'], ['class' => 'navbtn' . ($currentURL === "users" ||$currentURL === "update" || $currentURL === "articles" || $currentURL === "actualities" || $currentURL === "quizzes" || $currentURL === "register" || $currentURL == "add" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                 <li class="navbtn" ><?php echo $this->Html->link('<h4>Logout</h4>', ['controller'=> 'Users', 'action' => 'logout'], ['class' => 'navbtn' . ($currentURL === "logout" ? ' active' : ''), 'escapeTitle' => false]);?></li>
 
             <?php
