@@ -4,16 +4,7 @@ $pageType = strtolower(basename($_SERVER['REQUEST_URI']));
 $form = new \Cake\Form\Form();
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-
-<body class="bg-secondary" >
-<?= $this->element('nav_admin')?>
+<main class="bg-secondary" >
 <div class="container mt-5">
 
     <div class="row">
@@ -60,7 +51,7 @@ $form = new \Cake\Form\Form();
     </div>
 
 </div>
-
+</main>
 <script>
 
     $(function() {
@@ -93,6 +84,3 @@ $form = new \Cake\Form\Form();
 
     });
 </script>
-
-</body>
-</html>

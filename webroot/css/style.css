@@ -595,7 +595,7 @@ footer>p{
 
 .home-card-categories{
     display: flex;
-    background-color: #ffffff;
+    background-color: #232321;
     text-decoration: none;
     padding: 10px;
     padding-left: 10px;
@@ -616,7 +616,7 @@ footer>p{
 
 .home-card-categories-text{
     display: flex;
-    color: #000000;
+    color: #ffffff;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -632,7 +632,7 @@ footer>p{
 }
 
 #home-aside-conteneur-actu{
-    background-color: #474747;
+    background-color: #232321;
     padding: 20px;
     text-align: center;
     border-radius: 15px;
@@ -656,8 +656,8 @@ footer>p{
 #home-aside-actu-conteneur-video{
     padding:20px;
     margin-bottom: 20px;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #474747;
+    color: #ffffff;
     border-radius: 20px;
 }
 
@@ -676,8 +676,8 @@ footer>p{
 }
 
 .home-aside-actus{
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #474747;
+    color: #ffffff;
     border-radius: 20px;
     padding: 20px;
     margin-top: 20px;
@@ -835,8 +835,8 @@ footer>p{
 }
 
 .actualite-conteneur-articles{
-    background-color: #888;
-    color: #000000;
+    background-color: #232321;
+    color: #ffffff;
     padding: 10px 60px 60px 60px;
     margin: 30px 0 30px 0px;
     border-radius: 30px;
@@ -933,8 +933,8 @@ footer>p{
 }
 
 .crypto-conteneur-articles{
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #232321;
+    color: #ffffff;
     padding: 10px 60px 60px 60px;
     margin: 30px 0 30px 0px;
     border-radius: 30px;
@@ -946,7 +946,7 @@ footer>p{
 }
 
 .crypto-conteneur-bas-articles{
-    border-top: #000000 solid 3px;
+    border-top: #ffffff solid 3px;
     padding-top: 20px;
     justify-content: center;
     display: flex;
@@ -1003,7 +1003,7 @@ footer>p{
 
 #temps-graphics-conteneur{
     margin-top: 10px;
-    background-color: #474747;
+    background-color: #232321;
     padding: 30px;
     border-radius: 10px;
 }
@@ -1033,7 +1033,7 @@ footer>p{
 #profil-niveau-conteneur{
     display: flex;
     gap: 40px;
-    background-color: #474747;
+    background-color: #232321;
     color: #ffffff;
     padding: 20px;
     border-radius: 20px;
@@ -1291,7 +1291,7 @@ table.profil-tab tfoot .links a{
     position: absolute;
     inset: 2px;
     border-radius: 8px;
-    background-color: #212529;
+    background-color: #000000;
     z-index: 10;
     padding: 80px 40px;
     display: flex;
@@ -1302,7 +1302,7 @@ table.profil-tab tfoot .links a{
     position: absolute;
     inset: 2px;
     border-radius: 8px;
-    background-color: #000000;
+    background-color: #232321;
     z-index: 10;
     padding: 80px 40px;
     display: flex;
@@ -1401,7 +1401,7 @@ table.profil-tab tfoot .links a{
 }
 
 #register-conteneur{
-    background-color: #474747;
+    background-color: #232321;
     color: #ffffff;
     padding: 20px;
     border-radius: 10px;
@@ -1415,6 +1415,8 @@ table.profil-tab tfoot .links a{
 
 #register-conteneur>form>div input{
     border-radius: 5px;
+    margin: 5px 0;
+    padding: 5px;
     width: 25%;
 }
 
@@ -1557,7 +1559,8 @@ table.profil-tab tfoot .links a{
 }
 
 .index-conteneur-table{
-    background-color: #888;
+    background-color: #232321;
+    color: #FFFFFF;
     padding: 10px;
     border-radius: 5px;
 }

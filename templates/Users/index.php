@@ -11,7 +11,7 @@
 ?>
 
 <main class="navmarge index-main" >
-    <h3 class="index-title" ><?= __('Users') ?></h3>
+    <h1 class="index-title" ><?= __('Users') ?></h1>
     <div class="index-conteneur-table">
         <table>
             <thead class="index-table-thead" >
