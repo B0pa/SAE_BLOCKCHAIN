@@ -138,214 +138,65 @@ class QuizzesController extends AppController
 
     public function quizzDanger()
     {
-        $quizes = $this->Quizzes->find()
-            ->where(['category' => 'danger'])
-            ->toArray();
-
-        $this->set(compact('quizes'));
-
+        
     }
 
     public function quizzNFT()
     {
-        $quizes = $this->Quizzes->find()
-            ->where(['category' => 'nft'])
-            ->toArray();
-
-        $this->set(compact('quizes'));
+        
     }
 
     public function quizzcrypto()
     {
-        $quizes = $this->Quizzes->find()
-            ->where(['category' => 'crypto'])
-            ->toArray();
-
-        $this->set(compact('quizes'));
+        
     }
 
     public function quizzBlockchain()
     {
-        $quizes = $this->Quizzes->find()
+        // Récupérez le quiz correspondant à l'index
+        $quiz_lvl1 = $this->Quizzes->find()
             ->contain(['Answers'])
-            ->where(['category' => 'blockchain'])
+            ->where(['category' => 'blockchain', 'level' => 1])
+            ->offset($quizIndex)
             ->toArray();
-    
-        $this->set(compact('quizes'));
+        $quiz_lvl2 = $this->Quizzes->find()
+            ->contain(['Answers'])
+            ->where(['category' => 'blockchain', 'level' => 2])
+            ->offset($quizIndex)
+            ->toArray();
+        $quiz_lvl3 = $this->Quizzes->find()
+            ->contain(['Answers'])
+            ->where(['category' => 'blockchain', 'level' => 3])
+            ->offset($quizIndex)
+            ->toArray();
+        
+        $selectedAnswers = [];
+        
+        // Passez le quiz à la vue
+        $this->set(compact('quiz_lvl1'));
+        $this->set(compact('quiz_lvl2'));
+        $this->set(compact('quiz_lvl3'));
+        $this->set(compact('selectedAnswers'));
+
     }
 
     public function checkAnswersDanger() // Verification reponse danger
     {
-        if ($this->request->is('post')) {
-            $valide = $this->request->getCookie('validation');
-            // get valeur validation
-            Log::write('debug', $valide);
-            if ($valide == 1) {
-                $data = $this->request->getData();
-
-                $correctAnswers = 0;
-
-                $allQuizIds = $this->Quizzes->find('list')->toArray();
-
-                foreach ($allQuizIds as $quizId) { // compter les bonnes reponses
-                    if (isset($data['reponse'.$quizId])) {
-                        $selectedAnswer = $data['reponse'.$quizId];
-                        $quiz = $this->Quizzes->get($quizId);
-                        if (!empty($selectedAnswer) && $quiz->realanswer == $selectedAnswer) {
-                            $correctAnswers++;
-                        }
-                    }
-                }
-
-                $points = $correctAnswers * 100; // Calculer les points
-                $cookie = $this->request->getCookie('danger');
-
-                if ($cookie != null) {
-                    // Le cookie existe, modifiez sa valeur
-                    $newCookie = (new \Cake\Http\Cookie\Cookie('danger'))
-                        ->withValue($points) // Ajoutez 500 à la valeur actuelle
-                        ->withExpiry(new \DateTime('+1 day')); // Définissez l'expiration à 1 jour à partir de maintenant
-                    $this->response = $this->response->withCookie($newCookie);
-                } else {
-                    // Le cookie n'existe pas
-                    $this->Flash->error("Le cookie de score n'existe pas.");
-                }
-                return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
-            }
-        }
-        $this->Flash->error("Vous devez accepter les cookies pour pouvoir jouer");
-        return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
+        
     }
-    // checkAnswersBlockchain
-    public function checkAnswersBlockchain() // Verification reponse blockchain
+    public function checkAnswersBlockchain()
     {
-        if ($this->request->is('post')) {
-            $valide = $this->request->getCookie('validation');
-            
-            if ($valide == 1) {
-                $data = $this->request->getData();
-                // dd($data);
-    
-                $correctAnswers = 0;
-    
-                $allQuizzes = $this->Quizzes->find()
-                    ->contain(['Answers'])
-                    ->where(['category' => 'blockchain'])
-                    ->toArray();
-    
-                foreach ($allQuizzes as $quiz) { // compter les bonnes reponses
-                    if (isset($data['reponse'.$quiz->id])) {
-                        $selectedAnswer = $data['reponse'.$quiz->id];
-                        // dd($quiz->answers);
-                        foreach ($quiz->answers as $answer) {
-                            // dd($answer->toArray());
-                            if (!empty($selectedAnswer) && $answer->num == $quiz->realanswer) {
-                                $correctAnswers++;
-                            }
-                        }
-                    }
-                }
-    
-                $points = $correctAnswers * 100; // Calculer les points
-                $cookie = $this->request->getCookie('blockchain');
-    
-                if ($cookie != null) {
-                    // Le cookie existe, modifiez sa valeur
-                    $newCookie = (new \Cake\Http\Cookie\Cookie('blockchain'))
-                        ->withValue($points) // Ajoutez 500 à la valeur actuelle
-                        ->withExpiry(new \DateTime('+1 day')); // Définissez l'expiration à 1 jour à partir de maintenant
-                    $this->response = $this->response->withCookie($newCookie);
-                } else {
-                    // Le cookie n'existe pas
-                    $this->Flash->error("Le cookie de score n'existe pas.");
-                }
-                return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
-            }
-        }
-        $this->Flash->error("Vous devez accepter les cookies pour pouvoir jouer");
-        return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
+        
     }
     // checkAnswersNFT
     public function checkAnswersNFT() // Verification reponse blockchain
     {
-        if ($this->request->is('post')) {
-            $valide = $this->request->getCookie('validation');
-            if ($valide == 1) {
-                $data = $this->request->getData();
-
-                $correctAnswers = 0;
-
-                $allQuizIds = $this->Quizzes->find('list')->toArray();
-
-                foreach ($allQuizIds as $quizId) { // compter les bonnes reponses
-                    if (isset($data['reponse'.$quizId])) {
-                        $selectedAnswer = $data['reponse'.$quizId];
-                        $quiz = $this->Quizzes->get($quizId);
-                        if (!empty($selectedAnswer) && $quiz->realanswer == $selectedAnswer) {
-                            $correctAnswers++;
-                        }
-                    }
-                }
-
-                $points = $correctAnswers * 100; // Calculer les points
-                $cookie = $this->request->getCookie('nft');
-
-                if ($cookie != null) {
-                    // Le cookie existe, modifiez sa valeur
-                    $newCookie = (new \Cake\Http\Cookie\Cookie('nft'))
-                        ->withValue($points) // Ajoutez 500 à la valeur actuelle
-                        ->withExpiry(new \DateTime('+1 day')); // Définissez l'expiration à 1 jour à partir de maintenant
-                    $this->response = $this->response->withCookie($newCookie);
-                } else {
-                    // Le cookie n'existe pas
-                    $this->Flash->error("Le cookie de score n'existe pas.");
-                }
-                return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
-            }
-        }
-        $this->Flash->error("Vous devez accepter les cookies pour pouvoir jouer");
-        return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
+        
     }
     // checkAnswersCrypto
     public function checkAnswersCrypto() // Verification reponse crypto
     {
-        if ($this->request->is('post')) {
-            $valide = $this->request->getCookie('validation');
-            if ($valide == 1) {
-                $data = $this->request->getData();
-
-                $correctAnswers = 0;
-
-                $allQuizIds = $this->Quizzes->find('list')->toArray();
-
-                foreach ($allQuizIds as $quizId) { // compter les bonnes reponses
-                    if (isset($data['reponse'.$quizId])) {
-                        $selectedAnswer = $data['reponse'.$quizId];
-                        $quiz = $this->Quizzes->get($quizId);
-                        if (!empty($selectedAnswer) && $quiz->realanswer == $selectedAnswer) {
-                            $correctAnswers++;
-                        }
-                    }
-                }
-
-                $points = $correctAnswers * 100; // Calculer les points
-                $cookie = $this->request->getCookie('crypto');
-
-                if ($cookie != null) {
-                    // Le cookie existe, modifiez sa valeur
-                    $newCookie = (new \Cake\Http\Cookie\Cookie('crypto'))
-                        ->withValue($points) // Ajoutez 500 à la valeur actuelle
-                        ->withExpiry(new \DateTime('+1 day')); // Définissez l'expiration à 1 jour à partir de maintenant
-                    $this->response = $this->response->withCookie($newCookie);
-                } else {
-                    // Le cookie n'existe pas
-                    $this->Flash->error("Le cookie de score n'existe pas.");
-                }
-                return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
-            }
-        }
-        $this->Flash->error("Vous devez accepter les cookies pour pouvoir jouer");
-        return $this->redirect(['controller' => 'Pages', 'action' => 'wallet']);
+        
     }
     public function cookieAccept() {
         $cookie = $this->request->getCookie('validation');
