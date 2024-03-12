@@ -21,10 +21,10 @@ $loggedIn = $this->Authentication->isLoggedIn();
             <li class="navbtn <?php if($currentURL==="blockchain"||$currentURL==="nft"||$currentURL==="crypto"||$currentURL==="danger") echo' active';?>" >
                 <h4 class="" >Les Infos :</h4>
                 <ul class="sousmenu">
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>La Blockchain </h4>', ['controller'=> 'Articles', 'action' => 'blockchain'], [($currentURL === "blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les NFT</h4>', ['controller'=> 'Articles', 'action' => 'nft'], [($currentURL === "nft" ? ' active' : ''), 'escapeTitle' => false]);?></li>
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Crypto</h4>', ['controller'=> 'Articles', 'action' => 'crypto'], [($currentURL === "crypto" ? ' active' : ''), 'escapeTitle' => false]);?></li>
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Dangers</h4>', ['controller'=> 'Articles', 'action' => 'danger'], [($currentURL === "danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>La Blockchain </h4>', ['controller'=> 'Articles', 'action' => 'blockchain'], ['class'=>($currentURL === "blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les NFT</h4>', ['controller'=> 'Articles', 'action' => 'nft'], ['class'=>($currentURL === "nft" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Crypto</h4>', ['controller'=> 'Articles', 'action' => 'crypto'], ['class'=>($currentURL === "crypto" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Dangers</h4>', ['controller'=> 'Articles', 'action' => 'danger'], ['class'=>($currentURL === "danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                 </ul>
             </li>
             <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Actu</h4>', ['controller'=> 'Actualities', 'action' => 'actuality'], ['class' => 'navbtn' . ($currentURL === "actuality" ? ' active' : ''), 'escapeTitle' => false]);?></li>
@@ -35,7 +35,6 @@ $loggedIn = $this->Authentication->isLoggedIn();
             <?php
             if ($loggedIn):
                 ?>
-
                 <li class="navbtn" ><?php echo $this->Html->link('<h4>Admin</h4>', ['controller'=> 'Users', 'action' => 'update'], ['class' => 'navbtn' . ($currentURL === "users" ||$currentURL === "update" || $currentURL === "articles" || $currentURL === "actualities" || $currentURL === "quizzes" || $currentURL === "register" || $currentURL == "add" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                 <li class="navbtn" ><?php echo $this->Html->link('<h4>Logout</h4>', ['controller'=> 'Users', 'action' => 'logout'], ['class' => 'navbtn' . ($currentURL === "logout" ? ' active' : ''), 'escapeTitle' => false]);?></li>
 

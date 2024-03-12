@@ -395,11 +395,11 @@ li:hover .sousmenu {
 
 }
 
-.sousmenu .navbtn.active a{
+.sousmenu .navbtn a.active{
     color: #FFE30A;
 }
 
-.navbtn.active>a>h4, .navbtn.active>h4{
+.navbtn>a.active>h4, .navbtn.active>h4{
     color: #FFE30A;
     border-top: #FFE30A solid 3px;
 }
