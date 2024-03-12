@@ -106,7 +106,7 @@ h1,h2,h3,h4,h5,h6{
     font-family: 'mont', sans-serif!important;
 }
 
-p,a,li,button,span,label,td,th,legend{
+p,a,li,button,span,label,td,th,legend,input,button{
     font-family: 'rob', sans-serif!important;
 }
 
@@ -243,11 +243,19 @@ body{
 
 #searchForm {
     display: none;
+    top:200px;
+    right:-2px;
+    z-index: 1;
+    height: fit-content;
 }
 
 #toggleForm:checked ~ #searchForm {
     display: block;
     position: fixed;
+    background-color: #474747;
+    padding: 20px;
+    border-radius: 10px;
+    margin-right: 20px;
 }
 
 .myformcheck {
@@ -258,9 +266,39 @@ body{
     color: white;
 }
 
+#search-conteneur-niv{
+    display: flex;
+    gap: 20px;
+}
+
+.search-input-search{
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.search-btn-search{
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color:#FFE30A;
+    color: #000000;
+    cursor: pointer;
+}
+
+.myformcheck + .myformlabel {
+    background-color:#000000!important;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 0;
+}
+
 .myformcheck:checked + .myformlabel {
     background-color:#FFE30A!important;
+    color: #000000;
 }
+
 
 
 /*=====================NAV==========================*/
