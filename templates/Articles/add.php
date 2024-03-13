@@ -5,7 +5,7 @@
  */
 ?>
 
-<main id="" class="navmarge add-main" >
+<main class="navmarge add-main" >
     <div class="add-conteneur">
         <div class="slideFromTop add-add-conteneur">
             <div class="add-add-action-conteneur" >
