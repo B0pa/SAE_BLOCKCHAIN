@@ -249,27 +249,16 @@ class QuizzesController extends AppController
      */
 
     public function delete($id = null)
-
     {
-
         $this->request->allowMethod(['post', 'delete']);
-
         $quiz = $this->Quizzes->get($id);
-
         if ($this->Quizzes->delete($quiz)) {
-
             $this->Flash->success(__('The quiz has been deleted.'));
-
         } else {
-
             $this->Flash->error(__('The quiz could not be deleted. Please, try again.'));
-
         }
 
-
-
         return $this->redirect(['action' => 'index']);
-
     }
 
 

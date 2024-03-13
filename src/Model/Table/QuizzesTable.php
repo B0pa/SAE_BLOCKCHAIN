@@ -38,7 +38,10 @@ class QuizzesTable extends Table
         parent::initialize($config);
 
         // Ajouter cette ligne pour définir l'association hasMany avec le modèle Answer
-        $this->hasMany('Answers');
+        $this->hasMany('Answers', [
+            'foreignKey' => 'quiz_id',
+            'dependent' => true, // Ajoutez cette ligne
+        ]);
     }
 
     /**
