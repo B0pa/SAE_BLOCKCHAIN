@@ -1592,54 +1592,53 @@ table.profil-tab tfoot .links a{
     color: #FFE30A;
 }
 
-/*================ADD ARTICLES=====================*/
+/*================ADD ARTICLES,QUIZ,ACTU=====================*/
 
-#addarticles-main{
+.add-main{
     color: #FFFFFF;
     padding: 20px 40px;
     min-height: calc(100vh - 130px);
 }
 
-#addarticles-conteneur{
+.add-conteneur{
     display: flex;
-    color: #000000;
-    background-color: #888;
+    background-color: #232321;
     border-radius: 10px;
     padding: 10px;
 }
 
-#addarticles-add-conteneur{
+.add-add-conteneur{
     width: 50%;
     padding: 10px 20px;
 }
 
-#addarticles-add-actions{
+.add-add-actions{
     color: #FFE30A;
 }
 
-#addarticles-add-action-conteneur{
+.add-add-action-conteneur{
     margin-bottom: 10px;
 }
 
-#addarticles-add-content-conteneur{
+.add-add-content-conteneur{
     padding: 10px;
     border-radius: 20px;
     margin: 10px 0;
 }
 
-#addarticles-add-content-title>div{
+.add-add-content-title>div{
     display: flex;
     flex-direction: column;
 }
 
-#addarticles-add-content-title>div input{
+.add-add-content-title>div input{
     width: 52%;
     border-radius: 5px;
     margin: 5px 0;
     padding: 3px;
 }
 
-#addarticles-add-edit-css-title-btn{
+.add-add-edit-css-title-btn{
     border-radius: 5px;
     padding: 3px;
     margin: 5px 5px 5px 0;
@@ -1648,17 +1647,17 @@ table.profil-tab tfoot .links a{
     cursor: pointer;
 }
 
-#addarticles-css-title{
+#add-css-title{
     border-radius: 5px;
     padding: 3px;
 }
 
-#addarticles-add-content-content>div{
+.add-add-content-content>div{
     display: flex;
     flex-direction: column;
 }
 
-#addarticles-add-content-content>div textarea{
+.add-add-content-content>div textarea{
     
     border-radius: 5px;
     margin: 5px 0;
@@ -1683,7 +1682,7 @@ table.profil-tab tfoot .links a{
     cursor: pointer;
 }
 
-#addarticles-edit-css-content-btn{
+#add-edit-css-content-btn{
     border-radius: 5px;
     padding: 3px;
     margin: 5px 5px 5px 0;
@@ -1692,29 +1691,29 @@ table.profil-tab tfoot .links a{
     cursor: pointer;
 }
 
-#addarticles-css-content{
+#add-css-content{
     border-radius: 5px;
     padding: 3px;
 }
 
-#addarticles-add-content-options>div{
+.add-add-content-options>div{
     display: flex;
     flex-direction: column;
 }
 
-#addarticles-add-content-options>div select{
+.add-add-content-options>div select{
     width: 20%;
     border-radius: 5px;
     margin: 5px 0;
     padding: 3px;
 }
 
-#addarticles-add-content-options>div input{
+.add-add-content-options>div input{
     border-radius: 5px;
     margin: 5px 0;
 }
 
-#addarticles-edit-content-img-btn{
+#add-edit-content-img-btn{
     border-radius: 5px;
     padding: 3px;
     margin: 5px 5px 5px 0;
@@ -1723,12 +1722,12 @@ table.profil-tab tfoot .links a{
     cursor: pointer;
 }
 
-#addarticles-css-img{
+#add-css-img{
     border-radius: 5px;
     padding: 3px;
 }
 
-#addarticles-add-content-btn-add{
+#add-add-content-btn-add{
     color: #000000;
     background-color: #FFE30A;
     padding: 5px 10px;
@@ -1736,16 +1735,16 @@ table.profil-tab tfoot .links a{
     margin-left: 10px;
 }
 
-#addarticles-prev-conteneur{
+.add-prev-conteneur{
     width: 50%;
     padding: 20px;
 }
 
-#addarticles-prev-title{
+.add-prev-title{
     text-align: center;
 }
 
-#addarticles-prev-title hr{
+.add-prev-title hr{
     border-color: #000000;
     margin-top: 10px;
 }
