@@ -5,7 +5,7 @@
  */
 ?>
 <body class="" >
-<?= $this->element('nav_admin')?>
+
 <main class="" >
     <div class="" style = "color:#FFF">
         <?= $this->Html->link(__('New Quiz'), ['action' => 'add'],  ['class' => 'btn btn-warning']) ?>

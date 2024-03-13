@@ -9,7 +9,6 @@ $dir = WWW_ROOT . 'csv';
 $files = array_diff(scandir($dir), array('..', '.'));
 ?>
 
-<?= $this->element('nav_admin')?>
 
 <main class="mt-5"></main>
 <div class="row col-12 p-3" style="color:#FFF">
