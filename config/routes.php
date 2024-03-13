@@ -48,6 +48,7 @@ return function (RouteBuilder $routes): void {
      * `{action}` markers.
      */
     $routes->setRouteClass(DashedRoute::class);
+    $routes->connect('/quizzes/incrementCount', ['controller' => 'Quizzes', 'action' => 'incrementCount']);
 
     $routes->scope('/', function (RouteBuilder $builder): void {
         /*
