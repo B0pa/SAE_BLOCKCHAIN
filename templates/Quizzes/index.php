@@ -4,38 +4,28 @@
  * @var iterable<\App\Model\Entity\Quiz> $quiz
  */
 ?>
-<body class="bg-secondary pt-5 mt-5 " >
+<body class="" >
 <?= $this->element('nav_admin')?>
-<main class="p-5 mt-5" >
-    <div class="quiz index content bg-dark p-4 rounded-3 text-white">
+<main class="" >
+    <div class="" style = "color:#FFF">
         <?= $this->Html->link(__('New Quiz'), ['action' => 'add'],  ['class' => 'btn btn-warning']) ?>
         <h3><?= __('Quiz') ?></h3>
-        <div class="table-responsive bg-secondary rounded p-3 text-dark">
-            <table>
-                <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('level') ?></th>
-                    <th><?= $this->Paginator->sort('question') ?></th>
-                    <th><?= $this->Paginator->sort('answer1') ?></th>
-                    <th><?= $this->Paginator->sort('answer2') ?></th>
-                    <th><?= $this->Paginator->sort('answer3') ?></th>
-                    <th><?= $this->Paginator->sort('realanswer') ?></th>
-                    <th><?= $this->Paginator->sort('questionform') ?></th>
-                    <th><?= $this->Paginator->sort('category') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($quiz as $quiz): ?>
+        <div class="">
+            <table style = "color:#FFF">
+                <?php foreach ($quizzes as $quiz): ?>
                     <tr>
                         <td><?= $this->Number->format($quiz->id) ?></td>
                         <td><?= $quiz->level === null ? '' : $this->Number->format($quiz->level) ?></td>
                         <td><?= h($quiz->question) ?></td>
-                        <td><?= h($quiz->answer1) ?></td>
-                        <td><?= h($quiz->answer2) ?></td>
-                        <td><?= h($quiz->answer3) ?></td>
-                        <td><?= $quiz->realanswer === null ? '' : $this->Number->format($quiz->realanswer) ?></td>
+                        <!-- Vérifiez si les réponses ne sont pas null avant de les parcourir -->
+                        <?php if (!empty($quiz->answers)): ?>
+                            <?php foreach ($quiz->answers as $answers): ?>
+                                <?php foreach ($answers as $answer): ?>
+                                    <td><?= h($answer->answer) ?></td>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        <!-- Fin de l'affichage des réponses -->
                         <td><?= h($quiz->questionform) ?></td>
                         <td><?= h($quiz->category) ?></td>
                         <td class="actions">
@@ -45,7 +35,6 @@
                         </td>
                     </tr>
                 <?php endforeach; ?>
-                </tbody>
             </table>
         </div>
         <div class="paginator">

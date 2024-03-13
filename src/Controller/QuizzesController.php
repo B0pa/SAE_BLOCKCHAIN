@@ -23,8 +23,10 @@ class QuizzesController extends AppController
      */
     public function index()
     {
-        $query = $this->Quizzes->find();
-        $quizzes = $this->paginate($query);
+        $this->paginate = [
+            'contain' => ['Answers'],
+        ];
+        $quizzes = $this->paginate($this->Quizzes);
 
         $this->set(compact('quizzes'));
     }
@@ -157,17 +159,14 @@ class QuizzesController extends AppController
         $quiz_lvl1 = $this->Quizzes->find()
             ->contain(['Answers'])
             ->where(['category' => 'blockchain', 'level' => 1])
-            ->offset($quizIndex)
             ->toArray();
         $quiz_lvl2 = $this->Quizzes->find()
             ->contain(['Answers'])
             ->where(['category' => 'blockchain', 'level' => 2])
-            ->offset($quizIndex)
             ->toArray();
         $quiz_lvl3 = $this->Quizzes->find()
             ->contain(['Answers'])
             ->where(['category' => 'blockchain', 'level' => 3])
-            ->offset($quizIndex)
             ->toArray();
         
         $selectedAnswers = [];

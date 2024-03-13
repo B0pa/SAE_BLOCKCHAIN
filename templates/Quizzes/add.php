@@ -103,7 +103,6 @@
         // Fonction pour créer un champ de réponse
         function createAnswerField(type, index) {
             if (type === 'graphic') {
-
                 var input = document.createElement('input'); // Créez un élément input
                 input.type = 'text'; // Définir le type sur 'text'
                 input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
@@ -134,8 +133,14 @@
         function updateAnswerFields() {
             var myChart;
 
-            clearAnswerFields();
+            // Vérifier si l'élément existe et si oui Supprimez les anciennes options de colonne
+            var oldColumnSelect = document.getElementById('csvColumn');
+            if (oldColumnSelect) {
+                oldColumnSelect.remove();
+            }
 
+            clearAnswerFields();
+    
             // En fonction de la sélection, créez les champs appropriés
             var questionFormValue = questionformSelect.value;
             if (questionFormValue === 'image') {
