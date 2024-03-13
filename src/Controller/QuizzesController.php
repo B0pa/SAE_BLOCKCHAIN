@@ -105,7 +105,7 @@ class QuizzesController extends AppController
      */
     public function edit($id = null)
     {
-        $quiz = $this->Quizzes->get($id, contain: []);
+        $quiz = $this->Quizzes->get($id, ['contain' => ['Answers']]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $quiz = $this->Quizzes->patchEntity($quiz, $this->request->getData());
             if ($this->Quizzes->save($quiz)) {

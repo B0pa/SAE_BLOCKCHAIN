@@ -40,7 +40,8 @@
                 echo $this->Form->button(__('Remove answer'), ['id' => 'remove-answer', 'class' => 'btn btn-secondary']);
 
                 echo $this->Form->control('realanswer', ['type' => 'select',
-                    'class' => 'form-control bg-secondary'
+                    'class' => 'form-control bg-secondary',
+                    'id' => 'realanswer'
                 ]);
                 echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
                     'class' => 'form-control bg-secondary'
@@ -132,6 +133,16 @@
         // Fonction pour mettre à jour les champs de réponse
         function updateAnswerFields() {
             var myChart;
+
+            // Mettre à jour l'élément realAnswer
+            var realAnswerSelect = document.getElementById('realanswer'); // Remplacez 'realanswer' par l'ID de votre élément select
+            realAnswerSelect.innerHTML = ''; // Supprimez les options existantes
+            for (let i = 1; i <= nb_answer; i++) {
+                var option = document.createElement('option');
+                option.value = i;
+                option.text = i;
+                realAnswerSelect.add(option);
+            }
 
             // Vérifier si l'élément existe et si oui Supprimez les anciennes options de colonne
             var oldColumnSelect = document.getElementById('csvColumn');

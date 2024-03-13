@@ -5,14 +5,6 @@
  */
 ?>
 
-<?php
-// Lisez le contenu du répertoire 'csv'
-$dir = WWW_ROOT . 'csv';
-$files = array_diff(scandir($dir), array('..', '.'));
-?>
-
-
-
 <?= $this->element('nav_admin')?>
 <main class="mt-5"></main>
 <div class="row col-12 p-3">
@@ -54,6 +46,9 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 ?>
 
                 <div id="textFields">
+                    <?php foreach ($quiz->answers as $index => $answer): ?>
+                        <?= $this->Form->control('answers.' . $index . '.text', ['value' => $answer->text, 'class' => 'form-control bg-secondary']) ?>
+                    <?php endforeach; ?>
                 </div>
 
                 <?php
@@ -73,6 +68,9 @@ $files = array_diff(scandir($dir), array('..', '.'));
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        var nb_answer = 3;
+
         var questionformSelect = document.getElementById('questionform');
         var textFields = document.getElementById('textFields');
         var answerFields = [];
@@ -80,10 +78,10 @@ $files = array_diff(scandir($dir), array('..', '.'));
         // Fonction pour créer un champ de réponse
         function createAnswerField(type, index) {
             if (type === 'graphic') {
-
                 var input = document.createElement('input'); // Créez un élément input
                 input.type = 'text'; // Définir le type sur 'text'
                 input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.id = 'answer' + index; // Définir l'ID sur 'answer1', 'answer2', etc.
                 input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
                 textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
                 answerFields.push(input); // Ajoutez-le au tableau answerFields
@@ -91,6 +89,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 var input = document.createElement('input'); // Créez un élément input
                 input.type = type; // Définir le type
                 input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.id = 'answer' + index; // Définir l'ID sur 'answer1', 'answer2', etc.
                 input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
                 textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
                 answerFields.push(input); // Ajoutez-le au tableau answerFields
@@ -105,29 +104,51 @@ $files = array_diff(scandir($dir), array('..', '.'));
             answerFields = [];
         }
 
-        // Fonction pour gérer les champs en fonction de la sélection
-        function handleQuestionFormChange() {
+        // Fonction pour mettre à jour les champs de réponse
+        function updateAnswerFields() {
             var myChart;
 
-            clearAnswerFields();
+            // Vérifier si l'élément existe et si oui Supprimez les anciennes options de colonne
+            var oldColumnSelect = document.getElementById('csvColumn');
+            if (oldColumnSelect) {
+                oldColumnSelect.remove();
+            }
 
+            clearAnswerFields();
+    
             // En fonction de la sélection, créez les champs appropriés
             var questionFormValue = questionformSelect.value;
             if (questionFormValue === 'image') {
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'none';
-                for (var i = 1; i <= 3; i++) {
+
+                // pour nb_answer reponses
+                for (var i = 1; i <= nb_answer; i++) {
                     createAnswerField('file', i);
+                    
+                    document.getElementById('answer' + i).addEventListener('change', function() {
+                        $('#imagePreview' + i).html('');
+                        var total_file = document.getElementById("answer" + i).files.length;
+                        for (var j = 0; j < total_file; j++) {
+                            $('#imagePreview' + i).append("<img src='" + URL.createObjectURL(event.target.files[j]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                        }
+                    });
                 }
             } else if (questionFormValue === 'text'){
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'none';
-                for (var i = 1; i <= 3; i++) {
+                
+                for (var i = 1; i <= nb_answer; i++) {
                     createAnswerField('text', i);
+                    document.getElementById('answer' + i).addEventListener('input', function() {
+                        document.getElementById('label-answer' + i).textContent = this.value;
+                    });
                 }
+                
             } else if (questionFormValue === 'graphic') {
                 // rendre invisible le champ canva
                 document.getElementById('myChart').style.display = 'block';
+
                 // Créez un élément select qui liste tous les fichiers CSV du dossier csv
                 var select = document.createElement('select');
                 select.type = 'select';
@@ -152,8 +173,11 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 // Ajoutez le select des colonnes à la div textFields
                 textFields.appendChild(columnSelect);
 
-                for (var i = 1; i <= 3; i++) {
+                for (var i = 1; i <= nb_answer; i++) {
                     createAnswerField('graphic', i);
+                    document.getElementById('answer' + i).addEventListener('input', function() {
+                        document.getElementById('label-answer' + i).textContent = this.value;
+                    });
                 }
 
                 // Lorsque l'utilisateur sélectionne un fichier CSV, récupérez les données et créez le graphique
@@ -212,11 +236,42 @@ $files = array_diff(scandir($dir), array('..', '.'));
             }
         }
 
+        // Fonction pour gérer les champs en fonction de la sélection
+        function handleQuestionFormChange() {
+            // Mettre à jour les champs de réponse
+            updateAnswerFields();
+        }
+
         // Initial setup based on the current value
         handleQuestionFormChange();
 
         // Écoutez les changements de sélection
         questionformSelect.addEventListener('change', handleQuestionFormChange);
+        
+        // Ecouter l'appui sur le bouton + pour ajouter une réponse
+        document.getElementById('add-answer').addEventListener('click', function() {
+            event.preventDefault();
+            nb_answer++;
+            updateAnswerFields();
+        });
+        // Ecouter l'appui sur le bouton - pour supprimer une réponse
+        document.getElementById('remove-answer').addEventListener('click', function() {
+            event.preventDefault();
+            if (nb_answer > 2) {
+                nb_answer--;
+            }
+            updateAnswerFields();
+        });
+
+        //previsualisation de la question
+        document.getElementById('question').addEventListener('input', function() {
+            document.getElementById('preview-question').textContent = this.value;
+        });
+
+        document.getElementById('myChart').addEventListener('input', function() {
+            document.getElementById('preview-myChart').textContent = this.value;
+        });
+
     });
 
 </script>
