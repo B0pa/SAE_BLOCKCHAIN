@@ -8,7 +8,7 @@ namespace App\Controller;
 
 
 
-
+use Cake\View\CellRegistry;
 
 use Cake\Utility\Text;
 
@@ -375,6 +375,27 @@ class QuizzesController extends AppController
         $count++;
         $session->write('count', $count);
         return $this->response->withStringBody((string)$count);
+    }
+
+    public function reloadQuizCell() {
+        $this->autoRender = false;
+
+        $session = $this->getRequest()->getSession();
+        $count = $session->read('count');
+        if ($count === null) {
+            $count = 0;
+        }
+
+        // Créez une nouvelle instance de QuizCell
+
+        $view = $this->createView();
+
+        // Utilisez la méthode cell() de la vue pour créer une instance de QuizCell
+        $cell = $view->cell('Quiz', [$count]);
+
+        echo $cell;
+
+
     }
 
 
