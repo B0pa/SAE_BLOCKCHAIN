@@ -423,7 +423,12 @@ li:hover .sousmenu {
     transition: ease 0.7s;
 }
 
-#conteneur-lien {
+#nav-conteneur-lien{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.conteneur-lien {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -433,28 +438,28 @@ li:hover .sousmenu {
     margin-right: 30px;
 }
 
-#conteneur-lien:hover{
+.conteneur-lien:hover{
     background-color: #FFE30A;
     transition: all 0.7s ease;
 }
 
-#conteneur-lien:hover #nav-profil-img {
+.conteneur-lien:hover .nav-profil-img {
     transition: all 0.7s ease;
     filter: brightness(0);
 }
 
-#nav-profil-img {
+.nav-profil-img {
     width: 50px;
     border-radius: 50% ;
     transition: all 0.7s ease;
 }
 
-#conteneur-lien.active{
+.conteneur-lien.active{
     background-color: #FFE30A;
     transition: all 0.7s ease;
 }
 
-#conteneur-lien.active #nav-profil-img{
+.conteneur-lien.active .nav-profil-img{
     transition: all 0.7s ease;
     filter: brightness(0);
 }
