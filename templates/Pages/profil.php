@@ -65,33 +65,31 @@ if ($danger == 0) {
             <?= $this->Form->button('Définir le niveau', ['class' => 'btn btn-primary']) ?>
             <?= $this->Form->end() ?>
         </div>
-        <table class="profil-tab">
-            <thead>
-            <tr>
-                <th><h4>Catégories</h4></th>
-                <th><h4>Niveaux</h4></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><p><?= "Blockchain"?></p></td>
-                <td><p><?= $blockchain ?></p></td>
-            </tr>
-            <tr>
-                <td><p><?= "Crypto"?></p></td>
-                <td><p><?= $crypto ?></p></td>
-            </tr>
-            <tr>
-                <td><p><?= "NFT"?></p></td>
-                <td><p><?= $nft ?></p></td>
-            </tr>
-            <tr>
-                <td><p><?= "Danger"?></p></td>
-                <td><p><?= $danger ?></p></td>
-            </tr>
-            </tbody>
-        </table>
-
+        
+        <div class="wrap-table100">
+            <div class="table">
+                <div class="row header">
+                    <div class="cell"><p>Catégories</p></div>
+                    <div class="cell"><p>Niveaux</p></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-title="categorie"><p><?= "Blockchain"?></p></div>
+                    <div class="cell" data-title="niveau"><p><?= $blockchain ?></p></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-title="categorie"><p><?= "Crypto"?></p></div>
+                    <div class="cell" data-title="niveau"><p><?= $crypto ?></p></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-title="categorie"><p><?= "NFT"?></p></div>
+                    <div class="cell" data-title="niveau"><p><?= $nft ?></p></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-title="categorie"><p><?= "Danger"?></p></div>
+                    <div class="cell" data-title="niveau"><p><?= $danger ?></p></div>
+                </div>
+            </div>
+        </div>
     </div>
     <h2 id="profil-second-h2" >Supprimer les cookies</h2>
     <button id="profil-btn-suppcookie-conteneur" class="grow" >Supprimer tous les cookies</button>
