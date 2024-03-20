@@ -530,6 +530,10 @@ li:hover .sousmenu {
         margin-right: 5px;
     }
 
+    .conteneur-lien {
+        margin-right: 5px;
+    }
+
 }
 /*=====================FOOTER==========================*/
 footer{
@@ -837,6 +841,10 @@ footer>p{
 
 #actuality-main{
     padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: calc(100vh - 130px);
 }
 
 .actualite-conteneur-articles{
@@ -847,6 +855,8 @@ footer>p{
     border-radius: 30px;
     justify-content: center;
     align-items: center;
+    width: 600px;
+    height: 500px;
 }
 
 .actuality-conteneur-iframe{
@@ -1031,7 +1041,6 @@ footer>p{
     background-color: #232321;
     padding: 20px 0;
     border-radius: 15px;
-    border: 5px solid #FFE30A;
 }
 
 .wallet-conteneur-categories{

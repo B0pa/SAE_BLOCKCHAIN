@@ -28,7 +28,6 @@
             </div>
             <p class="actualite-texte-articles" ><?= $actu->content?></p>
             <p class="actualite-lien-articles">
-                <a href=<?= $actu->link?>><?= $actu->title ?></a>
                 <?= $this->Html->link(
                     $actu->title, // The text to be displayed as the link
                     $actu->link// The URL where the link should redirect to
