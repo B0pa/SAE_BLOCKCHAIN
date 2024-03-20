@@ -530,6 +530,10 @@ li:hover .sousmenu {
         margin-right: 5px;
     }
 
+    .conteneur-lien {
+        margin-right: 5px;
+    }
+
 }
 /*=====================FOOTER==========================*/
 footer{
@@ -837,6 +841,10 @@ footer>p{
 
 #actuality-main{
     padding: 20px 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: calc(100vh - 130px);
 }
 
 .actualite-conteneur-articles{
@@ -847,6 +855,8 @@ footer>p{
     border-radius: 30px;
     justify-content: center;
     align-items: center;
+    width: 600px;
+    height: 500px;
 }
 
 .actuality-conteneur-iframe{
@@ -1017,11 +1027,58 @@ footer>p{
     border-radius: 5px;
 }
 
+/*====================WALLET========================*/
+
+#wallet-main{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 40px 20px;
+    min-height: calc(100vh - 130px);
+}
+
+#wallet-main-conteneur{
+    display: flex;
+    background-color: #232321;
+    padding: 20px 0;
+    border-radius: 15px;
+}
+
+.wallet-conteneur-categories{
+    border-right: 1px solid #FFE30A;
+    border-left: 1px solid #FFE30A;
+    flex: 1;
+    transition: flex 0.5s;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+
+.wallet-conteneur-categories:hover {
+    flex: 4;
+}
+
+.wallet-icone-catg{
+    border-radius: 50%;
+}
+
+.wallet-categ-img{
+    width: 30%;
+    border-radius: 10px;
+}
+
+.col-pousse{
+    transition: all 1.5s ease;
+}
+
 /*====================PROFIL========================*/
 
 #profil-main{
     background-color: #000000;
-    color: #000000;
+    color: #ffffff;
     padding: 40px 80px 40px 80px;
     min-height: calc(100vh - 130px);
 }
@@ -1080,49 +1137,63 @@ footer>p{
     cursor: pointer;
 }
 
-table.profil-tab {
-    border: 2px solid #000000;
-    background-color: #FFFFFF;
+
+
+.wrap-table100 {
     width: 50%;
-    text-align: left;
-    border-collapse: collapse;
-}
-table.profil-tab td, table.profil-tab th {
-    border: 1px solid #000000;
-    padding: 6px 10px;
-}
-table.profil-tab tbody td {
-    font-size: 13px;
-    color: #000000;
-}
-table.profil-tab thead {
-    background: #FFE30A;
-    color: #000000;
-    border-bottom: 2px solid #000000;
-}
-table.profil-tab thead th {
-    font-size: 15px;
-    font-weight: bold;
-    color: #000000;
-    text-align: center;
-    border-left: 2px solid #000000;
-}
-table.profil-tab thead th:first-child {
-    border-left: none;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-table.profil-tab tfoot td {
-    font-size: 14px;
+.table {
+    width: 100%;
+    display: table;
+    margin: 0;
+    color: #000000;
 }
-table.profil-tab tfoot .links {
-    text-align: right;
+
+.row {
+    display: table-row;
+    background: #fff;
 }
-table.profil-tab tfoot .links a{
-    display: inline-block;
-    background: #1C6EA4;
-    color: #FFFFFF;
-    padding: 2px 8px;
-    border-radius: 5px;
+
+.row.header {
+    color: #000000;
+    background: #FFE30A;
+}
+
+.cell {
+    display: table-cell;
+    text-align: center;
+}
+
+.row .cell {
+    font-size: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.row.header .cell {
+    font-size: 20px;
+    color: #000000;
+    padding: 19px 0;
+}
+
+.row .cell:nth-child(1) {
+    width: 50%;
+}
+
+.row .cell:nth-child(2) {
+    width: 50%;
+}
+
+.table, .row {
+    width: 100% !important;
+}
+
+.row:hover .cell {
+    background-color: #f2f2f2d6;
+    cursor: pointer;
 }
 
 #profil-btn-suppcookie-conteneur{
@@ -1209,10 +1280,6 @@ table.profil-tab tfoot .links a{
         margin-bottom: 20px;
     }
 
-    table.profil-tab {
-        width: 100%;
-    }
-
     #profil-main h2{
         text-align: center;
     }
@@ -1222,6 +1289,13 @@ table.profil-tab tfoot .links a{
         margin-left: auto;
         margin-right: auto;
     }
+
+    .wrap-table100 {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    
 
 }
 
@@ -1663,7 +1737,7 @@ table.profil-tab tfoot .links a{
 }
 
 .add-add-content-content>div textarea{
-
+    
     border-radius: 5px;
     margin: 5px 0;
     padding: 3px;
