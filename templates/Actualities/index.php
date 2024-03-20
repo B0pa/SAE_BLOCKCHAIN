@@ -10,13 +10,13 @@
     <div class="index-conteneur-table">
         <table>
             <thead class="index-table-thead" >
-            <tr>
-                <th class="index-table-th-td" ><?= $this->Paginator->sort('id') ?></th>
-                <th class="index-table-th-td" ><?= $this->Paginator->sort('title') ?></th>
-                <th class="index-table-th-td" ><?= $this->Paginator->sort('link') ?></th>
-                <th class="index-table-th-td" ><?= $this->Paginator->sort('img') ?></th>
-                <th class="actions index-table-th-td"><?= __('Actions') ?></th>
-            </tr>
+                <tr>
+                    <th class="index-table-th-td" ><?= $this->Paginator->sort('id') ?></th>
+                    <th class="index-table-th-td" ><?= $this->Paginator->sort('title') ?></th>
+                    <th class="index-table-th-td" ><?= $this->Paginator->sort('link') ?></th>
+                    <th class="index-table-th-td" ><?= $this->Paginator->sort('img') ?></th>
+                    <th class="actions index-table-th-td"><?= __('Actions') ?></th>
+                </tr>
             </thead>
             <tbody>
             <?php foreach ($actualities as $actuality): ?>
