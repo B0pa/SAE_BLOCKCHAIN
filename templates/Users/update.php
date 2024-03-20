@@ -51,7 +51,7 @@
         <div class="update-tab-liens" >
             <?= $this->Html->link(
                 "Ajouter Quiz",
-                ['controller'=> 'Quiz', 'action' => 'add'],
+                ['controller'=> 'Quizzes', 'action' => 'add'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-2 m-3',
                     'escapeTitle' => false
@@ -61,7 +61,7 @@
 
             <?= $this->Html->link(
                 "Modifier Quiz",
-                ['controller'=> 'Quiz', 'action' => 'index'],
+                ['controller'=> 'Quizzes', 'action' => 'index'],
                 [
                     'class' => 'text-white text-decoration-none btn btn-secondary align-self-end col-* px-2 m-3',
                     'escapeTitle' => false

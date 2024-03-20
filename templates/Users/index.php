@@ -15,12 +15,12 @@
     <div class="index-conteneur-table">
         <table>
             <thead class="index-table-thead" >
-                <tr>
-                    <th class="index-table-th-td" ><?= $this->Paginator->sort('id') ?></th>
-                    <th class="index-table-th-td" ><?= $this->Paginator->sort('name') ?></th>
-                    <th class="index-table-th-td" ><?= $this->Paginator->sort('email') ?></th>
-                    <th class="actions index-table-th-td"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th class="index-table-th-td" ><?= $this->Paginator->sort('id') ?></th>
+                <th class="index-table-th-td" ><?= $this->Paginator->sort('name') ?></th>
+                <th class="index-table-th-td" ><?= $this->Paginator->sort('email') ?></th>
+                <th class="actions index-table-th-td"><?= __('Actions') ?></th>
+            </tr>
             </thead>
             <tbody>
             <?php foreach ($users as $user): ?>
@@ -47,4 +47,3 @@
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </main>
-

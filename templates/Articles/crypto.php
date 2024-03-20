@@ -242,7 +242,7 @@
 
     <?= $this->Html->link(
         "Quiz",
-        ['controller'=> 'Quiz', 'action' => 'quizzcrypto'],
+        ['controller'=> 'Quizzes', 'action' => 'quizzcrypto'],
         [
             'class' => 'grow articles-btn-quiz',
             'escapeTitle' => false

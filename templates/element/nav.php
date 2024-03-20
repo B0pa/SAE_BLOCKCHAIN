@@ -51,21 +51,21 @@ $loggedIn = $this->Authentication->isLoggedIn();
     </nav>
     <div id="nav-conteneur-lien" >
         <?php
-            if ($loggedIn):
+        if ($loggedIn):
             echo $this->Html->link(
                 $this->Html->image('logout.png', ['alt' => 'image de profil', 'class' => 'nav-profil-img']),
                 ['controller'=> 'Users', 'action' => 'logout'],
                 ['class' => 'conteneur-lien', 'escapeTitle' => false]
             );
-            endif;
+        endif;
 
-            $class = ($currentURL === "profil") ? 'active' : '';
-            echo $this->Html->link(
-                $this->Html->image('profil.png', ['alt' => 'image de profil','class' => 'nav-profil-img ' . $class]),
-                ['controller'=> 'Pages', 'action' => 'profil'],
-                ['escapeTitle' => false, 'class' => 'conteneur-lien ' . $class]
-            );
+        $class = ($currentURL === "profil") ? 'active' : '';
+        echo $this->Html->link(
+            $this->Html->image('profil.png', ['alt' => 'image de profil','class' => 'nav-profil-img ' . $class]),
+            ['controller'=> 'Pages', 'action' => 'profil'],
+            ['escapeTitle' => false, 'class' => 'conteneur-lien ' . $class]
+        );
         ?>
     </div>
-    
+
 </header>

@@ -11,15 +11,11 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int|null $level
  * @property string|null $question
- * @property string|null $answer1
- * @property string|null $answer2
- * @property string|null $answer3
- * @property int|null $realanswer
+ * @property string|null $realanswer
  * @property string|null $questionform
  * @property string|null $category
  * @property string|null $csv_link
  * @property string|null $csv_columne
- *
  */
 class Quiz extends Entity
 {
@@ -31,17 +27,18 @@ class Quiz extends Entity
      * (or remove it), and explicitly make individual fields accessible as needed.
      *
      * @var array<string, bool>
-     */
+    */
     protected array $_accessible = [
         'level' => true,
         'question' => true,
-        'answer1' => true,
-        'answer2' => true,
-        'answer3' => true,
         'realanswer' => true,
         'questionform' => true,
         'category' => true,
         'csv_link' => true,
         'csv_columne' => true,
+        'answers' => true, // il faut cette ligne là pour autoriser l'édition de l'entity answers depuis le model Quizzes
+        // D'accord je n'avais pas compris sa comme sa ^^'
+        // sinon vous pouvez complétement commenter cette propriété et vous en occuper en dernier ;)
+        // D'accord je ne savais pas du tout
     ];
 }

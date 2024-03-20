@@ -10,38 +10,38 @@
             <div class="add-add-action-conteneur" >
                 <h2 class="heading"><?= __('Actions') ?></h2>
                 <?= $this->Html->link(__('List Actualities'), ['action' => 'index'],
-                 ['class' => 'add-add-actions']) ?>
+                    ['class' => 'add-add-actions']) ?>
             </div>
-        
+
             <?= /** @var \App\Model\Entity\Actuality $actualities */
             $this->Form->create($actualities, ['type' => 'file']) ?>
             <fieldset class="add-add-content-conteneur">
                 <legend><?= __('Add Actuality') ?></legend>
                 <div class="add-add-content-title">
                     <?php
-                        echo $this->Form->control('title', [
+                    echo $this->Form->control('title', [
                         'class' => 'form-control bg-secondary'
-                        ]);
-                        echo $this->Form->control('content', [
-                            'class' => 'form-control bg-secondary'
-                        ]) 
+                    ]);
+                    echo $this->Form->control('content', [
+                        'class' => 'form-control bg-secondary'
+                    ])
                     ?>
                 </div>
                 <div class="add-add-content-content">
                     <?php
-                        echo $this->Form->control('link', [
-                            'class' => 'form-control bg-secondary'
-                        ]);
-                        echo $this->Form->control('img', [
-                            'type' => 'file',
-                            'label' => 'Votre jolie image',
-                            'class' => 'form-control bg-secondary',
-                            'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
-                        ]);
+                    echo $this->Form->control('link', [
+                        'class' => 'form-control bg-secondary'
+                    ]);
+                    echo $this->Form->control('img', [
+                        'type' => 'file',
+                        'label' => 'Votre jolie image',
+                        'class' => 'form-control bg-secondary',
+                        'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
+                    ]);
                     ?>
                 </div>
 
-                
+
             </fieldset>
             <?= $this->Form->button(__('Submit'), ['id' => 'add-add-content-btn-add','class' => 'grow']) ?>
             <?= $this->Form->end() ?>

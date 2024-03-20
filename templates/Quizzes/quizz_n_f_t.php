@@ -2,7 +2,7 @@
 
 <?php
 /** @var \App\Model\Entity\Quiz[] $quizes */
-echo $this->Form->create(null, ['url' => ['action' => 'checkAnswersCrypto']]) ;
+echo $this->Form->create(null, ['url' => ['action' => 'checkAnswersNFT']]) ;
 
 
 foreach ($quizes as $index => $quiz) :
@@ -78,9 +78,9 @@ $csv_link = $quiz->csv_link;
             <div class="d-flex flex-column ms-5 fs-5">
                 <?php
                 echo $this->Form->radio('reponse'. $quiz->id, [
-                    ['value' => 1, 'text' => $quiz->answer1, 'class' => 'me-2 mt-2'],
-                    ['value' => 2, 'text' => $quiz->answer2, 'class' => 'me-2 mt-2'],
-                    ['value' => 3, 'text' => $quiz->answer3, 'class' => 'me-2 mt-2']
+                    ['value' => 1, 'text' => $quiz->answer1, 'class' => 'me-2'],
+                    ['value' => 2, 'text' => $quiz->answer2, 'class' => 'me-2'],
+                    ['value' => 3, 'text' => $quiz->answer3, 'class' => 'me-2']
                 ], ['label' => true, 'class' => '']);
                 ?>
             </div>
@@ -91,9 +91,9 @@ $csv_link = $quiz->csv_link;
             <div class="d-flex flex-column">
                 <?php
                 echo $this->Form->radio('reponse'. $quiz->id, [
-                    ['value' => 1, 'text' => $quiz->answer1, 'class' => 'me-2 mt-2'],
-                    ['value' => 2, 'text' => $quiz->answer2, 'class' => 'me-2 mt-2'],
-                    ['value' => 3, 'text' => $quiz->answer3, 'class' => 'me-2 mt-2']
+                    ['value' => 1, 'text' => $quiz->answer1, 'class' => ''],
+                    ['value' => 2, 'text' => $quiz->answer2],
+                    ['value' => 3, 'text' => $quiz->answer3]
                 ], ['label' => true, 'class' => 'd-flex flex-column']);
                 ?>
             </div>
@@ -128,8 +128,5 @@ $csv_link = $quiz->csv_link;
         <?= $this->Form->button(__('Envoyer'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
         <?= $this->Form->end() ?>
     </div>
-
-
 </main>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</body>

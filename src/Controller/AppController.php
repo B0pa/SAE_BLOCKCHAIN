@@ -73,7 +73,7 @@ class AppController extends Controller
                 0,
                 // All keys are optional
                 [
-                    'expires' => new DateTime('+1 day'),
+                    'expires' => new DateTime('+10 day'),
                     'path' => '/',
                     'domain' => '',
                     'secure' => false,
@@ -91,7 +91,7 @@ class AppController extends Controller
                 0,
                 // All keys are optional
                 [
-                    'expires' => new DateTime('+1 day'),
+                    'expires' => new DateTime('+10 day'),
                     'path' => '/',
                     'domain' => '',
                     'secure' => false,
@@ -108,7 +108,7 @@ class AppController extends Controller
                 0,
                 // All keys are optional
                 [
-                    'expires' => new DateTime('+1 day'),
+                    'expires' => new DateTime('+10 day'),
                     'path' => '/',
                     'domain' => '',
                     'secure' => false,
@@ -126,7 +126,7 @@ class AppController extends Controller
                 0,
                 // All keys are optional
                 [
-                    'expires' => new DateTime('+1 day'),
+                    'expires' => new DateTime('+10 day'),
                     'path' => '/',
                     'domain' => '',
                     'secure' => false,
