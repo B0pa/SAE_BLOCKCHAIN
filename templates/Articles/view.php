@@ -1,5 +1,4 @@
-<body class="mt-5 pt-5 bg-secondary" >
-<?= $this->element('nav_admin')?>
+
 <main class="pt-3 p-3" >
     <?= $this->Html->link(
         'Aller à l\'accueil',
@@ -31,5 +30,4 @@
     </div>
 
 </main>
-</body>
 

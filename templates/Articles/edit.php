@@ -6,7 +6,6 @@
 
 ?>
 
-<?= $this->element('nav_admin')?>
 <main class="mt-5 pt-3 col col-12" >
     <div class="d-flex col col-12" >
         <div class="text-center col col-6" >

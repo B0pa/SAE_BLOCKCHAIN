@@ -47,8 +47,7 @@ class QuizzesController extends AppController
     public function index()
 
     {
-        $query = $this->Quizzes->find()
-        ->contain(['Answers']);
+        $query = $this->Quizzes->find();
 
         $quizzes = $this->paginate($query);
 

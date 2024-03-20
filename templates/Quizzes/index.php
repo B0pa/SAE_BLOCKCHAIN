@@ -29,13 +29,13 @@
                         <td class="index-table-th-td"><?= $quiz->level === null ? '' : $this->Number->format($quiz->level) ?></td>
                         <td class="index-table-th-td"><?= h($quiz->question) ?></td>
                         <!-- Vérifiez si les réponses ne sont pas null avant de les parcourir -->
-                        <?php
-                            foreach ($quizzes['answers'] as $answer) {
+                        <!-- <?php
+                            // foreach ($quizzes['answers'] as $answer) {
 
-                                echo $answer['answer'];
+                            //     echo $answer['answer'];
 
-                            }
-                         ?>
+                            // }
+                         ?> -->
                         <!-- Fin de l'affichage des réponses -->
                         <td class="index-table-th-td"><?= h($quiz->questionform) ?></td>
                         <td class="index-table-th-td"><?= h($quiz->category) ?></td>

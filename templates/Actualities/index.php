@@ -5,7 +5,7 @@
  */
 ?>
 <main class="navmarge index-main" >
-    <?= $this->Html->link(__('New Actuality'), ['action' => 'add'], ['class' => 'index-btn-new grow']) ?>
+    <?= $this->Html->link(__('Ajouter une actualité'), ['action' => 'add'], ['class' => 'index-btn-new grow']) ?>
     <h3 class="index-title" ><?= __('Actualities') ?></h3>
     <div class="index-conteneur-table">
         <table>

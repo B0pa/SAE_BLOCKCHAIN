@@ -12,7 +12,7 @@ class ArticleCell extends Cell
         /** @var ActualitiesTable $actualities */
         $actualities = $this->fetchTable('Actualities');
 
-        $actus = $actualities->find()->limit(5)->toArray();
+        $actus = $actualities->find()->order(['id' => 'ASC'])->limit(1)->toArray();
         $this->set(compact('actus'));
     }
 

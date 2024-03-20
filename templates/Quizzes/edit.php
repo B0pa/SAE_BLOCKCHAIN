@@ -13,7 +13,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
 
 
 
-<main class="mt-5"></main>
+<main class="mt-5">
 <div class="row col-12 p-3">
     <aside class="col">
         <div class="side-nav">
