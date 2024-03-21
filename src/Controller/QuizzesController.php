@@ -33,7 +33,12 @@ use Cake\Log\Log;
 class QuizzesController extends AppController
 
 {
+    public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        parent::beforeFilter($event);
 
+        $this->Authentication->allowUnauthenticated(['cookieAccept', 'cookieRefuse','quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger', 'checkAnswersDanger', 'checkAnswersCrypto', 'checkAnswersNFT', 'checkAnswersBlockchain']);
+    }
     /**
 
      * Index method

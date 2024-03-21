@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #FFE30A #212529;
 }
 
 * a{
@@ -752,10 +754,6 @@ footer>p{
 #home-aside-whoarewe-conteneur:hover #home-aside-whoarewe-inner {
     transform: rotateY(180deg);
 }
-/*
-#home-aside-whoarewe-conteneur:hover #home-aside-whoarewe-front {
-    opacity: 0;
-} */
 
 #home-aside-whoarewe-front, #home-aside-whoarewe-back {
     position: absolute;
@@ -770,7 +768,7 @@ footer>p{
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-
+    transform: rotateY(0deg);
 }
 
 #home-aside-whoarewe-back {
@@ -1055,35 +1053,58 @@ footer>p{
 #wallet-main{
     background-color: #000000;
     color: #ffffff;
-    padding: 40px 20px;
+    padding: 10px 10px;
     min-height: calc(100vh - 130px);
 }
 
 #wallet-main-conteneur{
-    display: flex;
-    background-color: #232321;
-    -webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
-    box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
-    padding: 20px 0;
-    border-radius: 15px;
+    background-color: transparent;
+    display: grid;
+    flex: auto;
+    justify-content: center;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 50% 50%;
+    text-align: center;
+    height: fit-content;
 }
 
 .wallet-conteneur-categories{
-    border-right: 1px solid #FFE30A;
-    border-left: 1px solid #FFE30A;
-    flex: 1;
-    transition: flex 0.5s;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 20px;
     padding: 10px;
+    border-radius: 10px;
+    background-color: #232321;
     overflow: hidden;
+    height: auto;-webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
+    box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
 }
 
+.wallet-categories-header{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 5px;
+}
 
-.wallet-conteneur-categories:hover {
-    flex: 4;
+.wallet-categories-header>h2>span{
+    color: #FFE30A;
+}
+
+.wallet-conteneur-categories form{
+    height: auto;
+}
+
+.wallet-conteneur-categories form *{
+    padding: 5px;
+}
+
+.wallet-conteneur-categories form div label{
+    padding-right: 5px;
+}
+
+.wallet-conteneur-categories form img{
+    width: -webkit-fill-available;
+    width: -moz-available;
+    
 }
 
 .wallet-icone-catg{
@@ -1097,6 +1118,31 @@ footer>p{
 
 .col-pousse{
     transition: all 1.5s ease;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #wallet-main{
+        padding: 10px 0;
+    }
+
+    #wallet-main-conteneur{
+        grid-template-columns: 100%;
+        grid-template-rows: 25%;
+    }
+    
+    .wallet-conteneur-categories{
+        margin: 20px 0;
+        border-radius: 0;
+    }
+    
+    .wallet-categories-header{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-bottom: 5px;
+    }
+
 }
 
 /*====================PROFIL========================*/
