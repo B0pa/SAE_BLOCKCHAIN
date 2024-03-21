@@ -1012,6 +1012,11 @@ footer>p{
         padding: 10px 30px 60px 30px;
         border-radius: 0px;
     }
+
+    .articles-btn-quiz{
+        margin: 10px auto;
+        float: none;
+    }
 }
 
 
