@@ -10,9 +10,14 @@ use Cake\View\Cell;
 class QuizCell extends Cell
 {
 
-    public function display($count) {
+    public function display() {
+        $session = $this->request->getSession();
+        $count = $session->check('count') ? $session->read('count') : 0;
+        $url = $session->read('currentURL') ? $session->read('currentURL') : 'defaultURL';
+
 
         $this->set('count', $count);
+        $this->set('url', $url);
 
 
 
@@ -46,6 +51,7 @@ class QuizCell extends Cell
 
         $this->set(compact('selectedAnswers'));
         $this->set(compact('count'));
+        $this->set(compact('url'));
     }
 
 

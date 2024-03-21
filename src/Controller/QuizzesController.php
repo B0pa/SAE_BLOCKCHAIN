@@ -33,6 +33,11 @@ use Cake\Log\Log;
 class QuizzesController extends AppController
 
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Authentication->allowUnauthenticated(['quizzDanger', 'quizzNFT', 'quizzcrypto', 'quizzBlockchain', 'checkAnswersDanger', 'checkAnswersNFT', 'checkAnswersCrypto', 'checkAnswersBlockchain', 'cookieAccept', 'cookieRefuse', 'incrementCount', 'reloadQuizCell']);
+    }
 
     /**
 
@@ -303,6 +308,10 @@ class QuizzesController extends AppController
         }
         $this->set('count', $count);
 
+        $currentURL = "quizz_blockchain";
+
+        $session->write('currentURL', $currentURL);
+
         // Récupérez le quiz correspondant à l'index
 
         $quiz_lvl1 = $this->Quizzes->find()
@@ -370,21 +379,16 @@ class QuizzesController extends AppController
         $this->autoRender = false;
 
         $session = $this->getRequest()->getSession();
-        $count = $session->read('count');
-        if ($count === null) {
-            $count = 0;
-        }
+        $currentURL = $session->read('currentURL');
+        $count = $session->check('count') ? $session->read('count') : 0;
 
-        // Créez une nouvelle instance de QuizCell
-
+        // Create a new instance of QuizCell
         $view = $this->createView();
 
-        // Utilisez la méthode cell() de la vue pour créer une instance de QuizCell
-        $cell = $view->cell('Quiz', [$count]);
+        // Pass the $count and $currentURL as parameters to the QuizCell
+        $cell = $view->cell('Quiz::display');
 
         echo $cell;
-
-
     }
 
 
