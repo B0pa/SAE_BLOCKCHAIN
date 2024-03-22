@@ -1,10 +1,10 @@
 
-<main class="pt-3 p-3" >
+<main id="crypto-main" class="navmarge" >
     <?= $this->Html->link(
         'Aller à l\'accueil',
         ['controller'=> 'Pages', 'action' => 'home'],
         [
-            'class' => 'btn btn-warning ',
+            'class' => 'btnyellow grow',
             'escapeTitle' => false
         ]
     ) ?>
@@ -22,11 +22,23 @@
     }
     ?>
 
-    <div class='d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3' >
-        <p class="d-flex p-2 col-10 mx-auto" ><?= $article->level?></p>
-        <h2 class=<?= $article->css_title ?> ><?= $article->title ?></h2>
-        <p class=<?= $article->css_content ?> style="text-align: justify;" ><?= nl2br($article->content)?></p>
-        <?= $this->Html->image("upload/" . $article->image, ['class' => $article->css_img ,'alt' => 'accueil','style' => ''])?>
+
+    <div class="crypto-conteneur-articles" >
+        <p class="crypto-level-articles" ><?= $article->level?></p>
+        <h2 class="crypto-titre-articles" style="" ><?= $article->title ?></h2>
+
+        <div class="crypto-conteneur-bas-articles" >
+            <div id="div-parent-preview" class="crypto-img-textes-articles" style="">
+
+                <div class="crypto-conteneur-img-articles" style="" >
+                    <?= $this->Html->image("upload/" . $article->image, ['class'=>'crypto-img-articles','style' => $article->css_img ,'alt' => 'accueil'])?>
+                </div>
+
+                <p class="crypto-texte-articles"  style=""><?= nl2br($article->content)?></p>
+                <div class="clear"></div>
+            </div>
+        </div>
+
     </div>
 
 </main>

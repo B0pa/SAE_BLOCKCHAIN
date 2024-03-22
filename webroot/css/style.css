@@ -6,6 +6,8 @@
     box-sizing: border-box;
     scrollbar-width: thin;
     scrollbar-color: #FFE30A #212529;
+    scrollbar-face-color: #FFE30A;
+    scrollbar-base-color: #FFE30A;
 }
 
 * a{
@@ -50,6 +52,13 @@
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+.btnyellow{
+    background-color: #FFE30A;
+    color: #000000;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .slideFromTop {
