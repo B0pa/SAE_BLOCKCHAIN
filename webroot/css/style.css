@@ -1056,10 +1056,25 @@ footer>p{
     box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
     padding: 30px;
     border-radius: 10px;
+    
 }
 
 #temps-graphics-conteneur>select{
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #temps-main{
+        padding: 10px 0;
+    }
+
+    #temps-graphics-conteneur{
+        width: 100%;
+        padding: 5px;
+        border-radius: 0;
+        
+    }
 }
 
 /*====================WALLET========================*/
