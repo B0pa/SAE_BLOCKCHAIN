@@ -1612,6 +1612,7 @@ footer>p{
 
     #register-conteneur{
         border-radius: 0;
+        width: 100%;
     }
 
     #register-conteneur>form>div input{
@@ -1767,6 +1768,17 @@ footer>p{
 .index-paginator>ul>li>a{
     color: #FFE30A;
     
+}
+
+@media screen and (max-width: 768px) {
+    .index-main{
+        padding: 10px 0;
+    }
+    .index-conteneur-table{
+        padding: 0;
+        overflow-x: auto;
+        border-radius: 0px;
+    }
 }
 
 /*================ADD ARTICLES,QUIZ,ACTU=====================*/
@@ -1926,4 +1938,24 @@ footer>p{
 .add-prev-title hr{
     border-color: #000000;
     margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .add-main{
+        padding: 10px 0;
+    }
+    
+    .add-conteneur{
+        flex-direction: column;
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    .add-add-conteneur{
+        width: 100%;
+    }
+
+    .add-prev-conteneur{
+        width: 100%;
+    }
 }
