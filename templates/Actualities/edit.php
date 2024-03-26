@@ -17,7 +17,7 @@
                 <?= $this->Html->link(__('List Actualities'), ['action' => 'index'], ['class' => 'add-add-actions']) ?>
             </div>
             <?= $this->Form->create($actuality) ?>
-            <fieldset class="add-add-content-conteneur">
+            <fieldset class="add-add-content-conteneur">'
                 <legend><?= __('Edit Actuality') ?></legend>
                 <div class="add-add-content-title">
                     <?php
@@ -66,10 +66,7 @@
 
 
         $('button').click(function() {
-            // Obtenez l'identifiant de la zone de texte à afficher
             var target = $(this).data('target');
-
-            // Affichez la zone de texte
             $(target).show();
         });
 
@@ -101,6 +98,17 @@
         $('#underlineButton').on('click', function() {
             wrapSelection('content', '<u>', '</u>');
         });
+
+
+        // Premiere mise a jour
+
+        $('input[name="title"]').trigger('input');
+        $('textarea[name="content"]').trigger('input');
+        $('input[name="link"]').trigger('input');
+        // Vérifiez si une image a déjà été téléchargée pour l'article
+        if($('input[name="upload"]').val() !== null) {
+            $('#imagePreview').html('<img src="/img/upload/' + '<?= $actuality->img ?>' + '" class="img-fluid w-75 mx-auto rounded-3 mt-2 mb-3" alt="accueil" style="">');
+        }
 
         function wrapSelection(textareaId, openTag, closeTag) {
             var textarea = document.getElementById(textareaId);
