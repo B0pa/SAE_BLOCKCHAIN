@@ -129,7 +129,7 @@
             </div>
             <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
             <div id="div-parent-preview" style="overflow-y: auto; overflow-x: hidden;">
-                <div id="imagePreview" class="p-2 mx-auto " style="width:33%;"></div>
+                <div id="imagePreview" style="width:45%;display:flex;margin:10px auto;"></div>
                 <p id="preview-text" class=" " style=" overflow-wrap: break-word;" ></p>
                 <div style="clear: both;"></div>
             </div>
@@ -186,35 +186,46 @@
         });
 
 
-        $('input[name="upload"]').on('change', function() {
-            $('#imagePreview').html('');
-            var total_file = document.getElementById("upload").files.length;
+        $('#addarticles-inputfile').on('change', function() {
+            $('#imagePreview').empty();
+            var total_file = document.getElementById("addarticles-inputfile").files.length;
             for (var i = 0; i < total_file; i++) {
-                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style='width: 100%'>");
+                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' alt='accueil' style='width: 100%;border-radius:10px;'>");
             }
         });
+
         // position img
 
         $('select[name="position_image"]').on('change', function() {
-            var position = $(this).val();
+    var position = $(this).val();
 
-            // Supprimez toutes les classes de position existantes
-            var div = document.getElementById("div-parent-preview");
-            div.style.cssText = "overflow-y: auto; overflow-x: hidden;";
-            $('#imagePreview').removeClass('float-start float-end order-1 order-2');
+    // Réinitialisez tous les styles existants
+    var imagePreview = document.getElementById('imagePreview');
+    imagePreview.style.float = '';
+    imagePreview.style.order = '';
+    imagePreview.style.marginLeft = '';
+    imagePreview.style.marginLeft = '';
+    imagePreview.style.margin = '10px auto';
+    var previewText = document.getElementById('preview-text');
+    previewText.style.order = '';
+    var divParentPreview = document.getElementById('div-parent-preview');
+    divParentPreview.style.cssText = "overflow-y: auto; overflow-x: hidden;";
 
-            // Ajoutez la nouvelle classe de position
-            if (position === 'g') {
-                $('#imagePreview').addClass('float-start');
-            } else if (position === 'd') {
-                $('#imagePreview').addClass('float-end');
-            } else if (position === 'b') {
-                $('#imagePreview').removeClass('float-start float-end');
-                div.style.cssText = "overflow-y: auto; overflow-x: hidden;display:flex;flex-direction:column;";
-                $('#imagePreview').addClass('order-2');
-                $('#preview-text').addClass('order-1');
-            }
-        });
+    // Ajoutez le nouveau style
+    if (position === 'g') {
+        imagePreview.style.float = 'left';
+        imagePreview.style.marginRight = '10px';
+    } else if (position === 'd') {
+        imagePreview.style.float = 'right';
+        imagePreview.style.marginLeft = '10px';
+    } else if (position === 'b') {
+        divParentPreview.style.cssText = "overflow-y: auto; overflow-x: hidden; display: flex; flex-direction: column;";
+        imagePreview.style.margin = '10px auto';
+        imagePreview.style.order = '2';
+        previewText.style.order = '1';
+    }
+});
+
 
         $('#boldButton').on('click', function() {
             wrapSelection('content', '<strong>', '</strong>');
