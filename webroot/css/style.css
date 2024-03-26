@@ -575,7 +575,7 @@ footer>p{
 #home-contenu-main-aside{
     display: flex;
     background-color: #000000;
-    padding: 0px 40px 0px 40px;
+    padding: 0px 40px;
     color: #ffffff;
     gap: 60px;
     min-height: auto;
@@ -584,11 +584,8 @@ footer>p{
 #home-conteneur-h1{
     display: flex;
     width: 320px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
-    margin-top: 80px;
-    margin-bottom: 70px;
+    margin: 80px auto 70px;
 }
 
 #home-h1{
@@ -618,16 +615,12 @@ footer>p{
     display: flex;
     background-color: #232321;
     text-decoration: none;
-    padding: 10px;
-    padding-left: 10px;
-    padding-right: 20px;
+    padding: 10px 20px 10px 10px;
     align-items: center;
     border-radius: 15px;
     -webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
     box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
 }
-
-
 
 .home-card-categories-img{
     width: 115px;
@@ -711,12 +704,9 @@ footer>p{
 
 .home-aside-actus-img{
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
     width: 75%;
     border-radius: 10px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 
 .home-aside-actus-lien{
@@ -1012,7 +1002,7 @@ footer>p{
     #crypto-main{
         padding: 20px 0px;
     }
-    
+
     .crypto-conteneur-articles{
         background-color: #232321;
         -webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
@@ -1056,7 +1046,7 @@ footer>p{
     box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
     padding: 30px;
     border-radius: 10px;
-    
+
 }
 
 #temps-graphics-conteneur>select{
@@ -1073,7 +1063,7 @@ footer>p{
         width: 100%;
         padding: 5px;
         border-radius: 0;
-        
+
     }
 }
 
@@ -1133,7 +1123,7 @@ footer>p{
 .wallet-conteneur-categories form img{
     width: -webkit-fill-available;
     width: -moz-available;
-    
+
 }
 
 .wallet-icone-catg{
@@ -1159,12 +1149,12 @@ footer>p{
         grid-template-columns: 100%;
         grid-template-rows: 25%;
     }
-    
+
     .wallet-conteneur-categories{
         margin: 20px 0;
         border-radius: 0;
     }
-    
+
     .wallet-categories-header{
         display: flex;
         align-items: center;
@@ -1396,9 +1386,6 @@ footer>p{
         width: 100%;
         border-radius: 10px;
     }
-
-    
-
 }
 
 /*=====================================================*/
@@ -1653,9 +1640,8 @@ footer>p{
 
 .tab{
     background-color:#FFE30A;
-    margin: 30px 40px;
     border-radius: 40px;
-    margin-bottom: 10px;
+    margin: 30px 40px 10px;
     box-shadow:25px 25px 40px #464331;
     height: auto;
     padding: 5px;
@@ -1746,7 +1732,7 @@ footer>p{
     background-color: #232321;
     -webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
     box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
-    
+
     color: #FFFFFF;
     padding: 10px;
     border-radius: 5px;
@@ -1811,7 +1797,7 @@ footer>p{
 
 .add-add-conteneur{
     width: 50%;
-    
+
     padding: 10px 20px;
 }
 
@@ -1865,7 +1851,7 @@ footer>p{
 }
 
 .add-add-content-content>div textarea{
-    
+
     border-radius: 5px;
     margin: 5px 0;
     padding: 3px;
@@ -1966,7 +1952,7 @@ footer>p{
     .add-main{
         padding: 10px 0;
     }
-    
+
     .add-conteneur{
         flex-direction: column;
         border-radius: 0;
