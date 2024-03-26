@@ -37,7 +37,7 @@ class QuizzesController extends AppController
     {
         parent::beforeFilter($event);
 
-        $this->Authentication->allowUnauthenticated(['cookieAccept', 'cookieRefuse','quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger', 'checkAnswersDanger', 'checkAnswersCrypto', 'checkAnswersNFT', 'checkAnswersBlockchain']);
+        $this->Authentication->allowUnauthenticated(['cookieAccept', 'cookieRefuse','quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger', 'checkAnswersDanger', 'checkAnswersCrypto', 'checkAnswersNFT', 'checkAnswersBlockchain','incrementCount','reloadQuizCell']);
     }
     /**
 
