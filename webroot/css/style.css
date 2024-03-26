@@ -1664,11 +1664,6 @@ footer>p{
 .tab h2{
     text-align: center;
 }
-/*
-.update-tab-contenu{
-    display: flex;
-    flex-direction: column;
-} */
 
 .update-tab-liens{
     display: flex;
