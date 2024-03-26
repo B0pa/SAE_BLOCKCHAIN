@@ -15,7 +15,7 @@
         <div class="actuality-conteneur-iframe" >
             <?= $this->Html->image("upload/" . $actuality->img, ['class' => 'actualite-img-articles','alt' => 'image','style' => ''])?>
         </div>
-        <p class="actualite-texte-articles" ><?= $actuality->text ?></p>
+        <p class="actualite-texte-articles" ><?= $actuality->content ?></p>
         <p class="actualite-lien-articles">
             <?= $this->Html->link(
                 $actuality->title, // The text to be displayed as the link
