@@ -6,7 +6,7 @@
         <h2>Courbe du Bitcoin</h2>
     </div>
 
-    <div id="temps-graphics-conteneur" >
+    <div id="temps-graphics-conteneur"  style="position: relative; height:600px; width:100%" >
         <select id="chartType" onchange="changeChartType()">
             <option value="line">Line</option>
             <option value="candlestick">Candlestick</option>
@@ -26,7 +26,7 @@
     // Récupération du context du canvas
     const ctx = document.getElementById('chart').getContext('2d');
 
-
+    console.log("TEST");
 
     ctx.canvas.width = 1000;
     ctx.canvas.height = 250;
@@ -56,9 +56,10 @@
                     data: [],
                     borderColor: color,
                 }]
-
             },
             options: {
+                responsive: true, // Ajoutez cette ligne
+                maintainAspectRatio: false, // Ajoutez cette ligne
                 scales: {
                     x: {
                         type: 'time',
@@ -82,7 +83,6 @@
                             color: 'rgba(255, 255, 255, 0.6)'
                         }
                     }
-
                 },
                 plugins: {
                     legend:{
@@ -92,7 +92,6 @@
                     }
                 }
             }
-
         });
     }
 
@@ -127,7 +126,12 @@
         // Formatage
         let formattedData = [];
         if(chart.config.type === 'line') {
-            formattedData = rawData.map(formatLine);
+            if(isMobileDevice()){
+                formattedData = rawData.filter((_, index) => index % 25 === 0).map(formatLine);
+            }
+            else{
+                formattedData = rawData.filter((_, index) => index % 5 === 0).map(formatLine);
+            }
         } else {
             // Take only every 10th data point for candlestick chart
             formattedData = rawData.filter((_, index) => index % 5 === 0).map(formatBar);
@@ -155,6 +159,7 @@
 
     function isMobileDevice() {
         if (
+
             navigator.userAgent.match(/iPhone/i) ||
             navigator.userAgent.match(/webOS/i) ||
             navigator.userAgent.match(/Android/i) ||
@@ -163,8 +168,11 @@
             navigator.userAgent.match(/BlackBerry/i) ||
             navigator.userAgent.match(/Windows Phone/i)
         ) {
+            console.log("mobile");
             return true;
+
         } else {
+            console.log("ordi");
             return false;
         }
     }

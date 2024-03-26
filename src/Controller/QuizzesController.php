@@ -33,12 +33,12 @@ use Cake\Log\Log;
 class QuizzesController extends AppController
 
 {
-    public function initialize(): void
+    public function beforeFilter(\Cake\Event\EventInterface $event)
     {
-        parent::initialize();
-        $this->Authentication->allowUnauthenticated(['quizzDanger', 'quizzNFT', 'quizzcrypto', 'quizzBlockchain', 'checkAnswersDanger', 'checkAnswersNFT', 'checkAnswersCrypto', 'checkAnswersBlockchain', 'cookieAccept', 'cookieRefuse', 'incrementCount', 'reloadQuizCell']);
-    }
+        parent::beforeFilter($event);
 
+        $this->Authentication->allowUnauthenticated(['cookieAccept', 'cookieRefuse','quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger', 'checkAnswersDanger', 'checkAnswersCrypto', 'checkAnswersNFT', 'checkAnswersBlockchain']);
+    }
     /**
 
      * Index method
@@ -52,12 +52,9 @@ class QuizzesController extends AppController
     public function index()
 
     {
-
         $query = $this->Quizzes->find();
 
         $quizzes = $this->paginate($query);
-
-
 
         $this->set(compact('quizzes'));
 
@@ -308,10 +305,6 @@ class QuizzesController extends AppController
         }
         $this->set('count', $count);
 
-        $currentURL = "quizz_blockchain";
-
-        $session->write('currentURL', $currentURL);
-
         // Récupérez le quiz correspondant à l'index
 
         $quiz_lvl1 = $this->Quizzes->find()
@@ -379,16 +372,21 @@ class QuizzesController extends AppController
         $this->autoRender = false;
 
         $session = $this->getRequest()->getSession();
-        $currentURL = $session->read('currentURL');
-        $count = $session->check('count') ? $session->read('count') : 0;
+        $count = $session->read('count');
+        if ($count === null) {
+            $count = 0;
+        }
 
-        // Create a new instance of QuizCell
+        // Créez une nouvelle instance de QuizCell
+
         $view = $this->createView();
 
-        // Pass the $count and $currentURL as parameters to the QuizCell
-        $cell = $view->cell('Quiz::display');
+        // Utilisez la méthode cell() de la vue pour créer une instance de QuizCell
+        $cell = $view->cell('Quiz', [$count]);
 
         echo $cell;
+
+
     }
 
 
