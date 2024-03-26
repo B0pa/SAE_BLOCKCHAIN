@@ -57,7 +57,8 @@
                     ?>
                 </div>
             </fieldset>
-            <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-secondary mt-3']) ?>
+            <?= $this->Form->button(__('Submit'),
+                ['id' => 'add-add-content-btn-add','class' => 'grow']) ?>
             <?= $this->Form->end() ?>
         </div>
         <aside class="slideFromTop add-prev-conteneur">
@@ -65,12 +66,66 @@
                 <h2>Prévisualisation</h2>
                 <hr>
             </div>
-            <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
-            <div id="div-parent-preview" style="overflow-y: auto; overflow-x: hidden;">
-                 <div id="imagePreview" style="padding:20px;"></div>
-                <p  id="preview-text" style="overflow-wrap: anywhere;padding:5px;text-align: justify;"></p>
-                <div style="clear: both;"></div>
+            <?php
+            /** @var \App\Model\Entity\Article[] $article */
+            $divposition = "";
+            $flexStyle = " ";
+            // si article par default
+            if ($article->css_title == null){
+                $article->css_title = "";
+            }
+            if ($article->css_content == null){
+                $article->css_content = "display:flex;";
+            }
+            if ($article->css_img == null){
+                $article->css_img = "width:100%;";
+            }
+
+            if ($article->position_image == null){
+                $article->position_image = "display:flex;width:75%; margin-left:auto;margin-right:auto;";
+            }
+
+            if ($article->position_image == "b"){
+                $divposition = "width:50%;order:2;";
+                $article->css_content = $article->css_content . " order:1;";
+                $flexStyle = "flex-direction:column; ";
+                $article->css_img = "width:100%;";
+            }
+
+            if ($article->position_image == "d"){
+                $divposition = "width:25%;float:right;margin-left:20px; ";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-end;";
+                $article->css_img = "width:100%;";
+            }
+
+            if ($article->position_image == "g"){
+                $divposition = "width:25%;float:left;margin-right:20px;";
+                $article->css_content = "";
+                $flexStyle = "justify-content:flex-start;";
+                $article->css_img = "width:100%;";
+
+            }
+            ?>
+
+            <div class="crypto-conteneur-articles" >
+                <p class="crypto-level-articles" ><?= $article->level?></p>
+                <h2 class="crypto-titre-articles" style="<?= $article->css_title ?>" ><?= $article->title ?></h2>
+
+                <div class="crypto-conteneur-bas-articles" >
+                    <div id="div-parent-preview" class="crypto-img-textes-articles" style="<?= $flexStyle ?>">
+
+                        <div class="crypto-conteneur-img-articles" style="<?= $divposition ?>" >
+                            <?= $this->Html->image("upload/" . $article->image, ['class'=>'crypto-img-articles','style' => $article->css_img ,'alt' => 'accueil'])?>
+                        </div>
+
+                        <p class="crypto-texte-articles"  style="<?= $article->css_content ?>"><?= nl2br($article->content)?></p>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
             </div>
+
          </aside>
     </div>
 </main>
@@ -107,7 +162,7 @@
             var bootstrapClass = $(this).val();
 
             // Appliquez la classe Bootstrap à l'élément de titre
-            $('#preview-title').attr('class', bootstrapClass);
+            $('#preview-title').attr('style', bootstrapClass);
         });
 
         $('#css_title').trigger('input');
@@ -117,7 +172,7 @@
             var bootstrapClass = $(this).val();
 
             // Appliquez la classe Bootstrap à l'élément de titre
-            $('#preview-text').attr('class', bootstrapClass);
+            $('#preview-text').attr('style', bootstrapClass);
         });
 
         $('#css_content').trigger('input');
@@ -127,7 +182,7 @@
             var bootstrapClass = $(this).val();
 
             // Appliquez la classe Bootstrap à l'image elle-même
-            $('#imagePreview img').attr('class', bootstrapClass);
+            $('#imagePreview img').attr('style', bootstrapClass);
         });
 
         $('#css_img').trigger('input');
@@ -141,15 +196,11 @@
         $('input[name="title"]').on('input', function() {
             $('#preview-title').text($(this).val());
         });
-        $('input[name="upload"]').on('change', function() {
-            $('#imagePreview').html('');
-            var total_file = document.getElementById("upload").files.length;
+        $('#addarticles-inputfile').on('change', function() {
+            $('#imagePreview').empty();
+            var total_file = document.getElementById("addarticles-inputfile").files.length;
             for (var i = 0; i < total_file; i++) {
-                // Obtenez la classe Bootstrap entrée par l'utilisateur
-                var bootstrapClass = $('#css_img').val();
-
-                // Ajoutez la classe Bootstrap à l'image lors de sa création
-                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='" + bootstrapClass + " img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' alt='accueil' style='width: 100%;border-radius:10px;'>");
             }
         });
         $('#boldButton').on('click', function() {
