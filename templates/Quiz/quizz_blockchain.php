@@ -2,7 +2,7 @@
 
 <?php
 /** @var \App\Model\Entity\Quiz[] $quizes */
-echo $this->Form->create(null, ['url' => ['action' => 'checkAnswersCrypto']]) ;
+echo $this->Form->create(null, ['url' => ['action' => 'checkAnswersBlockchain']]) ;
 
 
 foreach ($quizes as $index => $quiz) :
@@ -128,7 +128,5 @@ $csv_link = $quiz->csv_link;
         <?= $this->Form->button(__('Envoyer'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
         <?= $this->Form->end() ?>
     </div>
-    <?php $this->cell('Quiz') ?>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</body>

@@ -17,41 +17,55 @@ $loggedIn = $this->Authentication->isLoggedIn();
     </div>
     <nav class="navbar">
         <ul>
-            <li class="navbtn<?php if($currentURL==="") echo' active';?>"  ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'home']) ?>"><h4>Accueil</h4></a></li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Accueil</h4>', ['controller'=> 'Pages', 'action' => 'home'], ['class' => 'navbtn' . ($currentURL === "" ? ' active' : ''), 'escapeTitle' => false]);?></li>
             <li class="navbtn <?php if($currentURL==="blockchain"||$currentURL==="nft"||$currentURL==="crypto"||$currentURL==="danger") echo' active';?>" >
                 <h4 class="" >Les Infos :</h4>
                 <ul class="sousmenu">
-                    <li class="navbtn<?php if($currentURL==="blockchain") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>"><h4>Les Blockchain</h4></a></li>
-                    <li class="navbtn<?php if($currentURL==="nft") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>"><h4>Les NFT</h4></a></li>
-                    <li class="navbtn<?php if($currentURL==="crypto") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>"><h4>Les Crypto</h4></a></li>
-                    <li class="navbtn<?php if($currentURL==="danger") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>"><h4>Les Dangers</h4></a></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>La Blockchain </h4>', ['controller'=> 'Articles', 'action' => 'blockchain'], ['class'=>($currentURL === "blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les NFT</h4>', ['controller'=> 'Articles', 'action' => 'nft'], ['class'=>($currentURL === "nft" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Crypto</h4>', ['controller'=> 'Articles', 'action' => 'crypto'], ['class'=>($currentURL === "crypto" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Dangers</h4>', ['controller'=> 'Articles', 'action' => 'danger'], ['class'=>($currentURL === "danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                 </ul>
             </li>
-            <li class="navbtn<?php if($currentURL==="actuality") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Actualities', 'action' => 'actuality']) ?>"><h4>Les Actus</h4></a></li>
-            <li class="navbtn<?php if($currentURL==="tempreel") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'tempreel']) ?>"><h4>Courbe en Temps Réel</h4></a></li>
-            <li class="navbtn<?php if($currentURL==="wallet") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Pages', 'action' => 'wallet']) ?>"><h4>Wallet</h4></a></li>
+            <li class="navbtn <?php if($currentURL==="quizz_blockchain"||$currentURL==="quizz_n_f_t"||$currentURL==="quizzcrypto"||$currentURL==="quizz_danger") echo' active';?>" >
+                <h4 class="" >Les Quiz :</h4>
+                <ul class="sousmenu">
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Blockchain </h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_blockchain'], ['class'=>($currentURL === "quizz_blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz NFT</h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_n_f_t'], ['class'=>($currentURL === "quizz_n_f_t" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Crypto</h4>', ['controller'=> 'Quizzes', 'action' => 'quizzcrypto'], ['class'=>($currentURL === "quizzcrypto" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Dangers</h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_danger'], ['class'=>($currentURL === "quizz_danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                </ul>
+            </li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Actu</h4>', ['controller'=> 'Actualities', 'action' => 'actuality'], ['class' => 'navbtn' . ($currentURL === "actuality" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Courbes en Temps Réel</h4>', ['controller'=> 'Pages', 'action' => 'tempreel'], ['class' => 'navbtn' . ($currentURL === "tempreel" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+
+            <li class="navbtn" ><?php echo $this->Html->link('<h4>Wallet</h4>', ['controller'=> 'Pages', 'action' => 'wallet'], ['class' => 'navbtn' . ($currentURL === "wallet" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+
             <?php
             if ($loggedIn):
                 ?>
-                <li class="navbtn<?php if($currentURL==="update") echo' active';?>" ><a href="<?= $this->Url->build(['controller'=> 'Users', 'action' => 'update']) ?>"><h4>Admin</h4></a></li>
+                <li class="navbtn" ><?php echo $this->Html->link('<h4>Admin</h4>', ['controller'=> 'Users', 'action' => 'update'], ['class' => 'navbtn' . ($currentURL === "users" ||$currentURL === "update" || $currentURL === "articles" || $currentURL === "actualities" || $currentURL === "quizzes" || $currentURL === "register" || $currentURL == "add" ? ' active' : ''), 'escapeTitle' => false]);?></li>
             <?php
             endif; ?>
         </ul>
     </nav>
+    <div id="nav-conteneur-lien" >
+        <?php
+        if ($loggedIn):
+            echo $this->Html->link(
+                $this->Html->image('logout.png', ['alt' => 'image de profil', 'class' => 'nav-profil-img']),
+                ['controller'=> 'Users', 'action' => 'logout'],
+                ['class' => 'conteneur-lien', 'escapeTitle' => false]
+            );
+        endif;
 
-    <?php
-    if ($loggedIn):
+        $class = ($currentURL === "profil") ? 'active' : '';
+        echo $this->Html->link(
+            $this->Html->image('profil.png', ['alt' => 'image de profil','class' => 'nav-profil-img ' . $class]),
+            ['controller'=> 'Pages', 'action' => 'profil'],
+            ['escapeTitle' => false, 'class' => 'conteneur-lien ' . $class]
+        );
         ?>
-       <a href="<?= $this->Url->build(['controller'=> 'Users', 'action' => 'logout']) ?>"><h4>logout</h4></a>
-    <?php
-    endif; ?>
+    </div>
 
-    <?php
-    $class = ($currentURL === "profil") ? 'active' : '';
-    echo $this->Html->link(
-        $this->Html->image('profil.png', ['alt' => 'image de profil', 'id' => 'nav-profil-img', 'class' => $class]),
-        ['controller'=> 'Pages', 'action' => 'profil'],
-        ['id' => 'conteneur-lien', 'escapeTitle' => false, 'class' => $class]
-    );
-    ?>
 </header>

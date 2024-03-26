@@ -1,7 +1,7 @@
 
 
 <main id="crypto-main" class="navmarge" >
-    <?= $this->element('cookie_popup')?>
+
     <div id="recherche-conteneur">
         <input type="checkbox" id="toggleForm">
         <label for="toggleForm" id="recherche-img">
@@ -238,12 +238,13 @@
 
 
 
+    <?php //= $userName ?><!-- -->
+
     <?= $this->Html->link(
         "Quiz",
         ['controller'=> 'Quizzes', 'action' => 'quizzcrypto'],
         [
-            'id' => 'profil-btn-accueil',
-            'class' => 'grow',
+            'class' => 'grow articles-btn-quiz',
             'escapeTitle' => false
         ]
     ) ?>

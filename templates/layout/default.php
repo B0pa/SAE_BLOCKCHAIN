@@ -67,8 +67,6 @@ switch ($currentURL) {
         break;
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -76,12 +74,14 @@ switch ($currentURL) {
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrfToken" content="<?= $this->request->getAttribute('csrfToken') ?>">
     <title>
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css(['style']) ?>
+
+    <link rel="stylesheet" href="/css/style.css?v=<?= random_int(1000000, 9999999)  ?>">
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

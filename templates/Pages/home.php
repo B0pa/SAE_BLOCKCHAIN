@@ -11,37 +11,62 @@ use Cake\Log\Log; ?>
             </div>
 
             <div id="home-conteneur-card" >
-                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'blockchain']) ?>">
-                    <?= $this->Html->image('blockchain.gif', ['alt' => 'icone blockchain', 'class' => 'home-card-categories-img']); ?>
-                    <div class="home-card-categories-text">
-                        <h2>Les blockchains</h2>
-                        <p>Technologie de stockage et de transmission d'informations, transparente, sécurisée et décentralisée.</p>
-                    </div>
-                </a>
+                <?= $this->Html->link(
+                    $this->Html->image('blockchain.gif', ['alt' => 'icone blockchain', 'class' => 'home-card-categories-img']) .
+                        '<div class="home-card-categories-text">
+                            <h2>Les blockchains</h2>
+                            <p>Technologie de stockage et de transmission d\'informations, transparente, sécurisée et décentralisée.</p>
+                        </div>',
+                    ['controller'=> 'Articles', 'action' => 'blockchain'],
+                    [
+                        'class' => 'home-card-categories slideFromTop grow',
+                        'escape' => false
+                    ]
+                ) ?>
 
-                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'nft']) ?>">
-                    <?= $this->Html->image('NFT.gif', ['alt' => 'icone NFT', 'class' => 'home-card-categories-img']); ?>
-                    <div class="home-card-categories-text">
+                <?= $this->Html->link(
+                    $this->Html->image('NFT.gif', ['alt' => 'icone NFT', 'class' => 'home-card-categories-img']) .
+                    '<div class="home-card-categories-text">
                         <h2>Les NFTs</h2>
                         <p>Jetons numériques uniques représentant un objet virtuel. Spéculatifs et sujets aux arnaques.</p>
-                    </div>
-                </a>
+                    </div>',
+                    ['controller'=> 'Articles', 'action' => 'nft'],
+                    [
+                        'class' => 'home-card-categories slideFromTop grow',
+                        'escape' => false
+                    ]
+                ) ?>
 
-                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'crypto']) ?>">
-                    <?= $this->Html->image('crypto.gif', ['alt' => 'icone cryptomonnais','class' => 'home-card-categories-img']); ?>
-                    <div class="home-card-categories-text">
+                <?= $this->Html->link(
+                    $this->Html->image('crypto.gif', ['alt' => 'icone cryptomonnais', 'class' => 'home-card-categories-img']) .
+                    '<div class="home-card-categories-text">
                         <h2>Les Cryptommonaies</h2>
                         <p>Monnaies numériques basées sur la blockchain, comme le Bitcoin. Volatiles et risquées.</p>
-                    </div>
-                </a>
+                    </div>'
 
-                <a class="home-card-categories slideFromTop grow" href="<?= $this->Url->build(['controller'=> 'Articles', 'action' => 'danger']) ?>">
-                    <?= $this->Html->image('danger.gif', ['alt' => 'icone danger','class' => 'home-card-categories-img']); ?>
-                    <div class="home-card-categories-text">
+                    ,
+                    ['controller'=> 'Articles', 'action' => 'crypto'],
+                    [
+                        'class' => 'home-card-categories slideFromTop grow',
+                        'escape' => false
+                    ]
+                ) ?>
+
+                <?= $this->Html->link(
+                     $this->Html->image('danger.gif', ['alt' => 'icone danger','class' => 'home-card-categories-img']) .
+                    '<div class="home-card-categories-text">
                         <h2>Les dangers</h2>
                         <p>Volatilité, hacking, arnaques, bulles spéculatives, utilisation à des fins illicites, impact environnemental (mining).</p>
-                    </div>
-                </a>
+                    </div>'
+                    ,
+                    ['controller'=> 'Articles', 'action' => 'danger'],
+                    [
+                        'class' => 'home-card-categories slideFromTop grow',
+                        'escape' => false
+                    ]
+                ) ?>
+
+
             </div>
 
 

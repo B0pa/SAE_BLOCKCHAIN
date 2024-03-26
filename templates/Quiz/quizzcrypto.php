@@ -128,7 +128,8 @@ $csv_link = $quiz->csv_link;
         <?= $this->Form->button(__('Envoyer'), ['class' => 'btn btn-warning text-white rounded-3 slideFromTop ']) ?>
         <?= $this->Form->end() ?>
     </div>
-    <?php $this->cell('Quiz') ?>
+
+
 </main>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>

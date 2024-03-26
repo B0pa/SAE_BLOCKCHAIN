@@ -1,7 +1,7 @@
 
 
 <main id="crypto-main" class="navmarge" >
-    <?= $this->element('cookie_popup')?>
+
     <div id="recherche-conteneur">
         <input type="checkbox" id="toggleForm">
         <label for="toggleForm" id="recherche-img">
@@ -14,7 +14,7 @@
     <div id="crypto-conteneur-titreimg" >
         <?= $this->Html->image('nft.gif', ['id' => 'crypto-img-entete']); ?>
         <h1 id="crypto-h1" >
-            Les <span>NFT</span>
+            Les <span>NFTs</span>
         </h1>
     </div>
 
@@ -227,35 +227,13 @@
 
     <?php //= $userName ?><!-- -->
 
-
-
     <?= $this->Html->link(
         "Quiz",
         ['controller'=> 'Quizzes', 'action' => 'quizz_n_f_t'],
         [
-            'id' => 'profil-btn-accueil',
-            'class' => 'grow',
+            'class' => 'grow articles-btn-quiz',
             'escapeTitle' => false
         ]
     ) ?>
-
 </main>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        if (<?php echo $this->getRequest()->getCookie('validation'); ?> == 0) {
-            $('#cookieModal').modal('show');
-        }
-
-        $('#acceptCookies').click(function() {
-
-            $('#cookieModal').modal('hide');
-        });
-
-        $('#disableCookies').click(function() {
-
-            $('#cookieModal').modal('hide');
-        });
-    });
-</script>
 

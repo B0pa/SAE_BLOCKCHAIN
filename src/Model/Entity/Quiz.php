@@ -40,5 +40,5 @@ class Quiz extends Entity
         // D'accord je n'avais pas compris sa comme sa ^^'
         // sinon vous pouvez complétement commenter cette propriété et vous en occuper en dernier ;)
         // D'accord je ne savais pas du tout
-    ]; 
+    ];
 }

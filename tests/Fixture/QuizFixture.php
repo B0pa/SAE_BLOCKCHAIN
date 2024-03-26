@@ -28,11 +28,12 @@ class QuizFixture extends TestFixture
                 'id' => 1,
                 'level' => 1,
                 'question' => 'Lorem ipsum dolor sit amet',
-                'realanswer' => 'Lorem ipsum dolor sit amet',
+                'answer1' => 'Lorem ipsum dolor sit amet',
+                'answer2' => 'Lorem ipsum dolor sit amet',
+                'answer3' => 'Lorem ipsum dolor sit amet',
+                'realanswer' => 1,
                 'questionform' => 'Lorem ipsum dolor sit amet',
                 'category' => 'Lorem ipsum dolor sit amet',
-                'csv_link' => 'Lorem ipsum dolor sit amet',
-                'csv_columne' => 'Lorem ipsum dolor sit amet',
             ],
         ];
         parent::init();
