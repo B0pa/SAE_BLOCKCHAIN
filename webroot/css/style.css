@@ -1816,6 +1816,7 @@ footer>p{
 
 .add-add-conteneur{
     width: 50%;
+    
     padding: 10px 20px;
 }
 
@@ -1825,6 +1826,9 @@ footer>p{
 
 .add-add-action-conteneur{
     margin-bottom: 10px;
+}
+.add-add-action-conteneur a{
+    margin: 0 10px;
 }
 
 .add-add-content-conteneur{
