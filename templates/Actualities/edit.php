@@ -17,7 +17,7 @@
                 <?= $this->Html->link(__('List Actualities'), ['action' => 'index'], ['class' => 'add-add-actions']) ?>
             </div>
             <?= $this->Form->create($actuality) ?>
-            <fieldset class="add-add-content-conteneur">'
+            <fieldset class="add-add-content-conteneur">
                 <legend><?= __('Edit Actuality') ?></legend>
                 <div class="add-add-content-title">
                     <?php
@@ -87,7 +87,8 @@
         });
 
         $('input[name="link"]').on('input', function() {
-            $('#preview-link').html('<a href="' + $(this).val() + '" class="btn btn-primary mt-3" target="_blank">Lien vers l\'article</a>');
+            var title = $('input[name="title"]').val();
+            $('#preview-link').html('<a href="' + $(this).val() + '" class="btn btn-primary mt-3" target="_blank">' + title + '</a>');
         });
 
 
