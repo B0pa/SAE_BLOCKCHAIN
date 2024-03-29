@@ -353,21 +353,7 @@ class ArticlesController extends AppController
 
     public function nft () {
         $cookie = $this->request->getCookie('nftLevel');
-        if ($cookie == 0) {
-            $articles1 = $this->Articles->find()
-                ->where(['category' => 'nft' ,'level' => '1'])
-                ->toArray();
-
-            $articles2 = $this->Articles->find()
-                ->where(['category' => 'nft' ,'level' => '2'])
-                ->toArray();
-
-            $articles3 = $this->Articles->find()
-                ->where(['category' => 'nft' ,'level' => '3'])
-                ->toArray();
-
-            $this->set(compact('articles1','articles2','articles3'));
-        } else if ($cookie == 1) {
+        if ($cookie == 1) {
             $articles1 = $this->Articles->find()
                 ->where(['category' => 'nft' ,'level' => '1'])
                 ->toArray();

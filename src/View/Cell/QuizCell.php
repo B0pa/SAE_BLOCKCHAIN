@@ -23,9 +23,19 @@ class QuizCell extends Cell
         $this->set('url', $url);
         
         if ($url === 'quizz-blockchain') {
-            $quizzes = $quizzesTable->find()
-            ->contain(['Answers'])
-            ->where(['category' => "blockchain"]);
+            $cookie = $this->request->getCookie('blockchainLevel'); 
+            if ($cookie > 0) {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "blockchain", 'level' => $cookie])
+                ->toArray();
+            }else {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "blockchain"])
+                ->toArray();
+            }
+           
         }
         if ($url === 'quizz_crypto') {
             $quizzes = $quizzesTable->find()
@@ -43,28 +53,9 @@ class QuizCell extends Cell
             ->where(['category' => "danger"]);
         }
 
-        $quiz_lvl1 = [];
-        $quiz_lvl2 = [];
-        $quiz_lvl3 = [];
-
-        foreach ($quizzes as $quiz) {
-            if($quiz->level === 1) {
-                $quiz_lvl1[] = $quiz;
-            }
-            elseif ($quiz->level === 2) {
-                $quiz_lvl2[] = $quiz;
-            }
-            elseif ($quiz->level === 3) {
-                $quiz_lvl3[] = $quiz;
-            }
-        }
-
-        $this->set('quiz_lvl1', $quiz_lvl1);
-        $this->set('quiz_lvl2', $quiz_lvl2);
-        $this->set('quiz_lvl3', $quiz_lvl3);
 
         $selectedAnswers = [];
-
+        $this->set(compact('quizzes'));
         $this->set(compact('selectedAnswers'));
         $this->set(compact('count'));
         $this->set(compact('url'));
