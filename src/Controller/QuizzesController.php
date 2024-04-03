@@ -33,12 +33,12 @@ use Cake\Log\Log;
 class QuizzesController extends AppController
 
 {
-    public function beforeFilter(\Cake\Event\EventInterface $event)
+    public function initialize(): void
     {
-        parent::beforeFilter($event);
-
-        $this->Authentication->allowUnauthenticated(['cookieAccept', 'cookieRefuse','quizzBlockchain','quizzNFT','quizzcrypto','quizzDanger', 'checkAnswersDanger', 'checkAnswersCrypto', 'checkAnswersNFT', 'checkAnswersBlockchain']);
+        parent::initialize();
+        $this->Authentication->allowUnauthenticated(['getAnswer', 'quizzDanger', 'quizzNFT', 'quizzcrypto', 'quizzBlockchain', 'checkAnswersDanger', 'checkAnswersNFT', 'checkAnswersCrypto', 'checkAnswersBlockchain', 'cookieAccept', 'cookieRefuse', 'incrementCount', 'decrementCount', 'reloadQuizCell']);
     }
+
     /**
 
      * Index method
@@ -50,14 +50,10 @@ class QuizzesController extends AppController
      */
 
     public function index()
-
     {
         $query = $this->Quizzes->find();
-
         $quizzes = $this->paginate($query);
-
         $this->set(compact('quizzes'));
-
     }
 
 
@@ -77,25 +73,17 @@ class QuizzesController extends AppController
      */
 
     public function view($id = null)
-
     {
-
         $quiz = $this->Quizzes->get($id, contain: []);
-
         $this->set(compact('quiz'));
-
     }
 
 
 
     /**
-
      * Add method
-
      *
-
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
-
      */
 
     public function add()
@@ -237,17 +225,11 @@ class QuizzesController extends AppController
 
 
     /**
-
      * Delete method
-
      *
-
      * @param string|null $id Quiz id.
-
      * @return \Cake\Http\Response|null Redirects to index.
-
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-
      */
 
     public function delete($id = null)
@@ -259,103 +241,65 @@ class QuizzesController extends AppController
         } else {
             $this->Flash->error(__('The quiz could not be deleted. Please, try again.'));
         }
-
         return $this->redirect(['action' => 'index']);
     }
 
-
-
     public function quizzDanger()
-
-    {
-
-
-
-    }
-
-
-
-    public function quizzNFT()
-
-    {
-
-
-
-    }
-
-
-
-    public function quizzcrypto()
-
-    {
-
-
-
-    }
-
-
-
-    public function quizzBlockchain()
-
     {
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
+        $session->write('currentURL', 'quizz-blockchain');
+
         if ($count === null) {
             $count = 0;
         }
-        $this->set('count', $count);
-
-        // Récupérez le quiz correspondant à l'index
-
-        $quiz_lvl1 = $this->Quizzes->find()
-
-            ->contain(['Answers'])
-
-            ->where(['category' => 'blockchain', 'level' => 1])
-
-
-
-            ->toArray();
-
-        $quiz_lvl2 = $this->Quizzes->find()
-
-            ->contain(['Answers'])
-
-            ->where(['category' => 'blockchain', 'level' => 2])
-
-
-
-            ->toArray();
-
-        $quiz_lvl3 = $this->Quizzes->find()
-
-            ->contain(['Answers'])
-
-            ->where(['category' => 'blockchain', 'level' => 3])
-
-
-
-            ->toArray();
-
-
-
-        $selectedAnswers = [];
-
-
 
         // Passez le quiz à la vue
-
-        $this->set(compact('quiz_lvl1'));
-
-        $this->set(compact('quiz_lvl2'));
-
-        $this->set(compact('quiz_lvl3'));
-
-        $this->set(compact('selectedAnswers'));
-
-
-
+        $this->set('count', $count);
     }
+
+    public function quizzNFT()
+    {
+        $session = $this->getRequest()->getSession();
+        $count = $session->read('count');
+        $session->write('currentURL', 'quizz-blockchain');
+
+        if ($count === null) {
+            $count = 0;
+        }
+
+        // Passez le quiz à la vue
+        $this->set('count', $count);
+    }
+
+    public function quizzcrypto()
+    {
+        $session = $this->getRequest()->getSession();
+        $count = $session->read('count');
+        $session->write('currentURL', 'quizz-blockchain');
+
+        if ($count === null) {
+            $count = 0;
+        }
+
+        // Passez le quiz à la vue
+        $this->set('count', $count);
+    }
+
+    public function quizzBlockchain()
+    {
+        $session = $this->getRequest()->getSession();
+        $count = $session->read('count');
+        $session->write('currentURL', 'quizz-blockchain');
+
+        if ($count === null) {
+            $count = 0;
+        }
+
+        // Passez le quiz à la vue
+        $this->set('count', $count);
+    }
+
     public function incrementCount() {
         $this->autoRender = false;
         $session = $this->getRequest()->getSession();
@@ -368,25 +312,53 @@ class QuizzesController extends AppController
         return $this->response->withStringBody((string)$count);
     }
 
-    public function reloadQuizCell() {
+    public function decrementCount() {
         $this->autoRender = false;
-
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
         if ($count === null) {
             $count = 0;
         }
+        if ($count > 0) {
+            $count--;
+        }
+        $session->write('count', $count);
+        return $this->response->withStringBody((string)$count);
+    }
 
-        // Créez une nouvelle instance de QuizCell
-
+    public function reloadQuizCell() {
+        $this->autoRender = false;
+        // Create a new instance of QuizCell
         $view = $this->createView();
-
-        // Utilisez la méthode cell() de la vue pour créer une instance de QuizCell
-        $cell = $view->cell('Quiz', [$count]);
-
+        // Pass the $count and $currentURL as parameters to the QuizCell
+        $cell = $view->cell('Quiz::display');
         echo $cell;
+    }
 
+    public function getAnswer()
+    {
+        // Récupérez la session
+        $session = $this->getRequest()->getSession();
+        // Récupérez le quizId et la réponse sélectionnée
+        $quizId = $this->request->getData('quizId');
+        // Récupérez la réponse sélectionnée
+        $selectedAnswer = $this->request->getData('answer');
 
+        // Récupérez le tableau des réponses sélectionnées du cache
+        if ($session->read('selectedAnswers') === null) {
+            // Si le tableau n'existe pas encore, créez-le
+            $selectedAnswers = [];
+        } else {
+            // Si le tableau existe déjà, récupérez-le
+            $selectedAnswers = $session->read('selectedAnswers');
+        }
+        // Ajoutez la réponse sélectionnée au tableau des réponses sélectionnées
+        $selectedAnswers[$quizId] = $selectedAnswer;
+        // Enregistrez le tableau des réponses sélectionnées dans le cache
+        $session->write('selectedAnswers', $selectedAnswers);
+
+        // Redirigez l'utilisateur vers la page précédente
+        return $this->redirect($this->referer());
     }
 
 

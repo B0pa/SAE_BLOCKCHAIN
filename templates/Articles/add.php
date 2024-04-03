@@ -197,34 +197,34 @@
         // position img
 
         $('select[name="position_image"]').on('change', function() {
-    var position = $(this).val();
+            var position = $(this).val();
 
-    // Réinitialisez tous les styles existants
-    var imagePreview = document.getElementById('imagePreview');
-    imagePreview.style.float = '';
-    imagePreview.style.order = '';
-    imagePreview.style.marginLeft = '';
-    imagePreview.style.marginLeft = '';
-    imagePreview.style.margin = '10px auto';
-    var previewText = document.getElementById('preview-text');
-    previewText.style.order = '';
-    var divParentPreview = document.getElementById('div-parent-preview');
-    divParentPreview.style.cssText = "overflow-y: auto; overflow-x: hidden;";
+            // Réinitialisez tous les styles existants
+            var imagePreview = document.getElementById('imagePreview');
+            imagePreview.style.float = '';
+            imagePreview.style.order = '';
+            imagePreview.style.marginLeft = '';
+            imagePreview.style.marginLeft = '';
+            imagePreview.style.margin = '10px auto';
+            var previewText = document.getElementById('preview-text');
+            previewText.style.order = '';
+            var divParentPreview = document.getElementById('div-parent-preview');
+            divParentPreview.style.cssText = "overflow-y: auto; overflow-x: hidden;";
 
-    // Ajoutez le nouveau style
-    if (position === 'g') {
-        imagePreview.style.float = 'left';
-        imagePreview.style.marginRight = '10px';
-    } else if (position === 'd') {
-        imagePreview.style.float = 'right';
-        imagePreview.style.marginLeft = '10px';
-    } else if (position === 'b') {
-        divParentPreview.style.cssText = "overflow-y: auto; overflow-x: hidden; display: flex; flex-direction: column;";
-        imagePreview.style.margin = '10px auto';
-        imagePreview.style.order = '2';
-        previewText.style.order = '1';
-    }
-});
+            // Ajoutez le nouveau style
+            if (position === 'g') {
+                imagePreview.style.float = 'left';
+                imagePreview.style.marginRight = '10px';
+            } else if (position === 'd') {
+                imagePreview.style.float = 'right';
+                imagePreview.style.marginLeft = '10px';
+            } else if (position === 'b') {
+                divParentPreview.style.cssText = "overflow-y: auto; overflow-x: hidden; display: flex; flex-direction: column;";
+                imagePreview.style.margin = '10px auto';
+                imagePreview.style.order = '2';
+                previewText.style.order = '1';
+            }
+        });
 
 
         $('#boldButton').on('click', function() {

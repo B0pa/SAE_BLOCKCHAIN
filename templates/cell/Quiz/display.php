@@ -1,46 +1,31 @@
 <?php
+if ($count < count($quizzes)) {
+    // Obtenir le quiz à l'index $count
+    $quiz = array_slice($quizzes, $count, 1)[0];
 
-    foreach ($quiz_lvl1 as $quiz) {
+    echo $count;
+    echo $url;
 
-        echo $quiz['question'];
-
-
-        foreach ($quiz['answers'] as $answer) {
-
-            echo $answer['answer'];
-
-        }
-
-    }
-
-    foreach ($quiz_lvl2 as $quiz) {
-
-        echo $quiz['question'];
-
-        // afficher chaque réponse contenue dans la liste answers présente dans $quiz
-
-        foreach ($quiz['answers'] as $answer) {
-
-            echo $answer['answer'];
-
-        }
-
-    }
-
-    foreach ($quiz_lvl3 as $quiz) {
-
-        echo $quiz['question'];
-
-        // afficher chaque réponse contenue dans la liste answers présente dans $quiz
-
-        foreach ($quiz['answers'] as $answer) {
-
-            echo $answer['answer'];
-
-        }
-
-    }
-
+    echo $quiz['question'];
     ?>
+    <br>
+    <?=
+    $this->Form->create(null, ['url' => ['controller' => 'Quizzes', 'action' => 'getAnswer']]);
 
-<p><?= $count ?></p>
+    echo $this->Form->hidden('quizId', ['value' => $quiz['id']]);
+
+    foreach ($quiz['answers'] as $answer) {
+        echo $this->Form->radio('answer', [
+            ['value' => $answer['num'], 'text' => $answer['answer']]
+        ]);
+    }
+
+    echo $this->Form->button('Submit');
+    echo $this->Form->end();
+    ?>
+    <br>
+    <?php
+}
+?>
+
+<?php echo $count; ?>

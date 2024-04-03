@@ -24,7 +24,7 @@
                 <div class="add-add-content-title">
                     <?php
                     echo $this->Form->control('title', [
-                    'class' => 'form-control bg-secondary'
+                        'class' => 'form-control bg-secondary'
                     ]);
                     echo $this->Form->button('Modifier le CSS du titre', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_title']);
                     echo $this->Form->text('css_title', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_title']);
@@ -33,7 +33,7 @@
                 <div class="add-add-content-content">
                     <?php
                     echo $this->Form->control('content',[
-                    'class' => 'form-control bg-secondary'
+                        'class' => 'form-control bg-secondary'
                     ]);
                     echo $this->Form->button('Gras', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'boldButton']);
                     echo $this->Form->button('Souligner', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'underlineButton']);
@@ -47,10 +47,10 @@
                     echo $this->Form->control('level', ['class' => 'form-control bg-secondary', 'options' => [1 => 1, 2 => 2, 3 => 3]]);
                     echo $this->Form->control('category',['class' => 'form-control bg-secondary','options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto']] );
                     echo $this->Form->control('upload', [
-                    'type' => 'file',
-                    'label' => 'Votre jolie image',
-                    'class' => 'form-control bg-secondary',
-                    'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
+                        'type' => 'file',
+                        'label' => 'Votre jolie image',
+                        'class' => 'form-control bg-secondary',
+                        'after' => $this->Form->button('Modifier l\'image', ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-upload-btn', 'data-target' => '#upload-input']),
                     ]);
                     echo $this->Form->button("Modifier le CSS de l'image ", ['type' => 'button', 'class' => 'btn btn-secondary mt-3', 'id' => 'edit-content-btn', 'data-target' => '#css_img']);
                     echo $this->Form->text('css_img', ['style' => 'display: none;', 'class' => 'form-control bg-secondary', 'id' => 'css_img']);
@@ -126,7 +126,7 @@
 
             </div>
 
-         </aside>
+        </aside>
     </div>
 </main>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

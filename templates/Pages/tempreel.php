@@ -40,60 +40,60 @@
     // Création du graphique
     var chart;
 
-// Fonction pour créer le graphique
-function createChart(chartType) {
-    // Destruction s'il existe déjà
-    if(chart) {
-        chart.destroy();
-    }
+    // Fonction pour créer le graphique
+    function createChart(chartType) {
+        // Destruction s'il existe déjà
+        if(chart) {
+            chart.destroy();
+        }
 
-    // Création
-    chart = new Chart(ctx, {
-        type: chartType,
-        data: {
-            datasets: [{
-                label: 'BTCUSDT',
-                data: [],
-                borderColor: color,
-            }]
-        },
-        options: {
-            responsive: true, // Ajoutez cette ligne
-            maintainAspectRatio: false, // Ajoutez cette ligne
-            scales: {
-                x: {
-                    type: 'time',
-                    time: {
-                        unit: 'minute'
+        // Création
+        chart = new Chart(ctx, {
+            type: chartType,
+            data: {
+                datasets: [{
+                    label: 'BTCUSDT',
+                    data: [],
+                    borderColor: color,
+                }]
+            },
+            options: {
+                responsive: true, // Ajoutez cette ligne
+                maintainAspectRatio: false, // Ajoutez cette ligne
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'minute'
+                        },
+                        grid: {
+                            display: true,
+                            color: 'rgba(255, 255, 255, 0.4)',
+                        },
+                        ticks:{
+                            color: 'rgba(255, 255, 255, 0.6)'
+                        }
                     },
-                    grid: {
-                        display: true,
-                        color: 'rgba(255, 255, 255, 0.4)',
-                    },
-                    ticks:{
-                        color: 'rgba(255, 255, 255, 0.6)'
+                    y: {
+                        grid: {
+                            display: true,
+                            color: 'rgba(255, 255, 255, 0.4)',
+                        },
+                        ticks:{
+                            color: 'rgba(255, 255, 255, 0.6)'
+                        }
                     }
                 },
-                y: {
-                    grid: {
-                        display: true,
-                        color: 'rgba(255, 255, 255, 0.4)',
-                    },
-                    ticks:{
-                        color: 'rgba(255, 255, 255, 0.6)'
-                    }
-                }
-            },
-            plugins: {
-                legend:{
-                    labels:{
-                        color:'rgba(255, 255, 255, 0.6)'
+                plugins: {
+                    legend:{
+                        labels:{
+                            color:'rgba(255, 255, 255, 0.6)'
+                        }
                     }
                 }
             }
-        }
-    });
-}
+        });
+    }
 
     // Formatter pour les données en mode Line
     function formatLine(candle) {
@@ -159,7 +159,7 @@ function createChart(chartType) {
 
     function isMobileDevice() {
         if (
-            
+
             navigator.userAgent.match(/iPhone/i) ||
             navigator.userAgent.match(/webOS/i) ||
             navigator.userAgent.match(/Android/i) ||
@@ -167,10 +167,10 @@ function createChart(chartType) {
             navigator.userAgent.match(/iPod/i) ||
             navigator.userAgent.match(/BlackBerry/i) ||
             navigator.userAgent.match(/Windows Phone/i)
-        ) { 
+        ) {
             console.log("mobile");
             return true;
-           
+
         } else {
             console.log("ordi");
             return false;

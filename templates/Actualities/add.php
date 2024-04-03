@@ -55,6 +55,7 @@
             <div id="div-parent-preview" style="overflow-y: auto; overflow-x: hidden;">
                 <div id="imagePreview" class="p-2 mx-auto " style="width:33%;"></div>
                 <p id="preview-text" class=" " style=" overflow-wrap: break-word;" ></p>
+                <a id="preview-link"></a>
                 <div style="clear: both;"></div>
             </div>
         </aside>
@@ -64,42 +65,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(function() {
-        // Prévisualisation
-
         $('button').click(function() {
-            // Obtenez l'identifiant de la zone de texte à afficher
             var target = $(this).data('target');
-
-            // Affichez la zone de texte
             $(target).show();
         });
-
-        // Lorsque le champ title-input change
-        $('#add-css-title').on('input', function() {
-            // Obtenez la classe Bootstrap entrée par l'utilisateur
-            var bootstrapClass = $(this).val();
-
-            // Appliquez la classe Bootstrap à l'élément de titre
-            $('#preview-title').attr('style', bootstrapClass);
-        });
-
-        $('#add-css-content').on('input', function() {
-            // Obtenez la classe Bootstrap entrée par l'utilisateur
-            var bootstrapClass = $(this).val();
-
-            // Appliquez la classe Bootstrap à l'élément de titre
-            $('#preview-text').attr('style', bootstrapClass);
-        });
-
-        $('#add-css-img').on('input', function() {
-            // Obtenez la classe Bootstrap entrée par l'utilisateur
-            var bootstrapClass = $(this).val();
-
-            // Appliquez la classe Bootstrap à l'image elle-même
-            $('#imagePreview img').attr('style', bootstrapClass);
-        });
-
-
 
         $('textarea[name="content"]').on('input', function() {
             var content = $(this).val().replace(/ /g, "&nbsp;").replace(/\n/g, "<br>");
@@ -111,36 +80,17 @@
         });
 
 
-        $('input[name="upload"]').on('change', function() {
-            $('#imagePreview').html('');
-            var total_file = document.getElementById("upload").files.length;
-            for (var i = 0; i < total_file; i++) {
-                $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style='width: 100%'>");
-            }
-        });
-        // position img
-
-        $('select[name="position_image"]').on('change', function() {
-            var position = $(this).val();
-
-            // Supprimez toutes les classes de position existantes
-            var div = document.getElementById("div-parent-preview");
-            div.style.cssText = "overflow-y: auto; overflow-x: hidden;";
-            $('#imagePreview').removeClass('float-start float-end order-1 order-2');
-
-            // Ajoutez la nouvelle classe de position
-            if (position === 'g') {
-                $('#imagePreview').addClass('float-start');
-            } else if (position === 'd') {
-                $('#imagePreview').addClass('float-end');
-            } else if (position === 'b') {
-                $('#imagePreview').removeClass('float-start float-end');
-                div.style.cssText = "overflow-y: auto; overflow-x: hidden;display:flex;flex-direction:column;";
-                $('#imagePreview').addClass('order-2');
-                $('#preview-text').addClass('order-1');
-            }
+        $('input[name="img"]').on('change', function(event) {
+            $('#imagePreview').empty(); // Clear the preview area before appending new image
+            $('#imagePreview').append("<img src='" + URL.createObjectURL(event.target.files[0]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style='width: 100%'>");
         });
 
+        $('input[name="link"]').on('input', function() {
+            $('#preview-link').html('<a href="' + $(this).val() + '" class="btn btn-primary mt-3" target="_blank">Lien vers l\'article</a>');
+        });
+
+
+        //todo : add bold et underline
         $('#boldButton').on('click', function() {
             wrapSelection('content', '<strong>', '</strong>');
         });
@@ -148,6 +98,7 @@
         $('#underlineButton').on('click', function() {
             wrapSelection('content', '<u>', '</u>');
         });
+
 
         function wrapSelection(textareaId, openTag, closeTag) {
             var textarea = document.getElementById(textareaId);

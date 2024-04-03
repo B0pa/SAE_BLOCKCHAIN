@@ -5,18 +5,18 @@
  */
 ?>
 <main class="navmarge index-main" >
-    <?= $this->Html->link(__('Ajouter une actualité'), ['action' => 'add'], ['class' => 'index-btn-new grow']) ?>
+    <?= $this->Html->link(__('New Actuality'), ['action' => 'add'], ['class' => 'index-btn-new grow']) ?>
     <h3 class="index-title" ><?= __('Actualities') ?></h3>
     <div class="index-conteneur-table">
         <table>
             <thead class="index-table-thead" >
-                <tr>
-                    <th class="index-table-th-td" ><?= $this->Paginator->sort('id') ?></th>
-                    <th class="index-table-th-td" ><?= $this->Paginator->sort('title') ?></th>
-                    <th class="index-table-th-td" ><?= $this->Paginator->sort('link') ?></th>
-                    <th class="index-table-th-td" ><?= $this->Paginator->sort('img') ?></th>
-                    <th class="actions index-table-th-td"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th class="index-table-th-td" ><?= $this->Paginator->sort('id') ?></th>
+                <th class="index-table-th-td" ><?= $this->Paginator->sort('title') ?></th>
+                <th class="index-table-th-td" ><?= $this->Paginator->sort('link') ?></th>
+                <th class="index-table-th-td" ><?= $this->Paginator->sort('img') ?></th>
+                <th class="actions index-table-th-td"><?= __('Actions') ?></th>
+            </tr>
             </thead>
             <tbody>
             <?php foreach ($actualities as $actuality): ?>
