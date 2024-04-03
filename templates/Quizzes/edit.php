@@ -15,6 +15,7 @@ $files = array_diff(scandir($dir), array('..', '.'));
 
 <main class="mt-5"></main>
 <div class="row col-12 p-3">
+
     <aside class="col">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
@@ -26,7 +27,8 @@ $files = array_diff(scandir($dir), array('..', '.'));
             <?= $this->Html->link(__('List Quiz'), ['action' => 'index'], ['class' => 'side-nav-item text-warning']) ?>
         </div>
     </aside>
-    <div class="col-9 p-3 bg-dark rounded text-white">
+
+    <div class="col-9 p-3 bg-dark rounded text-white" style="color:#000">
         <div class="quiz content">
             <?= $this->Form->create($quiz, ['type' => 'file']) ?>
             <fieldset>
@@ -59,6 +61,10 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
                     'class' => 'form-control bg-secondary'
                 ]);
+
+                foreach ($quiz->answers as $answer) { // Récupéré chaque reponse et afficher id !
+                    echo $this->Form->control('answers.' . $answer->id, ['type' => 'text', 'class' => 'form-control bg-secondary']);
+                }
                 ?>
 
 

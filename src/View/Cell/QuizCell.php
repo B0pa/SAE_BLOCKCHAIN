@@ -13,12 +13,21 @@ class QuizCell extends Cell
 
     public function display() {
         $session = $this->request->getSession();
+    
         $count = $session->check('count') ? $session->read('count') : 0;
+        $selectedAnswers = $session->check('selectedAnswers') ? $session->read('selectedAnswers') : [];
+    
+        if (isset($selectedAnswers[$count])) {
+            $selectedAnswer = $selectedAnswers[$count];
+        } else {
+            $selectedAnswer = null;
+        }
+    
         $url = $session->check('currentURL') ? $session->read('currentURL') : 'defaultURL';
-        
+    
         $quizzesTable = $this->fetchTable('Quizzes');
         $quizzes = [];
-
+    
         $this->set('count', $count);
         $this->set('url', $url);
         
@@ -35,7 +44,6 @@ class QuizCell extends Cell
                 ->where(['category' => "blockchain"])
                 ->toArray();
             }
-           
         }
         if ($url === 'quizz_crypto') {
             $quizzes = $quizzesTable->find()
@@ -54,13 +62,10 @@ class QuizCell extends Cell
         }
 
 
-        $selectedAnswers = [];
         $this->set(compact('quizzes'));
         $this->set(compact('selectedAnswers'));
         $this->set(compact('count'));
         $this->set(compact('url'));
+        $this->set('selectedAnswer', $selectedAnswer);
     }
-
-
-
 }
