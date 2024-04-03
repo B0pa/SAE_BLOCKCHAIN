@@ -73,7 +73,7 @@ class AppController extends Controller
         if ($cookie == null) {
             $validation_cookie = Cookie::create(
                 'validation',
-                CookieCrypt::encryptCookie(0),
+                0,
                 // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),

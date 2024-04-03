@@ -1,6 +1,7 @@
 <?php
 
 use App\Utility\CookieCrypt;
+use Cake\Log\Log;
 
 ?>
 <main id="wallet-main" class="navmarge"  >
@@ -13,7 +14,9 @@ use App\Utility\CookieCrypt;
             </div>
             <?php
             $crypt = $this->getRequest()->getCookie('crypto');
+
             $counter = CookieCrypt::decryptCookie($crypt);
+
 
             if ($counter >= 500) {
                 ?>
