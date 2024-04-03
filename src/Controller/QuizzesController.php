@@ -36,7 +36,7 @@ class QuizzesController extends AppController
     public function initialize(): void
     {
         parent::initialize();
-        $this->Authentication->allowUnauthenticated(['quizzDanger', 'quizzNFT', 'quizzcrypto', 'quizzBlockchain', 'checkAnswersDanger', 'checkAnswersNFT', 'checkAnswersCrypto', 'checkAnswersBlockchain', 'cookieAccept', 'cookieRefuse', 'incrementCount', 'reloadQuizCell']);
+        $this->Authentication->allowUnauthenticated(['getAnswer', 'quizzDanger', 'quizzNFT', 'quizzcrypto', 'quizzBlockchain', 'checkAnswersDanger', 'checkAnswersNFT', 'checkAnswersCrypto', 'checkAnswersBlockchain', 'cookieAccept', 'cookieRefuse', 'incrementCount', 'decrementCount', 'reloadQuizCell']);
     }
 
     /**
