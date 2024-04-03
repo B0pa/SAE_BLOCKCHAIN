@@ -575,7 +575,7 @@ footer>p{
 #home-contenu-main-aside{
     display: flex;
     background-color: #000000;
-    padding: 0px 40px 0px 40px;
+    padding: 0px 40px;
     color: #ffffff;
     gap: 60px;
     min-height: auto;
@@ -584,11 +584,8 @@ footer>p{
 #home-conteneur-h1{
     display: flex;
     width: 320px;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
-    margin-top: 80px;
-    margin-bottom: 70px;
+    margin: 80px auto 70px;
 }
 
 #home-h1{
@@ -618,16 +615,12 @@ footer>p{
     display: flex;
     background-color: #232321;
     text-decoration: none;
-    padding: 10px;
-    padding-left: 10px;
-    padding-right: 20px;
+    padding: 10px 20px 10px 10px;
     align-items: center;
     border-radius: 15px;
     -webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
     box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
 }
-
-
 
 .home-card-categories-img{
     width: 115px;
@@ -711,12 +704,9 @@ footer>p{
 
 .home-aside-actus-img{
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
     width: 75%;
     border-radius: 10px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 
 .home-aside-actus-lien{
@@ -1396,9 +1386,6 @@ footer>p{
         width: 100%;
         border-radius: 10px;
     }
-
-
-
 }
 
 /*=====================================================*/
@@ -1653,9 +1640,8 @@ footer>p{
 
 .tab{
     background-color:#FFE30A;
-    margin: 30px 40px;
     border-radius: 40px;
-    margin-bottom: 10px;
+    margin: 30px 40px 10px;
     box-shadow:25px 25px 40px #464331;
     height: auto;
     padding: 5px;
@@ -1664,11 +1650,6 @@ footer>p{
 .tab h2{
     text-align: center;
 }
-/*
-.update-tab-contenu{
-    display: flex;
-    flex-direction: column;
-} */
 
 .update-tab-liens{
     display: flex;
@@ -1767,6 +1748,7 @@ footer>p{
 
 .actions>a{
     color: #FFE30A;
+    cursor: pointer;
 }
 
 .index-paginator{
@@ -1782,7 +1764,7 @@ footer>p{
 
 .index-paginator>ul>li>a{
     color: #FFE30A;
-
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -1815,6 +1797,7 @@ footer>p{
 
 .add-add-conteneur{
     width: 50%;
+
     padding: 10px 20px;
 }
 
@@ -1824,6 +1807,9 @@ footer>p{
 
 .add-add-action-conteneur{
     margin-bottom: 10px;
+}
+.add-add-action-conteneur a{
+    margin: 0 10px;
 }
 
 .add-add-content-conteneur{
@@ -1851,6 +1837,7 @@ footer>p{
     background-color: #000000;
     color: #FFFFFF;
     cursor: pointer;
+    border: none;
 }
 
 #add-css-title{
@@ -1877,6 +1864,7 @@ footer>p{
     background-color: #000000;
     color: #FFFFFF;
     cursor: pointer;
+    border: none;
 }
 
 #underlineButton{
@@ -1886,6 +1874,7 @@ footer>p{
     background-color: #000000;
     color: #FFFFFF;
     cursor: pointer;
+    border: none;
 }
 
 #add-edit-css-content-btn{
@@ -1895,6 +1884,7 @@ footer>p{
     background-color: #000000;
     color: #FFFFFF;
     cursor: pointer;
+    border: none;
 }
 
 #add-css-content{
@@ -1926,6 +1916,7 @@ footer>p{
     background-color: #000000;
     color: #FFFFFF;
     cursor: pointer;
+    border: none;
 }
 
 #add-css-img{
@@ -1939,6 +1930,8 @@ footer>p{
     padding: 5px 10px;
     border-radius: 5px;
     margin-left: 10px;
+    cursor: pointer;
+    border: none;
 }
 
 .add-prev-conteneur{
@@ -1973,4 +1966,16 @@ footer>p{
     .add-prev-conteneur{
         width: 100%;
     }
+}
+
+/*================EDIT ARTICLES,QUIZ,ACTU=====================*/
+
+#edit-content-btn{
+    border-radius: 5px;
+    padding: 3px;
+    margin: 5px 5px 5px 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
 }
