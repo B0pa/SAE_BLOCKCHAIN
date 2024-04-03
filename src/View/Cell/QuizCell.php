@@ -10,12 +10,11 @@ use Cake\ORM\TableRegistry;
  */
 class QuizCell extends Cell
 {
-
     public function display() {
         $session = $this->request->getSession();
     
         $count = $session->check('count') ? $session->read('count') : 0;
-        $selectedAnswers = $session->check('selectedAnswers') ? $session->read('selectedAnswers') : [];
+        $selectedAnswers = $session->read('selectedAnswers');
     
         if (isset($selectedAnswers[$count])) {
             $selectedAnswer = $selectedAnswers[$count];
@@ -63,9 +62,8 @@ class QuizCell extends Cell
 
 
         $this->set(compact('quizzes'));
-        $this->set(compact('selectedAnswers'));
         $this->set(compact('count'));
         $this->set(compact('url'));
-        $this->set('selectedAnswer', $selectedAnswer);
+        $this->set(compact('selectedAnswer'));
     }
 }

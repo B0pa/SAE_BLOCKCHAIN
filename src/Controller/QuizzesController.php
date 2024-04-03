@@ -334,9 +334,8 @@ class QuizzesController extends AppController
     {
         // Récupérez la session
         $session = $this->getRequest()->getSession();
-        // Récupérez le quizId et la réponse sélectionnée
-        $quizId = $this->request->getData('quizId');
-        // Récupérez la réponse sélectionnée
+
+        $count = $session->read('count');
         $selectedAnswer = $this->request->getData('answer');
 
         // Récupérez le tableau des réponses sélectionnées du cache
@@ -347,92 +346,57 @@ class QuizzesController extends AppController
             // Si le tableau existe déjà, récupérez-le
             $selectedAnswers = $session->read('selectedAnswers');
         }
+
         // Ajoutez la réponse sélectionnée au tableau des réponses sélectionnées
-        $selectedAnswers[$quizId] = $selectedAnswer;
+        $selectedAnswers[$count] = $selectedAnswer;
         // Enregistrez le tableau des réponses sélectionnées dans le cache
         $session->write('selectedAnswers', $selectedAnswers);
 
+        debug($selectedAnswers);
+        
         // Redirigez l'utilisateur vers la page précédente
         return $this->redirect($this->referer());
     }
 
 
     public function checkAnswersDanger() // Verification reponse danger
-
     {
-
-
-
     }
 
     public function checkAnswersBlockchain()
-
     {
-
-
-
     }
 
     // checkAnswersNFT
-
     public function checkAnswersNFT() // Verification reponse blockchain
-
     {
-
-
-
     }
 
     // checkAnswersCrypto
-
     public function checkAnswersCrypto() // Verification reponse crypto
-
     {
-
-
-
     }
 
     public function cookieAccept() {
-
         $cookie = $this->request->getCookie('validation');
-
         if ($cookie == null) {
-
             $validation_cookie = Cookie::create(
-
                 'validation',
-
                 1,
-
                 // All keys are optional
-
                 [
-
                     'expires' => new \DateTime('+1 day'),
-
                     'path' => '/',
-
                     'domain' => '',
-
                     'secure' => false,
-
                     'httponly' => false,
-
                     'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-
                 ]
-
             );
-
             $this->response = $this->response->withCookie($validation_cookie);
-
         } else {
-
             $validation_cookie = Cookie::create(
-
                 'validation',
-
                 1,
 
                 // All keys are optional
