@@ -253,7 +253,7 @@ class QuizzesController extends AppController
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
@@ -267,7 +267,7 @@ class QuizzesController extends AppController
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
@@ -281,7 +281,7 @@ class QuizzesController extends AppController
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
@@ -295,7 +295,7 @@ class QuizzesController extends AppController
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
