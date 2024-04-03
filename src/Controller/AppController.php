@@ -16,6 +16,7 @@ declare(strict_types=1);
  */
 namespace App\Controller;
 
+use App\Utility\CookieCrypt;
 use Cake\Controller\Controller;
 use Cake\Http\Response;
 use Cake\Http\Cookie\Cookie;
@@ -64,13 +65,15 @@ class AppController extends Controller
     }
 
 
+
     public function defineCookie()
     {
+
         $cookie = $this->request->getCookie('validation');
         if ($cookie == null) {
             $validation_cookie = Cookie::create(
                 'validation',
-                0,
+                CookieCrypt::encryptCookie(0),
                 // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
@@ -78,7 +81,7 @@ class AppController extends Controller
                     'domain' => '',
                     'secure' => false,
                     'httponly' => false,
-                    'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                    'samesite' => null
                 ]
             );
             $this->response = $this->response->withCookie($validation_cookie);
@@ -88,7 +91,7 @@ class AppController extends Controller
         if ($cookie == null) {
             $nft_cookie = Cookie::create(
                 'nft',
-                0,
+                CookieCrypt::encryptCookie(0),
                 // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
@@ -105,7 +108,7 @@ class AppController extends Controller
         if ($cookie == null) {
             $crypto_cookie = Cookie::create(
                 'crypto',
-                0,
+                CookieCrypt::encryptCookie(0),
                 // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
@@ -123,7 +126,7 @@ class AppController extends Controller
         if ($cookie == null) {
             $danger_cookie = Cookie::create(
                 'danger',
-                0,
+                CookieCrypt::encryptCookie(0),
                 // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
@@ -140,7 +143,7 @@ class AppController extends Controller
         if ($cookie == null) {
             $blockchain_cookie = Cookie::create(
                 'blockchain',
-                0,
+                CookieCrypt::encryptCookie(0),
                 // All keys are optional
                 [
                     'expires' => new DateTime('+1 day'),
