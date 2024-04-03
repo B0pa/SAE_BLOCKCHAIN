@@ -29,8 +29,6 @@
                 .then(html => {
                     var quizCell = document.getElementById('quizCell');
                     quizCell.innerHTML = html;
-
-                    // Déplacez cette ligne ici
                     var countElement = document.getElementById('count');
                     countElement.textContent = count;
                 });
@@ -38,9 +36,14 @@
 });
 
 document.getElementById('decrementButton').addEventListener('click', function() {
+    console.log('decrementButton was clicked'); // Ajoutez cette ligne
     fetch('/quizzes/decrementCount')
-        .then(response => response.text())
+        .then(response => {
+            console.log('Received response from /quizzes/decrementCount'); // Ajoutez cette ligne
+            return response.text();
+        })
         .then(count => {
+            console.log('New count is ' + count); // Ajoutez cette ligne
             
             // Ajoutez ce code pour recharger la cellule
             fetch('/quizzes/reloadQuizCell')
@@ -48,8 +51,6 @@ document.getElementById('decrementButton').addEventListener('click', function() 
                 .then(html => {
                     var quizCell = document.getElementById('quizCell');
                     quizCell.innerHTML = html;
-
-                    // Déplacez cette ligne ici
                     var countElement = document.getElementById('count');
                     countElement.textContent = count;
                 });

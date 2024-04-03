@@ -1,40 +1,29 @@
-<?php
-
-use App\Utility\CookieCrypt;
-
-?>
 <main id="wallet-main" class="navmarge"  >
     <div id="wallet-main-conteneur" >
-        <div class="wallet-conteneur-categories col-pousse " >
-            <div class="wallet-categories-header" >
-                <?= $this->Html->image('cryptobitcoin.png', ['class' => 'wallet-icone-catg','alt' => 'crypto Bitcoin']); ?>
-                <h2>Score <span>Cryptomonnaie</span> : </h2>
-                <p><?php echo CookieCrypt::decryptCookie($this->getRequest()->getCookie('crypto')); ?></p>
-            </div>
+        <div class="wallet-conteneur-categories align-items-center col-pousse " >
+            <?= $this->Html->image('cryptobitcoin.png', ['class' => 'wallet-icone-catg','alt' => 'crypto Bitcoin']); ?>
+            <p class="justify-content-center text-center mt-2" ><?php echo $this->getRequest()->getCookie('crypto'); ?></p>
             <?php
-            $crypt = $this->getRequest()->getCookie('crypto');
-            $counter = CookieCrypt::decryptCookie($crypt);
-
-            if ($counter >= 500) {
+            $counter = $this->getRequest()->getCookie('crypto');
+            if ($counter < 500) {
+                $imagePathCrypto = 'cryptoreward.png';
+                echo $this->Html->image($imagePathCrypto, ['class' => 'd-flex mt-3 mx-auto imageCliquable', 'style' => 'height:300px', 'alt' => 'Recompense']);
+            } else if ($counter >= 500) {
                 ?>
-                <input type="file" id="imageInput" accept="image/*" onchange="processImage(event)" class='form-control' alt='accueil'>
-                <input type="text" id="letterInput" placeholder="Enter a letter" class = 'form-control'>
-                <?= $this->Form->button('Soumettre', ['id' => 'submitButton', 'class' => 'grow']) ?>
+                <input type="file" id="imageInput" accept="image/*" onchange="processImage(event)" class='form-control w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil'>
+                <input type="text" id="letterInput" placeholder="Enter a letter" class = 'form-control bg-secondary  w-75 mx-auto '>
+                <?= $this->Form->button('Soumettre', ['id' => 'submitButton', 'class' => 'btn btn-dark text-white d-flex rounded-3 slideFromTop mx-auto  mt-2 mb-3 ']) ?>
                 <canvas id="outputCanvas" width="300" height="300" style="border-radius: 50%;" class="d-flex mx-auto" ></canvas>
                 <?php
             }?>
 
         </div>
-        <div class="wallet-conteneur-categories col-pousse " >
-            <div class="wallet-categories-header" >
-                <?= $this->Html->image('cryptoblockchain.png', ['class' => 'wallet-icone-catg','alt' => 'crypto Blockchain']); ?>
-                <h2>Score <span>Blockchain</span> : </h2>
-                <p><?php echo CookieCrypt::decryptCookie($this->getRequest()->getCookie('blockchain')); ?></p>
-            </div>
+        <div class="wallet-conteneur-categories align-items-center d-md-block col col-pousse overflow-hidden border-start border-end border-1 border-dark " >
+            <?= $this->Html->image('cryptoblockchain.png', ['class' => 'wallet-icone-catg','alt' => 'crypto Blockchain']); ?>
+            <p class="justify-content-center text-center mt-2"><?php echo $this->getRequest()->getCookie('blockchain'); ?></p>
             <?php
             $imagePathBlockchain = '';
-            $crypt = $this->getRequest()->getCookie('blockchain');
-            $counter = CookieCrypt::decryptCookie($crypt);
+            $counter = $this->getRequest()->getCookie('blockchain');
 
             if ($counter == 0 && $counter < 100) {
                 $imagePathBlockchain = 'blockchain1.jpg';
@@ -49,14 +38,11 @@ use App\Utility\CookieCrypt;
             <?php echo $this->Html->image($imagePathBlockchain, ['class' => 'wallet-categ-img d-flex mt-3 mx-auto imageCliquable rounded-3 w-25', 'style' => '', 'alt' => 'Recompense']); ?>
         </div>
         <div class="wallet-conteneur-categories align-items-center d-md-block col col-pousse overflow-hidden border-start border-end border-1 border-dark " >
-            <div class="wallet-categories-header" >
-                <?= $this->Html->image('cryptodanger.png', ['class' => 'wallet-icone-catg','alt' => 'crypto Danger']); ?>
-                <h2>Score <span>Danger</span> : </h2>
-                <p class="justify-content-center text-center mt-2"><?php echo CookieCrypt::decryptCookie($this->getRequest()->getCookie('danger')); ?></p>
-            </div>
+
+            <?= $this->Html->image('cryptodanger.png', ['class' => 'wallet-icone-catg','alt' => 'crypto Danger']); ?>
+            <p class="justify-content-center text-center mt-2"><?php echo $this->getRequest()->getCookie('danger'); ?></p>
             <?php
-            $crypt =  $this->getRequest()->getCookie('danger');
-            $counter = CookieCrypt::decryptCookie($crypt);
+            $counter =  $this->getRequest()->getCookie('danger');
 
             if ($counter == 0) {
                 $imagePathDanger = '';
@@ -66,16 +52,11 @@ use App\Utility\CookieCrypt;
             }
             ?>
         </div>
-        <div class="wallet-conteneur-categories  " >
-            <div class="wallet-categories-header" >
-                <?= $this->Html->image('cryptoNFT.png', ['class' => 'wallet-icone-catg','alt' => 'crypto NFT']); ?>
-                <h2>Score <span>NFT</span> : </h2>
-                <p class="text-center mt-2"><?php echo CookieCrypt::decryptCookie($this->getRequest()->getCookie('nft')); ?></p>
-            </div>
-
-            <?php $crypt = $this->getRequest()->getCookie('nft');
-                    $counter = CookieCrypt::decryptCookie($crypt);
-            ?>
+        <div class="wallet-conteneur-categories align-items-center d-md-block col col-pousse overflow-hidden border-start border-end border-1 border-dark " >
+            <?= $this->Html->image('cryptoNFT.png', ['class' => 'wallet-icone-catg','alt' => 'crypto NFT']); ?>
+            <p class="text-center mt-2"><?php echo $this->getRequest()->getCookie('nft'); ?></p>
+            <?php // Gérer l'affichage du formulaire en fonction du nombre de cookies
+            $counter = $this->getRequest()->getCookie('nft'); ?>
 
             <?= $this->Form->create(null, ['url' => ['controller' => 'Pages', 'action' => 'wallet']]) ?>
 
@@ -120,7 +101,7 @@ use App\Utility\CookieCrypt;
             <?= $this->Form->end() ?>
         </div>
     </div>
-
+    
 
 </main>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

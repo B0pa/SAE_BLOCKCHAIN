@@ -39,8 +39,6 @@ class PagesController extends AppController
         $this->Authentication->addUnauthenticatedActions(['manageCookies','actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse','profil','deleteAllCookies']);
     }
 
-
-
     /**
      * actuality method
      *
@@ -107,10 +105,9 @@ class PagesController extends AppController
     }
 
     private function generateImageName($data) { // Code nft
-
-        $question1 = isset($data['question_1']) && !empty($data['question_1']) ? $data['question_1'] : 'Ser';
-        $question2 = isset($data['question_2']) && !empty($data['question_2']) ? $data['question_2'] : 'Sob';
-        $question3 = isset($data['question_3']) && !empty($data['question_3']) ? $data['question_3'] : 'Ble';
+        $question1 = isset($data['question_1']) ? $data['question_1'] : 'Ser';
+        $question2 = isset($data['question_2']) ? $data['question_2'] : 'Sob';
+        $question3 = isset($data['question_3']) ? $data['question_3'] : 'Ble';
 
         // Construire le nom de l'image en fonction des réponses
         $imageName = $question1 . $question2 . $question3 . '.png';
