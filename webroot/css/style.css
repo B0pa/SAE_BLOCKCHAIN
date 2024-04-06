@@ -1827,3 +1827,11 @@ footer>p{
     border-color: #000000;
     margin-top: 10px;
 }
+
+.selected-answer {
+    color:#0093f5;
+}
+
+.correct-answer {
+    color:#00FF00;
+}

@@ -43,21 +43,56 @@ class QuizCell extends Cell
                 ->where(['category' => "blockchain"])
                 ->toArray();
             }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
         }
-        if ($url === 'quizz_crypto') {
-            $quizzes = $quizzesTable->find()
-            ->contain(['Answers'])
-            ->where(['category' => "crypto"]);
+        if ($url === 'quizz-crypto') {
+            $cookie = $this->request->getCookie('cryptoLevel'); 
+            if ($cookie > 0) {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "crypto", 'level' => $cookie])
+                ->toArray();
+            }else {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "crypto"])
+                ->toArray();
+            }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
         }
-        if ($url === 'quizz_nft') {
-            $quizzes = $quizzesTable->find()
-            ->contain(['Answers'])
-            ->where(['category' => "nft"]);
+        if ($url === 'quizz-n-f-t') {
+            $cookie = $this->request->getCookie('nftLevel'); 
+            if ($cookie > 0) {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "nft", 'level' => $cookie])
+                ->toArray();
+            }else {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "nft"])
+                ->toArray();
+            }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
         }
-        if ($url === 'quizz_danger') {
-            $quizzes = $quizzesTable->find()
-            ->contain(['Answers'])
-            ->where(['category' => "danger"]);
+        if ($url === 'quizz-danger') {
+            $cookie = $this->request->getCookie('dangerLevel'); 
+            if ($cookie > 0) {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "danger", 'level' => $cookie])
+                ->toArray();
+            }else {
+                $quizzes = $quizzesTable->find()
+                ->contain(['Answers'])
+                ->where(['category' => "danger"])
+                ->toArray();
+            }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
         }
 
 

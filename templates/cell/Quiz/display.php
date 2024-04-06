@@ -7,10 +7,7 @@
         ?>
         <br>
         <?php
-        // Vérifier si une réponse a déjà été donnée pour ce quiz
-        echo $selectedAnswer;
         if ($selectedAnswer != null) {
-            
             $disabled = true;
         } else {
             $disabled = false;
@@ -21,8 +18,22 @@
 
         $answers = [];
         foreach ($quiz['answers'] as $answer) {
-            $answers[] = ['value' => $answer['num'], 'text' => $answer['answer'], 'disabled' => $disabled];
+            $answerAttributes = ['value' => $answer['num'], 'text' => $answer['answer'], 'disabled' => $disabled];
+            
+            // Si l'utilisateur a choisi cette réponse, ajoutez une classe CSS
+            if ($selectedAnswer == $answer['num']) {
+                $answerAttributes['class'] = 'selected-answer';
+            }
+
+            // Si c'est la bonne réponse, ajoutez une autre classe CSS
+            if ($quiz['realAnswer'] == $answer['num']) {
+                $answerAttributes['class'] = isset($answerAttributes['class']) ? $answerAttributes['class'] . ' correct-answer' : 'correct-answer';
+            }
+
+            $answers[] = $answerAttributes;
         }
+
+        echo $this->Form->radio('answer', $answers);
 
         echo $this->Form->radio('answer', $answers);
 

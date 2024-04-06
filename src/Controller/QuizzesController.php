@@ -217,8 +217,6 @@ class QuizzesController extends AppController
 
     }
 
-
-
     /**
      * Delete method
      *
@@ -226,7 +224,6 @@ class QuizzesController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
@@ -243,7 +240,12 @@ class QuizzesController extends AppController
     {
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
-        $session->write('currentURL', 'quizz-blockchain');
+        $oldCurrentURL = $session->read('currentURL');
+        if ($oldCurrentURL !== 'quizz-danger') {
+            $session->write('count', 0);
+            $session->write('currentURL', 'quizz-danger');
+            $session->write('selectedAnswers', []);
+        }
 
         if ($count === null) {
             $count = 0;
@@ -257,7 +259,12 @@ class QuizzesController extends AppController
     {
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
-        $session->write('currentURL', 'quizz-blockchain');
+        $oldCurrentURL = $session->read('currentURL');
+        if ($oldCurrentURL !== 'quizz-n-f-t') {
+            $session->write('count', 0);
+            $session->write('currentURL', 'quizz-n-f-t');
+            $session->write('selectedAnswers', []);
+        }
 
         if ($count === null) {
             $count = 0;
@@ -271,7 +278,13 @@ class QuizzesController extends AppController
     {
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
-        $session->write('currentURL', 'quizz-blockchain');
+        
+        $oldCurrentURL = $session->read('currentURL');
+        if ($oldCurrentURL !== 'quizz-crypto') {
+            $session->write('count', 0);
+            $session->write('currentURL', 'quizz-crypto');
+            $session->write('selectedAnswers', []);
+        }
 
         if ($count === null) {
             $count = 0;
@@ -285,7 +298,17 @@ class QuizzesController extends AppController
     {
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
-        $session->write('currentURL', 'quizz-blockchain');
+        $numberOfQuizzes = $this->Quizzes->find()->count();
+
+        // Stockez ce nombre dans la session
+        $session->write('numberOfQuizzes', $numberOfQuizzes);
+
+        $oldCurrentURL = $session->read('currentURL');
+        if ($oldCurrentURL !== 'quizz-blockchain') {
+            $session->write('count', 0);
+            $session->write('currentURL', 'quizz-blockchain');
+            $session->write('selectedAnswers', []);
+        }
 
         if ($count === null) {
             $count = 0;
@@ -296,13 +319,19 @@ class QuizzesController extends AppController
     }
 
     public function incrementCount() {
-        $this->autoRender = false;
+        $this->autoRender = false; 
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
+        $numberOfQuizzes = $session->read('numberOfQuizzes');
+    
         if ($count === null) {
             $count = 0;
         }
-        $count++;
+        if ($count < $numberOfQuizzes-1) {
+            $count++;
+        }else if ($count == $numberOfQuizzes) {
+            $this->redirect(['action' => 'endQuiz']);
+        }
         $session->write('count', $count);
         return $this->response->withStringBody((string)$count);
     }
@@ -340,10 +369,10 @@ class QuizzesController extends AppController
 
         // Récupérez le tableau des réponses sélectionnées du cache
         if ($session->read('selectedAnswers') === null) {
-            // Si le tableau n'existe pas encore, créez-le
+            // Si le tableau n'existe pas encore, le créez
             $selectedAnswers = [];
         } else {
-            // Si le tableau existe déjà, récupérez-le
+            // Si le tableau existe déjà, le récupérez
             $selectedAnswers = $session->read('selectedAnswers');
         }
 
@@ -351,30 +380,22 @@ class QuizzesController extends AppController
         $selectedAnswers[$count] = $selectedAnswer;
         // Enregistrez le tableau des réponses sélectionnées dans le cache
         $session->write('selectedAnswers', $selectedAnswers);
+        $url = $session->check('currentURL') ? $session->read('currentURL') : 'defaultURL';
 
-        debug($selectedAnswers);
-        
-        // Redirigez l'utilisateur vers la page précédente
-        return $this->redirect($this->referer());
+        return $this->redirect(['action' => $url]);
+
     }
-
-
-    public function checkAnswersDanger() // Verification reponse danger
-    {
-    }
-
-    public function checkAnswersBlockchain()
-    {
-    }
-
-    // checkAnswersNFT
-    public function checkAnswersNFT() // Verification reponse blockchain
-    {
-    }
-
-    // checkAnswersCrypto
-    public function checkAnswersCrypto() // Verification reponse crypto
-    {
+    public function endQuiz() {
+        $session = $this->getRequest()->getSession();
+        $selectedAnswers = $session->read('selectedAnswers');
+        $quizzes = $this->Quizzes->find()->toArray();
+        $score = 0;
+        // Calculer le score et le stoocker dans un cookie                            TODOS
+        $session->write('count', 0);
+        $session->write('currentURL', 'defaultURL');
+        $session->write('selectedAnswers', []); 
+        $session->write('numberOfQuizzes', 0);
+        return $this->redirect(['controller'=>'Pages', 'action' => 'wallet']);
     }
 
     public function cookieAccept() {
