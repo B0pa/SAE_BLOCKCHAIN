@@ -21,6 +21,7 @@ use Cake\Http\Cookie\Cookie;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
+use App\Utility\CookieCrypt;
 use Cake\View\Exception\MissingTemplateException;
 
 /**
@@ -92,7 +93,17 @@ class PagesController extends AppController
     public function wallet()
     {
         $imageName = null;
-        $counter = $this->getRequest()->getCookie('nft'); // Ajoutez cette ligne
+        $scoreNFT = $this->getRequest()->getCookie('nft');
+        $scoreNFT = CookieCrypt::decryptCookie($scoreNFT);
+
+        $scoreBlockchain = $this->getRequest()->getCookie('blockchain');
+        $scoreBlockchain = CookieCrypt::decryptCookie($scoreBlockchain);
+        
+        $scoreCrypto = $this->getRequest()->getCookie('crypto');
+        $scoreCrypto = CookieCrypt::decryptCookie($scoreCrypto);
+
+        $scoreDanger = $this->getRequest()->getCookie('danger');
+        $scoreDanger = CookieCrypt::decryptCookie($scoreDanger);
 
         if ($this->request->is('post')) {
             // Si le formulaire est soumis, traiter les réponses et afficher l'image
@@ -101,7 +112,7 @@ class PagesController extends AppController
         }
 
         // Afficher le formulaire du questionnaire
-        $this->set(compact('imageName', 'counter')); // Modifiez cette ligne pour passer 'counter' à la vue
+        $this->set(compact('imageName', 'scoreNFT', 'scoreBlockchain', 'scoreCrypto', 'scoreDanger'));
     }
 
     private function generateImageName($data) { // Code nft
