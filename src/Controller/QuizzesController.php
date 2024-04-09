@@ -311,7 +311,6 @@ class QuizzesController extends AppController
 
         $score = $score / count($quizzes) * 10000;
 
-
         if ($url === 'quizz-blockchain') {
             $cookie = $this->request->getCookie('blockchain');
             if ($cookie == null) {
