@@ -300,17 +300,100 @@ class QuizzesController extends AppController
         $selectedAnswers = $session->read('selectedAnswers');
         $quizzes = $this->Quizzes->find()->toArray();
         $score = 0;
-        // Calculer le score et le stoocker dans un cookie                            TODOS
+
+        $url = $session->check('currentURL') ? $session->read('currentURL') : 'defaultURL';
+
         foreach ($quizzes as $key => $quiz) {
-            if ($quiz->realAnswer == $selectedAnswers[$key]) {
+            if (isset($selectedAnswers[$key]) && $quiz->realAnswer == $selectedAnswers[$key]) {
                 $score++;
             }
         }
+
         $score = $score / count($quizzes) * 10000;
+
+        if ($url === 'quizz-blockchain') {
+            $cookie = $this->request->getCookie('blockchain');
+            if ($cookie == null) {
+                $blockchain_cookie = Cookie::create(
+                    'blockchain',
+                    CookieCrypt::encryptCookie($score),
+                    // All keys are optional
+                    [
+                        'expires' => new DateTime('+10 day'),
+                        'path' => '/',
+                        'domain' => '',
+                        'secure' => false,
+                        'httponly' => false,
+                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                    ]
+                );
+                $this->response = $this->response->withCookie($blockchain_cookie);
+            }
+        }
+        if ($url === 'quizz-crypto') {
+            $cookie = $this->request->getCookie('crypto');
+            if ($cookie == null) {
+                $crypto_cookie = Cookie::create(
+                    'crypto',
+                    CookieCrypt::encryptCookie($score),
+                    // All keys are optional
+                    [
+                        'expires' => new DateTime('+10 day'),
+                        'path' => '/',
+                        'domain' => '',
+                        'secure' => false,
+                        'httponly' => false,
+                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                    ]
+                );
+                $this->response = $this->response->withCookie($crypto_cookie);
+            }
+        }
+        if ($url === 'quizz-n-f-t') {
+            // 
+            $cookie = $this->request->getCookie('nft');
+            if ($cookie == null) {
+                $nft_cookie = Cookie::create(
+                    'nft',
+                    CookieCrypt::encryptCookie($score),
+                    // All keys are optional
+                    [
+                        'expires' => new DateTime('+10 day'),
+                        'path' => '/',
+                        'domain' => '',
+                        'secure' => false,
+                        'httponly' => false,
+                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                    ]
+                );
+                $this->response = $this->response->withCookie($nft_cookie);
+            }
+        }
+        if ($url === 'quizz-danger') {
+            $cookie = $this->request->getCookie('danger');
+            if ($cookie == null) {
+                $danger_cookie = Cookie::create(
+                    'danger',
+                    CookieCrypt::encryptCookie($score),
+                    // All keys are optional
+                    [
+                        'expires' => new DateTime('+10 day'),
+                        'path' => '/',
+                        'domain' => '',
+                        'secure' => false,
+                        'httponly' => false,
+                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
+                    ]
+                );
+                $this->response = $this->response->withCookie($danger_cookie);
+            }
+        }
+
         $session->write('count', 0);
         $session->write('currentURL', 'defaultURL');
         $session->write('selectedAnswers', []); 
         $session->write('numberOfQuizzes', 0);
+        
         return $this->redirect(['controller'=>'Pages', 'action' => 'wallet']);
     }
 
