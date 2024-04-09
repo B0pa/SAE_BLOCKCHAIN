@@ -49,6 +49,9 @@ $files = array_diff(scandir($dir), array('..', '.'));
                         'class' => 'form-control bg-secondary',
                         'id' => 'realanswer'
                     ]);
+
+
+
                     echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
                         'class' => 'form-control bg-secondary'
                     ]);
@@ -136,13 +139,36 @@ $files = array_diff(scandir($dir), array('..', '.'));
             answerFields = [];
         }
 
+        function createRealAnswerOption(index) {
+            var realAnswerSelect = document.getElementById('realanswer');
+            var option = document.createElement('option');
+            option.value = index;
+            option.text = 'Answer ' + index;
+            realAnswerSelect.add(option);
+        }
+
+        function clearRealAnswerOptions() {
+            var realAnswerSelect = document.getElementById('realanswer');
+            while (realAnswerSelect.options.length > 0) {
+                realAnswerSelect.remove(0);
+            }
+        }
+
+
+
+
         function updateAnswerFields() {
             var myChart;
+
+            clearAnswerFields();
+            clearRealAnswerOptions();
 
             // Mettre à jour l'élément realAnswer
             var realAnswerSelect = document.getElementById('realanswer'); // Remplacez 'realanswer' par l'ID de votre élément select
             realAnswerSelect.innerHTML = ''; // Supprimez les options existantes
             for (let i = 1; i <= nb_answer; i++) {
+                createAnswerField('text', i);
+                createRealAnswerOption(i);
                 var option = document.createElement('option');
                 option.value = i;
                 option.text = i;
@@ -276,6 +302,8 @@ $files = array_diff(scandir($dir), array('..', '.'));
                 document.getElementById('myChart').style.display = 'none';
             }
         }
+
+        updateAnswerFields()
 
 
         // Fonction pour gérer les champs en fonction de la sélection

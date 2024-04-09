@@ -29,7 +29,8 @@
                     .then(html => {
                         var quizCell = document.getElementById('quizCell');
                         quizCell.innerHTML = html;
-
+                        var countElement = document.getElementById('count');
+                        countElement.textContent = count;
                     });
             });
     });
@@ -47,7 +48,8 @@
                     .then(html => {
                         var quizCell = document.getElementById('quizCell');
                         quizCell.innerHTML = html;
-
+                        var countElement = document.getElementById('count');
+                        countElement.textContent = count;
                     });
             });
     });
