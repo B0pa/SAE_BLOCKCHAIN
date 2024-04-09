@@ -35,8 +35,6 @@ if ($count < count($quizzes)) {
 
     echo $this->Form->radio('answer', $answers);
 
-    echo $this->Form->radio('answer', $answers);
-
     echo $this->Form->button('Submit', ['disabled' => $disabled]);
     echo $this->Form->end();
     ?>

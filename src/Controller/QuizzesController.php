@@ -190,9 +190,9 @@ class QuizzesController extends AppController
         $count = $session->read('count');
 
         $oldCurrentURL = $session->read('currentURL');
-        if ($oldCurrentURL !== 'quizz-crypto') {
+        if ($oldCurrentURL !== 'quizzcrypto') {
             $session->write('count', 0);
-            $session->write('currentURL', 'quizz-crypto');
+            $session->write('currentURL', 'quizzcrypto');
             $session->write('selectedAnswers', []);
         }
 
@@ -310,6 +310,7 @@ class QuizzesController extends AppController
         }
 
         $score = $score / count($quizzes) * 10000;
+
 
         if ($url === 'quizz-blockchain') {
             $cookie = $this->request->getCookie('blockchain');

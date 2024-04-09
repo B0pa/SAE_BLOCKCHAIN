@@ -46,7 +46,7 @@ class QuizCell extends Cell
             $numberOfQuizzes = count($quizzes);
             $session->write('numberOfQuizzes', $numberOfQuizzes);
         }
-        if ($url === 'quizz-crypto') {
+        if ($url === 'quizzcrypto') {
             $cookie = $this->request->getCookie('cryptoLevel');
             if ($cookie > 0) {
                 $quizzes = $quizzesTable->find()
