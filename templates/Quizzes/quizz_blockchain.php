@@ -1,5 +1,5 @@
-<main style="margin-top : 200px">
-    <div style = "color:#FFF">
+<main class="quizzes-main navmarge">
+    <div class = "quizzes-conteneur">
         <div id="quizCell">
             <?php
             echo $this->cell('Quiz', [$count]);

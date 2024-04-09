@@ -2,9 +2,12 @@
 if ($count < count($quizzes)) {
     // Obtenir le quiz à l'index $count
     $quiz = $quizzes[$count];
-
+    ?>
+    <h2>
+    <?php
     echo $quiz['question'];
     ?>
+    </h2>
     <br>
     <?php
     if ($selectedAnswer != null) {

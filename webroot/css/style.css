@@ -1030,14 +1030,14 @@ footer>p{
     min-height: calc(100vh - 130px);
 }
 
-.quizzes-conteneneur{
+.quizzes-conteneur{
     background-color: #232321;
     -webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
     box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
     color: #f2f2f2;
     padding: 20px;
     border-radius: 10px;
-    height: 50vh;
+    height: auto;
 }
 
 #quizCell{
