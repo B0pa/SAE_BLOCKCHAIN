@@ -1143,7 +1143,7 @@ footer>p{
     flex: auto;
     justify-content: center;
     grid-template-columns: 45% 45%;
-    grid-template-rows: 50% 50%;
+    row-gap: 50px;
     text-align: center;
     height: fit-content;
 }
