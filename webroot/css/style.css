@@ -1018,6 +1018,63 @@ footer>p{
     }
 }
 
+/*====================QUIZZES========================*/
+
+.quizzes-main{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 40px 80px;
+    min-height: calc(100vh - 130px);
+}
+
+.quizzes-conteneneur{
+    background-color: #232321;
+    -webkit-box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
+    box-shadow:  10px 10px 10.4px 0px rgba(255, 255, 255, 0.25);
+    color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    height: 50vh;
+}
+
+#quizCell{
+    display: flex;
+    flex-direction: column;
+}
+
+#quizCell>form label{
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: #FFFFFF solid 2px;
+}
+
+#quizCell>form label:hover{
+    background-color: #FFE30A;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+
+.quizzes-answers{
+    display: flex;
+    justify-content: space-around;
+}
+
+.quizzes-submit-button{
+    background-color: #FFE30A;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+
+.quizzes-questions{
+    text-align: center;
+    margin-bottom: 20px ;
+}
+
+
 
 /*====================TEMPS REEL========================*/
 
