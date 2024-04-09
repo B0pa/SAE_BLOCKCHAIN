@@ -3,8 +3,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Utility\CookieCrypt;
 use Cake\View\CellRegistry;
 use Cake\Utility\Text;
+use DateTime;
 use Laminas\Diactoros\UploadedFile;
 use Cake\Http\Cookie\Cookie;
 use Cake\Log\Log;
@@ -314,80 +316,82 @@ class QuizzesController extends AppController
 
         if ($url === 'quizz-blockchain') {
             $cookie = $this->request->getCookie('blockchain');
-            if ($cookie == null) {
-                $blockchain_cookie = Cookie::create(
-                    'blockchain',
-                    CookieCrypt::encryptCookie($score),
-                    // All keys are optional
-                    [
-                        'expires' => new DateTime('+10 day'),
-                        'path' => '/',
-                        'domain' => '',
-                        'secure' => false,
-                        'httponly' => false,
-                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-                    ]
-                );
-                $this->response = $this->response->withCookie($blockchain_cookie);
+            if ($cookie != null) {
+                // Supprimez l'ancien cookie
+                $this->response = $this->response->withExpiredCookie(new Cookie('blockchain'));
             }
+
+            // Créez un nouveau cookie avec le nouveau score
+            $blockchain_cookie = Cookie::create(
+                'blockchain',
+                CookieCrypt::encryptCookie($score),
+                [
+                    'expires' => new DateTime('+10 day'),
+                    'path' => '/',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null
+                ]
+            );
+            $this->response = $this->response->withCookie($blockchain_cookie);
         }
-        if ($url === 'quizz-crypto') {
+
+        if ($url === 'quizzcrypto') {
             $cookie = $this->request->getCookie('crypto');
-            if ($cookie == null) {
-                $crypto_cookie = Cookie::create(
-                    'crypto',
-                    CookieCrypt::encryptCookie($score),
-                    // All keys are optional
-                    [
-                        'expires' => new DateTime('+10 day'),
-                        'path' => '/',
-                        'domain' => '',
-                        'secure' => false,
-                        'httponly' => false,
-                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-                    ]
-                );
-                $this->response = $this->response->withCookie($crypto_cookie);
+            if ($cookie != null) {
+                $this->response = $this->response->withExpiredCookie(new Cookie('crypto'));
             }
+            $crypto_cookie = Cookie::create(
+                'crypto',
+                CookieCrypt::encryptCookie($score),
+                [
+                    'expires' => new DateTime('+10 day'),
+                    'path' => '/',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null
+                ]
+            );
+            $this->response = $this->response->withCookie($crypto_cookie);
         }
+
         if ($url === 'quizz-n-f-t') {
-            //
             $cookie = $this->request->getCookie('nft');
-            if ($cookie == null) {
-                $nft_cookie = Cookie::create(
-                    'nft',
-                    CookieCrypt::encryptCookie($score),
-                    // All keys are optional
-                    [
-                        'expires' => new DateTime('+10 day'),
-                        'path' => '/',
-                        'domain' => '',
-                        'secure' => false,
-                        'httponly' => false,
-                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-                    ]
-                );
-                $this->response = $this->response->withCookie($nft_cookie);
+            if ($cookie != null) {
+                $this->response = $this->response->withExpiredCookie(new Cookie('nft'));
             }
+            $nft_cookie = Cookie::create(
+                'nft',
+                CookieCrypt::encryptCookie($score),
+                [
+                    'expires' => new DateTime('+10 day'),
+                    'path' => '/',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null
+                ]
+            );
+            $this->response = $this->response->withCookie($nft_cookie);
         }
+
+
         if ($url === 'quizz-danger') {
             $cookie = $this->request->getCookie('danger');
-            if ($cookie == null) {
-                $danger_cookie = Cookie::create(
-                    'danger',
-                    CookieCrypt::encryptCookie($score),
-                    // All keys are optional
-                    [
-                        'expires' => new DateTime('+10 day'),
-                        'path' => '/',
-                        'domain' => '',
-                        'secure' => false,
-                        'httponly' => false,
-                        'samesite' => null // Or one of CookieInterface::SAMESITE_* constants
-                    ]
-                );
-                $this->response = $this->response->withCookie($danger_cookie);
+            if ($cookie != null) {
+                $this->response = $this->response->withExpiredCookie(new Cookie('danger'));
             }
+            $danger_cookie = Cookie::create(
+                'danger',
+                CookieCrypt::encryptCookie($score),
+                [
+                    'expires' => new DateTime('+10 day'),
+                    'path' => '/',
+                    'secure' => false,
+                    'httponly' => false,
+                    'samesite' => null
+                ]
+            );
+            $this->response = $this->response->withCookie($danger_cookie);
         }
 
         $session->write('count', 0);
