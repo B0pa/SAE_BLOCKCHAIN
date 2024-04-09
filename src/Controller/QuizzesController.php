@@ -198,24 +198,19 @@ class QuizzesController extends AppController
 
     {
 
-        $quiz = $this->Quizzes->get($id, contain: []);
+        $quiz = $this->Quizzes->get($id, [
+            'contain' => ['Answers']
+        ]);
 
         if ($this->request->is(['patch', 'post', 'put'])) {
-
             $quiz = $this->Quizzes->patchEntity($quiz, $this->request->getData());
 
             if ($this->Quizzes->save($quiz)) {
-
                 $this->Flash->success(__('The quiz has been saved.'));
-
-
-
                 return $this->redirect(['action' => 'index']);
-
             }
 
             $this->Flash->error(__('The quiz could not be saved. Please, try again.'));
-
         }
 
         $this->set(compact('quiz'));
