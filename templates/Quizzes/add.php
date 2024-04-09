@@ -65,20 +65,9 @@ $files = array_diff(scandir($dir), array('..', '.'));
             <canvas id="myChart"></canvas>
             <div  class="d-flex justify-content-around my-5">
 
-                <label class="text-white" id = "label-answer1">
-                    <input type="radio" id="preview-answer1" name="preview-answer" value="1">
-                    <div id="imagePreview1" style="padding:20px;"></div>
-                </label>
+                <div id="preview-answer"></div>
+            </div>
 
-                <label class="text-white" id = "label-answer2" >
-                    <input type="radio" id="preview-answer2" name="preview-answer" value="2">
-                    <div id="imagePreview2" style="padding:20px;"></div>
-                </label>
-
-                <label class="text-white" id = "label-answer3">
-                    <input type="radio" id="preview-answer3" name="preview-answer" value="3">
-                    <div id="imagePreview3" style="padding:20px;"></div>
-                </label>
         </aside>
     </div>
 </main >
@@ -293,15 +282,43 @@ $files = array_diff(scandir($dir), array('..', '.'));
             updateAnswerFields();
         });
 
-        //previsualisation de la question
-        document.getElementById('question').addEventListener('input', function() {
-            document.getElementById('preview-question').textContent = this.value;
-        });
 
-        document.getElementById('myChart').addEventListener('input', function() {
-            document.getElementById('preview-myChart').textContent = this.value;
-        });
 
     });
+    function updatePreview() {
+        // Mettre à jour le titre de la question
+        var question = document.getElementById('question').value;
+        document.getElementById('preview-question').textContent = question;
+
+        // Mettre à jour les réponses
+        var previewAnswer = document.getElementById('preview-answer');
+        previewAnswer.innerHTML = ''; // Supprimer les anciennes réponses
+        for (var i = 1; i <= nb_answer; i++) {
+            var answer = document.getElementById('answer' + i).value;
+
+            // Créer un nouveau label et un bouton radio pour la réponse
+            var label = document.createElement('label');
+            var radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'preview-answer';
+            radio.value = i;
+
+            // Ajouter la réponse au label
+            label.textContent = answer;
+            label.appendChild(radio);
+
+            // Ajouter le label à la prévisualisation
+            previewAnswer.appendChild(label);
+        }
+    }
+
+    // Ajouter des écouteurs d'événements pour mettre à jour la prévisualisation chaque fois qu'une valeur de champ change
+    document.getElementById('question').addEventListener('input', updatePreview);
+    for (var i = 1; i <= nb_answer; i++) {
+        document.getElementById('answer' + i).addEventListener('input', updatePreview);
+    }
+
+    // Mettre à jour la prévisualisation initiale
+    updatePreview();
 
 </script>
