@@ -160,7 +160,7 @@ class QuizzesController extends AppController
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
@@ -179,7 +179,7 @@ class QuizzesController extends AppController
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
@@ -188,18 +188,18 @@ class QuizzesController extends AppController
     {
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
-        
+
         $oldCurrentURL = $session->read('currentURL');
-        if ($oldCurrentURL !== 'quizz-crypto') {
+        if ($oldCurrentURL !== 'quizzcrypto') {
             $session->write('count', 0);
-            $session->write('currentURL', 'quizz-crypto');
+            $session->write('currentURL', 'quizzcrypto');
             $session->write('selectedAnswers', []);
         }
 
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
@@ -223,17 +223,17 @@ class QuizzesController extends AppController
         if ($count === null) {
             $count = 0;
         }
-        
+
         // Passez le quiz à la vue
         $this->set('count', $count);
     }
 
     public function incrementCount() {
-        $this->autoRender = false; 
+        $this->autoRender = false;
         $session = $this->getRequest()->getSession();
         $count = $session->read('count');
         $numberOfQuizzes = $session->read('numberOfQuizzes');
-    
+
         if ($count === null) {
             $count = 0;
         }
@@ -311,6 +311,7 @@ class QuizzesController extends AppController
 
         $score = $score / count($quizzes) * 10000;
 
+
         if ($url === 'quizz-blockchain') {
             $cookie = $this->request->getCookie('blockchain');
             if ($cookie == null) {
@@ -350,7 +351,7 @@ class QuizzesController extends AppController
             }
         }
         if ($url === 'quizz-n-f-t') {
-            // 
+            //
             $cookie = $this->request->getCookie('nft');
             if ($cookie == null) {
                 $nft_cookie = Cookie::create(
@@ -391,9 +392,9 @@ class QuizzesController extends AppController
 
         $session->write('count', 0);
         $session->write('currentURL', 'defaultURL');
-        $session->write('selectedAnswers', []); 
+        $session->write('selectedAnswers', []);
         $session->write('numberOfQuizzes', 0);
-        
+
         return $this->redirect(['controller'=>'Pages', 'action' => 'wallet']);
     }
 

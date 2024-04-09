@@ -45,7 +45,7 @@ use Cake\Log\Log;
                 $imagePathBlockchain = 'blockchain2.jpg';
             } else if ($counter >= 300 && $counter < 500){
                 $imagePathBlockchain = 'blockchain3.jpg';
-            } else if ($counter == 500){
+            } else if ($counter <= 500){
                 $imagePathBlockchain = 'blockchain4.jpg';
             }
             ?>

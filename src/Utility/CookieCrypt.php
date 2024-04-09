@@ -2,30 +2,51 @@
 
 namespace App\Utility;
 
+use Cake\Log\Log;
+
 class CookieCrypt
 {
+    private static $key = "cryptage";
+    private static $cipher = "aes-256-cbc";
+
     public static function encryptCookie($value)
     {
-        $key = "cryptage";
-        $cipher = "aes-128-gcm"; // You can use a different cipher if you want
-        $ivlen = openssl_cipher_iv_length($cipher);
+        Log::debug('entree cookie: ' . $value);
+        $ivlen = openssl_cipher_iv_length(static::$cipher);
         $iv = openssl_random_pseudo_bytes($ivlen);
-        $ciphertext = openssl_encrypt((string)$value, $cipher, $key, $options=0, $iv, $tag);
-        return base64_encode($iv.$ciphertext.$tag);
+        $ciphertext = openssl_encrypt($value, static::$cipher, static::$key, OPENSSL_RAW_DATA, $iv);
+        $result = base64_encode($iv . $ciphertext);
+        Log::debug('crypto counter: ' . $result);
+        return $result;
     }
 
     public static function decryptCookie($encryptedValue)
     {
-        $key = "cryptage";
-        $cipher = "aes-128-gcm"; // You can use a different cipher if you want
+        if (empty($encryptedValue)) {
+            Log::debug('entree cookie: ' . $encryptedValue);
+            Log::debug('crypto counter: <valeur vide>');
+            return null;
+        }
 
-        $c = base64_decode($encryptedValue);
-        $ivlen = openssl_cipher_iv_length($cipher);
-        $iv = substr($c, 0, $ivlen);
-        $ciphertext_raw = substr($c, $ivlen, -16);
-        $tag = substr($c, -16);
-        $original_plaintext = openssl_decrypt($ciphertext_raw, $cipher, $key, $options=OPENSSL_RAW_DATA, $iv, $tag);
+        Log::debug('entree cookie: ' . $encryptedValue);
+        $data = base64_decode($encryptedValue, true);
 
-        return intval($original_plaintext);
+        if ($data === false) {
+            Log::notice('Impossible de décoder la valeur du cookie chiffré');
+            return null;
+        }
+
+        $ivlen = openssl_cipher_iv_length(static::$cipher);
+        $iv = substr($data, 0, $ivlen);
+        $ciphertext = substr($data, $ivlen);
+        $original_plaintext = openssl_decrypt($ciphertext, static::$cipher, static::$key, OPENSSL_RAW_DATA, $iv);
+
+        if ($original_plaintext === false) {
+            Log::notice('Impossible de déchiffrer la valeur du cookie');
+            return null;
+        }
+
+        Log::debug('crypto counter: ' . $original_plaintext);
+        return $original_plaintext;
     }
 }

@@ -21,7 +21,6 @@ use Cake\Http\Cookie\Cookie;
 use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
-use App\Utility\CookieCrypt;
 use Cake\View\Exception\MissingTemplateException;
 
 /**
@@ -39,6 +38,8 @@ class PagesController extends AppController
         parent::beforeFilter($event);
         $this->Authentication->addUnauthenticatedActions(['manageCookies','actuality', 'nft', 'home','crypto','danger','blockchain','quizzDanger','quizzNFT','quizzcrypto','quizzBlockchain','wallet','tempreel','adminLogin','cookieAccept', 'cookieRefuse','profil','deleteAllCookies']);
     }
+
+
 
     /**
      * actuality method
@@ -93,17 +94,7 @@ class PagesController extends AppController
     public function wallet()
     {
         $imageName = null;
-        $scoreNFT = $this->getRequest()->getCookie('nft');
-        $scoreNFT = CookieCrypt::decryptCookie($scoreNFT);
-
-        $scoreBlockchain = $this->getRequest()->getCookie('blockchain');
-        $scoreBlockchain = CookieCrypt::decryptCookie($scoreBlockchain);
-        
-        $scoreCrypto = $this->getRequest()->getCookie('crypto');
-        $scoreCrypto = CookieCrypt::decryptCookie($scoreCrypto);
-
-        $scoreDanger = $this->getRequest()->getCookie('danger');
-        $scoreDanger = CookieCrypt::decryptCookie($scoreDanger);
+        $counter = $this->getRequest()->getCookie('nft'); // Ajoutez cette ligne
 
         if ($this->request->is('post')) {
             // Si le formulaire est soumis, traiter les réponses et afficher l'image
@@ -112,13 +103,14 @@ class PagesController extends AppController
         }
 
         // Afficher le formulaire du questionnaire
-        $this->set(compact('imageName', 'scoreNFT', 'scoreBlockchain', 'scoreCrypto', 'scoreDanger'));
+        $this->set(compact('imageName', 'counter')); // Modifiez cette ligne pour passer 'counter' à la vue
     }
 
     private function generateImageName($data) { // Code nft
-        $question1 = isset($data['question_1']) ? $data['question_1'] : 'Ser';
-        $question2 = isset($data['question_2']) ? $data['question_2'] : 'Sob';
-        $question3 = isset($data['question_3']) ? $data['question_3'] : 'Ble';
+
+        $question1 = isset($data['question_1']) && !empty($data['question_1']) ? $data['question_1'] : 'Ser';
+        $question2 = isset($data['question_2']) && !empty($data['question_2']) ? $data['question_2'] : 'Sob';
+        $question3 = isset($data['question_3']) && !empty($data['question_3']) ? $data['question_3'] : 'Ble';
 
         // Construire le nom de l'image en fonction des réponses
         $imageName = $question1 . $question2 . $question3 . '.png';
