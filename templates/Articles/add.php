@@ -127,7 +127,7 @@
                 <h2>Prévisualisation</h2>
                 <hr>
             </div>
-            <h2 id="preview-title" style="text-align: center;padding:5px;"></h2>
+            <h2 id="preview-title"></h2>
             <div id="div-parent-preview" style="overflow-y: auto; overflow-x: hidden;">
                 <div id="imagePreview" style="width:45%;display:flex;margin:10px auto;"></div>
                 <p id="preview-text" class=" " style=" overflow-wrap: break-word;" ></p>
