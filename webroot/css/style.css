@@ -840,14 +840,10 @@ footer>p{
 
 #actuality-main{
     padding: 20px 40px;
-    
-    min-height: calc(100vh - 130px);
-}
-
-#actuality-main-conteneur{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    min-height: calc(100vh - 130px);
 }
 
 .actualite-conteneur-articles{
@@ -1143,7 +1139,7 @@ footer>p{
     flex: auto;
     justify-content: center;
     grid-template-columns: 45% 45%;
-    row-gap: 50px;
+    row-gap: 30px;
     text-align: center;
     height: fit-content;
 }

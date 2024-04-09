@@ -10,10 +10,18 @@ use Cake\ORM\TableRegistry;
  */
 class QuizCell extends Cell
 {
-
     public function display() {
         $session = $this->request->getSession();
+
         $count = $session->check('count') ? $session->read('count') : 0;
+        $selectedAnswers = $session->read('selectedAnswers');
+
+        if (isset($selectedAnswers[$count])) {
+            $selectedAnswer = $selectedAnswers[$count];
+        } else {
+            $selectedAnswer = null;
+        }
+
         $url = $session->check('currentURL') ? $session->read('currentURL') : 'defaultURL';
 
         $quizzesTable = $this->fetchTable('Quizzes');
@@ -35,32 +43,62 @@ class QuizCell extends Cell
                     ->where(['category' => "blockchain"])
                     ->toArray();
             }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
+        }
+        if ($url === 'quizzcrypto') {
+            $cookie = $this->request->getCookie('cryptoLevel');
+            if ($cookie > 0) {
+                $quizzes = $quizzesTable->find()
+                    ->contain(['Answers'])
+                    ->where(['category' => "crypto", 'level' => $cookie])
+                    ->toArray();
+            }else {
+                $quizzes = $quizzesTable->find()
+                    ->contain(['Answers'])
+                    ->where(['category' => "crypto"])
+                    ->toArray();
+            }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
+        }
+        if ($url === 'quizz-n-f-t') {
+            $cookie = $this->request->getCookie('nftLevel');
+            if ($cookie > 0) {
+                $quizzes = $quizzesTable->find()
+                    ->contain(['Answers'])
+                    ->where(['category' => "nft", 'level' => $cookie])
+                    ->toArray();
+            }else {
+                $quizzes = $quizzesTable->find()
+                    ->contain(['Answers'])
+                    ->where(['category' => "nft"])
+                    ->toArray();
+            }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
+        }
+        if ($url === 'quizz-danger') {
+            $cookie = $this->request->getCookie('dangerLevel');
+            if ($cookie > 0) {
+                $quizzes = $quizzesTable->find()
+                    ->contain(['Answers'])
+                    ->where(['category' => "danger", 'level' => $cookie])
+                    ->toArray();
+            }else {
+                $quizzes = $quizzesTable->find()
+                    ->contain(['Answers'])
+                    ->where(['category' => "danger"])
+                    ->toArray();
+            }
+            $numberOfQuizzes = count($quizzes);
+            $session->write('numberOfQuizzes', $numberOfQuizzes);
+        }
 
-        }
-        if ($url === 'quizz_crypto') {
-            $quizzes = $quizzesTable->find()
-                ->contain(['Answers'])
-                ->where(['category' => "crypto"]);
-        }
-        if ($url === 'quizz_nft') {
-            $quizzes = $quizzesTable->find()
-                ->contain(['Answers'])
-                ->where(['category' => "nft"]);
-        }
-        if ($url === 'quizz_danger') {
-            $quizzes = $quizzesTable->find()
-                ->contain(['Answers'])
-                ->where(['category' => "danger"]);
-        }
 
-
-        $selectedAnswers = [];
         $this->set(compact('quizzes'));
-        $this->set(compact('selectedAnswers'));
         $this->set(compact('count'));
         $this->set(compact('url'));
+        $this->set(compact('selectedAnswer'));
     }
-
-
-
 }

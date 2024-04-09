@@ -1,12 +1,12 @@
-<main class="quizzes-main navmarge">
-    <div class="quizzes-conteneneur">
+<main style="margin-top : 200px">
+    <div style = "color:#FFF">
         <div id="quizCell">
             <?php
             echo $this->cell('Quiz', [$count]);
             ?>
         </div>
-        <button id="decrementButton" class="quizzes-submit-button" >Previous</button>
-        <button id="incrementButton" class="quizzes-submit-button" >Next</button>
+        <button id="decrementButton">Previous</button>
+        <button id="incrementButton">Next</button>
         <?php
         echo $this->Form->postLink(
             'End Quiz', // Le texte du lien
@@ -18,11 +18,6 @@
 </main>
 
 <script>
-   
-
-
-
-
     document.getElementById('incrementButton').addEventListener('click', function() {
         fetch('/quizzes/incrementCount')
             .then(response => response.text())
@@ -34,10 +29,10 @@
                     .then(html => {
                         var quizCell = document.getElementById('quizCell');
                         quizCell.innerHTML = html;
-                        
+                        var countElement = document.getElementById('count');
+                        countElement.textContent = count;
                     });
             });
-            reloadinputChecked();
     });
 
     document.getElementById('decrementButton').addEventListener('click', function() {
@@ -53,12 +48,9 @@
                     .then(html => {
                         var quizCell = document.getElementById('quizCell');
                         quizCell.innerHTML = html;
+                        var countElement = document.getElementById('count');
+                        countElement.textContent = count;
                     });
             });
-
-            reloadinputChecked();
     });
-
-
-    
 </script>

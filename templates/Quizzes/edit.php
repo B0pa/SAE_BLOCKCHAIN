@@ -49,6 +49,9 @@ $files = array_diff(scandir($dir), array('..', '.'));
                         'class' => 'form-control bg-secondary',
                         'id' => 'realanswer'
                     ]);
+
+
+
                     echo $this->Form->control('questionform', ['type' => 'select', 'options' => ['text' => 'Text', 'graphic' => 'Graphic', 'image' => 'Image'],
                         'class' => 'form-control bg-secondary'
                     ]);
@@ -61,13 +64,17 @@ $files = array_diff(scandir($dir), array('..', '.'));
                     echo $this->Form->control('category', ['type' => 'select', 'options' => ['blockchain' => 'Blockchain', 'danger' => 'Danger', 'nft' => 'NFT', 'crypto' => 'Crypto'],
                         'class' => 'form-control bg-secondary'
                     ]);
+
+                    foreach ($quiz->answers as $answer) {
+                        echo $this->Form->control('answers.' . $answer->answer , ['type' => 'text', 'class' => 'form-control bg-secondary', 'label' => false , 'value' => $answer->answer]);
+                    }
+
                     ?>
-                </div>
 
 
 
             </fieldset>
-            <?= $this->Form->button(__('Submit'),['class' => 'btn btn-secondary mt-3']) ?>
+            <?= $this->Form->button(__('Submit'), ['id' => 'add-add-content-btn-add','class' => 'grow']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
@@ -93,39 +100,242 @@ $files = array_diff(scandir($dir), array('..', '.'));
     </aside>
     </div>
 </main >
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-
     document.addEventListener('DOMContentLoaded', function () {
-    // Récupérez les informations du quiz à partir de l'objet PHP $quiz
-    var quizInfo = {
-        level: <?= $quiz->level ?>,
-        question: '<?= $quiz->question ?>',
-        realanswer: <?= $quiz->realanswer ?>,
-        questionform: '<?= $quiz->questionform ?>',
-        category: '<?= $quiz->category ?>'
-    };
+        var questionformSelect = document.getElementById('questionform');
+        var textFields = document.getElementById('textFields');
+        var answerFields = [];
 
-    // Assignez chaque information du quiz au champ d'entrée correspondant
-    document.getElementById('level').value = quizInfo.level;
-    document.getElementById('question').value = quizInfo.question;
-    document.getElementById('realanswer').value = quizInfo.realanswer;
-    document.getElementById('questionform').value = quizInfo.questionform;
-    document.getElementById('category').value = quizInfo.category;
 
-    // Récupérez les réponses du quiz à partir de l'objet PHP $quiz
-    var quizAnswers = <?= json_encode($quiz->answers) ?>;
+        // Fonction pour créer un champ de réponse
 
-    // Parcourez chaque réponse du quiz
-    for (var i = 0; i < quizAnswers.length; i++) {
-        // Obtenez le champ de texte correspondant
-        var textField = document.getElementById('answer' + (i + 1));
-
-        // Assurez-vous que le champ de texte existe
-        if (textField) {
-            // Assignez la réponse du quiz au champ de texte
-            textField.value = quizAnswers[i];
+        function createAnswerField(type, index) {
+            if (type === 'graphic') {
+                var input = document.createElement('input'); // Créez un élément input
+                input.type = 'text'; // Définir le type sur 'text'
+                input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.id = 'answer' + index; // Définir l'ID sur 'answer1', 'answer2', etc.
+                input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
+                textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
+                answerFields.push(input); // Ajoutez-le au tableau answerFields
+            } else {
+                var input = document.createElement('input'); // Créez un élément input
+                input.type = type; // Définir le type
+                input.name = 'answer' + index; // Définir le nom sur 'answer1', 'answer2', etc.
+                input.id = 'answer' + index; // Définir l'ID sur 'answer1', 'answer2', etc.
+                input.classList.add('form-control', 'bg-secondary', 'answer-field'); // Ajoutez des classes
+                textFields.appendChild(input); // Ajoutez-le au DOM (dans le div textFields)
+                answerFields.push(input); // Ajoutez-le au tableau answerFields
+            }
         }
-    }
-});
-</script>
+
+        function clearAnswerFields() {
+            answerFields.forEach(function (field) {
+                field.remove();
+            });
+            answerFields = [];
+        }
+
+        function createRealAnswerOption(index) {
+            var realAnswerSelect = document.getElementById('realanswer');
+            var option = document.createElement('option');
+            option.value = index;
+            option.text = 'Answer ' + index;
+            realAnswerSelect.add(option);
+        }
+
+        function clearRealAnswerOptions() {
+            var realAnswerSelect = document.getElementById('realanswer');
+            while (realAnswerSelect.options.length > 0) {
+                realAnswerSelect.remove(0);
+            }
+        }
+
+
+
+
+        function updateAnswerFields() {
+            var myChart;
+
+            clearAnswerFields();
+            clearRealAnswerOptions();
+
+            // Mettre à jour l'élément realAnswer
+            var realAnswerSelect = document.getElementById('realanswer'); // Remplacez 'realanswer' par l'ID de votre élément select
+            realAnswerSelect.innerHTML = ''; // Supprimez les options existantes
+            for (let i = 1; i <= nb_answer; i++) {
+                createAnswerField('text', i);
+                createRealAnswerOption(i);
+                var option = document.createElement('option');
+                option.value = i;
+                option.text = i;
+                realAnswerSelect.add(option);
+            }
+
+            // Vérifier si l'élément existe et si oui Supprimez les anciennes options de colonne
+            var oldColumnSelect = document.getElementById('csvColumn');
+            if (oldColumnSelect) {
+                oldColumnSelect.remove();
+            }
+
+            clearAnswerFields();
+
+            // En fonction de la sélection, créez les champs appropriés
+            var questionFormValue = questionformSelect.value;
+            if (questionFormValue === 'image') {
+                // rendre invisible le champ canva
+                document.getElementById('myChart').style.display = 'none';
+
+                // pour nb_answer reponses
+                for (var i = 1; i <= nb_answer; i++) {
+                    createAnswerField('file', i);
+
+                    document.getElementById('answer' + i).addEventListener('change', function() {
+                        $('#imagePreview' + i).html('');
+                        var total_file = document.getElementById("answer" + i).files.length;
+                        for (var j = 0; j < total_file; j++) {
+                            $('#imagePreview' + i).append("<img src='" + URL.createObjectURL(event.target.files[j]) + "' class='img-fluid w-75 mx-auto rounded-3 mt-2 mb-3' alt='accueil' style=''>");
+                        }
+                    });
+                }
+            } else if (questionFormValue === 'text'){
+                // rendre invisible le champ canva
+                document.getElementById('myChart').style.display = 'none';
+
+                for (var i = 1; i <= nb_answer; i++) {
+                    createAnswerField('text', i);
+                    document.getElementById('answer' + i).addEventListener('input', function() {
+                        document.getElementById('label-answer' + i).textContent = this.value;
+                    });
+                }
+
+            } else if (questionFormValue === 'graphic') {
+                // rendre invisible le champ canva
+                document.getElementById('myChart').style.display = 'block';
+
+                // Créez un élément select qui liste tous les fichiers CSV du dossier csv
+                var select = document.createElement('select');
+                select.type = 'select';
+                select.name = 'csv_link';
+                select.id = 'csvFile';
+                <?php foreach ($files as $file): ?>
+                var option = document.createElement('option');
+                option.value = '<?= $file ?>';
+                option.id = 'csvFile';
+                option.text = '<?= $file ?>';
+                select.appendChild(option);
+                <?php endforeach; ?>
+                textFields.appendChild(select);
+                answerFields.push(select);
+
+                // Créez un élément select pour les colonnes
+                var columnSelect = document.createElement('select');
+                columnSelect.type = 'select';
+                columnSelect.id = 'csvColumn';
+                columnSelect.name = 'csv_columne';
+
+                // Ajoutez le select des colonnes à la div textFields
+                textFields.appendChild(columnSelect);
+
+                for (var i = 1; i <= nb_answer; i++) {
+                    createAnswerField('graphic', i);
+                    document.getElementById('answer' + i).addEventListener('input', function() {
+                        document.getElementById('label-answer' + i).textContent = this.value;
+                    });
+                }
+
+                // Lorsque l'utilisateur sélectionne un fichier CSV, récupérez les données et créez le graphique
+                document.getElementById('csvFile').addEventListener('change', function() {
+                    var csvFile = '/csv/' + this.value;
+                    console.log('csvFile: ' + csvFile);
+                    fetch(csvFile)
+                        .then(response => response.text())
+                        .then(data => {
+                            // Convertir les données CSV en tableau
+                            const rows = data.split('\n');
+                            const headers = rows[0].split(',');
+
+                            // Ajoutez les en-têtes de colonne comme options dans le select des colonnes
+                            headers.forEach(function(header, index) {
+                                var option = document.createElement('option');
+                                option.value = index;
+                                option.text = header;
+                                columnSelect.appendChild(option);
+                            });
+
+                            // Lorsque l'utilisateur sélectionne une colonne, mettez à jour le graphique pour afficher les données de cette colonne
+                            columnSelect.addEventListener('change', function() {
+                                var columnIndex = this.value;
+                                const labels = rows.slice(1).map(row => row.split(',')[0]);
+                                const values = rows.slice(1).map(row => row.split(',')[columnIndex]);
+
+                                // Détruisez l'ancien graphique s'il existe
+                                if (myChart) {
+                                    myChart.destroy();
+                                }
+
+                                // Créez le nouveau graphique
+                                myChart = new Chart(document.getElementById('myChart'), {
+                                    type: 'line',
+                                    data: {
+                                        labels: labels,
+                                        datasets: [{
+                                            label: 'My Dataset',
+                                            data: values,
+                                            fill: false,
+                                            borderColor: 'rgb(75, 192, 192)',
+                                            tension: 0.1
+                                        }]
+                                    }
+                                });
+                            });
+
+                            // Déclenchez manuellement l'événement change pour la première colonne
+                            columnSelect.dispatchEvent(new Event('change'));
+                        });
+                });
+            } else {
+                // rendre invisible le champ canva
+                document.getElementById('myChart').style.display = 'none';
+            }
+        }
+
+        updateAnswerFields()
+
+
+        // Fonction pour gérer les champs en fonction de la sélection
+        function handleQuestionFormChange() {
+            // Mettre à jour les champs de réponse
+            updateAnswerFields();
+        }
+
+        // Initial setup based on the current value
+        handleQuestionFormChange();
+
+        // Écoutez les changements de sélection
+        questionformSelect.addEventListener('change', handleQuestionFormChange);
+
+        // Ecouter l'appui sur le bouton + pour ajouter une réponse
+        document.getElementById('add-answer').addEventListener('click', function() {
+            event.preventDefault();
+            nb_answer++;
+            updateAnswerFields();
+        });
+        // Ecouter l'appui sur le bouton - pour supprimer une réponse
+        document.getElementById('remove-answer').addEventListener('click', function() {
+            event.preventDefault();
+            if (nb_answer > 2) {
+                nb_answer--;
+            }
+            updateAnswerFields();
+        });
+
+        // Écoutez les changements de sélection
+        questionformSelect.addEventListener('change', handleQuestionFormChange);
+
+
+    });
+
