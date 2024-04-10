@@ -18,7 +18,7 @@ use Cake\Log\Log;
             $counter = CookieCrypt::decryptCookie($crypt);
 
 
-            if ($counter >= 500) {
+            if ($counter >= 10000) {
                 ?>
                 <input type="file" id="imageInput" accept="image/*" onchange="processImage(event)" class='form-control' alt='accueil'>
                 <input type="text" id="letterInput" placeholder="Enter a letter" class = 'form-control'>
@@ -39,13 +39,13 @@ use Cake\Log\Log;
             $crypt = $this->getRequest()->getCookie('blockchain');
             $counter = CookieCrypt::decryptCookie($crypt);
 
-            if ($counter == 0 && $counter < 100) {
+            if ($counter == 0 && $counter < 10000/4) {
                 $imagePathBlockchain = 'blockchain1.jpg';
-            } else if ($counter >= 100 && $counter < 300){
+            } else if ($counter >= 10000/4 && $counter < (10000/4)*2){
                 $imagePathBlockchain = 'blockchain2.jpg';
-            } else if ($counter >= 300 && $counter < 500){
+            } else if ($counter >= (10000/4)*3 && $counter < 10000){
                 $imagePathBlockchain = 'blockchain3.jpg';
-            } else if ($counter == 500){
+            } else if ($counter <= 10000){
                 $imagePathBlockchain = 'blockchain4.jpg';
             }
             ?>
@@ -63,7 +63,7 @@ use Cake\Log\Log;
 
             if ($counter == 0) {
                 $imagePathDanger = '';
-            } else if ($counter == 500) {
+            } else if ($counter == 10000) {
                 $imagePathDanger = 'certificat.png';
                 echo $this->Html->image($imagePathDanger, ['class' => ' imageCliquable', 'style' => 'width:50%;', 'alt' => 'Recompense']);
             }
@@ -77,12 +77,12 @@ use Cake\Log\Log;
             </div>
 
             <?php $crypt = $this->getRequest()->getCookie('nft');
-                    $counter = CookieCrypt::decryptCookie($crypt);
+            $counter = CookieCrypt::decryptCookie($crypt);
             ?>
 
             <?= $this->Form->create(null, ['url' => ['controller' => 'Pages', 'action' => 'wallet']]) ?>
 
-            <?php if ($counter > 0 && $counter <= 500) { ?>
+            <?php if ($counter > 0 && $counter <= 10000) { ?>
 
                 <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop overflow-hidden" >
                     <h2 class="text-center" >Questionnaire</h2>
@@ -91,7 +91,7 @@ use Cake\Log\Log;
                 </div>
 
             <?php }
-            if ($counter > 200 && $counter <= 500) { ?>
+            if (($counter > 10000/3)*2 && $counter <= 10000) { ?>
 
                 <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop" >
                     <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Vous vous considerez plutot comme: </p>
@@ -99,7 +99,7 @@ use Cake\Log\Log;
                 </div>
 
 
-            <?php } if ($counter == 500 ) {?>
+            <?php } if ($counter >= 10000 ) {?>
 
                 <div class="d-flex flex-column bg-dark text-white col-10 mx-auto my-4 p-2 rounded-3 slideFromTop" >
                     <p class="justify-content-center ms-4 ms-md-0 text-md-center mt-md-2">Votre couleur préférée dans cette liste: </p>
