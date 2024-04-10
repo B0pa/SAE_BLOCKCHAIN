@@ -27,13 +27,13 @@ $loggedIn = $this->Authentication->isLoggedIn();
                     <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Dangers</h4>', ['controller'=> 'Articles', 'action' => 'danger'], ['class'=>($currentURL === "danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                 </ul>
             </li>
-            <li class="navbtn <?php if($currentURL==="quizz_blockchain"||$currentURL==="quizz_n_f_t"||$currentURL==="quizzcrypto"||$currentURL==="quizz_danger") echo' active';?>" >
+            <li class="navbtn <?php if($currentURL==="quizz-blockchain"||$currentURL==="quizz-n-f-t"||$currentURL==="quizzcrypto"||$currentURL==="quizz-danger") echo' active';?>" >
                 <h4 class="" >Les Quiz :</h4>
                 <ul class="sousmenu">
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Blockchain </h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_blockchain'], ['class'=>($currentURL === "quizz_blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz NFT</h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_n_f_t'], ['class'=>($currentURL === "quizz_n_f_t" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Blockchain </h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_blockchain'], ['class'=>($currentURL === "quizz-blockchain" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz NFT</h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_n_f_t'], ['class'=>($currentURL === "quizz-n-f-t" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                     <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Crypto</h4>', ['controller'=> 'Quizzes', 'action' => 'quizzcrypto'], ['class'=>($currentURL === "quizzcrypto" ? ' active' : ''), 'escapeTitle' => false]);?></li>
-                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Dangers</h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_danger'], ['class'=>($currentURL === "quizz_danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
+                    <li class="navbtn" ><?php echo $this->Html->link('<h4>Quiz Dangers</h4>', ['controller'=> 'Quizzes', 'action' => 'quizz_danger'], ['class'=>($currentURL === "quizz-danger" ? ' active' : ''), 'escapeTitle' => false]);?></li>
                 </ul>
             </li>
             <li class="navbtn" ><?php echo $this->Html->link('<h4>Les Actu</h4>', ['controller'=> 'Actualities', 'action' => 'actuality'], ['class' => 'navbtn' . ($currentURL === "actuality" ? ' active' : ''), 'escapeTitle' => false]);?></li>
