@@ -101,9 +101,9 @@ class PagesController extends AppController
             $data = $this->request->getData();
             $imageName = $this->generateImageName($data);
         }
-
+        
         // Afficher le formulaire du questionnaire
-        $this->set(compact('imageName', 'counter')); // Modifiez cette ligne pour passer 'counter' à la vue
+        $this->set(compact('imageName', 'counter'));
     }
 
     private function generateImageName($data) { // Code nft
