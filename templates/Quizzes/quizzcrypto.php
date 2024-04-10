@@ -29,8 +29,6 @@
                     .then(html => {
                         var quizCell = document.getElementById('quizCell');
                         quizCell.innerHTML = html;
-
-                        // Déplacez cette ligne ici
                         var countElement = document.getElementById('count');
                         countElement.textContent = count;
                     });
@@ -39,7 +37,9 @@
 
     document.getElementById('decrementButton').addEventListener('click', function() {
         fetch('/quizzes/decrementCount')
-            .then(response => response.text())
+            .then(response => {
+                return response.text();
+            })
             .then(count => {
 
                 // Ajoutez ce code pour recharger la cellule
@@ -48,8 +48,6 @@
                     .then(html => {
                         var quizCell = document.getElementById('quizCell');
                         quizCell.innerHTML = html;
-
-                        // Déplacez cette ligne ici
                         var countElement = document.getElementById('count');
                         countElement.textContent = count;
                     });

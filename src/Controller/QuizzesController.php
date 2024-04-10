@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Utility\CookieCrypt;
 use Cake\View\CellRegistry;
 use Cake\Utility\Text;
-use DateTime;
 use Laminas\Diactoros\UploadedFile;
 use Cake\Http\Cookie\Cookie;
 use Cake\Log\Log;
+use App\Utility\CookieCrypt;
+use Cake\I18n\DateTime;
 
 
 /**
@@ -299,35 +299,38 @@ class QuizzesController extends AppController
     }
     public function endQuiz() {
         $session = $this->getRequest()->getSession();
-        $selectedAnswers = $session->read('selectedAnswers');
+        $selectedAnswers = array_values($session->read('selectedAnswers'));
         $quizzes = $this->Quizzes->find()->toArray();
+
         $score = 0;
 
         $url = $session->check('currentURL') ? $session->read('currentURL') : 'defaultURL';
 
         foreach ($quizzes as $key => $quiz) {
-            if (isset($selectedAnswers[$key]) && $quiz->realAnswer == $selectedAnswers[$key]) {
+            $selectedAnswer = $selectedAnswers[$key] ?? null;
+            if ((string)$quiz->realAnswer === (string)$selectedAnswer) {
                 $score++;
             }
         }
 
-        $score = $score / count($quizzes) * 10000;
+        $session = $this->getRequest()->getSession();
+        $count = $session->read('count');
+        $numberOfQuizzes = $session->read('numberOfQuizzes');
 
+        $score = $score / $numberOfQuizzes * 10000;
+        $score = intval($score);
 
-        if ($url === 'quizz-blockchain') {
-            $cookie = $this->request->getCookie('blockchain');
-            if ($cookie != null) {
-                // Supprimez l'ancien cookie
-                $this->response = $this->response->withExpiredCookie(new Cookie('blockchain'));
-            }
+        $url = $session->check('currentURL') ? $session->read('currentURL') : 'defaultURL';
 
-            // Créez un nouveau cookie avec le nouveau score
+        if ($url == 'quizz-blockchain') {
             $blockchain_cookie = Cookie::create(
                 'blockchain',
                 CookieCrypt::encryptCookie($score),
+                // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
                     'path' => '/',
+                    'domain' => '',
                     'secure' => false,
                     'httponly' => false,
                     'samesite' => null
@@ -335,18 +338,15 @@ class QuizzesController extends AppController
             );
             $this->response = $this->response->withCookie($blockchain_cookie);
         }
-
         if ($url === 'quizzcrypto') {
-            $cookie = $this->request->getCookie('crypto');
-            if ($cookie != null) {
-                $this->response = $this->response->withExpiredCookie(new Cookie('crypto'));
-            }
             $crypto_cookie = Cookie::create(
                 'crypto',
                 CookieCrypt::encryptCookie($score),
+                // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
                     'path' => '/',
+                    'domain' => '',
                     'secure' => false,
                     'httponly' => false,
                     'samesite' => null
@@ -354,18 +354,16 @@ class QuizzesController extends AppController
             );
             $this->response = $this->response->withCookie($crypto_cookie);
         }
-
         if ($url === 'quizz-n-f-t') {
             $cookie = $this->request->getCookie('nft');
-            if ($cookie != null) {
-                $this->response = $this->response->withExpiredCookie(new Cookie('nft'));
-            }
             $nft_cookie = Cookie::create(
                 'nft',
                 CookieCrypt::encryptCookie($score),
+                // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
                     'path' => '/',
+                    'domain' => '',
                     'secure' => false,
                     'httponly' => false,
                     'samesite' => null
@@ -373,19 +371,16 @@ class QuizzesController extends AppController
             );
             $this->response = $this->response->withCookie($nft_cookie);
         }
-
-
         if ($url === 'quizz-danger') {
             $cookie = $this->request->getCookie('danger');
-            if ($cookie != null) {
-                $this->response = $this->response->withExpiredCookie(new Cookie('danger'));
-            }
             $danger_cookie = Cookie::create(
                 'danger',
                 CookieCrypt::encryptCookie($score),
+                // All keys are optional
                 [
                     'expires' => new DateTime('+10 day'),
                     'path' => '/',
+                    'domain' => '',
                     'secure' => false,
                     'httponly' => false,
                     'samesite' => null
