@@ -1,4 +1,20 @@
-# CakePHP Application Skeleton
+# CakePHP SAE Blockchain
+
+
+## Introduction
+
+Ce projet a pour but de créer un site pédagogique pour les gens qui s'intéresse à la blockchain.
+En créant un site web qui permet d'en apprendre plus sur la blockchain grâce à des actualités des articles ainsi que des quizz, pour se tester sur ses connaissances.
+
+Il y a aussi une partie admin qui permet de gérer les articles, les actualités et les quizz.
+Afin de pouvoir, ajouter, supprimer ou modifier les différents articles.
+
+Ce projet est réalisé avec le framework cakephp 5.x dont vous retrouverez la documentation en dessous pour le tester et le modifier.
+
+## Attention
+
+Certains fichiers pour des raisons de sécurité ne sont pas présents dans le GIT.
+Nous vous conseillons d'étudier la documentation de cakephp pour comprendre comment fonctionne le framework et comment créer le fichier manquant.
 
 ![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
